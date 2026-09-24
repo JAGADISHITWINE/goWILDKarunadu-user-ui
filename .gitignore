@@ -19,3 +19,5 @@ yarn-error.log*
 .env.development.local
 .env.production.local
 .env.test.local
+src/environments/environment.ts
+src/environments/environment.prod.ts
