@@ -1,0 +1,401 @@
+<!-- ══ MAIN WRAPPER ══════════════════════════════════════════ -->
+<div class="page-wrapper" *ngIf="!isLoading">
+
+  <div *ngIf="errorMessage" class="dashboard-error-banner">
+    {{ errorMessage }}
+  </div>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero-section">
+
+    <!-- SLIDESHOW IMAGES -->
+    <div class="hero-slides">
+      <div class="hero-slide slide-1"></div>
+      <div class="hero-slide slide-2"></div>
+      <div class="hero-slide slide-3"></div>
+      <div class="hero-slide slide-4"></div>
+      <div class="hero-slide slide-5"></div>
+    </div>
+
+    <!-- OVERLAY LAYERS -->
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+
+      <div class="hero-text">
+        <h1>Explore the<br /><em>Wild Ghats</em></h1>
+        <p>Weekend escapes through ancient forests,<br />misty ridgelines &amp; hidden waterfalls.</p>
+        <button class="hero-button" routerLink="upcomingtours">
+          View All Treks
+          <span class="btn-icon">→</span>
+        </button>
+      </div>
+
+      <div class="hero-stats" *ngIf="activeRoutes > 0 || averageRating > 0 || trekkersThisYear > 0">
+        <div class="stat-item" *ngIf="activeRoutes > 0">
+          <strong>{{ activeRoutes }}</strong>
+          <small>Active Routes</small>
+        </div>
+        <div class="stat-item" *ngIf="averageRating > 0">
+          <strong>{{ averageRating | number:'1.1-1' }} <i class="bi bi-star-fill text-warning" style="font-size: 0.85rem;"></i></strong>
+          <small>Avg Rating</small>
+        </div>
+        <div class="stat-item" *ngIf="trekkersThisYear > 0">
+          <strong>{{ trekkersThisYear }}</strong>
+          <small>Trekkers / yr</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FILTERS ───────────────────────────────────────────── -->
+  <section class="filter-section" *ngIf="filters.length">
+    <button *ngFor="let filter of filters" (click)="setFilter(filter.id)" [class.active]="selectedFilter === filter.id">
+      {{ filter.label }}
+    </button>
+  </section>
+
+  <!-- ── DISCOVERY TOOLS ───────────────────────────────────── -->
+  <section class="discovery-tools">
+    <div class="search-wrap">
+      <i class="bi bi-search"></i>
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="Search by trek name, location, or highlight"
+        aria-label="Search treks" />
+    </div>
+
+    <div class="sort-wrap">
+      <label for="sortBy">Sort</label>
+      <select id="sortBy" [(ngModel)]="sortBy">
+        <option *ngFor="let option of sortOptions" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+    </div>
+
+    <button class="clear-filters-btn" *ngIf="hasActiveDiscoveryFilters" (click)="clearDiscoveryFilters()">
+      Reset Filters
+    </button>
+  </section>
+
+  <section class="collection-chips mt-1">
+    <button
+      *ngFor="let collection of collections"
+      (click)="setCollection(collection.id)"
+      [class.active]="selectedCollection === collection.id">
+      {{ collection.label }}
+    </button>
+  </section>
+
+  <ng-container *ngIf="filteredTreks.length">
+    <!-- ── CONTENT HEADER ────────────────────────────────────── -->
+    <div class="content-header">
+      <h2 class="content-title">Upcoming <span>Treks</span></h2>
+      <span class="content-meta">{{ filteredTreks.length }} expeditions available</span>
+    </div>
+
+    <ng-template #referralCardStack>
+      <div class="referral-card" *ngIf="referralLoading">
+        <div class="referral-loading">
+          <ion-spinner name="crescent"></ion-spinner>
+          <span>Loading referral perks…</span>
+        </div>
+      </div>
+
+      <div class="referral-card referral-auth" *ngIf="!referralLoading && referralRequiresAuth">
+        <p class="eyebrow">Refer &amp; Earn</p>
+        <h4>Share the wild. Save together.</h4>
+        <p class="referral-footnote">Sign in to unlock your personal referral code and gift instant discounts.</p>
+        <button class="primary" (click)="openReferralLogin()">Sign in to earn</button>
+      </div>
+
+      <div class="referral-card referral-error-card" *ngIf="!referralLoading && !referralRequiresAuth && !referralSummary && referralError">
+        <p class="eyebrow">Refer &amp; Earn</p>
+        <h4>Referral details unavailable.</h4>
+        <p class="referral-footnote">{{ referralError }}</p>
+        <button class="ghost" (click)="refreshReferralSummary()">Try again</button>
+      </div>
+
+      <div
+        class="referral-card referral-compact"
+        *ngIf="!referralLoading && !referralRequiresAuth && referralSummary"
+        [class.paused]="!referralSummary.programActive">
+        <div class="referral-card-header">
+          <p class="eyebrow">Refer &amp; Earn</p>
+          <span class="program-pill" [class.paused]="!referralSummary.programActive">
+            {{ referralSummary.programActive ? 'Active' : 'Paused' }}
+          </span>
+        </div>
+        <h4>
+          Give ₹{{ (referralSummary.discountTiers.base || 0) | number:'1.0-0' }},
+          get ₹{{ (referralSummary.discountTiers.bonus || referralSummary.discountTiers.base || 0) | number:'1.0-0' }}
+        </h4>
+
+        <div class="referral-code-pill">
+          <span>{{ referralSummary.referralCode || '—' }}</span>
+          <button type="button" (click)="copyReferralCode()">Copy</button>
+        </div>
+        <p class="referral-footnote">
+          {{ referralNextRewardLabel || ('Bring ' + (referralSummary.discountTiers.bonusParticipantThreshold || 5) + ' friends to unlock bonus savings.') }}
+        </p>
+
+        <div class="referral-mini-stats">
+          <div>
+            <p>Referrals</p>
+            <strong>{{ referralSummary.successfulReferrals || 0 }}</strong>
+          </div>
+          <div>
+            <p>Free slots</p>
+            <strong>{{ referralSummary.freeSlotsAvailable || 0 }}</strong>
+          </div>
+        </div>
+
+        <div class="referral-actions">
+          <button class="primary" (click)="shareReferral()" [disabled]="!referralSummary.referralCode">Share Invite</button>
+          <button class="ghost" (click)="refreshReferralSummary()" aria-label="Refresh referral summary">
+            <i class="bi bi-arrow-repeat"></i>
+          </button>
+        </div>
+        <p class="referral-feedback" *ngIf="referralCopyFeedback">{{ referralCopyFeedback }}</p>
+        <p class="referral-note" *ngIf="!referralSummary.programActive">
+          Referral discounts are temporarily paused, but you can still share your code.
+        </p>
+      </div>
+    </ng-template>
+
+    <div class="dashboard-grid">
+      <div class="dashboard-main">
+      <!-- ── TREK GRID ───────────────────────────────────────── -->
+      <section class="trek-grid">
+
+        <div class="trek-card" *ngFor="let trek of filteredTreks; trackBy: trackByTrek">
+
+          <!-- IMAGE -->
+          <div class="trek-image-container">
+            <img [src]="trek.image" [alt]="trek.name" loading="lazy" />
+            <span class="difficulty-badge" [class]="trek.difficulty.toLowerCase()">
+              {{ trek.difficulty }}
+            </span>
+            <span class="availability-badge" [ngClass]="getAvailabilityClass(trek)">
+              {{ getAvailabilityLabel(trek) }}
+            </span>
+          </div>
+
+          <!-- HEADER -->
+          <div class="trek-header">
+            <h3>{{ trek.name }}</h3>
+            <p class="location"><i class="bi bi-geo-alt-fill text-success me-1"></i>{{ trek.location }}</p>
+          </div>
+
+          <!-- CONTENT -->
+          <div class="trek-content">
+
+            <div class="trek-details">
+              <span><i class="bi bi-clock me-1"></i>{{ trek.duration }}</span>
+              <span><i class="bi bi-people-fill me-1"></i>{{ trek.groupSize }}</span>
+              <span *ngIf="trek.rating > 0">
+                <i class="bi bi-star-fill text-warning me-1"></i>{{ trek.rating | number:'1.1-1' }}<ng-container *ngIf="trek.reviews > 0"> ({{ trek.reviews }})</ng-container>
+              </span>
+            </div>
+
+            <div class="trek-date">
+              <i class="bi bi-calendar3 me-1"></i>{{ trek.date }}
+            </div>
+
+            <div class="highlights">
+              <span class="chip" *ngFor="let h of trek.highlights">{{ h }}</span>
+            </div>
+
+            <div class="trek-footer">
+              <div class="price">
+                <span class="price-amount">₹{{ trek.price }}</span>
+                <span class="price-label">/ person</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              <button class="book-btn" (click)="viewDetails(trek)">
+                View Details <span class="btn-arrow">→</span>
+              </button>
+              <button
+                class="secondary-btn"
+                [class.active]="isCompared(trek.id)"
+                [disabled]="!canAddToCompare(trek)"
+                (click)="toggleCompare(trek)">
+                {{ isCompared(trek.id) ? 'Compared' : (!canAddToCompare(trek) ? 'Max 3' : 'Compare') }}
+              </button>
+              <button class="secondary-btn" (click)="openTrekEnquiry(trek)">
+                WhatsApp
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ── LOAD MORE ───────────────────────────────────────── -->
+      <div class="load-more-wrapper" *ngIf="totalFilteredCount > initialVisibleCount">
+        <div class="load-more-meta">
+          Showing {{ filteredTreks.length }} of {{ totalFilteredCount }} treks
+        </div>
+        <button class="load-more-btn" *ngIf="hasMoreTreks" (click)="showMoreTreks()">
+          <span class="load-more-label">Show More Treks</span>
+          <span class="load-more-icon">↓</span>
+        </button>
+        <button class="load-more-btn" *ngIf="!hasMoreTreks && totalFilteredCount > initialVisibleCount" (click)="showLessTreks()">
+          <span class="load-more-label">Show Less</span>
+          <span class="load-more-icon">↑</span>
+        </button>
+      </div>
+      </div>
+
+      <!-- ── REFERRAL PROMO ───────────────────────────────────── -->
+      <ng-container *ngIf="!referralRequiresAuth">
+        <aside class="referral-sidebar">
+          <ng-container *ngTemplateOutlet="referralCardStack"></ng-container>
+        </aside>
+      </ng-container>
+    </div>
+
+    <ng-container *ngIf="!referralRequiresAuth">
+      <button
+        type="button"
+        class="referral-fab"
+        [class.active]="isReferralDrawerOpen"
+        (click)="toggleReferralDrawer()"
+        aria-label="Open referral perks"
+        [attr.aria-expanded]="isReferralDrawerOpen">
+        <span class="referral-fab-icon">
+          <i class="bi bi-gift"></i>
+        </span>
+        <span class="referral-fab-copy">
+          <strong>₹{{ referralSummary?.discountTiers?.base || 200 }} OFF</strong>
+          <small>Invite pals. Unlock slots.</small>
+        </span>
+        <span class="referral-fab-cta">
+          View
+          <i class="bi bi-arrow-up-right"></i>
+        </span>
+      </button>
+
+      <div class="referral-drawer" *ngIf="isReferralDrawerOpen" (click)="closeReferralDrawer()">
+        <section class="referral-drawer-panel" (click)="$event.stopPropagation()">
+          <header class="referral-drawer-header">
+            <div>
+              <p class="eyebrow">Refer &amp; Earn</p>
+              <h4>Unlock instant savings</h4>
+            </div>
+            <button type="button" class="drawer-close-btn" (click)="closeReferralDrawer()" aria-label="Close referral details">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </header>
+          <div class="referral-drawer-content">
+            <ng-container *ngTemplateOutlet="referralCardStack"></ng-container>
+          </div>
+        </section>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <aside class="compare-bar" *ngIf="compareTreks.length">
+    <div class="compare-meta">
+      <strong>{{ compareTreks.length }}/{{ maxCompareCount }}</strong> selected for compare
+    </div>
+    <div class="compare-note" *ngIf="compareNotice">{{ compareNotice }}</div>
+    <div class="compare-list">
+      <div class="compare-item" *ngFor="let trek of compareTreks">
+        <span>{{ trek.name }}</span>
+        <button (click)="removeCompared(trek.id)" aria-label="Remove from compare"><i class="bi bi-x-lg"></i></button>
+      </div>
+    </div>
+    <div class="compare-actions">
+      <button class="book-btn" [disabled]="compareTreks.length < 2" (click)="openComparePanel()">Compare Now</button>
+      <button class="secondary-btn" (click)="clearCompare()">Clear</button>
+      <button class="book-btn" (click)="openCompareInWhatsApp()">Compare with Expert</button>
+    </div>
+  </aside>
+
+</div>
+<!-- /page-wrapper -->
+
+<div class="compare-overlay" *ngIf="showComparePanel" (click)="closeComparePanel()">
+  <section class="compare-panel" (click)="$event.stopPropagation()">
+    <header class="compare-panel-header">
+      <h3>Trek Comparison</h3>
+      <button class="secondary-btn" (click)="closeComparePanel()">Close</button>
+    </header>
+
+    <div class="compare-loading" *ngIf="isCompareLoading">
+      Loading latest trek details for comparison...
+    </div>
+
+    <div class="compare-columns" *ngIf="!isCompareLoading">
+      <article class="compare-column" *ngFor="let trek of compareTreks">
+        <div class="compare-title-row">
+          <h4>{{ trek.name }}</h4>
+          <button class="remove-btn" (click)="removeCompared(trek.id)"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <p class="compare-location"><i class="bi bi-geo-alt-fill text-success me-1"></i>{{ trek.location }}</p>
+        <ul class="compare-points">
+          <li><span>Price</span><strong>₹{{ trek.price }}</strong></li>
+          <li><span>Duration</span><strong>{{ trek.duration }}</strong></li>
+          <li><span>Difficulty</span><strong>{{ trek.difficulty }}</strong></li>
+          <li><span>Group Size</span><strong>{{ trek.groupSize }}</strong></li>
+          <li><span>Date</span><strong>{{ trek.date }}</strong></li>
+          <li><span>Availability</span><strong>{{ getAvailabilityLabel(trek) }}</strong></li>
+        </ul>
+
+        <div class="compare-rich-section">
+          <h5>Highlights</h5>
+          <ul>
+            <li *ngFor="let item of trek.highlights">{{ item }}</li>
+            <li class="empty-line" *ngIf="!trek.highlights.length">Not available</li>
+          </ul>
+        </div>
+
+        <div class="compare-rich-section">
+          <h5>Included</h5>
+          <ul>
+            <li *ngFor="let item of trek.inclusions">{{ item }}</li>
+            <li class="empty-line" *ngIf="!trek.inclusions.length">Not available</li>
+          </ul>
+        </div>
+
+        <div class="compare-rich-section danger">
+          <h5>Excluded</h5>
+          <ul>
+            <li *ngFor="let item of trek.exclusions">{{ item }}</li>
+            <li class="empty-line" *ngIf="!trek.exclusions.length">Not available</li>
+          </ul>
+        </div>
+
+        <div class="compare-column-actions">
+          <button class="book-btn" (click)="viewDetails(trek)">View Details</button>
+          <button class="secondary-btn" (click)="openTrekEnquiry(trek)">Ask on WhatsApp</button>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══ LOADING STATE ═════════════════════════════════════════ -->
+<div *ngIf="isLoading" class="loader-wrapper">
+  <div class="loader-icon"><i class="bi bi-compass"></i></div>
+  <div class="custom-loader"></div>
+  <p>Loading Expeditions</p>
+</div>
+
+
+<div *ngIf="!isLoading && (!filteredTreks || !filteredTreks.length)" class="empty-state">
+  <div class="empty-state-icon">
+    <i class="bi bi-compass"></i>
+  </div>
+  <h3>No Treks Found</h3>
+  <p>Try adjusting your filters.</p>
+</div>

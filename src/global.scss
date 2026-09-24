@@ -1,0 +1,348 @@
+
+// Include theming for Angular Material with `mat.theme()`.
+// This Sass mixin will define CSS variables that are used for styling Angular Material
+// components according to the Material 3 design spec.
+// Learn more about theming and how to use it for your application's
+// custom components at https://material.angular.dev/guide/theming
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap');
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+:root {
+  /* Standard app palette */
+  --app-bg: #f6f1e8;
+  --app-surface: #fffdf8;
+  --app-surface-elevated: #f5ecde;
+  --app-text: #1d1b18;
+  --app-muted: #4e5c4d;
+  --app-primary: #1f6b57;
+  --app-primary-strong: #184f41;
+  --app-accent: #d98f2b;
+  --app-border: #e4d8c6;
+  --app-success: #2f8f55;
+  --app-danger: #c94040;
+  --app-warning: #c9851f;
+
+  /* Legacy token aliases used by components */
+  --color-bg: var(--app-bg);
+  --color-surface: var(--app-surface);
+  --color-surface-elevated: var(--app-surface-elevated);
+  --color-text-primary: var(--app-text);
+  --color-text-muted: var(--app-muted);
+  --color-brand: var(--app-primary);
+  --color-brand-strong: var(--app-primary-strong);
+  --color-accent: var(--app-accent);
+  --color-border: var(--app-border);
+  --body: var(--app-text);
+  --muted: var(--app-muted);
+  --bg: var(--app-bg);
+  --text1: var(--app-text);
+  --text2: var(--app-muted);
+  --accent: var(--app-primary);
+  --accent-2: var(--app-accent);
+  --text-primary: var(--app-text);
+  --text-muted-local: var(--app-muted);
+  --text-dark: var(--app-text);
+  --forest: var(--app-primary);
+  --forest-lt: #4f7d68;
+  --hdr-border: rgba(31, 107, 87, 0.14);
+  --hdr-bg: rgba(255, 253, 248, 0.92);
+  --hdr-glow: 0 8px 24px rgba(25, 55, 41, 0.12);
+  --transition: 220ms ease;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* Ionic theme tokens */
+  --ion-background-color: var(--app-bg);
+  --ion-text-color: var(--app-text);
+  --ion-color-primary: var(--app-primary);
+  --ion-color-primary-rgb: 47, 107, 79;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-shade: #295e46;
+  --ion-color-primary-tint: #467a62;
+  --ion-color-success: var(--app-success);
+  --ion-color-success-rgb: 47, 143, 85;
+  --ion-color-danger: var(--app-danger);
+  --ion-color-danger-rgb: 201, 64, 64;
+  --ion-color-warning: var(--app-warning);
+  --ion-color-warning-rgb: 201, 133, 31;
+
+  --shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.08);
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --layout-max: 1200px;
+}
+
+body {
+  color-scheme: light;
+  background:
+    radial-gradient(circle at top, rgba(31, 107, 87, 0.08), transparent 28%),
+    radial-gradient(circle at right bottom, rgba(217, 143, 43, 0.08), transparent 26%),
+    linear-gradient(180deg, #faf6ef 0%, #f3ebde 100%);
+  color: var(--color-text-primary);
+  font-family: 'Manrope', sans-serif;
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fraunces', serif;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: inherit;
+}
+
+/* Improve low-contrast counters, labels, and muted utility text on light panels */
+.text-muted,
+.text-secondary,
+.small.text-muted,
+.section-tag,
+.sort-label,
+.trek-count-label,
+.month-count,
+.tab-count,
+.booking-ref,
+.countdown-val,
+.meta-rating-count,
+.price-label,
+.pb-label,
+.count,
+.referral-footnote,
+.bar-price-label,
+.bar-price-amount,
+.section-number {
+  color: #415041;
+}
+
+.section-number {
+  color: rgba(65, 80, 65, 0.18) !important;
+}
+
+.stat-number,
+.count-num {
+  color: #1b271b;
+}
+
+.tab-count,
+.month-count,
+.meta-rating-count {
+  color: #3f513d;
+}
+
+/* Import Bootstrap and center Ionic modal content vertically and constrain width */
+.custom-center .modal-wrapper {
+	height: 100vh !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.custom-center .modal-wrapper .modal-content {
+	width: 100%;
+	max-width: 520px;
+	margin: 0 16px;
+	border-radius: 12px;
+}
+
+/* Backdrop blur for modal */
+.modal-backdrop, .modal-wrapper::backdrop {
+	backdrop-filter: blur(6px);
+	background: rgba(0,0,0,0.32) !important;
+}
+
+/* Ensure modal inner page containers also constrained */
+.custom-center .modal-wrapper .modal-page,
+.custom-center .modal-wrapper .modal-inner,
+.custom-center .modal-wrapper .modal-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* When component renders only card inside modal, ensure no extra padding */
+.login-modal-content, .register-modal-content {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 !important;
+	background: transparent !important;
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Manrope', sans-serif; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -ms-overflow-style: none; /* IE/Edge legacy */
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none; /* Chrome/Safari/Opera */
+}
+
+html,
+body,
+ion-app,
+ion-content,
+.ion-page,
+ion-content::part(scroll) {
+  -ms-overflow-style: none !important; /* IE/Edge legacy */
+  scrollbar-width: none !important; /* Firefox */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+ion-app::-webkit-scrollbar,
+ion-content::-webkit-scrollbar,
+.ion-page::-webkit-scrollbar,
+ion-content::part(scroll)::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important; /* Chrome/Safari/Opera */
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+ion-app,
+ion-content {
+  --background: var(--app-bg);
+  color: var(--app-text);
+}
+
+ion-toolbar,
+ion-header,
+ion-footer {
+  --background: var(--app-surface);
+  --color: var(--app-text);
+}
+
+button,
+.btn,
+ion-button {
+  --color: #ffffff;
+  --background: var(--app-primary);
+  --border-color: var(--app-primary);
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-row,
+.actions-row,
+.card-actions,
+.trek-actions,
+.submit-section,
+.sticky-save-bar,
+.footer-actions {
+  display: flex;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 10px;
+  width: 100%;
+}
+
+.booking-card,
+.trek-card,
+.surface-card,
+.soft-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-actions,
+.trek-actions {
+  margin-top: auto;
+  min-height: 56px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+input,
+select,
+textarea,
+ion-input,
+ion-textarea,
+ion-select {
+  color: var(--app-text);
+}
+
+/* Ensure Ionic router outlet and pages do not trap position: fixed modals */
+ion-router-outlet,
+.ion-page,
+app-my-bookings,
+app-my-bookings .page {
+  contain: none !important;
+}
+
+/* Global Modal Backdrops & Overlays - always fixed to viewport screen */
+.modal-backdrop-custom,
+.rating-backdrop,
+.rating-modal,
+.trek-pass-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* Global Print Styles - cleanly hide website chrome and buttons */
+@media print {
+  app-header,
+  header.app-header,
+  app-footer,
+  footer,
+  .whatsapp-float,
+  .scroll-top-btn,
+  .hero-actions,
+  .policy-tabs,
+  .process-action-row,
+  .btn-toggle-all,
+  .contact-buttons-row {
+    display: none !important;
+  }
+
+  body, html, ion-content, ion-app {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}
+

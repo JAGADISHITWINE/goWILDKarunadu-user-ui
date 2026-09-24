@@ -1,0 +1,22 @@
+<ion-app>
+  <app-auth-modal></app-auth-modal>
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>
+
+<!-- 🔼 Scroll To Top Button -->
+<div class="d-flex justify-content-center align-items-center">
+  <button class="scroll-top-btn" [class.show]="showScrollTop" (click)="scrollToTop()" aria-label="Scroll to top">
+
+    <i class="bi bi-arrow-up-short"></i>
+  </button>
+</div>
+
+<!-- 🟢 Floating WhatsApp Button -->
+<a
+  class="whatsapp-float"
+  [href]="siteSettings.currentSettings.whatsappLink"
+  target="_blank"
+  rel="noopener"
+  aria-label="Chat on WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+</a>

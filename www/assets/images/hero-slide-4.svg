@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g4" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1a1f1b"/>
+      <stop offset="100%" stop-color="#27452d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g4)" />
+  <g fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="48" text-anchor="middle">
+    <text x="800" y="460">Hero Slide 4</text>
+  </g>
+</svg>

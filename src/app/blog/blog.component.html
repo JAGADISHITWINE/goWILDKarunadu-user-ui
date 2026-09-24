@@ -1,0 +1,324 @@
+<div class="blog-hub-page" *ngIf="settings$ | async as settings">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       TOP NAVIGATION BAR
+  ════════════════════════════════════════════════════════════ -->
+  <header class="blog-top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-brand-group">
+        <a class="brand-link" (click)="goBack()">
+          <span class="brand-name">{{ settings.brandName }}</span>
+        </a>
+        <span class="bar-separator">/</span>
+        <span class="sub-label">
+          <i class="bi bi-journal-richtext me-1 text-emerald"></i> Trail Journal
+        </span>
+      </div>
+
+      <div class="top-bar-actions">
+        <div class="search-input-wrap">
+          <i class="bi bi-search search-glyph"></i>
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search stories, tips, gears..."
+            aria-label="Search blog articles"
+          />
+          <button *ngIf="searchQuery" type="button" class="btn-clear-q" (click)="searchQuery = ''">
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </div>
+
+        <button type="button" class="btn-top-action btn-explore" (click)="exploreTreks()">
+          <i class="bi bi-compass me-1"></i> Explore Treks
+        </button>
+
+        <button type="button" class="btn-top-action btn-write" (click)="writeBlog()">
+          <i class="bi bi-pencil-square me-1"></i>
+          {{ canWriteBlog ? 'Write Story' : 'Login to Write' }}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       EDITORIAL HERO SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <section class="blog-hero">
+    <div class="hero-grid">
+      <!-- Left: Journal Manifesto -->
+      <div class="hero-intro">
+        <div class="hero-eyebrow">
+          <i class="bi bi-stars text-warning me-1"></i> Western Ghats Chronicles
+        </div>
+        <h1 class="hero-title">
+          Trek Tales &amp; Field Guides
+        </h1>
+        <p class="hero-description">
+          Authentic trail reports, high-altitude biodiversity insights, packing wisdom, and mountaineer stories curated by certified trek leaders across Karnataka.
+        </p>
+
+        <div class="hero-stats-row">
+          <div class="stat-cell">
+            <span class="stat-number">{{ allPosts.length }}</span>
+            <span class="stat-caption">Dispatches</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-cell">
+            <span class="stat-number">{{ popularTags.length }}</span>
+            <span class="stat-caption">Terrain Topics</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-cell">
+            <span class="stat-number">100%</span>
+            <span class="stat-caption">Field Tested</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Main Featured Cover Story -->
+      <div class="hero-featured-card" *ngIf="heroPost" (click)="viewPost(heroPost)">
+        <div class="cover-image-wrap">
+          <img
+            loading="eager"
+            decoding="async"
+            class="cover-image"
+            [src]="heroPost.image"
+            [alt]="heroPost.title"
+          />
+          <div class="cover-gradient-overlay"></div>
+        </div>
+        <div class="cover-content">
+          <div class="cover-badges">
+            <span class="badge-category">{{ heroPost.category | titlecase }}</span>
+            <span class="badge-featured" *ngIf="heroPost.featured">
+              <i class="bi bi-star-fill text-warning me-1"></i> Editor's Choice
+            </span>
+          </div>
+          <h2 class="cover-title">{{ heroPost.title }}</h2>
+          <p class="cover-excerpt">{{ heroPost.excerpt }}</p>
+          <div class="cover-byline">
+            <img class="author-avatar" [src]="heroPost.author.avatar" [alt]="heroPost.author.name" />
+            <div class="byline-meta">
+              <span class="author-name">{{ heroPost.author.name }}</span>
+              <span class="post-date-read">
+                {{ heroPost.date }} · <i class="bi bi-clock me-1"></i>{{ heroPost.readTime }}
+              </span>
+            </div>
+            <div class="read-story-pill">
+              Read Story <i class="bi bi-arrow-right ms-1"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       CATEGORY FILTER RAIL
+  ════════════════════════════════════════════════════════════ -->
+  <nav class="category-rail-wrap">
+    <div class="category-rail-inner">
+      <button
+        type="button"
+        *ngFor="let cat of categories"
+        class="rail-pill"
+        [class.active]="selectedCategory === cat.value"
+        (click)="selectedCategory = cat.value"
+      >
+        <i class="bi" [ngClass]="cat.icon"></i>
+        <span>{{ cat.label }}</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECONDARY FEATURED STRIP (When on "All" view)
+  ════════════════════════════════════════════════════════════ -->
+  <section class="featured-picks-section" *ngIf="selectedCategory === 'all' && !searchQuery && secondaryFeatured.length > 0">
+    <div class="container-custom">
+      <div class="section-headline">
+        <div class="headline-left">
+          <span class="headline-tag">Curated</span>
+          <h3 class="headline-title">Trending Expeditions</h3>
+        </div>
+        <span class="headline-counter">{{ secondaryFeatured.length }} handpicked stories</span>
+      </div>
+
+      <div class="featured-picks-grid">
+        <article
+          *ngFor="let post of secondaryFeatured"
+          class="pick-card"
+          (click)="viewPost(post)"
+        >
+          <div class="pick-img-box">
+            <img loading="lazy" decoding="async" [src]="post.image" [alt]="post.title" />
+            <span class="pick-cat">{{ post.category | titlecase }}</span>
+          </div>
+          <div class="pick-body">
+            <div class="pick-meta-row">
+              <span><i class="bi bi-clock me-1"></i>{{ post.readTime }}</span>
+              <span><i class="bi bi-eye me-1"></i>{{ post.views }} views</span>
+            </div>
+            <h4 class="pick-title">{{ post.title }}</h4>
+            <p class="pick-excerpt">{{ post.excerpt }}</p>
+            <div class="pick-author-bar">
+              <span class="author-lbl">By {{ post.author.name }}</span>
+              <span class="date-lbl">{{ post.date }}</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN JOURNAL FEED & SIDEBAR
+  ════════════════════════════════════════════════════════════ -->
+  <div class="journal-feed-wrap">
+    <div class="container-custom layout-grid">
+
+      <!-- LEFT: Main Article Stream -->
+      <main class="feed-main-col">
+        <div class="feed-header">
+          <h3 class="feed-title">{{ categoryTitle }}</h3>
+          <span class="feed-count">{{ filteredPosts.length }} articles available</span>
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-feed-card" *ngIf="filteredPosts.length === 0">
+          <div class="empty-feed-icon">
+            <i class="bi bi-journal-x"></i>
+          </div>
+          <h4>No trail stories found</h4>
+          <p>We couldn't find any articles matching your search query. Try broadening your terms or reset the category filters.</p>
+          <div class="empty-actions">
+            <button type="button" class="btn-empty-reset" (click)="clearSearch()">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Filters
+            </button>
+            <button type="button" class="btn-empty-explore" (click)="exploreTreks()">
+              <i class="bi bi-compass me-1"></i> View Upcoming Treks
+            </button>
+          </div>
+        </div>
+
+        <!-- Article List -->
+        <div class="article-stack" *ngIf="filteredPosts.length > 0">
+          <article
+            *ngFor="let post of filteredPosts"
+            class="article-item-card"
+            (click)="viewPost(post)"
+          >
+            <div class="item-thumb-wrap">
+              <img loading="lazy" decoding="async" class="item-thumb" [src]="post.image" [alt]="post.title" />
+              <span class="item-cat-pill">{{ post.category | titlecase }}</span>
+            </div>
+
+            <div class="item-info">
+              <div class="item-meta-top">
+                <span class="read-pill"><i class="bi bi-clock me-1"></i>{{ post.readTime }}</span>
+                <span class="views-pill"><i class="bi bi-eye me-1"></i>{{ post.views }} views</span>
+                <span class="featured-indicator" *ngIf="post.featured">
+                  <i class="bi bi-star-fill text-warning me-1"></i>Featured
+                </span>
+              </div>
+
+              <h3 class="item-title">{{ post.title }}</h3>
+              <p class="item-excerpt">{{ post.excerpt }}</p>
+
+              <div class="item-tags" *ngIf="post.tags && post.tags.length > 0">
+                <span
+                  class="tag-chip"
+                  *ngFor="let tag of post.tags.slice(0, 3)"
+                  (click)="filterByTag(tag); $event.stopPropagation()"
+                >
+                  #{{ tag }}
+                </span>
+              </div>
+
+              <div class="item-author-row">
+                <div class="author-block">
+                  <img class="author-pic" [src]="post.author.avatar" [alt]="post.author.name" />
+                  <div>
+                    <span class="name">{{ post.author.name }}</span>
+                    <span class="date">{{ post.date }}</span>
+                  </div>
+                </div>
+                <div class="btn-read-arrow">
+                  Read Article <i class="bi bi-arrow-right"></i>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </main>
+
+      <!-- RIGHT: Editorial Sidebar -->
+      <aside class="feed-sidebar">
+
+        <!-- Widget 1: Popular Topics -->
+        <div class="sidebar-widget widget-topics">
+          <div class="widget-header">
+            <h4><i class="bi bi-tags-fill text-emerald me-2"></i>Trending Topics</h4>
+            <span class="tag-count">{{ popularTags.length }}</span>
+          </div>
+          <div class="topic-cloud">
+            <button
+              type="button"
+              class="topic-chip"
+              *ngFor="let tag of popularTags"
+              (click)="filterByTag(tag)"
+            >
+              {{ tag }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Widget 2: Trail Dispatch Newsletter -->
+        <div class="sidebar-widget widget-newsletter">
+          <div class="nl-icon-badge">
+            <i class="bi bi-mailbox2"></i>
+          </div>
+          <h4>Trail Dispatch</h4>
+          <p>Get monsoon advisories, secret Western Ghats routes, and packing blueprints delivered bi-weekly.</p>
+
+          <div *ngIf="!newsletterSubscribed" class="nl-form-wrap">
+            <div class="nl-input-group">
+              <input
+                type="email"
+                [(ngModel)]="newsletterEmail"
+                placeholder="Enter your email..."
+                aria-label="Newsletter email address"
+              />
+              <button type="button" class="btn-nl-submit" (click)="subscribeNewsletter()">
+                Join <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+            <span class="nl-privacy"><i class="bi bi-shield-check me-1"></i>Strict Zero-Spam Policy</span>
+          </div>
+
+          <div *ngIf="newsletterSubscribed" class="nl-success-state">
+            <i class="bi bi-check-circle-fill text-emerald me-2"></i>
+            <span>You're on the list! Welcome explorer.</span>
+          </div>
+        </div>
+
+        <!-- Widget 3: Explore Treks CTA Card -->
+        <div class="sidebar-widget widget-trek-cta">
+          <div class="cta-overlay"></div>
+          <div class="cta-content">
+            <span class="cta-badge">Next Ascent</span>
+            <h4>Ready to step onto the ridge?</h4>
+            <p>Discover upcoming weekend batch departures with certified guides.</p>
+            <button type="button" class="btn-cta-explore" (click)="exploreTreks()">
+              Book A Trek <i class="bi bi-arrow-up-right ms-1"></i>
+            </button>
+          </div>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+</div>

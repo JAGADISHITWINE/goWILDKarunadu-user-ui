@@ -1,0 +1,1490 @@
+<div class="checkout-shell">
+  <!-- ═══ LEFT PANEL ═══════════════════════════════════════ -->
+  <aside class="left-panel" *ngIf="trek">
+    <div class="trek-thumb" style="position: relative">
+      <div class="panel-nav">
+        <a
+          class="back-btn"
+          [routerLink]="['/tour-details', tourDetailsRouteRef]"
+          >← Trek Details</a
+        >
+      </div>
+      <img
+        loading="lazy"
+        decoding="async"
+        [src]="resolveImageUrl(trek.cover_image)"
+        [alt]="trek.name"
+      />
+    </div>
+
+    <div class="trek-info">
+      <div class="trek-label">You're booking</div>
+      <div class="trek-name">{{ trek.name }}</div>
+      <div class="trek-location"><i class="bi bi-geo-alt-fill text-success me-1"></i>{{ trek.location }}</div>
+    </div>
+
+    <div class="panel-divider"></div>
+
+    <!-- Vertical stepper -->
+    <div class="stepper">
+      <div
+        class="step-row"
+        [class.completed]="currentStep > 1"
+        [class.active]="currentStep === 1"
+      >
+        <div class="step-node">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 1"></i>
+          <span *ngIf="currentStep <= 1">1</span>
+        </div>
+        <div class="step-text">
+          <div class="step-title">Batch &amp; Dates</div>
+          <div class="step-sub" *ngIf="selectedBatch">
+            {{ selectedBatch.startDate | date: "MMM dd" }} ·
+            {{ booking.participants }} participant{{
+              booking.participants !== 1 ? "s" : ""
+            }}
+          </div>
+          <div class="step-sub" *ngIf="!selectedBatch">
+            Choose departure date
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="step-row"
+        [class.completed]="currentStep > 2"
+        [class.active]="currentStep === 2"
+      >
+        <div class="step-node">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 2"></i>
+          <span *ngIf="currentStep <= 2">2</span>
+        </div>
+        <div class="step-text">
+          <div class="step-title">Contact Info</div>
+          <div class="step-sub" *ngIf="currentStep > 2">{{ booking.name }}</div>
+          <div class="step-sub" *ngIf="currentStep <= 2">
+            Primary contact details
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="step-row"
+        [class.completed]="currentStep > 3"
+        [class.active]="currentStep === 3"
+      >
+        <div class="step-node">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 3"></i>
+          <span *ngIf="currentStep <= 3">3</span>
+        </div>
+        <div class="step-text">
+          <div class="step-title">Participants</div>
+          <div class="step-sub">Details for all trekkers</div>
+        </div>
+      </div>
+
+      <div class="step-row" [class.active]="currentStep === 4">
+        <div class="step-node">4</div>
+        <div class="step-text">
+          <div class="step-title">Review &amp; Pay</div>
+          <div class="step-sub">Confirm your booking</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live price summary -->
+    <div class="price-summary" *ngIf="selectedBatch">
+      <div class="price-row">
+        <span class="price-label"
+          >Trek ({{ booking.participants }} × ₹{{ selectedBatch.price }})</span
+        >
+        <span class="price-amt">₹{{ basePrice | number: "1.0-0" }}</span>
+      </div>
+      <ng-container *ngFor="let addon of addOns">
+        <div class="price-row" *ngIf="addon.quantity > 0">
+          <span class="price-label"
+            >{{ addon.name }} × {{ addon.quantity }}</span
+          >
+          <span class="price-amt"
+            >₹{{ addon.price * addon.quantity | number: "1.0-0" }}</span
+          >
+        </div>
+      </ng-container>
+      <div class="price-row total">
+        <span class="price-label">Total</span>
+        <span class="price-amt">₹{{ totalPrice | number: "1.0-0" }}</span>
+      </div>
+      <div class="price-row discount" *ngIf="couponDiscountAmount > 0">
+        <span class="price-label">Coupon Discount</span>
+        <span class="price-amt"
+          >−₹{{ couponDiscountAmount | number: "1.0-0" }}</span
+        >
+      </div>
+      <div class="price-row discount" *ngIf="referralDiscountAmount > 0">
+        <span class="price-label">Referral Discount</span>
+        <span class="price-amt"
+          >−₹{{ referralDiscountAmount | number: "1.0-0" }}</span
+        >
+      </div>
+      <div class="price-row discount" *ngIf="referralRewardDiscountAmount > 0">
+        <span class="price-label">Free Slot Credit</span>
+        <span class="price-amt"
+          >−₹{{ referralRewardDiscountAmount | number: "1.0-0" }}</span
+        >
+      </div>
+      <div
+        class="price-row due"
+        *ngIf="
+          couponDiscountAmount ||
+          referralDiscountAmount ||
+          referralRewardDiscountAmount
+        "
+      >
+        <span class="price-label">Payable Now</span>
+        <span class="price-amt">₹{{ payablePrice | number: "1.0-0" }}</span>
+      </div>
+    </div>
+
+    <div
+      class="referral-summary-card"
+      *ngIf="isUserLoggedIn; else referralLoginPrompt"
+    >
+      <div class="ref-card-header">
+        <div>
+          <div class="ref-card-eyebrow">Referral Rewards</div>
+          <div class="ref-card-title">Share &amp; save more</div>
+        </div>
+        <button
+          class="ref-card-copy"
+          type="button"
+          (click)="copyReferralCode(referralSummary?.referralCode)"
+          [disabled]="!referralSummary?.referralCode"
+        >
+          Copy Code
+        </button>
+      </div>
+      <div class="ref-card-body" *ngIf="isReferralSummaryLoading">
+        Loading referral details…
+      </div>
+      <div
+        class="ref-card-body"
+        *ngIf="!isReferralSummaryLoading && referralSummary"
+      >
+        <div class="ref-metrics">
+          <div class="ref-metric">
+            <div class="ref-metric-label">Your Code</div>
+            <div class="ref-metric-value">
+              {{ referralSummary.referralCode }}
+            </div>
+          </div>
+          <div class="ref-metric">
+            <div class="ref-metric-label">Friends Booked</div>
+            <div class="ref-metric-value">
+              {{ referralSummary.successfulReferrals || 0 }}
+            </div>
+          </div>
+          <div class="ref-metric">
+            <div class="ref-metric-label">Free Slots</div>
+            <div class="ref-metric-value">
+              {{ referralSummary.freeSlotsAvailable || 0 }}
+            </div>
+          </div>
+          <div class="ref-metric" *ngIf="referralSummary.totalDiscountEarned">
+            <div class="ref-metric-label">Savings Earned</div>
+            <div class="ref-metric-value">
+              ₹{{ referralSummary.totalDiscountEarned | number: "1.0-0" }}
+            </div>
+          </div>
+        </div>
+        <div class="ref-card-note">
+          Invite {{ referralSummary.freeSlotThreshold || 5 }} friends to unlock
+          a free trek slot (worth ₹{{
+            selectedBatch?.price | number: "1.0-0"
+          }}).
+        </div>
+      </div>
+      <div
+        class="ref-card-body error"
+        *ngIf="
+          !isReferralSummaryLoading && !referralSummary && referralSummaryError
+        "
+      >
+        {{ referralSummaryError }}
+        <button
+          type="button"
+          class="ref-card-refresh"
+          (click)="loadReferralSummary(true)"
+        >
+          Retry
+        </button>
+      </div>
+    </div>
+
+    <ng-template #referralLoginPrompt>
+      <div class="referral-summary-card muted">
+        <div class="ref-card-eyebrow">Referral Rewards</div>
+        <div class="ref-card-title">Log in to access your referral code</div>
+      </div>
+    </ng-template>
+  </aside>
+
+  <!-- ═══ RIGHT PANEL ══════════════════════════════════════ -->
+  <div class="right-panel">
+    <!-- Mobile nav -->
+    <div class="mobile-nav">
+      <a
+        class="mobile-back"
+        [routerLink]="['/tour-details', tourDetailsRouteRef]"
+        >← Back</a
+      >
+      <div class="mobile-title">Book Your Trek</div>
+      <div style="width: 60px"></div>
+    </div>
+
+    <!-- Mobile steps strip -->
+    <div class="mobile-steps">
+      <div
+        class="mob-step"
+        [class.completed]="currentStep > 1"
+        [class.active]="currentStep === 1"
+      >
+        <div class="mob-num">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 1"></i>
+          <span *ngIf="currentStep <= 1">1</span>
+        </div>
+        Batch
+      </div>
+      <div
+        class="mob-step"
+        [class.completed]="currentStep > 2"
+        [class.active]="currentStep === 2"
+      >
+        <div class="mob-num">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 2"></i>
+          <span *ngIf="currentStep <= 2">2</span>
+        </div>
+        Contact
+      </div>
+      <div
+        class="mob-step"
+        [class.completed]="currentStep > 3"
+        [class.active]="currentStep === 3"
+      >
+        <div class="mob-num">
+          <i class="bi bi-check-lg" *ngIf="currentStep > 3"></i>
+          <span *ngIf="currentStep <= 3">3</span>
+        </div>
+        Participants
+      </div>
+      <div class="mob-step" [class.active]="currentStep === 4">
+        <div class="mob-num">4</div>
+        Review
+      </div>
+    </div>
+
+    <!-- LOADER -->
+    <div class="loader-overlay" *ngIf="isLoading">
+      <div class="loader-ring"></div>
+      <div class="loader-text">Loading trek details…</div>
+    </div>
+
+    <!-- FORM AREA -->
+    <div class="form-area" *ngIf="!isLoading">
+      <!-- ──────────────── STEP 1 ──────────────── -->
+      <ng-container *ngIf="currentStep === 1">
+        <div class="step-headline">
+          <div class="step-eyebrow">Step 1 of 4</div>
+          <h1 class="step-h1">Select Your Batch</h1>
+          <p class="step-desc">
+            Choose a departure date and set your group size.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 28px">
+          <label
+            style="
+              font-size: 0.75rem;
+              font-weight: 700;
+              letter-spacing: 0.04em;
+              color: var(--body);
+              display: block;
+              margin-bottom: 10px;
+            "
+          >
+            Available Batches <span class="req">*</span>
+          </label>
+          <div class="batch-options">
+            <label
+              class="batch-option"
+              *ngFor="let batch of batches"
+              [class.selected]="booking.batchId == batch.batchId"
+              [class.disabled]="
+                batch.status !== 'active' || batch.availableSlots === 0
+              "
+            >
+              <input
+                type="radio"
+                name="batch"
+                [value]="batch.batchId"
+                [(ngModel)]="booking.batchId"
+                (change)="onBatchSelect(batch.batchId)"
+                [disabled]="
+                  batch.status !== 'active' || batch.availableSlots === 0
+                "
+                checked
+              />
+              <div class="batch-radio">
+                <div
+                  *ngIf="booking.batchId == batch.batchId"
+                  style="
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: #3d6b4a;
+                  "
+                ></div>
+              </div>
+              <div class="batch-info">
+                <div class="batch-dates">
+                  {{ batch.startDate | date: "MMM dd" }} –
+                  {{ batch.endDate | date: "MMM dd, yyyy" }}
+                </div>
+                <div class="batch-meta">
+                  {{ batch.duration }} · {{ batch.availableSlots }} slots
+                  remaining
+                </div>
+              </div>
+              <div class="batch-price">₹{{ batch.price }}</div>
+              <span
+                class="batch-status"
+                [class.status-ok]="batch.availableSlots > 5"
+                [class.status-few]="
+                  batch.availableSlots > 0 && batch.availableSlots <= 5
+                "
+                [class.status-full]="batch.availableSlots === 0"
+              >
+                {{
+                  batch.availableSlots === 0
+                    ? "Full"
+                    : batch.availableSlots <= 5
+                      ? "Few Left"
+                      : "Open"
+                }}
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row" *ngIf="selectedBatch">
+          <div class="field">
+            <label>Participants <span class="req">*</span></label>
+            <div class="counter-row">
+              <button
+                class="counter-btn"
+                (click)="decrementParticipants()"
+                type="button"
+              >
+                −
+              </button>
+              <div class="counter-val">{{ booking.participants }}</div>
+              <button
+                class="counter-btn"
+                (click)="incrementParticipants()"
+                type="button"
+              >
+                +
+              </button>
+            </div>
+            <div class="field-hint">
+              Max {{ selectedBatch.availableSlots }} available in this batch
+            </div>
+          </div>
+          <div class="field">
+            <label>Price per Person</label>
+            <input
+              class="form-input"
+              [value]="'₹' + selectedBatch.price"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-top: 8px;
+            margin-bottom: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+          "
+          *ngIf="addOns.length"
+        >
+          Add-ons (Optional)
+        </div>
+        <div class="addons-grid">
+          <label
+            class="addon-card"
+            *ngFor="let addon of addOns"
+            [class.checked]="addon.quantity > 0"
+          >
+            <div class="addon-top">
+              <div style="flex: 1; padding-right: 8px;">
+                <div class="addon-name">{{ addon.name }}</div>
+                <div class="addon-cat-tag" *ngIf="addon.category" style="font-size: 11px; opacity: 0.7; margin-top: 2px;">{{ addon.category }}</div>
+              </div>
+              <div class="addon-check"><i class="bi bi-check-lg" *ngIf="addon.quantity > 0"></i></div>
+            </div>
+            <div class="addon-price">₹{{ addon.price }} / person</div>
+            <div class="field" style="margin-top: 10px">
+              <label style="margin-bottom: 6px">Participants</label>
+              <select
+                class="form-select"
+                [ngModel]="addon.quantity"
+                (ngModelChange)="onAddonQuantityChange(addon, $event)"
+              >
+                <option
+                  *ngFor="let count of participantCountOptions"
+                  [ngValue]="count"
+                >
+                  {{
+                    count === 0
+                      ? "None"
+                      : count + " participant" + (count > 1 ? "s" : "")
+                  }}
+                </option>
+              </select>
+            </div>
+          </label>
+        </div>
+      </ng-container>
+
+      <!-- ──────────────── STEP 2 ──────────────── -->
+      <ng-container *ngIf="currentStep === 2">
+        <div class="step-headline">
+          <div class="step-eyebrow">Step 2 of 4</div>
+          <h1 class="step-h1">Contact Information</h1>
+          <p class="step-desc">
+            This person will be the main point of contact for the booking.
+          </p>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Full Name <span class="req">*</span></label>
+            <input
+              class="form-input"
+              [(ngModel)]="booking.name"
+              placeholder="Enter full name"
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label>Email <span class="req">*</span></label>
+            <input
+              class="form-input"
+              type="email"
+              [(ngModel)]="booking.email"
+              placeholder="your@email.com"
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Phone <span class="req">*</span></label>
+            <input
+              class="form-input"
+              type="tel"
+              [(ngModel)]="booking.phone"
+              placeholder="+91 XXXXX XXXXX"
+              minlength="10"
+              maxlength="10"
+              onlyNumber
+              disabled
+            />
+          </div>
+          <div class="field">
+            <label>Emergency Contact <span class="req">*</span></label>
+            <input
+              class="form-input"
+              type="tel"
+              [(ngModel)]="booking.emergencyContact"
+              placeholder="+91 XXXXX XXXXX"
+              minlength="10"
+              maxlength="10"
+              onlyNumber
+            />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="field">
+            <label>Special Requests / Medical Info</label>
+            <textarea
+              class="form-textarea"
+              [(ngModel)]="booking.specialRequests"
+              placeholder="Any allergies, dietary restrictions, or special requirements…"
+            ></textarea>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ──────────────── STEP 3 ──────────────── -->
+      <ng-container *ngIf="currentStep === 3">
+        <div class="step-headline">
+          <div class="step-eyebrow">Step 3 of 4</div>
+          <h1 class="step-h1">Participant Details</h1>
+          <p class="step-desc">
+            Please provide details for all
+            {{ booking.participants }} participant(s).
+          </p>
+        </div>
+
+        <div class="info-bar" *ngIf="!areAllParticipantsValid()">
+          <i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> Please fill all required fields for every participant before
+          continuing.
+        </div>
+
+        <div
+          class="participant-block"
+          *ngFor="let participant of participants; let i = index"
+        >
+          <div class="participant-header">
+            <div class="p-num">{{ i + 1 }}</div>
+            <div class="p-name">Participant {{ i + 1 }}</div>
+            <span class="p-badge" *ngIf="i === 0">Primary Contact</span>
+          </div>
+          <div class="participant-fields">
+            <div class="field">
+              <label>Full Name <span class="req">*</span></label>
+              <input
+                class="form-input"
+                [(ngModel)]="participant.name"
+                placeholder="Enter full name"
+                [disabled]="i === 0"
+              />
+              <div class="field-hint" *ngIf="i === 0">
+                Auto-filled from contact info
+              </div>
+            </div>
+            <div class="field">
+              <label>Age <span class="req">*</span></label>
+              <input
+                class="form-input"
+                type="number"
+                [(ngModel)]="participant.age"
+                placeholder="e.g. 28"
+                (input)="validateAge(participant)"
+                min="12"
+                max="100"
+              />
+              <div class="error" *ngIf="participant.ageError">
+                {{ participant.ageError }}
+              </div>
+            </div>
+            <div class="field">
+              <label>Gender <span class="req">*</span></label>
+              <select class="form-select" [(ngModel)]="participant.gender">
+                <option value="">Select Gender</option>
+                <option
+                  *ngFor="let option of genderOptions"
+                  [value]="option.value"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+            <div class="field">
+              <label>ID Proof Type <span class="req">*</span></label>
+              <select
+                class="form-select"
+                [(ngModel)]="participant.idType"
+                (change)="
+                  participant.idNumber = '';
+                  participant.idError = '';
+                  validateId(participant)
+                "
+              >
+                <option value="">Select ID</option>
+                <option
+                  *ngFor="let option of idTypeOptions"
+                  [value]="option.value"
+                >
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+            <div class="field">
+              <label>ID Number <span class="req">*</span></label>
+              <input
+                class="form-input"
+                [(ngModel)]="participant.idNumber"
+                [maxlength]="getIdMaxLength(participant.idType)"
+                (input)="formatIdInput(participant)"
+                placeholder="Enter ID number"
+              />
+              <div class="error" *ngIf="participant.idError">
+                {{ participant.idError }}
+              </div>
+            </div>
+            <div class="field">
+              <label>Phone</label>
+              <input
+                class="form-input"
+                type="tel"
+                [(ngModel)]="participant.phone"
+                placeholder="+91 XXXXX XXXXX"
+                [disabled]="i === 0"
+                minlength="10"
+                maxlength="10"
+                onlyNumber
+                (input)="validateParticipantPhone(participant, i === 0)"
+              />
+              <div class="field-hint" *ngIf="i === 0">
+                Auto-filled from contact info
+              </div>
+              <div class="error" *ngIf="participant.phoneError">
+                {{ participant.phoneError }}
+              </div>
+            </div>
+            <div class="field">
+              <label>Blood Group <span class="req">*</span></label>
+              <select class="form-select" [(ngModel)]="participant.bloodGroup">
+                <option *ngFor="let option of bloodGroupOptions" [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+            <div class="field">
+              <label>Dietary Preference <span class="req">*</span></label>
+              <select class="form-select" [(ngModel)]="participant.dietaryPreference">
+                <option *ngFor="let option of dietaryOptions" [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+            </div>
+            <div class="field full">
+              <label>Medical & Health Declaration <span class="req">*</span></label>
+              <select class="form-select mb-2" [(ngModel)]="participant.medicalCondition">
+                <option *ngFor="let option of medicalOptions" [value]="option.value">
+                  {{ option.label }}
+                </option>
+              </select>
+              <textarea
+                class="form-textarea"
+                [(ngModel)]="participant.medicalInfo"
+                placeholder="Additional notes: allergies, regular medications, or recent injuries (optional)…"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- ──────────────── STEP 4 ──────────────── -->
+      <ng-container *ngIf="currentStep === 4">
+        <div class="step-headline">
+          <div class="step-eyebrow">Step 4 of 4</div>
+          <h1 class="step-h1">Review Your Booking</h1>
+          <p class="step-desc">
+            Please verify all details before proceeding to payment.
+          </p>
+        </div>
+
+        <div class="review-block">
+          <div class="review-header">
+            <div class="review-header-title">Trek Details</div>
+            <a class="edit-link" (click)="currentStep = 1">Edit</a>
+          </div>
+          <div class="review-body">
+            <div class="review-row">
+              <span class="review-key">Trek</span
+              ><span class="review-val">{{ trek.name }}</span>
+            </div>
+            <div class="review-row">
+              <span class="review-key">Dates</span
+              ><span class="review-val"
+                >{{ selectedBatch?.startDate | date: "MMM dd" }} –
+                {{ selectedBatch?.endDate | date: "MMM dd, yyyy" }}</span
+              >
+            </div>
+            <div class="review-row">
+              <span class="review-key">Duration</span
+              ><span class="review-val">{{ selectedBatch?.duration }}</span>
+            </div>
+            <div class="review-row">
+              <span class="review-key">Participants</span
+              ><span class="review-val">{{ booking.participants }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-header">
+            <div class="review-header-title">Primary Contact</div>
+            <a class="edit-link" (click)="currentStep = 2">Edit</a>
+          </div>
+          <div class="review-body">
+            <div class="review-row">
+              <span class="review-key">Name</span
+              ><span class="review-val">{{ booking.name }}</span>
+            </div>
+            <div class="review-row">
+              <span class="review-key">Email</span
+              ><span class="review-val">{{ booking.email }}</span>
+            </div>
+            <div class="review-row">
+              <span class="review-key">Phone</span
+              ><span class="review-val">{{ booking.phone }}</span>
+            </div>
+            <div class="review-row">
+              <span class="review-key">Emergency</span
+              ><span class="review-val">{{ booking.emergencyContact }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-block">
+          <div class="review-header">
+            <div class="review-header-title">Participants</div>
+            <a class="edit-link" (click)="currentStep = 3">Edit</a>
+          </div>
+          <table class="p-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>ID Type</th>
+                <th>ID Number</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of participants; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>
+                  {{ p.name
+                  }}<span class="primary-tag" *ngIf="i === 0">Primary</span>
+                </td>
+                <td>{{ p.age }}</td>
+                <td>{{ p.gender }}</td>
+                <td>{{ p.idType }}</td>
+                <td>{{ p.idNumber }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="price-breakdown">
+          <div class="pb-row">
+            <span class="pb-label"
+              >Trek ({{ booking.participants }} × ₹{{
+                selectedBatch?.price
+              }})</span
+            >
+            <span class="pb-val">₹{{ basePrice | number: "1.0-0" }}</span>
+          </div>
+          <ng-container *ngFor="let addon of addOns">
+            <div class="pb-row" *ngIf="addon.quantity > 0">
+              <span class="pb-label"
+                >{{ addon.name }} ({{ addon.quantity }} × ₹{{
+                  addon.price
+                }})</span
+              >
+              <span class="pb-val"
+                >₹{{ addon.price * addon.quantity | number: "1.0-0" }}</span
+              >
+            </div>
+          </ng-container>
+          <div class="pb-row" style="font-size: 0.85rem; color: #64748b;">
+            <span class="pb-label"><i class="bi bi-tree-fill text-success me-1"></i> Forest Dept Permit ({{ booking.participants }} × ₹250)</span>
+            <span class="pb-val">₹{{ forestPermitFeeTotal | number: "1.0-0" }}</span>
+          </div>
+          <div class="pb-row" style="font-size: 0.85rem; color: #64748b;">
+            <span class="pb-label"><i class="bi bi-shield-check text-primary me-1"></i> Western Ghats Eco-Cess ({{ booking.participants }} × ₹50)</span>
+            <span class="pb-val">₹{{ ecoCessTotal | number: "1.0-0" }}</span>
+          </div>
+          <div class="pb-row total">
+            <span class="pb-label">Total Amount (incl. 5% GST)</span>
+            <span class="pb-val">₹{{ totalPrice | number: "1.0-0" }}</span>
+          </div>
+          <div class="pb-row discount" *ngIf="couponDiscountAmount > 0">
+            <span class="pb-label">Coupon Discount</span>
+            <span class="pb-val"
+              >−₹{{ couponDiscountAmount | number: "1.0-0" }}</span
+            >
+          </div>
+          <div class="pb-row discount" *ngIf="referralDiscountAmount > 0">
+            <span class="pb-label">Referral Discount</span>
+            <span class="pb-val"
+              >−₹{{ referralDiscountAmount | number: "1.0-0" }}</span
+            >
+          </div>
+          <div class="pb-row discount" *ngIf="referralRewardDiscountAmount > 0">
+            <span class="pb-label">Free Slot Credit</span>
+            <span class="pb-val"
+              >−₹{{ referralRewardDiscountAmount | number: "1.0-0" }}</span
+            >
+          </div>
+          <div class="pb-row discount" *ngIf="walletDeductionAmount > 0">
+            <span class="pb-label" style="color: #059669; font-weight: 600;"><i class="bi bi-wallet2 me-1"></i> GoWild Wallet Applied</span>
+            <span class="pb-val" style="color: #059669; font-weight: 700;"
+              >−₹{{ walletDeductionAmount | number: "1.2-2" }}</span
+            >
+          </div>
+          <div class="pb-row total payable">
+            <span class="pb-label">
+              <i class="bi bi-credit-card me-1"></i>
+              {{ paymentPlan === 'deposit_30' ? 'Advance Payable Now (30%)' : 'Total Payable Now' }}
+            </span>
+            <span class="pb-val">₹{{ effectivePayableNow | number: "1.0-0" }}</span>
+          </div>
+          <div class="pb-row" *ngIf="paymentPlan === 'deposit_30'" style="font-size: 0.85rem; color: #d97706; background: #fffbeb; padding: 6px 10px; border-radius: 6px; margin-top: 6px;">
+            <span class="pb-label"><i class="bi bi-hourglass-split me-1"></i> Balance Due at Basecamp / T-7 Days (70%):</span>
+            <span class="pb-val font-bold">₹{{ remainderPayable | number: "1.0-0" }}</span>
+          </div>
+        </div>
+
+        <!-- Payment Plan Selection -->
+        <div class="payment-plan-section" style="margin-top: 18px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+          <div style="font-weight: 700; font-size: 0.95rem; color: #1e293b; margin-bottom: 10px; display: flex; align-items: center; gap: 6px;">
+            <span><i class="bi bi-credit-card-2-front me-1"></i> Choose Payment Plan</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div 
+              (click)="paymentPlan = 'full'"
+              [style.border]="paymentPlan === 'full' ? '2px solid #2d7a43' : '1px solid #cbd5e1'"
+              [style.background]="paymentPlan === 'full' ? '#f0fdf4' : '#ffffff'"
+              style="padding: 12px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
+              <div style="font-weight: 700; font-size: 0.9rem; color: #0f172a; display: flex; align-items: center; justify-content: space-between;">
+                <span><i class="bi bi-lightning-charge-fill text-success me-1"></i> Full Payment</span>
+                <i *ngIf="paymentPlan === 'full'" class="bi bi-check2 text-success fw-bold"></i>
+              </div>
+              <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">Instant confirmation & guaranteed slots</div>
+              <div style="font-size: 1rem; font-weight: 800; color: #2d7a43; margin-top: 6px;">₹{{ payablePrice | number:'1.0-0' }}</div>
+            </div>
+
+            <div 
+              (click)="paymentPlan = 'deposit_30'"
+              [style.border]="paymentPlan === 'deposit_30' ? '2px solid #2563eb' : '1px solid #cbd5e1'"
+              [style.background]="paymentPlan === 'deposit_30' ? '#eff6ff' : '#ffffff'"
+              style="padding: 12px; border-radius: 10px; cursor: pointer; transition: all 0.2s ease;">
+              <div style="font-weight: 700; font-size: 0.9rem; color: #0f172a; display: flex; align-items: center; justify-content: space-between;">
+                <span><i class="bi bi-pie-chart-fill text-primary me-1"></i> 30% Advance</span>
+                <i *ngIf="paymentPlan === 'deposit_30'" class="bi bi-check2 text-primary fw-bold"></i>
+              </div>
+              <div style="font-size: 0.78rem; color: #64748b; margin-top: 4px;">Pay 30% now, 70% before trek / Basecamp</div>
+              <div style="font-size: 1rem; font-weight: 800; color: #2563eb; margin-top: 6px;">₹{{ advanceDepositPayable | number:'1.0-0' }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GoWild Wallet Widget -->
+        <div *ngIf="userWallet && userWallet.totalUsableBalance > 0" class="wallet-widget" style="margin-top: 14px; padding: 12px 14px; background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; display: flex; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="bi bi-wallet2 text-success" style="font-size: 1.5rem;"></i>
+            <div>
+              <div style="font-weight: 700; font-size: 0.88rem; color: #065f46;">GoWild Trek Wallet</div>
+              <div style="font-size: 0.78rem; color: #047857;">Available Balance: <strong>₹{{ userWallet.totalUsableBalance | number:'1.2-2' }}</strong> (incl. bonus)</div>
+            </div>
+          </div>
+          <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; font-weight: 700; font-size: 0.85rem; color: #065f46;">
+            <input type="checkbox" [(ngModel)]="applyWalletBalance" style="width: 18px; height: 18px; accent-color: #059669;" />
+            Apply Balance
+          </label>
+        </div>
+
+        <div class="form-row" style="margin-top: 16px">
+          <div class="field">
+            <label>Coupon Code</label>
+            <input
+              class="form-input"
+              [(ngModel)]="couponCode"
+              (ngModelChange)="onCouponCodeInput($event)"
+              placeholder="Enter coupon code (optional)"
+              style="text-transform: uppercase"
+            />
+            <div class="field-hint" *ngIf="isCouponValidating">
+              Validating coupon...
+            </div>
+            <div
+              class="field-hint"
+              *ngIf="!isCouponValidating && couponValidationSuccess"
+              style="color: #2d7a43"
+            >
+              {{ couponValidationSuccess }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row referral-row">
+          <div class="field">
+            <label>Referral Code</label>
+            <div class="referral-input-row">
+              <input
+                class="form-input"
+                [disabled]="useReferralReward || isReferralValidating"
+                placeholder="Enter referral code (optional)"
+                [(ngModel)]="referralCodeInput"
+                (ngModelChange)="onReferralCodeInputChange($event)"
+                style="text-transform: uppercase"
+              />
+              <button
+                type="button"
+                class="btn-apply"
+                (click)="applyReferralCode()"
+                [disabled]="
+                  !referralCodeInput ||
+                  useReferralReward ||
+                  isReferralValidating
+                "
+              >
+                Apply
+              </button>
+              <button
+                type="button"
+                class="btn-clear"
+                *ngIf="referralCodeInput"
+                (click)="clearReferralCode()"
+              >
+                Clear
+              </button>
+            </div>
+            <div class="field-hint" *ngIf="!isUserLoggedIn">
+              Log in to use referral codes.
+            </div>
+            <div class="field-hint" *ngIf="isReferralValidating">
+              Checking referral code…
+            </div>
+            <div
+              class="field-hint success"
+              *ngIf="!isReferralValidating && referralValidationSuccess"
+            >
+              {{ referralValidationSuccess }}
+            </div>
+            <div class="field-hint error" *ngIf="referralValidationError">
+              {{ referralValidationError }}
+            </div>
+          </div>
+        </div>
+
+        <div class="referral-reward-panel" *ngIf="isUserLoggedIn">
+          <div class="reward-header">
+            <div>
+              <div class="reward-title">Use Free Trek Slot</div>
+              <div class="reward-sub" *ngIf="referralSummary">
+                {{ referralSummary.freeSlotsAvailable || 0 }} slot(s) available
+              </div>
+              <div
+                class="reward-sub"
+                *ngIf="!referralSummary && !isReferralSummaryLoading"
+              >
+                Invite friends to unlock free treks.
+              </div>
+            </div>
+            <label class="switch">
+              <input
+                type="checkbox"
+                [(ngModel)]="useReferralReward"
+                (change)="onReferralRewardToggle()"
+                [disabled]="!canUseReferralReward"
+              />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="reward-body" *ngIf="useReferralReward">
+            <div class="slot-stepper">
+              <button type="button" (click)="adjustReferralRewardSlots(-1)">
+                −
+              </button>
+              <div class="slot-value">{{ referralRewardSlotsToUse }}</div>
+              <button type="button" (click)="adjustReferralRewardSlots(1)">
+                +
+              </button>
+            </div>
+            <div class="field-hint">
+              Each free slot waives ₹{{
+                selectedBatch?.price | number: "1.0-0"
+              }}. Savings applied: ₹{{
+                referralRewardDiscountAmount | number: "1.0-0"
+              }}
+            </div>
+          </div>
+          <div class="field-hint" *ngIf="!canUseReferralReward">
+            {{
+              referralSummary?.freeSlotsAvailable
+                ? "Referral code is active. Clear it to use a free slot."
+                : "Invite friends to unlock free trek slots."
+            }}
+          </div>
+        </div>
+
+        <div class="coupon-list-block" *ngIf="availableCoupons.length > 0">
+          <div class="coupon-list-title">Available Coupons</div>
+          <div class="coupon-list-grid">
+            <div
+              class="coupon-chip"
+              *ngFor="let coupon of availableCoupons"
+              [class.used]="coupon.isUsedByUser"
+            >
+              <div class="coupon-top">
+                <span class="coupon-code">{{ coupon.code }}</span>
+                <span class="coupon-badge">{{ getCouponLabel(coupon) }}</span>
+              </div>
+              <div class="coupon-meta">
+                Min booking ₹{{ coupon.minBookingAmount || 0 }}
+                <span *ngIf="coupon.endDate">
+                  · Expires {{ coupon.endDate | date: "MMM dd" }}</span
+                >
+              </div>
+              <button
+                class="coupon-copy-btn"
+                type="button"
+                [disabled]="coupon.isUsedByUser"
+                (click)="copyCouponCode(coupon.code)"
+              >
+                {{ coupon.isUsedByUser ? "Already used" : "Copy & Apply" }}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="field-hint" *ngIf="couponListError">
+          {{ couponListError }}
+        </div>
+
+        <label class="terms-check mt-2">
+          <input type="checkbox" [(ngModel)]="termsAccepted" />
+          <div class="terms-text">
+            I agree to the
+            <a [href]="termsPdfUrl" target="_blank" rel="noopener noreferrer"
+              >Terms &amp; Conditions</a
+            >
+            and
+            <a [href]="termsPdfUrl" target="_blank" rel="noopener noreferrer"
+              >Cancellation Policy</a
+            >
+            of {{ siteSettings.currentSettings.brandName }}.
+          </div>
+        </label>
+      </ng-container>
+
+      <!-- In-Page Step Action Bar (Natural Document Flow - Never Overlaps Footer) -->
+      <div class="bottom-bar">
+        <div class="bottom-bar-main">
+          <button type="button" class="btn-back" *ngIf="currentStep > 1" (click)="prevStep()">
+            ← Back
+          </button>
+
+          <div class="bar-price" *ngIf="selectedBatch">
+            <div class="bar-price-label">Total Payable</div>
+            <div class="bar-price-amount">
+              ₹{{ payablePrice | number: "1.0-0" }}
+            </div>
+            <div class="bar-price-sub">
+              {{ booking.participants }} {{ booking.participants === 1 ? 'trekker' : 'trekkers' }}
+              <span *ngIf="paymentPlan === 'deposit_30'"> · 30% deposit</span>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn-next"
+            *ngIf="currentStep < 4"
+            (click)="nextStep()"
+            [disabled]="!canProceedToNextStep()"
+            [title]="getStepIncompleteHint()"
+          >
+            <span>{{ getNextStepButtonText() }}</span>
+            <span class="btn-arrow">→</span>
+          </button>
+
+          <button
+            type="button"
+            class="btn-next btn-pay"
+            *ngIf="currentStep === 4"
+            [disabled]="isSubmitting || !termsAccepted || isCouponValidating"
+            (click)="proceedToPayment()"
+          >
+            <span class="btn-pay-icon"><i class="bi bi-shield-lock-fill"></i></span>
+            <span>Proceed to Pay ₹{{ payablePrice | number: '1.0-0' }}</span>
+          </button>
+        </div>
+
+        <div class="bottom-incomplete-hint" *ngIf="!canProceedToNextStep() && getStepIncompleteHint()">
+          <i class="bi bi-info-circle-fill me-1"></i> {{ getStepIncompleteHint() }}
+        </div>
+
+        <div
+          class="bottom-error"
+          *ngIf="currentStep === 4 && couponValidationError"
+        >
+          {{ couponValidationError }}
+        </div>
+        <div class="bottom-flash success" *ngIf="successMessage">
+          <i class="bi bi-check-circle-fill text-success me-1"></i> {{ successMessage }}
+        </div>
+        <div class="bottom-flash error" *ngIf="errorMessage">
+          <i class="bi bi-exclamation-triangle-fill text-danger me-1"></i> {{ errorMessage }}
+        </div>
+      </div>
+
+    </div>
+    <!-- /form-area -->
+  </div>
+  <!-- /right-panel -->
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECURE PAYMENT GATEWAY MODAL (UPI, CARDS, NET BANKING)
+  ════════════════════════════════════════════════════════════ -->
+  <div class="payment-modal-backdrop" *ngIf="showPaymentModal" (click)="closePaymentModal()">
+    <div class="payment-modal-sheet" (click)="$event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="pay-modal-header">
+        <div class="pay-header-left">
+          <div class="pay-brand">
+            <span class="pay-shield-icon"><i class="bi bi-shield-lock-fill"></i></span>
+            <div>
+              <div class="pay-title">{{ siteSettings.currentSettings.brandName }} Secure Checkout</div>
+              <div class="pay-subtitle">256-Bit SSL Encrypted • Direct Bank &amp; UPI Gateway</div>
+            </div>
+          </div>
+        </div>
+        <div class="pay-header-right">
+          <div class="pay-amount-pill">
+            <span class="pay-amount-lbl">Amount Payable</span>
+            <span class="pay-amount-val">₹{{ payablePrice | number:'1.0-0' }}</span>
+          </div>
+          <button type="button" class="btn-close-pay" (click)="closePaymentModal()" [disabled]="isProcessingPayment"><i class="bi bi-x-lg"></i></button>
+        </div>
+      </div>
+
+      <!-- Expedition Mini Summary Strip -->
+      <div class="pay-order-strip">
+        <div class="pay-order-meta">
+          <strong>{{ trek?.name || 'Western Ghats Expedition' }}</strong>
+          <span class="meta-dot">•</span>
+          <span>{{ selectedBatch?.startDate | date:'mediumDate' }}</span>
+          <span class="meta-dot">•</span>
+          <span>{{ booking.participants }} {{ booking.participants === 1 ? 'Trekker' : 'Trekkers' }}</span>
+          <span class="pay-plan-badge" *ngIf="paymentPlan === 'deposit_30'">30% Advance Deposit</span>
+        </div>
+      </div>
+
+      <!-- Main Payment Body -->
+      <div class="pay-modal-body" *ngIf="!paymentSuccessState">
+        
+        <!-- Left Sidebar: Payment Methods -->
+        <div class="pay-methods-nav">
+          <button type="button" 
+                  class="pay-method-tab" 
+                  [class.active]="selectedPaymentTab === 'upi'" 
+                  (click)="setPaymentTab('upi')">
+            <div class="tab-icon-wrap upi"><i class="bi bi-qr-code"></i></div>
+            <div class="tab-copy">
+              <span class="tab-name">UPI / QR Code</span>
+              <span class="tab-badge">Instant &amp; Free</span>
+            </div>
+          </button>
+
+          <button type="button" 
+                  class="pay-method-tab" 
+                  [class.active]="selectedPaymentTab === 'card'" 
+                  (click)="setPaymentTab('card')">
+            <div class="tab-icon-wrap card"><i class="bi bi-credit-card-2-front"></i></div>
+            <div class="tab-copy">
+              <span class="tab-name">Credit / Debit Card</span>
+              <span class="tab-sub">Visa, MC, RuPay</span>
+            </div>
+          </button>
+
+          <button type="button" 
+                  class="pay-method-tab" 
+                  [class.active]="selectedPaymentTab === 'netbanking'" 
+                  (click)="setPaymentTab('netbanking')">
+            <div class="tab-icon-wrap netbank"><i class="bi bi-bank"></i></div>
+            <div class="tab-copy">
+              <span class="tab-name">Net Banking</span>
+              <span class="tab-sub">50+ Indian Banks</span>
+            </div>
+          </button>
+
+          <button type="button" 
+                  class="pay-method-tab" 
+                  [class.active]="selectedPaymentTab === 'wallet'" 
+                  (click)="setPaymentTab('wallet')">
+            <div class="tab-icon-wrap wallet"><i class="bi bi-wallet2"></i></div>
+            <div class="tab-copy">
+              <span class="tab-name">Wallets</span>
+              <span class="tab-sub">Amazon, Paytm, Mobikwik</span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Right Content: Payment Method Details -->
+        <div class="pay-methods-content">
+
+          <!-- ── TAB: UPI & QR CODE ── -->
+          <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'upi'">
+            <div class="upi-segmented-switch">
+              <button type="button" [class.active]="upiOption === 'qr'" (click)="upiOption = 'qr'">
+                <i class="bi bi-qr-code-scan me-1"></i> Scan Dynamic QR Code
+              </button>
+              <button type="button" [class.active]="upiOption === 'vpa'" (click)="upiOption = 'vpa'">
+                <i class="bi bi-phone me-1"></i> Enter UPI ID / VPA
+              </button>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="upi-qr-box" *ngIf="upiOption === 'qr'">
+              <div class="qr-canvas-wrap">
+                <!-- Authentic SVG QR Code with scan corners -->
+                <div class="qr-frame">
+                  <svg class="qr-svg" viewBox="0 0 200 200" width="160" height="160">
+                    <rect width="200" height="200" fill="#ffffff" rx="10"/>
+                    <!-- QR finder corners -->
+                    <rect x="15" y="15" width="45" height="45" fill="#162318" rx="4"/>
+                    <rect x="23" y="23" width="29" height="29" fill="#ffffff" rx="2"/>
+                    <rect x="29" y="29" width="17" height="17" fill="#162318" rx="2"/>
+
+                    <rect x="140" y="15" width="45" height="45" fill="#162318" rx="4"/>
+                    <rect x="148" y="23" width="29" height="29" fill="#ffffff" rx="2"/>
+                    <rect x="154" y="29" width="17" height="17" fill="#162318" rx="2"/>
+
+                    <rect x="15" y="140" width="45" height="45" fill="#162318" rx="4"/>
+                    <rect x="23" y="148" width="29" height="29" fill="#ffffff" rx="2"/>
+                    <rect x="29" y="154" width="17" height="17" fill="#162318" rx="2"/>
+
+                    <!-- QR Matrix Pixels -->
+                    <rect x="75" y="20" width="12" height="12" fill="#162318"/>
+                    <rect x="95" y="20" width="12" height="12" fill="#162318"/>
+                    <rect x="115" y="25" width="12" height="12" fill="#162318"/>
+                    <rect x="70" y="45" width="14" height="14" fill="#162318"/>
+                    <rect x="100" y="45" width="14" height="14" fill="#162318"/>
+
+                    <rect x="20" y="75" width="14" height="14" fill="#162318"/>
+                    <rect x="45" y="85" width="12" height="12" fill="#162318"/>
+                    <rect x="70" y="75" width="20" height="20" fill="#22c55e"/>
+                    <rect x="110" y="75" width="14" height="14" fill="#162318"/>
+                    <rect x="140" y="75" width="12" height="12" fill="#162318"/>
+                    <rect x="165" y="80" width="14" height="14" fill="#162318"/>
+
+                    <rect x="20" y="110" width="14" height="14" fill="#162318"/>
+                    <rect x="50" y="110" width="12" height="12" fill="#162318"/>
+                    <rect x="80" y="110" width="14" height="14" fill="#162318"/>
+                    <rect x="105" y="105" width="14" height="14" fill="#162318"/>
+                    <rect x="135" y="115" width="16" height="16" fill="#162318"/>
+                    <rect x="165" y="110" width="14" height="14" fill="#162318"/>
+
+                    <rect x="75" y="145" width="14" height="14" fill="#162318"/>
+                    <rect x="100" y="145" width="14" height="14" fill="#162318"/>
+                    <rect x="130" y="145" width="14" height="14" fill="#162318"/>
+                    <rect x="155" y="145" width="14" height="14" fill="#162318"/>
+                    <rect x="75" y="170" width="14" height="14" fill="#162318"/>
+                    <rect x="110" y="165" width="14" height="14" fill="#162318"/>
+                    <rect x="140" y="170" width="14" height="14" fill="#162318"/>
+                    <rect x="165" y="165" width="14" height="14" fill="#162318"/>
+
+                    <!-- Center logo badge -->
+                    <circle cx="100" cy="100" r="18" fill="#162318" stroke="#ffffff" stroke-width="2"/>
+                    <text x="100" y="104" font-size="10" font-weight="bold" fill="#22c55e" text-anchor="middle" font-family="sans-serif">GWK</text>
+                  </svg>
+                  <div class="qr-scan-line"></div>
+                </div>
+
+                <div class="qr-instructions">
+                  <div class="qr-timer-pill">
+                    <span class="timer-dot"></span> QR active: <strong>{{ formatUpiTimer() }}</strong>
+                  </div>
+                  <p class="qr-hint">Scan with any UPI app on your phone:</p>
+                  <div class="upi-app-badges">
+                    <span class="app-chip">Google Pay</span>
+                    <span class="app-chip">PhonePe</span>
+                    <span class="app-chip">Paytm</span>
+                    <span class="app-chip">BHIM</span>
+                    <span class="app-chip">CRED</span>
+                  </div>
+                  <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('UPI - Dynamic QR Code')">
+                    <span *ngIf="!isProcessingPayment"><i class="bi bi-check2 me-1"></i> Simulate Successful QR Scan &amp; Pay ₹{{ payablePrice | number:'1.0-0' }}</span>
+                    <span *ngIf="isProcessingPayment" class="spinner-inline">Verifying with UPI Gateway...</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- UPI ID / VPA Section -->
+            <div class="upi-vpa-box" *ngIf="upiOption === 'vpa'">
+              <label class="pay-input-label">Enter your Virtual Payment Address (VPA)</label>
+              <div class="vpa-input-group">
+                <input type="text" class="pay-input" [(ngModel)]="upiVpa" placeholder="username@okhdfcbank or 9876543210@upi" />
+              </div>
+              <div class="vpa-quick-chips">
+                <button type="button" class="vpa-chip" (click)="appendVpaHandle('@okhdfcbank')">@okhdfcbank</button>
+                <button type="button" class="vpa-chip" (click)="appendVpaHandle('@okaxis')">@okaxis</button>
+                <button type="button" class="vpa-chip" (click)="appendVpaHandle('@paytm')">@paytm</button>
+                <button type="button" class="vpa-chip" (click)="appendVpaHandle('@ybl')">@ybl</button>
+              </div>
+              <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment || !upiVpa.trim()" (click)="completePayment('UPI - ' + upiVpa)">
+                <span *ngIf="!isProcessingPayment">Send Payment Request &amp; Pay ₹{{ payablePrice | number:'1.0-0' }}</span>
+                <span *ngIf="isProcessingPayment" class="spinner-inline">Awaiting UPI Confirmation...</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── TAB: CREDIT / DEBIT CARD ── -->
+          <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'card'">
+            <div class="card-form-grid">
+              <div class="pay-field full">
+                <label class="pay-input-label">Card Number</label>
+                <div class="card-input-wrap">
+                  <input type="text" 
+                         class="pay-input" 
+                         [(ngModel)]="cardDetails.number" 
+                         (input)="formatCardNumber($event)" 
+                         placeholder="4532 •••• •••• 8892" 
+                         maxlength="19" />
+                  <span class="card-brand-badge">{{ getCardType(cardDetails.number) }}</span>
+                </div>
+              </div>
+
+              <div class="pay-field full">
+                <label class="pay-input-label">Cardholder Name</label>
+                <input type="text" class="pay-input" [(ngModel)]="cardDetails.name" placeholder="Name as printed on card" />
+              </div>
+
+              <div class="pay-field half">
+                <label class="pay-input-label">Expiry Date</label>
+                <input type="text" 
+                       class="pay-input" 
+                       [(ngModel)]="cardDetails.expiry" 
+                       (input)="formatCardExpiry($event)" 
+                       placeholder="MM / YY" 
+                       maxlength="5" />
+              </div>
+
+              <div class="pay-field half">
+                <label class="pay-input-label">CVV / CVC</label>
+                <input type="password" class="pay-input" [(ngModel)]="cardDetails.cvv" placeholder="•••" maxlength="4" />
+              </div>
+
+              <label class="pay-save-card">
+                <input type="checkbox" [(ngModel)]="cardDetails.saveCard" />
+                <span>Save card securely for future Western Ghats expeditions</span>
+              </label>
+
+              <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment || !cardDetails.number" (click)="completePayment('Card - ' + getCardType(cardDetails.number) + ' ending in ' + (cardDetails.number.slice(-4) || '9876'))">
+                <span *ngIf="!isProcessingPayment"><i class="bi bi-lock-fill me-1"></i> Pay ₹{{ payablePrice | number:'1.0-0' }} via Card</span>
+                <span *ngIf="isProcessingPayment" class="spinner-inline">Authorizing 3D Secure OTP...</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- ── TAB: NET BANKING ── -->
+          <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'netbanking'">
+            <p class="pay-input-label">Popular Indian Banks</p>
+            <div class="banks-grid">
+              <button type="button" class="bank-pill" [class.selected]="selectedBank === 'HDFC'" (click)="selectedBank = 'HDFC'">
+                <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+                <span>HDFC Bank</span>
+              </button>
+              <button type="button" class="bank-pill" [class.selected]="selectedBank === 'SBI'" (click)="selectedBank = 'SBI'">
+                <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+                <span>State Bank of India</span>
+              </button>
+              <button type="button" class="bank-pill" [class.selected]="selectedBank === 'ICICI'" (click)="selectedBank = 'ICICI'">
+                <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+                <span>ICICI Bank</span>
+              </button>
+              <button type="button" class="bank-pill" [class.selected]="selectedBank === 'AXIS'" (click)="selectedBank = 'AXIS'">
+                <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+                <span>Axis Bank</span>
+              </button>
+            </div>
+
+            <div class="pay-field full" style="margin-top: 14px;">
+              <label class="pay-input-label">Or choose from other 40+ banks</label>
+              <select class="pay-select" [(ngModel)]="selectedBank">
+                <option value="HDFC">HDFC Bank</option>
+                <option value="SBI">State Bank of India</option>
+                <option value="ICICI">ICICI Bank</option>
+                <option value="AXIS">Axis Bank</option>
+                <option value="Kotak">Kotak Mahindra Bank</option>
+                <option value="PNB">Punjab National Bank</option>
+                <option value="Canara">Canara Bank</option>
+                <option value="Bank of Baroda">Bank of Baroda</option>
+                <option value="IndusInd">IndusInd Bank</option>
+                <option value="Union">Union Bank of India</option>
+                <option value="Karnataka Bank">Karnataka Bank</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Net Banking - ' + selectedBank)">
+              <span *ngIf="!isProcessingPayment">Proceed to {{ selectedBank }} Net Banking (₹{{ payablePrice | number:'1.0-0' }})</span>
+              <span *ngIf="isProcessingPayment" class="spinner-inline">Connecting to {{ selectedBank }} portal...</span>
+            </button>
+          </div>
+
+          <!-- ── TAB: WALLETS ── -->
+          <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'wallet'">
+            <div class="wallets-list">
+              <label class="wallet-row" [class.selected]="selectedWallet === 'amazonpay'">
+                <input type="radio" name="wallet" value="amazonpay" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
+                <div class="wallet-info">
+                  <strong>Amazon Pay</strong>
+                  <small>Get 2% instant cashback on Western Ghats treks</small>
+                </div>
+              </label>
+
+              <label class="wallet-row" [class.selected]="selectedWallet === 'paytm'">
+                <input type="radio" name="wallet" value="paytm" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-phone text-info"></i></span>
+                <div class="wallet-info">
+                  <strong>Paytm Wallet</strong>
+                  <small>Fast checkout with Paytm balance</small>
+                </div>
+              </label>
+
+              <label class="wallet-row" [class.selected]="selectedWallet === 'phonepe'">
+                <input type="radio" name="wallet" value="phonepe" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-credit-card text-primary"></i></span>
+                <div class="wallet-info">
+                  <strong>PhonePe Wallet</strong>
+                  <small>Link your PhonePe account</small>
+                </div>
+              </label>
+            </div>
+
+            <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Wallet - ' + selectedWallet)">
+              <span *ngIf="!isProcessingPayment">Pay ₹{{ payablePrice | number:'1.0-0' }} with {{ selectedWallet }}</span>
+              <span *ngIf="isProcessingPayment" class="spinner-inline">Debiting Wallet...</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Success Animation Screen inside Modal -->
+      <div class="pay-success-pane" *ngIf="paymentSuccessState">
+        <div class="pay-success-circle"><i class="bi bi-check-lg"></i></div>
+        <h3>Payment Confirmed &amp; Verified!</h3>
+        <p class="pay-success-lead">₹{{ payablePrice | number:'1.0-0' }} successfully authorized via {{ selectedPaymentMethodLabel }}.</p>
+        <div class="pay-success-badge">Official KEDB Permit Reservation Secured</div>
+        <p class="pay-redirect-hint">Redirecting to your Digital Trek Pass in 2 seconds...</p>
+      </div>
+
+      <!-- Modal Footer Trust Bar -->
+      <div class="pay-modal-footer">
+        <div class="trust-icons">
+          <span><i class="bi bi-shield-check me-1"></i> PCI-DSS Level 1</span>
+          <span><i class="bi bi-lock-fill me-1"></i> 256-Bit SSL</span>
+          <span><i class="bi bi-lightning-charge-fill me-1"></i> Instant Booking Confirmation</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,445 @@
+<div class="policy-viewport">
+
+  <!-- HERO SECTION -->
+  <section class="policy-hero">
+    <div class="hero-backdrop"></div>
+    <div class="hero-container">
+      
+      <!-- Breadcrumb -->
+      <nav class="policy-breadcrumb" aria-label="Breadcrumb">
+        <a routerLink="/" class="crumb-link">
+          <i class="bi bi-house-door"></i> Home
+        </a>
+        <span class="crumb-sep"><i class="bi bi-chevron-right"></i></span>
+        <span class="crumb-active">
+          {{ activeTab === 'cancellation' ? 'Cancellation & Refund Policy' : 'Terms & Conditions' }}
+        </span>
+      </nav>
+
+      <!-- Badge & Title -->
+      <div class="hero-badge">
+        <i class="bi bi-shield-check"></i>
+        <span>Official Policy &amp; Transparency Guarantee</span>
+      </div>
+
+      <h1 class="hero-title">
+        <ng-container *ngIf="activeTab === 'cancellation'">Cancellation &amp; Refund Policy</ng-container>
+        <ng-container *ngIf="activeTab === 'terms'">Terms &amp; Conditions of Service</ng-container>
+      </h1>
+
+      <p class="hero-subtitle">
+        <ng-container *ngIf="activeTab === 'cancellation'">
+          Clear, transparent cancellation terms designed to be fair to travelers while honoring non-refundable Karnataka Forest Department permits, certified trek guides, and indigenous homestay hosts.
+        </ng-container>
+        <ng-container *ngIf="activeTab === 'terms'">
+          These guidelines and terms govern all trekking expeditions, eco-tours, and adventure activities organized by {{ legalName }}.
+        </ng-container>
+      </p>
+
+      <!-- Meta Strip -->
+      <div class="hero-meta-strip">
+        <div class="meta-item">
+          <i class="bi bi-calendar3"></i>
+          <span>Effective: <strong>{{ lastUpdatedDate }}</strong></span>
+        </div>
+        <div class="meta-item">
+          <i class="bi bi-building"></i>
+          <span>Entity: <strong>{{ legalName }}</strong></span>
+        </div>
+        <div class="meta-item">
+          <i class="bi bi-geo-alt"></i>
+          <span>Jurisdiction: <strong>Bengaluru, Karnataka</strong></span>
+        </div>
+      </div>
+
+      <!-- Hero Actions -->
+      <div class="hero-actions">
+        <button type="button" class="btn-action btn-download" (click)="downloadPdf($event)">
+          <i class="bi bi-file-earmark-arrow-down-fill"></i>
+          <span>Download Policy (PDF)</span>
+        </button>
+
+        <a [href]="pdfUrl" target="_blank" rel="noopener noreferrer" class="btn-action btn-pdf">
+          <i class="bi bi-file-earmark-pdf"></i>
+          <span>View Document</span>
+        </a>
+
+        <a routerLink="/my-bookings" class="btn-action btn-manage">
+          <i class="bi bi-ticket-perforated"></i>
+          <span>Manage My Bookings</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN WRAPPER -->
+  <main class="policy-main">
+    <div class="main-container">
+
+      <!-- DUAL TAB SWITCHER -->
+      <nav class="policy-tabs" aria-label="Policy Navigation">
+        <button
+          type="button"
+          class="tab-btn"
+          [class.active]="activeTab === 'cancellation'"
+          (click)="setTab('cancellation')">
+          <i class="bi bi-cash-coin"></i>
+          <span class="tab-label">Cancellation &amp; Refund Policy</span>
+          <span class="tab-chip">Fair Terms</span>
+        </button>
+
+        <button
+          type="button"
+          class="tab-btn"
+          [class.active]="activeTab === 'terms'"
+          (click)="setTab('terms')">
+          <i class="bi bi-file-earmark-text"></i>
+          <span class="tab-label">Terms &amp; Conditions</span>
+          <span class="tab-chip">Guidelines</span>
+        </button>
+      </nav>
+
+      <!-- ==============================================
+           CANCELLATION & REFUND CONTENT
+           ============================================== -->
+      <div *ngIf="activeTab === 'cancellation'" class="tab-content-area">
+
+        <!-- SECTION: VISUAL REFUND TIERS -->
+        <section class="refund-matrix-card">
+          <div class="section-heading-wrap">
+            <div class="heading-lead">
+              <span class="badge-mini">Standard Policy</span>
+              <h2>Refund Timeline Matrix</h2>
+              <p>Refunds are calculated automatically based on the exact timestamp when your cancellation is submitted relative to departure date.</p>
+            </div>
+            <div class="heading-badge">
+              <i class="bi bi-lightning-charge"></i>
+              <span>Automated Refund System</span>
+            </div>
+          </div>
+
+          <div class="tier-grid">
+            <div
+              *ngFor="let tier of refundTiers; let i = index"
+              class="tier-card"
+              [ngClass]="tier.badgeClass">
+              
+              <div class="tier-card-header">
+                <span class="tier-pill">{{ tier.badgeText }}</span>
+                <span class="tier-percent">{{ tier.refundPercent }}%</span>
+              </div>
+
+              <div class="tier-timeframe">
+                <i class="bi bi-clock-history"></i>
+                <h3>{{ tier.timeframe }}</h3>
+              </div>
+
+              <div class="tier-charge-bar">
+                <div class="charge-fill" [style.width.%]="tier.refundPercent"></div>
+              </div>
+
+              <div class="tier-calc-row">
+                <span class="calc-label">You Receive:</span>
+                <span class="calc-val refund-val">{{ tier.refundPercent }}% Refund</span>
+              </div>
+              <div class="tier-calc-row">
+                <span class="calc-label">Cancellation Fee:</span>
+                <span class="calc-val fee-val">{{ tier.chargePercent }}% Retention</span>
+              </div>
+
+              <p class="tier-description">{{ tier.description }}</p>
+
+              <div class="tier-footer">
+                <i class="bi bi-info-circle"></i>
+                <small>{{ tier.note }}</small>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- FORCE MAJEURE & WEATHER GUARANTEE -->
+          <div class="force-majeure-card">
+            <div class="fm-icon-wrap">
+              <i class="bi bi-cloud-lightning-rain-fill"></i>
+            </div>
+            <div class="fm-content">
+              <div class="fm-tag">Uncompromising Safety Commitment</div>
+              <h3>Organizer Cancellation &amp; Forest Department Alerts</h3>
+              <p>
+                If goWILD Karunadu or the Karnataka Forest Department cancels an expedition due to heavy monsoons, red weather alerts, active wildlife corridors, or landslide warnings, you will receive a <strong>100% Full Refund</strong> or a <strong>100% Reschedule Credit</strong> valid across any trek within 12 months.
+              </p>
+            </div>
+            <div class="fm-action">
+              <span class="fm-badge">
+                <i class="bi bi-check-all"></i> 100% Protected
+              </span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- SECTION: STEP-BY-STEP CANCELLATION PROCESS -->
+        <section class="process-card">
+          <div class="process-header">
+            <span class="badge-mini">Self-Service</span>
+            <h2>How to Cancel or Reschedule Your Trek</h2>
+            <p>You do not need to wait on phone calls or support queues. Manage your reservation in 3 simple steps:</p>
+          </div>
+
+          <div class="process-steps">
+            <div class="step-col">
+              <div class="step-num">01</div>
+              <div class="step-icon"><i class="bi bi-person-circle"></i></div>
+              <h4>Log In to Profile</h4>
+              <p>Visit your account dashboard and click on <strong>"My Bookings"</strong> to locate the upcoming trek batch.</p>
+            </div>
+
+            <div class="step-connector">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+
+            <div class="step-col">
+              <div class="step-num">02</div>
+              <div class="step-icon"><i class="bi bi-calculator"></i></div>
+              <h4>Review Live Refund</h4>
+              <p>Click <strong>"Cancel Booking"</strong>. The system instantly displays the days remaining, eligible refund percentage, and net return amount.</p>
+            </div>
+
+            <div class="step-connector">
+              <i class="bi bi-arrow-right"></i>
+            </div>
+
+            <div class="step-col">
+              <div class="step-num">03</div>
+              <div class="step-icon"><i class="bi bi-wallet2"></i></div>
+              <h4>Select Refund Method</h4>
+              <p>Choose instant refund to your wallet credit or a direct banking gateway reversal processed within 5 to 7 business days.</p>
+            </div>
+          </div>
+
+          <div class="process-action-row">
+            <a routerLink="/my-bookings" class="btn-primary-action">
+              <i class="bi bi-arrow-up-right-circle"></i> Go to My Bookings
+            </a>
+            <span class="process-note">
+              <i class="bi bi-shield-lock"></i> Free slot transfer to a companion is supported up to 48 hours before departure.
+            </span>
+          </div>
+        </section>
+
+        <!-- SECTION: DYNAMIC CLAUSES / CMS BREAKDOWN -->
+        <section class="clauses-card">
+          <div class="clauses-header">
+            <div class="lead">
+              <span class="badge-mini">Official Terms</span>
+              <h2>Detailed Cancellation Terms &amp; Provisions</h2>
+              <p>Read the governing terms regarding participant cancellations, processing schedules, and non-refundable commitments.</p>
+            </div>
+            <div class="actions">
+              <button type="button" class="btn-toggle-all" (click)="loadPolicyContent()">
+                <i class="bi bi-arrow-clockwise"></i> Refresh Terms
+              </button>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div *ngIf="loading" class="policy-loading">
+            <div class="spinner-grow text-success" role="status"></div>
+            <p>Loading live policy clauses from {{ brandTitle }} registry...</p>
+          </div>
+
+          <!-- Clauses Accordion -->
+          <div *ngIf="!loading && parsedSections.length > 0" class="clauses-list">
+            <article
+              *ngFor="let section of parsedSections; let i = index"
+              class="clause-item"
+              [class.open]="section.isOpen">
+              
+              <header class="clause-item-head" (click)="toggleSection(section)">
+                <div class="clause-title-group">
+                  <span class="clause-icon-wrap">
+                    <i [class]="section.icon"></i>
+                  </span>
+                  <div>
+                    <span class="clause-badge">{{ section.badge || ('Clause ' + (i + 1)) }}</span>
+                    <h3 class="clause-title">{{ section.title }}</h3>
+                  </div>
+                </div>
+
+                <button type="button" class="clause-chevron" [attr.aria-expanded]="section.isOpen">
+                  <i class="bi" [ngClass]="section.isOpen ? 'bi-dash-circle-fill' : 'bi-plus-circle'"></i>
+                </button>
+              </header>
+
+              <div *ngIf="section.isOpen" class="clause-body-wrap">
+                <div class="clause-body" [innerHTML]="section.body"></div>
+              </div>
+
+            </article>
+          </div>
+
+        </section>
+
+        <!-- SECTION: COMMON CANCELLATION FAQS -->
+        <section class="policy-faqs-card">
+          <div class="faq-header">
+            <span class="badge-mini">Common Questions</span>
+            <h2>Cancellation &amp; Refund FAQs</h2>
+            <p>Answers to common questions regarding ticket transfers, bad weather, and banking timelines.</p>
+          </div>
+
+          <div class="faqs-grid">
+            <div
+              *ngFor="let faq of faqs; let fi = index"
+              class="faq-card"
+              [class.open]="faq.isOpen">
+              
+              <header class="faq-q-bar" (click)="toggleFaq(faq)">
+                <div class="faq-q-left">
+                  <i [class]="faq.icon + ' faq-icon'"></i>
+                  <h4 class="faq-q-text">{{ faq.question }}</h4>
+                </div>
+                <i class="bi faq-toggle" [ngClass]="faq.isOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+              </header>
+
+              <div *ngIf="faq.isOpen" class="faq-a-box">
+                <p>{{ faq.answer }}</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ==============================================
+           TERMS & CONDITIONS CONTENT
+           ============================================== -->
+      <div *ngIf="activeTab === 'terms'" class="tab-content-area">
+
+        <!-- TERMS OVERVIEW BANNER -->
+        <section class="terms-overview-card">
+          <div class="overview-left">
+            <span class="badge-mini">Participant Code</span>
+            <h2>General Trekking Terms &amp; Conditions</h2>
+            <p>
+              These Terms &amp; Conditions govern the participation of all adventurers embarking on treks, homestays, campouts, and tours with <strong>{{ legalName }}</strong>. By booking a trip with us, you affirm your commitment to eco-sensitive trekking, safety protocols, and mutual respect.
+            </p>
+            <div class="overview-points">
+              <div class="point-item">
+                <i class="bi bi-shield-check"></i>
+                <span>Strict Leave No Trace (LNT) wilderness ethics</span>
+              </div>
+              <div class="point-item">
+                <i class="bi bi-heart-pulse"></i>
+                <span>Mandatory physical fitness &amp; medical self-declaration</span>
+              </div>
+              <div class="point-item">
+                <i class="bi bi-compass"></i>
+                <span>Certified wilderness first-aid lead guides on every batch</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="overview-right">
+            <div class="rule-box">
+              <i class="bi bi-exclamation-triangle"></i>
+              <h4>Zero-Tolerance Safety Notice</h4>
+              <p>Consuming alcohol, narcotics, or engaging in disorderly conduct during treks or campsite hours is strictly prohibited and leads to immediate expulsion with zero refund.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- DYNAMIC TERMS CLAUSES -->
+        <section class="clauses-card">
+          <div class="clauses-header">
+            <div class="lead">
+              <span class="badge-mini">Legal Articles</span>
+              <h2>Governing Terms of Service</h2>
+              <p>Explore individual clauses covering bookings, fitness, itinerary revisions, liability, and intellectual property.</p>
+            </div>
+          </div>
+
+          <!-- Loading State -->
+          <div *ngIf="loading" class="policy-loading">
+            <div class="spinner-grow text-success" role="status"></div>
+            <p>Loading terms clauses from {{ brandTitle }} registry...</p>
+          </div>
+
+          <!-- Clauses Accordion -->
+          <div *ngIf="!loading && parsedSections.length > 0" class="clauses-list">
+            <article
+              *ngFor="let section of parsedSections; let i = index"
+              class="clause-item"
+              [class.open]="section.isOpen">
+              
+              <header class="clause-item-head" (click)="toggleSection(section)">
+                <div class="clause-title-group">
+                  <span class="clause-icon-wrap">
+                    <i [class]="section.icon"></i>
+                  </span>
+                  <div>
+                    <span class="clause-badge">{{ section.badge || ('Article ' + (i + 1)) }}</span>
+                    <h3 class="clause-title">{{ section.title }}</h3>
+                  </div>
+                </div>
+
+                <button type="button" class="clause-chevron" [attr.aria-expanded]="section.isOpen">
+                  <i class="bi" [ngClass]="section.isOpen ? 'bi-dash-circle-fill' : 'bi-plus-circle'"></i>
+                </button>
+              </header>
+
+              <div *ngIf="section.isOpen" class="clause-body-wrap">
+                <div class="clause-body" [innerHTML]="section.body"></div>
+              </div>
+
+            </article>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ==============================================
+           CONCIERGE & SUPPORT CALLOUT (COMMON TO BOTH)
+           ============================================== -->
+      <section class="concierge-support-card">
+        <div class="support-content">
+          <span class="support-badge">
+            <i class="bi bi-headset"></i> Dedicated Concierge Desk
+          </span>
+          <h3>Need Assistance with an Upcoming Trip?</h3>
+          <p>
+            If you need clarification about an upcoming trek, special medical accommodations, or urgent booking modifications, our expedition coordinators are on standby.
+          </p>
+
+          <div class="contact-buttons-row">
+            <a [href]="whatsappLink" target="_blank" rel="noopener noreferrer" class="btn-contact btn-wa">
+              <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <a [href]="telLink" class="btn-contact btn-phone">
+              <i class="bi bi-telephone-fill"></i> Call {{ supportPhone }}
+            </a>
+            <a [href]="'mailto:' + supportEmail" class="btn-contact btn-email">
+              <i class="bi bi-envelope-fill"></i> Email Support
+            </a>
+          </div>
+        </div>
+
+        <div class="legal-badge-box">
+          <div class="box-icon">
+            <i class="bi bi-award"></i>
+          </div>
+          <h4>{{ legalName }}</h4>
+          <p class="gstin-text">GSTIN: <strong>{{ gstin }}</strong></p>
+          <p class="jurisdiction-text">Registered Office: Bengaluru, Karnataka, India</p>
+          <div class="compliant-pill">
+            <i class="bi bi-check-circle-fill"></i> Tourism &amp; Forest Department Compliant
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</div>

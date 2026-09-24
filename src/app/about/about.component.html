@@ -1,0 +1,126 @@
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-year">{{ hero.year || '2011' }}</div>
+    <div class="hero-inner">
+      <div class="hero-label">{{ hero.badge || 'Our Story' }}</div>
+      <h1 class="hero-title" [innerHTML]="hero.title || ('Exploring Karnataka\'s<br /><em>Wilderness</em><br />Since ' + (hero.year || '2011'))"></h1>
+      <p class="hero-sub">{{ hero.subtitle || 'Your trusted partner for adventure and exploration in the Western Ghats' }}</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <div class="story-aside">
+      <div class="section-number">{{ story.sectionNumber || '01' }}</div>
+      <span class="section-tag">{{ story.tag || 'Our Story' }}</span>
+      <h2 class="section-heading" [innerHTML]="story.heading || 'Born from<br />a love of<br /><em>wild places</em>'"></h2>
+    </div>
+    <div class="story-text">
+      <p>
+        {{ story.paragraph1 }}
+      </p>
+      <div class="pull-quote" *ngIf="story.quote">
+        <p>"{{ story.quote }}"</p>
+      </div>
+      <p *ngIf="story.paragraph2">
+        {{ story.paragraph2 }}
+      </p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item" *ngFor="let stat of stats">
+        <span class="stat-number">{{ stat.number }}</span>
+        <span class="stat-label">{{ stat.label }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="values-header">
+      <div class="section-number" style="margin-bottom:0">02</div>
+      <div>
+        <span class="section-tag" style="margin-bottom:6px">What drives us</span>
+        <h2 class="section-heading">Our <em>Values</em></h2>
+      </div>
+    </div>
+    <div class="values-grid">
+      <div class="value-card" *ngFor="let value of values">
+        <span class="value-icon" aria-hidden="true">
+          <ion-icon [name]="value.icon"></ion-icon>
+        </span>
+        <div class="value-title">{{ value.title }}</div>
+        <p class="value-desc">{{ value.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-mark"></div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- TEAM -->
+  <section class="team-section" *ngIf="team?.length">
+    <div class="team-header-wrap">
+      <div class="values-header">
+        <div class="section-number" style="margin-bottom:0">03</div>
+        <div>
+          <span class="section-tag" style="margin-bottom:6px">The people behind the trails</span>
+          <h2 class="section-heading">Meet Our <em>Team</em></h2>
+        </div>
+      </div>
+    </div>
+    <div class="team-grid">
+      <div class="team-card" *ngFor="let member of team">
+        <div class="team-img">
+          <img loading="lazy" decoding="async" [src]="member.image" [alt]="member.name" />
+          <span class="team-role-tag">{{ member.role }}</span>
+        </div>
+        <div class="team-body">
+          <h3 class="team-name">{{ member.name }}</h3>
+          <p class="team-bio">{{ member.bio }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section class="safety-section" *ngIf="safetyItems?.length">
+    <div class="safety-inner">
+      <div class="safety-aside">
+        <div class="section-number">04</div>
+        <span class="section-tag">Non-negotiable</span>
+        <h2 class="section-heading">Our <em>Safety</em><br />Standards</h2>
+        <p class="safety-desc">
+          Every measure below is a baseline, not an aspiration. We review and upgrade our protocols every season.
+        </p>
+      </div>
+      <ul class="safety-list">
+        <li class="safety-item" *ngFor="let item of safetyItems; let i = index">
+          <span class="safety-num">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <div class="safety-text">
+            <strong>{{ item.title }}</strong>
+            {{ item.description }}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <div class="footer-cta-inner">
+      <h2>Ready to find your trail?</h2>
+      <p>Browse our upcoming treks and join thousands of adventurers who've trusted goWILDKarunadu.</p>
+      <a routerLink="/upcomingtours" class="cta-btn">Explore Upcoming Treks →</a>
+    </div>
+  </section>
+
+</div>

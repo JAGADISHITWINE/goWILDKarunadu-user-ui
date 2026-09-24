@@ -1,0 +1,668 @@
+// ============================================================================
+// FOOTER COMPONENT SCSS - VIBRANT COMBINATIONAL COLORS & ORIGINAL SOCIALS
+// ============================================================================
+
+.footer-wrapper {
+  background: radial-gradient(circle at 15% 10%, rgba(14, 165, 233, 0.07) 0%, transparent 40%),
+              radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.07) 0%, transparent 40%),
+              radial-gradient(circle at 50% 100%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+              linear-gradient(180deg, #13241b 0%, #0e1d15 50%, #08120c 100%);
+  color: #94a3b8;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  .text-emerald {
+    color: #34d399 !important;
+  }
+
+  .text-amber {
+    color: #f59e0b !important;
+  }
+}
+
+// ── Multi-color Accent Beam ──────────────────────────────────────────────────
+.footer-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b 0%, #10b981 35%, #0ea5e9 70%, #f59e0b 100%);
+  opacity: 0.95;
+}
+
+.container-custom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+// ── Main Section ─────────────────────────────────────────────────────────────
+.footer-main {
+  padding: 64px 0 44px;
+
+  @media (max-width: 768px) {
+    padding: 48px 0 32px;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.95fr 1.15fr 1.3fr;
+  gap: 36px;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1.2fr 0.9fr 1.1fr;
+    .support-col {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+
+    .brand-col {
+      grid-column: 1 / -1;
+    }
+    .support-col {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+
+    .brand-col, .links-col, .trust-col, .support-col {
+      grid-column: auto;
+    }
+  }
+}
+
+// ── Col 1: Brand Column ──────────────────────────────────────────────────────
+.brand-col {
+  .footer-brand-header {
+    margin-bottom: 18px;
+
+    .brand-logo-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+
+      .brand-logo-img {
+        max-width: 50px;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+      }
+
+      .brand-text-block {
+        display: flex;
+        flex-direction: column;
+
+        .brand-name-row {
+          font-family: 'Cinzel', 'Outfit', Georgia, serif;
+          font-size: 1.35rem;
+          font-weight: 800;
+          letter-spacing: -0.01em;
+          line-height: 1.1;
+
+          .brand-go {
+            color: #34d399;
+          }
+
+          .brand-wild {
+            color: #f59e0b;
+            margin-left: 2px;
+          }
+        }
+
+        .brand-tagline {
+          font-size: 0.71875rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          color: #a7f3d0;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  .brand-mission-desc {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    margin-bottom: 24px;
+    max-width: 380px;
+  }
+
+  // ── Social Media Icons with ORIGINAL OFFICIAL BRAND COLORS ──
+  .footer-social-wrap {
+    .social-eyebrow {
+      display: block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .social-icon-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+      .soc-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.125rem;
+        color: #ffffff !important;
+        text-decoration: none;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        border: none;
+        cursor: pointer;
+
+        // Facebook: Official Blue
+        &.soc-fb {
+          background: #1877F2;
+          box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+
+          &:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(24, 119, 242, 0.6);
+          }
+        }
+
+        // Instagram: Official Multi-tone Gradient
+        &.soc-ig {
+          background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+          box-shadow: 0 4px 12px rgba(214, 36, 159, 0.4);
+
+          &:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(214, 36, 159, 0.6);
+          }
+        }
+
+        // YouTube: Official Red
+        &.soc-yt {
+          background: #FF0000;
+          box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
+
+          &:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.6);
+          }
+        }
+
+        // WhatsApp: Official Green
+        &.soc-wa {
+          background: #25D366;
+          box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+
+          &:hover {
+            transform: translateY(-3px) scale(1.08);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
+          }
+        }
+      }
+    }
+  }
+}
+
+// ── Column Headings ──────────────────────────────────────────────────────────
+.col-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin-bottom: 22px;
+  position: relative;
+  padding-bottom: 10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  &.heading-amber::after {
+    background: #f59e0b;
+  }
+
+  &.heading-cyan::after {
+    background: #0ea5e9;
+  }
+}
+
+// ── Col 2: Navigation Links ──────────────────────────────────────────────────
+.links-col {
+  .col-links-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    li {
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #cbd5e1;
+        font-size: 0.875rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        .link-bullet {
+          font-size: 0.65625rem;
+          color: #64748b;
+          transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        &:hover {
+          color: #f59e0b;
+          transform: translateX(4px);
+
+          .link-bullet {
+            color: #f59e0b;
+          }
+        }
+
+        &.active {
+          color: #34d399;
+          font-weight: 600;
+
+          .link-bullet {
+            color: #34d399;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ── Col 3: Trust Cards (COMBINATIONAL VIBRANT ACCENTS) ─────────────────────────
+.trust-col {
+  .trust-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .trust-mini-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 12px;
+      transition: all 0.25s ease;
+
+      .trust-icon-box {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+      }
+
+      .trust-text {
+        display: flex;
+        flex-direction: column;
+
+        strong {
+          font-size: 0.8125rem;
+          font-weight: 600;
+          line-height: 1.25;
+        }
+
+        span {
+          font-size: 0.6875rem;
+          color: #94a3b8;
+          line-height: 1.35;
+          margin-top: 1px;
+        }
+      }
+
+      &:hover {
+        transform: translateX(3px);
+
+        .trust-icon-box {
+          transform: scale(1.1);
+        }
+      }
+
+      // 1. Safety Card: Sky Blue Accent
+      &.card-safety {
+        background: rgba(14, 165, 233, 0.06);
+        border: 1px solid rgba(14, 165, 233, 0.2);
+        border-left: 3px solid #0ea5e9;
+
+        .trust-icon-box {
+          background: rgba(14, 165, 233, 0.18);
+          color: #38bdf8;
+        }
+
+        strong {
+          color: #e0f2fe;
+        }
+
+        &:hover {
+          background: rgba(14, 165, 233, 0.12);
+          box-shadow: 0 4px 14px rgba(14, 165, 233, 0.15);
+        }
+      }
+
+      // 2. Permits Card: Forest Emerald Accent
+      &.card-permits {
+        background: rgba(16, 185, 129, 0.06);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        border-left: 3px solid #10b981;
+
+        .trust-icon-box {
+          background: rgba(16, 185, 129, 0.18);
+          color: #34d399;
+        }
+
+        strong {
+          color: #ecfdf5;
+        }
+
+        &:hover {
+          background: rgba(16, 185, 129, 0.12);
+          box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
+        }
+      }
+
+      // 3. Eco Conservation Card: Golden Amber Accent
+      &.card-eco {
+        background: rgba(245, 158, 11, 0.06);
+        border: 1px solid rgba(245, 158, 11, 0.2);
+        border-left: 3px solid #f59e0b;
+
+        .trust-icon-box {
+          background: rgba(245, 158, 11, 0.18);
+          color: #fbbf24;
+        }
+
+        strong {
+          color: #fffbeb;
+        }
+
+        &:hover {
+          background: rgba(245, 158, 11, 0.12);
+          box-shadow: 0 4px 14px rgba(245, 158, 11, 0.15);
+        }
+      }
+
+      // 4. Rating Card: Sunset Coral Accent
+      &.card-rating {
+        background: rgba(244, 63, 94, 0.06);
+        border: 1px solid rgba(244, 63, 94, 0.2);
+        border-left: 3px solid #f43f5e;
+
+        .trust-icon-box {
+          background: rgba(244, 63, 94, 0.18);
+          color: #fb7185;
+        }
+
+        strong {
+          color: #fff1f2;
+        }
+
+        &:hover {
+          background: rgba(244, 63, 94, 0.12);
+          box-shadow: 0 4px 14px rgba(244, 63, 94, 0.15);
+        }
+      }
+    }
+  }
+}
+
+// ── Col 4: 24/7 Concierge Support (HIGH-CONTRAST DISTINCT ACTIONS) ────────────
+.support-col {
+  .concierge-box {
+    background: linear-gradient(145deg, rgba(26, 48, 37, 0.85) 0%, rgba(14, 27, 20, 0.95) 100%);
+    border: 1px solid rgba(245, 158, 11, 0.25);
+    border-radius: 20px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+
+    .concierge-header {
+      margin-bottom: 18px;
+
+      .live-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(34, 197, 94, 0.14);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #4ade80;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        padding: 3px 9px;
+        border-radius: 9999px;
+        margin-bottom: 10px;
+
+        .live-dot {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #4ade80;
+          box-shadow: 0 0 6px #4ade80;
+          animation: pulseGreen 1.8s infinite;
+        }
+      }
+
+      .concierge-title {
+        font-family: 'Cinzel', serif;
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 6px;
+      }
+
+      .concierge-sub {
+        font-size: 0.8125rem;
+        line-height: 1.55;
+        color: #cbd5e1;
+        margin: 0;
+      }
+    }
+
+    .concierge-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+
+      .concierge-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        font-size: 0.84375rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border: none;
+
+        i {
+          font-size: 1rem;
+        }
+
+        // WhatsApp: Vibrant Official Green
+        &.btn-chat-wa {
+          background: #25D366;
+          color: #ffffff;
+          box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+
+          &:hover {
+            background: #20bd5a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+          }
+        }
+
+        // Phone: Royal Sapphire Blue
+        &.btn-call-phone {
+          background: #2563eb;
+          color: #ffffff;
+          box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+
+          &:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45);
+          }
+        }
+
+        // Email: Warm Amber Teal
+        &.btn-mail {
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          color: #e2e8f0;
+          font-size: 0.78125rem;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.14);
+            color: #f59e0b;
+            border-color: #f59e0b;
+            transform: translateY(-1px);
+          }
+        }
+      }
+    }
+
+    .concierge-timings {
+      font-size: 0.71875rem;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+  }
+}
+
+// ── Bottom Bar ───────────────────────────────────────────────────────────────
+.footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 22px 0;
+
+  .bottom-bar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .copy-left {
+    .copy-text {
+      margin: 0;
+      font-size: 0.8125rem;
+      color: #94a3b8;
+
+      .brand-copy-highlight {
+        color: #f59e0b;
+      }
+
+      .sub-credit {
+        display: block;
+        font-size: 0.71875rem;
+        color: #64748b;
+        margin-top: 2px;
+
+        @media (max-width: 768px) {
+          display: inline;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+
+  .copy-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+    }
+
+    .legal-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+
+      a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.15s ease;
+
+        &:hover {
+          color: #f59e0b;
+        }
+      }
+
+      .dot-sep {
+        color: #475569;
+      }
+    }
+  }
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}

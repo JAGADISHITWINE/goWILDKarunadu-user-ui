@@ -1,0 +1,765 @@
+<div class="bookings-wrapper">
+
+  <!-- TOP HEADER -->
+  <header class="top-nav-bar">
+    <div class="nav-container">
+      <button class="nav-back-btn" (click)="goBack()">
+        <span class="back-arrow">←</span> Back
+      </button>
+      <div class="nav-brand">
+        <span class="brand-sub">Expedition Dashboard</span>
+        <h1 class="brand-title">My Trek Bookings</h1>
+      </div>
+      <div class="nav-actions">
+        <a routerLink="/upcomingtours" class="btn-browse-new">
+          <span>+</span> Explore Treks
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO EXPEDITION BANNER -->
+  <section class="hero-expedition-banner" *ngIf="!isLoading">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="expedition-badge">
+          <span class="pulse-dot"></span> Official Trail Clearance &amp; Bookings
+        </div>
+        <h2 class="hero-heading">Welcome back, <span>Trail Explorer</span></h2>
+        <p class="hero-subtext">
+          Access your digital basecamp trek passes, summit certificates, carpool rides, and settlement receipts.
+        </p>
+
+        <!-- STATS ROW -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="metric-icon upcoming-icon"><i class="bi bi-calendar2-check"></i></div>
+            <div class="metric-data">
+              <span class="metric-val">{{ upcomingTrips }}</span>
+              <span class="metric-lbl">Upcoming Treks</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon completed-icon"><i class="bi bi-trophy"></i></div>
+            <div class="metric-data">
+              <span class="metric-val">{{ completedTrips }}</span>
+              <span class="metric-lbl">Summits Conquered</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon total-icon"><i class="bi bi-compass"></i></div>
+            <div class="metric-data">
+              <span class="metric-val">{{ totalBookings }}</span>
+              <span class="metric-lbl">Total Expeditions</span>
+            </div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-icon spent-icon">₹</div>
+            <div class="metric-data">
+              <span class="metric-val">₹{{ totalSpent | number:'1.0-0' }}</span>
+              <span class="metric-lbl">Total Invested</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="dashboard-main-container">
+
+    <!-- TAB SELECTOR -->
+    <div class="tab-nav-container" *ngIf="!isLoading">
+      <div class="segmented-pill-nav">
+        <button 
+          class="pill-tab" 
+          [class.active]="activeTab === 'upcoming'" 
+          (click)="switchTab('upcoming')">
+          <span class="tab-emoji"><i class="bi bi-calendar-event me-1"></i></span> Upcoming
+          <span class="tab-badge" *ngIf="upcomingBookings.length">{{ upcomingBookings.length }}</span>
+        </button>
+        <button 
+          class="pill-tab" 
+          [class.active]="activeTab === 'past'" 
+          (click)="switchTab('past')">
+          <span class="tab-emoji"><i class="bi bi-check2-circle me-1"></i></span> Past Completed
+          <span class="tab-badge" *ngIf="pastBookings.length">{{ pastBookings.length }}</span>
+        </button>
+        <button 
+          class="pill-tab" 
+          [class.active]="activeTab === 'cancelled'" 
+          (click)="switchTab('cancelled')">
+          <span class="tab-emoji"><i class="bi bi-x-circle me-1"></i></span> Cancelled
+          <span class="tab-badge" *ngIf="cancelledBookings.length">{{ cancelledBookings.length }}</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div class="state-card error-card" *ngIf="errorMessage && !isLoading">
+      <div class="state-icon"><i class="bi bi-exclamation-triangle-fill text-warning"></i></div>
+      <h3>Unable to load bookings</h3>
+      <p>{{ errorMessage }}</p>
+      <button class="btn-retry" (click)="loadBookings()">Try Again</button>
+    </div>
+
+    <!-- LOADING SHIMMER SKELETON -->
+    <div class="skeleton-container" *ngIf="isLoading">
+      <div class="skel-card" *ngFor="let _ of [1,2,3]">
+        <div class="skel-thumb shimmer"></div>
+        <div class="skel-body">
+          <div class="skel-line shimmer w-40"></div>
+          <div class="skel-line shimmer w-70"></div>
+          <div class="skel-line shimmer w-90"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOKINGS LISTING -->
+    <div class="expeditions-stream" *ngIf="!isLoading && !errorMessage">
+
+      <!-- SECTION HEADER -->
+      <div class="stream-header" *ngIf="currentBookings.length > 0">
+        <div class="stream-title-group">
+          <h3 class="stream-title">{{ sectionTitle }}</h3>
+          <span class="stream-count">{{ currentBookings.length }} active record{{ currentBookings.length > 1 ? 's' : '' }}</span>
+        </div>
+      </div>
+
+      <!-- CARDS -->
+      <article class="expedition-ticket-card" *ngFor="let booking of currentBookings">
+
+        <!-- CARD MEDIA / TOP BANNER -->
+        <div class="ticket-visual">
+          <img 
+            loading="lazy" 
+            decoding="async" 
+            [src]="resolveImageUrl(booking.cover_image)" 
+            [alt]="booking.trek_name"
+            (error)="$event.target.src = fallbackImage" />
+          
+          <div class="visual-gradient-scrim"></div>
+
+          <!-- TOP CHIPS -->
+          <div class="visual-top-chips">
+            <span class="ref-tag">
+              <span class="hash-sym">#</span>{{ booking.booking_reference }}
+            </span>
+            <span class="countdown-tag" *ngIf="activeTab === 'upcoming' && booking.booking_status !== 'cancelled'">
+              <i class="bi bi-clock me-1"></i>{{ getDaysUntilTrek(booking.start_date) }} Days Left
+            </span>
+          </div>
+
+          <!-- BOTTOM STATUS STRIP -->
+          <div class="visual-bottom-status">
+            <span class="status-chip" [ngClass]="getStatusClass(booking.booking_status)">
+              <i class="bi bi-circle-fill me-1" style="font-size: 0.55rem; vertical-align: middle;"></i>{{ booking.booking_status | titlecase }}
+            </span>
+            <span class="status-chip" [ngClass]="getPaymentStatusClass(booking.payment_status)">
+              <span *ngIf="booking.payment_status === 'partial'"><i class="bi bi-hourglass-split me-1"></i>30% Deposit</span>
+              <span *ngIf="booking.payment_status !== 'partial'">{{ booking.payment_status | titlecase }}</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- CARD BODY -->
+        <div class="ticket-details">
+          
+          <!-- TREK TITLE & LOCATION -->
+          <div class="trek-headline">
+            <div class="headline-main">
+              <h3 class="trek-title">{{ booking.trek_name }}</h3>
+              <div class="trek-location">
+                <span class="pin-icon"><i class="bi bi-geo-alt-fill text-success"></i></span> {{ booking.location }}
+              </div>
+            </div>
+
+            <!-- PAYMENT SUMMARY CHIP -->
+            <div class="price-summary-badge">
+              <span class="total-label">Total Amount</span>
+              <strong class="total-value">₹{{ booking.total_amount | number:'1.0-0' }}</strong>
+            </div>
+          </div>
+
+          <!-- ITINERARY & PERMIT ROSTER METADATA -->
+          <div class="itinerary-grid">
+            <div class="itinerary-cell">
+              <span class="cell-label">Expedition Dates</span>
+              <strong class="cell-val">
+                <i class="bi bi-calendar3 me-1"></i>{{ formatDate(booking.start_date) }} – {{ formatDate(booking.end_date) }}
+              </strong>
+            </div>
+            <div class="itinerary-cell">
+              <span class="cell-label">Permitted Group</span>
+              <strong class="cell-val">
+                <i class="bi bi-people-fill me-1"></i>{{ booking.participants }} Person{{ (booking.participants || 0) > 1 ? 's' : '' }}
+              </strong>
+            </div>
+            <div class="itinerary-cell" *ngIf="booking.payment_status === 'partial' || booking.balance_due > 0">
+              <span class="cell-label">Deposit Paid / Due</span>
+              <strong class="cell-val balance-due-text">
+                Paid ₹{{ booking.amount_paid | number:'1.0-0' }} · Due ₹{{ getBalanceDue(booking) | number:'1.0-0' }}
+              </strong>
+            </div>
+            <div class="itinerary-cell" *ngIf="booking.payment_status === 'paid'">
+              <span class="cell-label">Clearance Status</span>
+              <strong class="cell-val text-success">
+                <i class="bi bi-check-circle-fill text-success me-1"></i>100% Paid · Forest Permit Cleared
+              </strong>
+            </div>
+          </div>
+
+          <!-- ADDONS -->
+          <div class="addons-bar" *ngIf="booking.addons?.length">
+            <span class="addon-tag" *ngFor="let addon of booking.addons">
+              <i class="bi bi-plus-circle-fill text-success me-1"></i>{{ addon.addon_name }} × {{ addon.quantity }}
+            </span>
+          </div>
+
+          <!-- USER REVIEW / ADMIN REPLY -->
+          <div class="review-bubble" *ngIf="booking.user_review">
+            <div class="review-stars">
+              <span *ngFor="let star of [1,2,3,4,5]" [class.star-lit]="star <= (booking.user_rating || 0)"><i class="bi bi-star-fill"></i></span>
+              <span class="review-date" *ngIf="booking.rated_at">{{ booking.rated_at | date:'mediumDate' }}</span>
+            </div>
+            <p class="review-text">“{{ booking.user_review }}”</p>
+            <div class="admin-response" *ngIf="booking.admin_reply">
+              <div class="admin-resp-badge"><i class="bi bi-shield-check me-1"></i>Lead Trek Master Reply:</div>
+              <p>{{ booking.admin_reply }}</p>
+            </div>
+          </div>
+
+          <!-- CANCELLATION BAR -->
+          <div class="cancellation-policy-bar" *ngIf="activeTab === 'upcoming' && canCancel(booking)">
+            <span class="info-icon"><i class="bi bi-info-circle-fill text-primary"></i></span>
+            <span><strong>Policy:</strong> {{ getCancellationFeeMessage(booking) }}</span>
+          </div>
+
+          <!-- ACTION BUTTONS TOOLBAR -->
+          <div class="ticket-action-toolbar">
+            
+            <!-- DIGITAL PASS (UPCOMING ONLY) -->
+            <button 
+              type="button" 
+              class="act-btn btn-digital-pass" 
+              *ngIf="activeTab === 'upcoming' && booking.booking_status !== 'cancelled'" 
+              (click)="openTrekPass(booking)">
+              <span class="btn-icon"><i class="bi bi-ticket-perforated"></i></span>
+              <span class="btn-text">Digital Trek Pass</span>
+            </button>
+
+            <!-- SETTLE 70% REMAINDER (IF BALANCE DUE) -->
+            <button 
+              type="button" 
+              class="act-btn btn-settle-balance" 
+              *ngIf="hasPendingBalance(booking) && activeTab === 'upcoming'" 
+              (click)="openRemainderModal(booking)">
+              <span class="btn-icon"><i class="bi bi-credit-card"></i></span>
+              <span class="btn-text">Pay Balance (₹{{ getBalanceDue(booking) | number:'1.0-0' }})</span>
+            </button>
+
+            <!-- SUMMIT CERTIFICATE (PAST / COMPLETED) -->
+            <button 
+              type="button" 
+              class="act-btn btn-summit-cert" 
+              *ngIf="activeTab === 'past' || booking.booking_status === 'completed'" 
+              (click)="openSummitCertificate(booking)">
+              <span class="btn-icon"><i class="bi bi-award"></i></span>
+              <span class="btn-text">Summit Certificate</span>
+            </button>
+
+            <!-- RATE TREK (PAST / COMPLETED) -->
+            <button 
+              type="button" 
+              class="act-btn btn-rating" 
+              *ngIf="activeTab === 'past' && canRateBooking(booking)" 
+              (click)="openRatingModal(booking)">
+              <span class="btn-icon"><i class="bi bi-star"></i></span>
+              <span class="btn-text">{{ hasUserRated(booking) ? 'Update Rating' : 'Rate Experience' }}</span>
+            </button>
+
+            <!-- CANCEL TRIP -->
+            <button 
+              type="button" 
+              class="act-btn btn-cancel-trip" 
+              *ngIf="activeTab === 'upcoming' && canCancel(booking)" 
+              (click)="openCancelModal(booking)">
+              <span class="btn-icon"><i class="bi bi-x-circle"></i></span>
+              <span class="btn-text">Cancel</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-expedition-state" *ngIf="currentBookings.length === 0">
+        <div class="empty-compass-glyph"><i class="bi bi-compass"></i></div>
+        <h3 class="empty-title">No {{ activeTab }} adventures found</h3>
+        <p class="empty-subtitle" *ngIf="activeTab === 'upcoming'">
+          Ready to climb the Western Ghats? Choose your next trail and secure your permit slots.
+        </p>
+        <p class="empty-subtitle" *ngIf="activeTab === 'past'">
+          Your conquered trails and summit completion certificates will be preserved here.
+        </p>
+        <p class="empty-subtitle" *ngIf="activeTab === 'cancelled'">
+          You have no cancelled expeditions.
+        </p>
+        <div class="empty-cta-wrap">
+          <a routerLink="/upcomingtours" class="btn-explore-treks">
+            Explore Upcoming Treks →
+          </a>
+          <a routerLink="/faqs" class="btn-faq-link">
+            Trek FAQs &amp; Help
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ──────────────── RATING MODAL ──────────────── -->
+  <div class="rating-backdrop" *ngIf="ratingModalOpen" (click)="closeRatingModal()"></div>
+  <div class="rating-modal" *ngIf="ratingModalOpen" role="dialog" aria-modal="true">
+    <div class="rating-card" (click)="$event.stopPropagation()">
+      <h3>Rate Your Trek</h3>
+      <p class="rating-subtitle">{{ selectedBookingForRating?.trek_name }}</p>
+
+      <div class="stars-row">
+        <button
+          type="button"
+          class="star-btn"
+          *ngFor="let star of [1,2,3,4,5]"
+          [class.active]="star <= selectedRating"
+          (click)="setRating(star)"
+        >
+          <i class="bi bi-star-fill"></i>
+        </button>
+      </div>
+
+      <textarea
+        class="review-input"
+        rows="4"
+        maxlength="500"
+        placeholder="Share your experience (optional)"
+        [(ngModel)]="selectedReview"
+      ></textarea>
+
+      <p class="rating-error" *ngIf="ratingErrorMessage">{{ ratingErrorMessage }}</p>
+
+      <div class="rating-actions">
+        <button type="button" class="action-btn" (click)="closeRatingModal()">Cancel</button>
+        <button type="button" class="action-btn primary" (click)="submitRating()">Submit Rating</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────── DIGITAL BASECAMP TREK PASS MODAL ──────────────── -->
+  <div class="rating-backdrop" *ngIf="showPassModal" (click)="closeTrekPass()"></div>
+  <div class="trek-pass-modal" *ngIf="showPassModal" role="dialog" aria-modal="true">
+    <div class="trek-pass-card" (click)="$event.stopPropagation()">
+      <div class="pass-header">
+        <div class="pass-brand">
+          <span class="pass-org">KARNATAKA ECO-TOURISM DEVELOPMENT BOARD</span>
+          <h2>EXPEDITION TREK PASS</h2>
+          <span class="pass-ref">Pass ID: {{ selectedPassBooking?.booking_reference }}</span>
+        </div>
+        <button type="button" class="close-pass-btn" (click)="closeTrekPass()"><i class="bi bi-x-lg"></i></button>
+      </div>
+
+      <div class="pass-body">
+        <div class="pass-qr-section">
+          <div class="qr-box">
+            <img [src]="getQrCodeUrl(selectedPassBooking)" alt="QR Pass" class="qr-img" />
+            <div class="qr-hint">Scan at Basecamp Checkpoint</div>
+          </div>
+          <div class="pass-clearance">
+            <span class="clearance-pill" [class.verified]="selectedPassBooking?.payment_status === 'paid'">
+              <i class="bi bi-check-circle-fill me-1" *ngIf="selectedPassBooking?.payment_status === 'paid'"></i>
+              <i class="bi bi-hourglass-split me-1" *ngIf="selectedPassBooking?.payment_status !== 'paid'"></i>
+              {{ selectedPassBooking?.payment_status === 'paid' ? 'Permit Cleared' : 'Payment Pending' }}
+            </span>
+            <div class="security-code">AUTH-HASH: GWK-{{ selectedPassBooking?.id?.slice(0,8) | uppercase }}</div>
+          </div>
+        </div>
+
+        <div class="pass-info-grid">
+          <div class="pass-field">
+            <span class="p-label">Trek Destination</span>
+            <strong class="p-val">{{ selectedPassBooking?.trek_name }}</strong>
+          </div>
+          <div class="pass-field">
+            <span class="p-label">Expedition Dates</span>
+            <strong class="p-val">{{ formatDate(selectedPassBooking?.start_date) }} – {{ formatDate(selectedPassBooking?.end_date) }}</strong>
+          </div>
+          <div class="pass-field">
+            <span class="p-label">Lead Booker</span>
+            <strong class="p-val">{{ selectedPassBooking?.customer_name || 'Primary Trekker' }}</strong>
+          </div>
+          <div class="pass-field">
+            <span class="p-label">Total Permitted Trekkers</span>
+            <strong class="p-val highlight-qty">{{ selectedPassBooking?.participants }} Person{{ (selectedPassBooking?.participants || 0) > 1 ? 's' : '' }}</strong>
+          </div>
+          <div class="pass-field">
+            <span class="p-label">Basecamp Reporting Point</span>
+            <strong class="p-val"><i class="bi bi-geo-alt-fill text-success me-1"></i>{{ selectedPassBooking?.location }}</strong>
+          </div>
+          <div class="pass-field">
+            <span class="p-label">Reporting Time</span>
+            <strong class="p-val">05:30 AM IST (Ascent Day)</strong>
+          </div>
+        </div>
+
+        <!-- PARTICIPANT ROSTER -->
+        <div class="pass-roster" *ngIf="selectedPassBooking?.participants_details?.length">
+          <h4>Authorized Expedition Roster</h4>
+          <div class="roster-table-wrap">
+            <table class="roster-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Age / Sex</th>
+                  <th>Blood Group</th>
+                  <th>Govt ID</th>
+                  <th>Health Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let p of selectedPassBooking?.participants_details; let idx = index">
+                  <td>{{ idx + 1 }}</td>
+                  <td><strong>{{ p.name }}</strong></td>
+                  <td>{{ p.age || '--' }} / {{ p.gender || '--' }}</td>
+                  <td><span class="blood-pill">{{ p.blood_group || 'O+' }}</span></td>
+                  <td>{{ p.id_type || 'Aadhaar' }}: {{ p.id_number || 'Verified' }}</td>
+                  <td>
+                    <span class="med-pill" [class.warn]="p.medical_condition && p.medical_condition !== 'None / Fit to Trek'">
+                      {{ p.medical_condition || 'Fit to Trek' }}
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="pass-guidelines">
+          <div class="guide-item"><i class="bi bi-shield-check"></i> Physical govt ID verification mandatory at entry gate.</div>
+          <div class="guide-item"><i class="bi bi-droplet"></i> Single-use plastic bottles prohibited inside sanctuary zones.</div>
+        </div>
+      </div>
+
+      <div class="pass-footer">
+        <button type="button" class="btn-print-pass" (click)="printTrekPass()">
+          <i class="bi bi-printer me-1"></i> Print / Download Pass
+        </button>
+        <button type="button" class="btn-close-pass" (click)="closeTrekPass()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────── GST TAX INVOICE MODAL ──────────────── -->
+  <div class="modal-backdrop-custom" *ngIf="showInvoiceModal" (click)="closeTaxInvoice()">
+    <div class="pass-modal-card" (click)="$event.stopPropagation()">
+      <div class="pass-header">
+        <div class="pass-logo-wrap">
+          <span class="pass-brand-icon"><i class="bi bi-receipt"></i></span>
+          <div>
+            <div class="pass-brand-name">Tax Invoice / Receipt</div>
+            <div class="pass-sub">{{ selectedInvoiceData?.company?.legalName }}</div>
+          </div>
+        </div>
+        <span class="pass-badge" style="background:#1a8f5a">GST Compliant</span>
+      </div>
+
+      <div class="pass-body" *ngIf="selectedInvoiceData">
+        <div class="invoice-detail-grid">
+          <div class="invoice-detail-col">
+            <div class="invoice-detail-heading">Invoice Details</div>
+            <div><strong>Invoice No:</strong> {{ selectedInvoiceData.invoiceNumber }}</div>
+            <div><strong>Date:</strong> {{ selectedInvoiceData.invoiceDate | date:'mediumDate' }}</div>
+            <div><strong>GSTIN:</strong> {{ selectedInvoiceData.company.gstin }}</div>
+            <div><strong>KEDB License:</strong> {{ selectedInvoiceData.company.kedbLicense }}</div>
+          </div>
+          <div class="invoice-detail-col">
+            <div class="invoice-detail-heading">Billed To</div>
+            <div><strong>{{ selectedInvoiceData.customer.name }}</strong></div>
+            <div>{{ selectedInvoiceData.customer.email }}</div>
+            <div>{{ selectedInvoiceData.customer.phone }}</div>
+          </div>
+        </div>
+
+        <div class="invoice-table-wrap">
+          <table class="invoice-line-table">
+            <thead>
+              <tr>
+                <th>Service Description</th>
+                <th>SAC</th>
+                <th class="num">Amount (INR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of selectedInvoiceData.lineItems">
+                <td>{{ item.description }}</td>
+                <td>{{ item.sac }}</td>
+                <td class="num">₹{{ item.amount | number:'1.2-2' }}</td>
+              </tr>
+              <tr class="subtotal-row">
+                <td colspan="2">Subtotal</td>
+                <td class="num">₹{{ selectedInvoiceData.financials.subtotal | number:'1.2-2' }}</td>
+              </tr>
+              <tr class="tax-row">
+                <td colspan="2">CGST (2.5%) + SGST (2.5%)</td>
+                <td class="num">₹{{ selectedInvoiceData.financials.totalTax | number:'1.2-2' }}</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="2">Total Invoice Value</td>
+                <td class="num">₹{{ selectedInvoiceData.financials.totalAmount | number:'1.2-2' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="pass-footer">
+        <button type="button" class="btn-print-pass" (click)="printInvoice()">
+          <i class="bi bi-printer me-1"></i> Print / Download PDF
+        </button>
+        <button type="button" class="btn-close-pass" (click)="closeTaxInvoice()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────── DIGITAL SUMMIT CERTIFICATE MODAL ──────────────── -->
+  <div class="modal-backdrop-custom" *ngIf="showCertModal" (click)="closeSummitCertificate()">
+    <div class="pass-modal-card cert-modal-card" (click)="$event.stopPropagation()">
+      <div class="cert-header">
+        <div class="cert-icons"><i class="bi bi-compass"></i> <i class="bi bi-award"></i> <i class="bi bi-shield-check"></i></div>
+        <div class="cert-title">Summit Completion Certificate</div>
+        <div class="cert-subtitle">Karnataka Eco-Tourism &amp; Wilderness Explorer Council</div>
+      </div>
+
+      <div class="cert-body" *ngIf="selectedCertData">
+        <p class="cert-presented-to">This is proudly presented to</p>
+        <h2 class="cert-recipient-name">{{ selectedCertData.recipientName }}</h2>
+        <p class="cert-description">
+          for successfully conquering the high-altitude wilderness trail of<br />
+          <span class="cert-trek-name">{{ selectedCertData.trekName }}</span><br />
+          at an elevation of <strong>{{ selectedCertData.elevation }}</strong>
+        </p>
+
+        <div class="cert-meta-row">
+          <div>
+            <div class="cert-meta-label">Certificate ID</div>
+            <div class="cert-meta-value">{{ selectedCertData.certificateId }}</div>
+          </div>
+          <div>
+            <div class="cert-meta-label">Expedition Leader</div>
+            <div class="cert-meta-value">{{ selectedCertData.leadTrekMaster }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pass-footer">
+        <button type="button" class="btn-print-pass btn-share-cert" (click)="shareCertificate(selectedCertData)">
+          <i class="bi bi-share me-1"></i> Share to Social Media
+        </button>
+        <button type="button" class="btn-print-pass" (click)="printSummitCertificate()">
+          <i class="bi bi-printer me-1"></i> Print Certificate
+        </button>
+        <button type="button" class="btn-close-pass" (click)="closeSummitCertificate()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────── SETTLE REMAINDER 70% MODAL ──────────────── -->
+  <div class="modal-backdrop-custom" *ngIf="showRemainderModal" (click)="closeRemainderModal()">
+    <div class="pass-modal-card" (click)="$event.stopPropagation()" style="max-width:460px">
+      <div class="pass-header remainder-header">
+        <div class="pass-logo-wrap">
+          <span class="pass-brand-icon"><i class="bi bi-credit-card"></i></span>
+          <div>
+            <div class="pass-brand-name">Settle Remainder 70%</div>
+            <div class="pass-sub">Ref: {{ selectedRemainderBooking?.booking_reference }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pass-body">
+        <div class="remainder-summary">
+          <div class="remainder-row">
+            <span>Trek Expedition:</span>
+            <strong>{{ selectedRemainderBooking?.trek_name }}</strong>
+          </div>
+          <div class="remainder-row">
+            <span>Total Trek Cost:</span>
+            <span>₹{{ selectedRemainderBooking?.total_amount | number:'1.0-0' }}</span>
+          </div>
+          <div class="remainder-row remainder-row-paid">
+            <span>Advance 30% Paid:</span>
+            <span>−₹{{ selectedRemainderBooking?.amount_paid | number:'1.0-0' }}</span>
+          </div>
+          <div class="remainder-row-total">
+            <span>Pending Balance:</span>
+            <span>₹{{ getBalanceDue(selectedRemainderBooking) | number:'1.0-0' }}</span>
+          </div>
+        </div>
+
+        <div class="remainder-success" *ngIf="remainderPaymentSuccess">
+          <i class="bi bi-check-circle-fill text-success me-1"></i> Remainder payment settled! Your trek is now 100% confirmed.
+        </div>
+      </div>
+
+      <div class="pass-footer" *ngIf="!remainderPaymentSuccess">
+        <button type="button" class="btn-print-pass btn-pay-remainder" [disabled]="isSettlingRemainder" (click)="settleRemainderPayment()">
+          <i class="bi bi-credit-card me-1"></i> {{ isSettlingRemainder ? 'Processing...' : 'Pay ₹' + (getBalanceDue(selectedRemainderBooking) | number:'1.0-0') + ' via UPI/Card' }}
+        </button>
+        <button type="button" class="btn-close-pass" (click)="closeRemainderModal()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ──────────────── BASECAMP CARPOOL HUB MODAL ──────────────── -->
+  <div class="modal-backdrop-custom" *ngIf="showCarpoolModal" (click)="closeCarpoolHub()">
+    <div class="pass-modal-card" (click)="$event.stopPropagation()" style="max-width:580px">
+      <div class="pass-header carpool-header">
+        <div class="pass-logo-wrap">
+          <span class="pass-brand-icon"><i class="bi bi-car-front"></i></span>
+          <div>
+            <div class="pass-brand-name">Basecamp Carpool &amp; Solo Trekker Hub</div>
+            <div class="pass-sub">Connect with fellow trekkers from Bengaluru/Mysuru &amp; share rides</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pass-body">
+        <!-- Filter Tabs -->
+        <div class="carpool-filter-bar">
+          <button 
+            type="button" 
+            class="filter-pill" 
+            [class.active]="carpoolFilterType === 'all'" 
+            (click)="toggleCarpoolFilter('all')">
+            <i class="bi bi-globe2 me-1"></i> All Upcoming Rides ({{ carpoolList.length }})
+          </button>
+          <button 
+            type="button" 
+            class="filter-pill" 
+            *ngIf="selectedCarpoolTrekName"
+            [class.active]="carpoolFilterType === 'trek'" 
+            (click)="toggleCarpoolFilter('trek')">
+            <i class="bi bi-geo-alt-fill text-success me-1"></i> {{ selectedCarpoolTrekName }}
+          </button>
+        </div>
+
+        <div class="carpool-section-title">Available Rides to Basecamp</div>
+
+        <div class="carpool-loading" *ngIf="isLoadingCarpools">
+          Loading carpool offers…
+        </div>
+
+        <div class="carpool-empty" *ngIf="!isLoadingCarpools && carpoolList.length === 0">
+          No rides posted for this specific trail yet. Be the first to offer a seat below!
+        </div>
+
+        <div class="carpool-list" *ngIf="!isLoadingCarpools">
+          <div class="carpool-ride-card" *ngFor="let ride of carpoolList">
+            <div class="ride-details">
+              <div class="carpool-ride-title">{{ ride.departure_city }} → {{ ride.trek_name }}</div>
+              <div class="carpool-ride-meta">
+                <span><i class="bi bi-geo-alt-fill text-success me-1"></i>Pickup: <strong>{{ ride.departure_location }}</strong></span>
+                <span> · <i class="bi bi-car-front me-1"></i>{{ ride.vehicle_model || 'Car' }}</span>
+              </div>
+              <div class="carpool-ride-owner">
+                Driver: <strong>{{ ride.user_name }}</strong> · <span class="seat-badge">{{ ride.available_seats }} seat{{ ride.available_seats > 1 ? 's' : '' }} left</span> · <strong class="price-text">₹{{ ride.price_per_seat }}/seat</strong>
+              </div>
+              <div class="carpool-notes" *ngIf="ride.notes">
+                <i class="bi bi-chat-quote me-1"></i> "{{ ride.notes }}"
+              </div>
+            </div>
+            <a [href]="getWhatsAppCarpoolLink(ride)" target="_blank" rel="noopener noreferrer" class="carpool-whatsapp-btn">
+              <i class="bi bi-whatsapp me-1"></i> WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Post Ride Form -->
+        <div class="carpool-post-form">
+          <div class="carpool-form-heading"><i class="bi bi-car-front me-1"></i> Driving to the Trail? Offer Empty Seats:</div>
+          <div class="carpool-form-grid">
+            <div class="carpool-form-field">
+              <label>Trek Destination</label>
+              <input [(ngModel)]="newRideOffer.trek_name" placeholder="e.g. Brahmagiri Monsoon Trek" />
+            </div>
+            <div class="carpool-form-field">
+              <label>Your Name</label>
+              <input [(ngModel)]="newRideOffer.user_name" placeholder="Driver / Booker Name" />
+            </div>
+            <div class="carpool-form-field">
+              <label>WhatsApp Phone</label>
+              <input [(ngModel)]="newRideOffer.user_phone" placeholder="+91 98860 12345" />
+            </div>
+            <div class="carpool-form-field">
+              <label>Departure City</label>
+              <input [(ngModel)]="newRideOffer.departure_city" placeholder="Bengaluru" />
+            </div>
+            <div class="carpool-form-field" style="grid-column: 1 / -1;">
+              <label>Pickup Point (Choose or Type)</label>
+              <input [(ngModel)]="newRideOffer.departure_location" placeholder="e.g. Silk Board & Marathahalli" />
+              <div class="quick-locations">
+                <span class="quick-loc-pill" (click)="setPickupLocation('Silk Board & Marathahalli')"><i class="bi bi-geo-alt-fill text-success me-1"></i>Silk Board</span>
+                <span class="quick-loc-pill" (click)="setPickupLocation('Yeshwanthpur Metro')"><i class="bi bi-geo-alt-fill text-success me-1"></i>Yeshwanthpur</span>
+                <span class="quick-loc-pill" (click)="setPickupLocation('Hebbal Flyover')"><i class="bi bi-geo-alt-fill text-success me-1"></i>Hebbal</span>
+                <span class="quick-loc-pill" (click)="setPickupLocation('Electronic City Toll')"><i class="bi bi-geo-alt-fill text-success me-1"></i>Electronic City</span>
+                <span class="quick-loc-pill" (click)="setPickupLocation('Mysuru Ring Road')"><i class="bi bi-geo-alt-fill text-success me-1"></i>Mysuru</span>
+              </div>
+            </div>
+            <div class="carpool-form-field">
+              <label>Vehicle Model</label>
+              <input [(ngModel)]="newRideOffer.vehicle_model" placeholder="e.g. Creta / Nexon / Swift" />
+            </div>
+            <div class="carpool-form-field">
+              <label>Seats Available</label>
+              <input type="number" min="1" max="7" [(ngModel)]="newRideOffer.available_seats" />
+            </div>
+            <div class="carpool-form-field">
+              <label>Fuel Share (₹/Seat)</label>
+              <input type="number" min="0" [(ngModel)]="newRideOffer.price_per_seat" />
+            </div>
+            <div class="carpool-form-field">
+              <label>Departure Time / Notes</label>
+              <input [(ngModel)]="newRideOffer.notes" placeholder="e.g. Leaving Friday 10 PM. 2 backpack slots." />
+            </div>
+          </div>
+          <div class="carpool-success-banner" *ngIf="carpoolPublishSuccess">
+            <i class="bi bi-check-circle-fill text-success me-1"></i> Your carpool offer is live! Trekkers heading to this trail can now reach out to you directly on WhatsApp.
+          </div>
+          <div class="carpool-error-banner" *ngIf="carpoolErrorMessage">
+            <i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> {{ carpoolErrorMessage }}
+          </div>
+          <button type="button" class="carpool-publish-btn" [disabled]="isPublishingRide" (click)="publishCarpoolRide()">
+            {{ isPublishingRide ? 'Publishing…' : '+ Publish Carpool Offer' }}
+          </button>
+        </div>
+      </div>
+
+      <div class="pass-footer">
+        <button type="button" class="btn-close-pass" (click)="closeCarpoolHub()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

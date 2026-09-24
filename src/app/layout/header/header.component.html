@@ -1,0 +1,245 @@
+<!-- ── Top Contact Bar ─────────────────────────────────────────────── -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="top-bar-cta">
+      <ng-container *ngFor="let contact of contactItems; let isLast = last">
+
+        <a *ngIf="contact.href; else textContact" class="cta-item" [href]="contact.href">
+          <i [class]="contact.icon"></i>
+          <span>{{ contact.value }}</span>
+        </a>
+
+        <ng-template #textContact>
+          <span class="cta-item">
+            <i [class]="contact.icon"></i>
+            <span>{{ contact.value }}</span>
+          </span>
+        </ng-template>
+
+        <span class="cta-divider" *ngIf="!isLast"></span>
+
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<header class="app-header" [class.scrolled]="isScrolled">
+
+  <div class="header-content">
+
+    <!-- Logo -->
+    <div class="header-left">
+
+      <img
+        class="logo"
+        src="../../../assets/assets/logo.png"
+        alt="Logo"
+        routerLink="/"
+      />
+
+      <a class="gw-logo logo-dark" routerLink="/">
+        <div class="gw-words">
+          <div class="gw-top">
+            <span class="gw-go" *ngIf="brandPrefix">{{ brandPrefix }}</span>
+            <span class="gw-wild">{{ brandSuffix }}</span>
+          </div>
+          <span class="gw-sub" *ngIf="brandSubtitle">{{ brandSubtitle }}</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+
+      <a
+        class="nav-link"
+        *ngFor="let link of navLinks"
+        [routerLink]="link.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: !!link.exact }"
+      >
+        <i [class]="link.icon"></i>
+        {{ link.label }}
+      </a>
+
+    </nav>
+
+    <!-- Right Section -->
+    <div class="header-right">
+
+      <!-- LOGIN BUTTON (shown when NOT logged in on desktop + mobile) -->
+      <button
+        class="login-btn"
+        *ngIf="!isLoggedIn"
+        (click)="openLoginPanel()"
+      >
+        <i class="bi bi-person-fill"></i>
+        <span>Login</span>
+      </button>
+
+
+      <!-- USER DROPDOWN (Desktop only when logged in) -->
+      <div class="user-menu desktop-only" *ngIf="isLoggedIn">
+
+        <button
+          class="user-avatar-btn"
+          [class.show]="isUserDropdownOpen"
+          (click)="toggleUserDropdown()"
+        >
+
+          <div class="user-avatar" *ngIf="!profilePicture">
+            {{ getUserInitials() }}
+          </div>
+
+          <img
+            *ngIf="profilePicture"
+            [src]="profilePicture"
+            class="user-avatar-img"
+          />
+
+          <span class="user-name">{{ userName }}</span>
+          <i class="bi bi-chevron-down"></i>
+
+        </button>
+
+        <div
+          class="user-dropdown"
+          [class.show]="isUserDropdownOpen"
+          (clickOutside)="closeUserDropdown()"
+        >
+
+          <a class="dropdown-item" (click)="navigateTo('/my-bookings')">
+            <i class="bi bi-calendar-check"></i> My Bookings
+          </a>
+
+          <a class="dropdown-item text-danger" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE MENU BUTTON (ONLY when logged in) -->
+      <button
+        class="mobile-menu-btn mobile-only"
+        *ngIf="isLoggedIn"
+        (click)="isMobileMenuOpen = true"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Mobile Overlay -->
+  <div
+    class="mobile-overlay"
+    [class.show]="isMobileMenuOpen"
+    (click)="closeMobileMenu()"
+  ></div>
+
+
+  <!-- Mobile Drawer -->
+  <nav class="mobile-nav" [class.show]="isMobileMenuOpen">
+
+    <div class="mobile-nav-content">
+
+      <button class="mobile-close-btn" (click)="closeMobileMenu()">
+        <i class="bi bi-x-lg"></i>
+      </button>
+
+      <!-- Navigation Links -->
+      <div class="mobile-nav-links">
+
+        <a
+          class="mobile-nav-link"
+          *ngFor="let link of navLinks"
+          [routerLink]="link.route"
+          routerLinkActive="active"
+          (click)="closeMobileMenu()"
+        >
+          <i [class]="link.icon"></i>
+          {{ link.label }}
+        </a>
+
+      </div>
+
+
+      <!-- User Info -->
+      <div class="mobile-user-section" *ngIf="isLoggedIn">
+
+        <div class="mobile-user-avatar" *ngIf="!profilePicture">
+          {{ getUserInitials() }}
+        </div>
+
+        <img
+          *ngIf="profilePicture"
+          [src]="profilePicture"
+          class="mobile-user-avatar-img"
+        />
+
+        <div class="mobile-user-info">
+          <div class="mobile-user-name">{{ userName }}</div>
+          <div class="mobile-user-email">{{ userEmail }}</div>
+        </div>
+
+      </div>
+
+
+      <!-- Mobile User Actions -->
+      <div class="mobile-user-actions" *ngIf="isLoggedIn">
+
+        <a
+          class="mobile-nav-link"
+          (click)="navigateTo('/my-bookings'); closeMobileMenu()"
+        >
+          <i class="bi bi-calendar-check"></i>
+          My Bookings
+        </a>
+
+        <a
+          class="mobile-nav-link text-danger"
+          (click)="logout(); closeMobileMenu()"
+        >
+          <i class="bi bi-box-arrow-right"></i>
+          Logout
+        </a>
+
+      </div>
+
+
+      <!-- Mobile Contact -->
+      <div class="mobile-contact-strip">
+
+        <ng-container *ngFor="let contact of contactItems">
+
+          <a
+            *ngIf="contact.href; else mobileText"
+            class="mob-cta"
+            [href]="contact.href"
+          >
+            <i [class]="contact.icon"></i>
+            <span>{{ contact.value }}</span>
+          </a>
+
+          <ng-template #mobileText>
+            <span class="mob-cta">
+              <i [class]="contact.icon"></i>
+              <span>{{ contact.value }}</span>
+            </span>
+          </ng-template>
+
+        </ng-container>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>

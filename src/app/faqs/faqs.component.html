@@ -1,0 +1,317 @@
+<div class="faq-page" *ngIf="settings$ | async as settings">
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HERO & SEARCH SECTION
+  ════════════════════════════════════════════════════════════ -->
+  <header class="faq-hero">
+    <div class="faq-hero-container">
+      <div class="faq-badge">
+        <i class="bi bi-patch-question-fill text-emerald"></i>
+        <span>Official Knowledge Base &amp; Guide Desk</span>
+      </div>
+      <h1 class="faq-hero-title">{{ title }}</h1>
+      <p class="faq-hero-subtitle">
+        Everything you need to know about trekking in Karnataka, permits, trail safety, packing, and payment policies.
+      </p>
+
+      <!-- Live Search Box -->
+      <div class="faq-search-wrapper">
+        <div class="faq-search-box">
+          <i class="bi bi-search search-icon"></i>
+          <input
+            type="text"
+            [(ngModel)]="searchQuery"
+            placeholder="Search questions (e.g. permits, shoes, cancellation, tents)..."
+            aria-label="Search frequently asked questions"
+          />
+          <button
+            *ngIf="searchQuery"
+            type="button"
+            class="clear-search-btn"
+            (click)="searchQuery = ''"
+            title="Clear search"
+          >
+            <i class="bi bi-x-circle-fill"></i>
+          </button>
+        </div>
+
+        <div class="faq-search-hints" *ngIf="!searchQuery">
+          <span class="hint-label">Popular Topics:</span>
+          <button type="button" class="hint-tag" (click)="searchQuery = 'permit'">Permits</button>
+          <button type="button" class="hint-tag" (click)="searchQuery = 'cancel'">Cancellation</button>
+          <button type="button" class="hint-tag" (click)="searchQuery = 'shoes'">Trekking Shoes</button>
+          <button type="button" class="hint-tag" (click)="searchQuery = 'water'">Water &amp; Food</button>
+          <button type="button" class="hint-tag" (click)="searchQuery = 'beginner'">Beginners</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       MAIN FAQ CONTENT AREA
+  ════════════════════════════════════════════════════════════ -->
+  <main class="faq-main-content">
+    <div class="faq-container">
+
+      <!-- Category Navigation Rail -->
+      <div class="faq-category-nav" *ngIf="!loading && hasStructuredFaqs">
+        <button
+          type="button"
+          *ngFor="let cat of categories"
+          class="cat-chip"
+          [class.active]="selectedCategory === cat.value"
+          (click)="setCategory(cat.value)"
+        >
+          <i class="bi" [ngClass]="cat.icon"></i>
+          <span>{{ cat.label }}</span>
+        </button>
+      </div>
+
+      <!-- Controls & Count Bar -->
+      <div class="faq-controls-bar" *ngIf="!loading && hasStructuredFaqs">
+        <div class="results-info">
+          Showing <strong>{{ filteredFaqs.length }}</strong> of {{ faqs.length }} questions
+          <span *ngIf="selectedCategory !== 'all'" class="filter-indicator">
+            in <em>{{ selectedCategory }}</em>
+          </span>
+          <span *ngIf="searchQuery" class="filter-indicator">
+            matching "<em>{{ searchQuery }}</em>"
+          </span>
+        </div>
+        <div class="action-toggles">
+          <button type="button" class="toggle-btn" (click)="expandAll()">
+            <i class="bi bi-arrows-expand me-1"></i> Expand All
+          </button>
+          <button type="button" class="toggle-btn" (click)="collapseAll()">
+            <i class="bi bi-arrows-collapse me-1"></i> Collapse All
+          </button>
+        </div>
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="loading" class="faq-loading-state">
+        <div class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Loading trail knowledge base...</p>
+      </div>
+
+      <!-- Professional Error State (No Alert Banner) -->
+      <div *ngIf="!loading && error" class="faq-error-card">
+        <div class="error-icon-box">
+          <i class="bi bi-wifi-off"></i>
+        </div>
+        <div class="error-text">
+          <h3>Connection Notice</h3>
+          <p>{{ error }}</p>
+        </div>
+        <button type="button" class="btn-retry" (click)="retryLoad()">
+          <i class="bi bi-arrow-clockwise me-1"></i> Try Again
+        </button>
+      </div>
+
+      <!-- Empty Search State -->
+      <div *ngIf="!loading && !error && hasStructuredFaqs && filteredFaqs.length === 0" class="faq-empty-state">
+        <div class="empty-icon-wrap">
+          <i class="bi bi-search"></i>
+        </div>
+        <h3>No matching answers found</h3>
+        <p>We couldn't find any questions matching your query. Try a different keyword or reset filters.</p>
+        <button type="button" class="btn-reset-search" (click)="clearSearch()">
+          <i class="bi bi-arrow-counterclockwise me-1"></i> Show All Questions
+        </button>
+      </div>
+
+      <!-- Structured Accordion FAQ List -->
+      <div class="faq-accordion-list" *ngIf="!loading && !error && hasStructuredFaqs">
+        <article
+          *ngFor="let faq of filteredFaqs; let i = index"
+          class="faq-card"
+          [class.is-expanded]="faq.expanded"
+        >
+          <button
+            type="button"
+            class="faq-question-btn"
+            (click)="toggleFaq(faq)"
+            [attr.aria-expanded]="faq.expanded"
+          >
+            <div class="q-left">
+              <span class="q-num">Q{{ i + 1 }}</span>
+              <div class="q-text-wrap">
+                <span class="q-category-tag">{{ faq.category }}</span>
+                <h3 class="q-title">{{ faq.question }}</h3>
+              </div>
+            </div>
+            <div class="q-chevron" [class.rotated]="faq.expanded">
+              <i class="bi bi-chevron-down"></i>
+            </div>
+          </button>
+
+          <div class="faq-answer-panel" *ngIf="faq.expanded">
+            <div class="answer-content" [innerHTML]="faq.answer"></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Unstructured Fallback Content -->
+      <div *ngIf="!loading && !error && !hasStructuredFaqs && content" class="faq-unstructured-wrap">
+        <div class="article-body" [innerHTML]="content"></div>
+      </div>
+
+      <!-- ═══════════════════════════════════════════════════════════
+           CONCIERGE HELP & DIRECT SUPPORT CARD (NO ALERT)
+      ════════════════════════════════════════════════════════════ -->
+      <section class="faq-support-section">
+        <div class="support-card">
+          <div class="support-content">
+            <div class="support-badge">
+              <i class="bi bi-headset"></i> 24/7 Trekker Assistance
+            </div>
+            <h2>Still have questions or need custom arrangements?</h2>
+            <p>
+              Our mountain leaders and expedition coordinators are on standby to help with permit slots, physical prep, and group reservations.
+            </p>
+            <div class="support-actions">
+              <a
+                *ngIf="settings.whatsappLink"
+                [href]="settings.whatsappLink"
+                target="_blank"
+                rel="noopener"
+                class="btn-support btn-wa"
+              >
+                <i class="bi bi-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+              </a>
+
+              <a
+                *ngIf="settings.telLink"
+                [href]="settings.telLink"
+                class="btn-support btn-phone"
+              >
+                <i class="bi bi-telephone-fill"></i>
+                <span>Call {{ settings.supportPhone || 'Support' }}</span>
+              </a>
+
+              <button
+                type="button"
+                class="btn-support btn-inquire"
+                (click)="openContactModal()"
+              >
+                <i class="bi bi-envelope-paper-fill"></i>
+                <span>Send Inquiry</span>
+              </button>
+            </div>
+          </div>
+          <div class="support-graphic">
+            <div class="support-avatar-group">
+              <div class="mini-avatar"><i class="bi bi-person-fill"></i></div>
+              <div class="mini-avatar"><i class="bi bi-shield-check"></i></div>
+              <div class="mini-avatar"><i class="bi bi-compass"></i></div>
+            </div>
+            <div class="support-stat-note">
+              <strong>Verified Guides</strong>
+              <span>Always zero spam, 100% genuine guidance</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       INLINE INQUIRY MODAL (CLEAN IN-UI FLOW, NO ALERT())
+  ════════════════════════════════════════════════════════════ -->
+  <div class="inquiry-modal-backdrop" *ngIf="showContactModal" (click)="closeContactModal()">
+    <div class="inquiry-modal-card" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <div class="modal-icon"><i class="bi bi-chat-left-dots-fill"></i></div>
+          <div>
+            <h3>Ask our Expedition Team</h3>
+            <p>We typically respond within 15 minutes during trekking hours.</p>
+          </div>
+        </div>
+        <button type="button" class="btn-close-modal" (click)="closeContactModal()" aria-label="Close">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" *ngIf="!contactSubmitted">
+        <form (ngSubmit)="submitContactInquiry()">
+          <div class="form-group mb-3">
+            <label class="form-label">Your Name</label>
+            <input
+              type="text"
+              class="form-input"
+              [(ngModel)]="contactForm.name"
+              name="name"
+              placeholder="e.g. Jagadish Kumar"
+            />
+          </div>
+
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <label class="form-label">Phone (WhatsApp)</label>
+              <input
+                type="tel"
+                class="form-input"
+                [(ngModel)]="contactForm.phone"
+                name="phone"
+                placeholder="10-digit number"
+              />
+            </div>
+            <div class="col-6">
+              <label class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-input"
+                [(ngModel)]="contactForm.email"
+                name="email"
+                placeholder="you@domain.com"
+              />
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label class="form-label">What is your question? *</label>
+            <textarea
+              class="form-input"
+              rows="4"
+              [(ngModel)]="contactForm.question"
+              name="question"
+              placeholder="Ask about Kudremukha permits, difficulty, dates, customized groups, or payment questions..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" class="btn-cancel" (click)="closeContactModal()">Cancel</button>
+            <button
+              type="submit"
+              class="btn-submit"
+              [disabled]="contactSubmitting || !contactForm.question.trim()"
+            >
+              <span *ngIf="contactSubmitting" class="spinner-border spinner-border-sm me-1" role="status"></span>
+              <i *ngIf="!contactSubmitting" class="bi bi-send-fill me-1"></i>
+              {{ contactSubmitting ? 'Transmitting...' : 'Submit Inquiry' }}
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Professional Success State (Replaces any crude alert) -->
+      <div class="modal-body success-state" *ngIf="contactSubmitted">
+        <div class="success-icon-box">
+          <i class="bi bi-check-circle-fill"></i>
+        </div>
+        <h3>Inquiry Received!</h3>
+        <p>Thank you for reaching out. Our expedition coordinators have received your query and will reply via WhatsApp/Email shortly.</p>
+        <button type="button" class="btn-submit w-100 mt-3" (click)="closeContactModal()">
+          Back to FAQs
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

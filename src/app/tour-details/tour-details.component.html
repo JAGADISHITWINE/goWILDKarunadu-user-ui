@@ -1,0 +1,882 @@
+<nav class="td-topbar" aria-label="Back navigation">
+  <div class="td-topbar-inner">
+    <button
+      class="td-back-btn"
+      type="button"
+      (click)="goBack()"
+      aria-label="Go back"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        aria-hidden="true"
+      >
+        <path
+          d="M19 12H5M12 5l-7 7 7 7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <span>Back</span>
+    </button>
+    <span class="td-topbar-title">Trek Details</span>
+    <span class="td-topbar-spacer"></span>
+  </div>
+</nav>
+
+<div *ngIf="tour && !isLoading" class="td-page">
+  <!-- HERO -->
+  <section class="td-hero">
+    <!-- Background Image & Vignette -->
+    <div class="td-hero-media">
+      <img
+        class="td-hero-img"
+        [src]="getImageUrl(tour.image, tour.cacheKey)"
+        [alt]="tour.name"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        (error)="$event.target.src = 'assets/placeholder-trek.jpg'"
+        (click)="openGallery(0)"
+        title="Click to view full photo gallery"
+      />
+      <div class="td-hero-overlay" (click)="openGallery(0)"></div>
+    </div>
+
+    <!-- Top Navigation & Action Pills -->
+    <div class="td-hero-top">
+      <nav class="td-breadcrumb-pill" aria-label="Breadcrumb">
+        <button type="button" class="td-crumb-btn" (click)="goBack()" title="Back to Treks">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="td-crumb-home">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span>Home</span>
+        </button>
+        <span class="td-crumb-sep">›</span>
+        <span class="td-crumb-item">Treks</span>
+        <span class="td-crumb-sep">›</span>
+        <span class="td-crumb-item">{{ tour.location }}</span>
+        <span class="td-crumb-sep">›</span>
+        <strong class="td-crumb-active">{{ tour.name }}</strong>
+      </nav>
+
+      <div class="td-hero-actions">
+        <button
+          type="button"
+          class="td-action-pill td-photos-action"
+          (click)="openGallery(0)"
+          aria-label="View full gallery"
+          title="View Photos"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="4" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <path d="M21 15l-5-5L5 21" />
+          </svg>
+          <span>Photos ({{ galleryTotal }})</span>
+        </button>
+
+        <button
+          type="button"
+          class="td-action-pill"
+          [class.active]="isWishlisted"
+          (click)="toggleWishlist()"
+          aria-label="Save trek"
+          [title]="isWishlisted ? 'Saved in wishlist' : 'Save to wishlist'"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            [attr.fill]="isWishlisted ? '#ef4444' : 'none'"
+            [attr.stroke]="isWishlisted ? '#ef4444' : 'currentColor'"
+            stroke-width="2"
+          >
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
+          </svg>
+          <span>{{ isWishlisted ? 'Saved' : 'Save' }}</span>
+        </button>
+
+        <button
+          type="button"
+          class="td-action-pill"
+          (click)="shareTrek()"
+          aria-label="Share trek"
+          title="Share trek"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="18" cy="5" r="2.5" />
+            <circle cx="6" cy="12" r="2.5" />
+            <circle cx="18" cy="19" r="2.5" />
+            <path d="M8.2 10.8l7.6-4.5M8.2 13.2l7.6 4.5" stroke-linecap="round" />
+          </svg>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <span class="td-share-message" *ngIf="shareMessage">{{ shareMessage }}</span>
+    </div>
+
+    <!-- Main Hero Bottom Body -->
+    <div class="td-hero-body">
+      <!-- Left Column: Identity, Badges, Title, Meta -->
+      <div class="td-hero-main">
+        <div class="td-hero-badges">
+          <span
+            class="td-badge td-badge-diff"
+            [class]="'diff-' + tour.difficulty.toLowerCase()"
+          >
+            <span class="td-badge-dot"></span>
+            {{ tour.difficulty }}
+          </span>
+          <span class="td-badge td-badge-category">
+            {{ tour.category }}
+          </span>
+          <span class="td-badge td-badge-certified">
+            <i class="bi bi-shield-check me-1"></i> Eco Certified Trail
+          </span>
+        </div>
+
+        <h1 class="td-hero-title">{{ tour.name }}</h1>
+
+        <div class="td-hero-meta">
+          <div class="td-meta-chip">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ tour.location }}</span>
+          </div>
+
+          <div class="td-meta-chip td-meta-rating" *ngIf="tour.rating > 0">
+            <span class="td-star"><i class="bi bi-star-fill text-warning"></i></span>
+            <span class="td-rating-num">{{ tour.rating | number: '1.1-1' }}</span>
+            <small *ngIf="tour.reviewCount > 0">({{ tour.reviewCount }} reviews)</small>
+          </div>
+
+          <div class="td-meta-chip" *ngIf="tour.views > 0">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+              <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ tour.views }} views</span>
+          </div>
+
+          <div class="td-meta-chip">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ tour.duration }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Slots Status & Gallery Strip -->
+      <div class="td-hero-aside">
+        <!-- Live Slots Badge / Card -->
+        <div
+          class="td-slots-card"
+          [class.sold]="tour.availableSlots <= 0"
+          [class.critical]="tour.availableSlots > 0 && tour.availableSlots <= 3"
+          [class.warning]="tour.availableSlots > 3 && tour.availableSlots <= 10"
+        >
+          <div class="td-slots-pulse">
+            <span class="td-pulse-ring"></span>
+            <span class="td-pulse-dot"></span>
+          </div>
+          <div class="td-slots-details">
+            <div class="td-slots-head" *ngIf="tour.availableSlots <= 0">All Slots Booked</div>
+            <div class="td-slots-head" *ngIf="tour.availableSlots > 0 && tour.availableSlots <= 3"><i class="bi bi-fire text-danger me-1"></i> Only {{ tour.availableSlots }} seats left!</div>
+            <div class="td-slots-head" *ngIf="tour.availableSlots > 3 && tour.availableSlots <= 10"><i class="bi bi-lightning-charge-fill text-warning me-1"></i> Selling Fast · {{ tour.availableSlots }} slots left</div>
+            <div class="td-slots-head" *ngIf="tour.availableSlots > 10"><i class="bi bi-check-circle-fill text-success me-1"></i> {{ tour.availableSlots }} slots open</div>
+            <div class="td-slots-sub">Instant Digital Pass Included</div>
+          </div>
+        </div>
+
+        <!-- Gallery Thumbnails Strip -->
+        <div class="td-hero-gallery" *ngIf="tour.gallery?.length">
+          <button class="td-gallery-thumb" type="button" (click)="openGallery(0)" title="Main cover">
+            <img [src]="getImageUrl(tour.image, tour.cacheKey)" [alt]="tour.name" loading="lazy" />
+          </button>
+          <button
+            class="td-gallery-thumb"
+            type="button"
+            *ngFor="let photo of tour.gallery | slice: 0 : 3; let i = index"
+            (click)="openGallery(i + 1)"
+            [title]="tour.name + ' photo ' + (i + 1)"
+          >
+            <img [src]="getImageUrl(photo, tour.cacheKey)" [alt]="tour.name + ' photo ' + (i + 1)" loading="lazy" />
+          </button>
+          <button
+            class="td-gallery-more"
+            type="button"
+            (click)="openGallery(0)"
+            *ngIf="tour.gallery.length > 3"
+            title="View all photos"
+          >
+            <span class="td-more-num">+{{ tour.gallery.length - 3 }}</span>
+            <small>Photos</small>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section class="td-facts-strip" aria-label="Trek quick facts">
+    <div class="td-facts-inner">
+      <div class="td-fact">
+        <span class="td-fact-icon"><i class="bi bi-clock"></i></span>
+        <div>
+          <span class="td-fact-label">Duration</span
+          ><strong>{{ tour.duration }}</strong>
+        </div>
+      </div>
+      <div class="td-fact-div"></div>
+      <div class="td-fact">
+        <span class="td-fact-icon"><i class="bi bi-activity"></i></span>
+        <div>
+          <span class="td-fact-label">Difficulty</span
+          ><strong>{{ tour.difficulty }}</strong>
+        </div>
+      </div>
+      <div class="td-fact-div"></div>
+      <div class="td-fact">
+        <span class="td-fact-icon"><i class="bi bi-heart-pulse"></i></span>
+        <div>
+          <span class="td-fact-label">Fitness Level</span
+          ><strong>{{ tour.fitnessLevel }}</strong>
+        </div>
+      </div>
+      <div class="td-fact-div"></div>
+      <div class="td-fact">
+        <span class="td-fact-icon"><i class="bi bi-people"></i></span>
+        <div>
+          <span class="td-fact-label">Age Range</span
+          ><strong>{{ tour.minAge }}–{{ tour.maxAge }} yrs</strong>
+        </div>
+      </div>
+      <div class="td-fact-div"></div>
+      <div class="td-fact td-fact-best-time">
+        <span class="td-fact-icon"><i class="bi bi-calendar-event"></i></span>
+        <div>
+          <span class="td-fact-label">Best Time</span><strong>Oct – Feb</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE TRAIL CONDITION & WEATHER ADVISORY BANNER -->
+  <section class="td-advisory-strip" *ngIf="activeAdvisory">
+    <div class="advisory-pill">
+      <span class="pulse-dot"></span>
+      <span class="advisory-tag">Western Ghats Trail Advisory</span>
+    </div>
+    <div class="advisory-info">
+      <strong>{{ activeAdvisory.title }}</strong>
+      <p>{{ activeAdvisory.message }}</p>
+    </div>
+    <div class="advisory-meta" *ngIf="activeAdvisory.created_at">
+      <small>Live Broadcast • {{ activeAdvisory.created_at | date:'mediumDate' }}</small>
+    </div>
+  </section>
+
+  <!-- MAIN DESKTOP LAYOUT -->
+  <main class="td-main-layout">
+    <section class="td-main-column">
+      <nav class="td-tab-bar" role="tablist" aria-label="Trek information tabs">
+        <button
+          class="td-tab"
+          role="tab"
+          [class.active]="selectedSegment === 'overview'"
+          (click)="selectedSegment = 'overview'"
+        >
+          Overview
+        </button>
+        <button
+          class="td-tab"
+          role="tab"
+          [class.active]="selectedSegment === 'itinerary'"
+          (click)="selectedSegment = 'itinerary'"
+        >
+          Itinerary
+        </button>
+        <button
+          class="td-tab"
+          role="tab"
+          [class.active]="selectedSegment === 'inclusions'"
+          (click)="selectedSegment = 'inclusions'"
+        >
+          Inclusions
+        </button>
+        <button
+          class="td-tab"
+          role="tab"
+          [class.active]="selectedSegment === 'trail_map'"
+          (click)="selectedSegment = 'trail_map'"
+        >
+          <i class="bi bi-graph-up me-1"></i> Trail Elevation &amp; GPX
+        </button>
+        <button
+          class="td-tab"
+          role="tab"
+          [class.active]="selectedSegment === 'info'"
+          (click)="selectedSegment = 'info'"
+        >
+          Info
+        </button>
+      </nav>
+
+      <!-- OVERVIEW -->
+      <div *ngIf="selectedSegment === 'overview'" class="td-tab-panel">
+        <article class="td-card td-overview-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-info-circle"></i></span> About This Trek
+          </h2>
+          <p class="td-body-text">{{ tour.overview }}</p>
+
+          <div class="td-card-divider"></div>
+
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-stars"></i></span> Highlights
+          </h2>
+          <ul class="td-highlights-list">
+            <li *ngFor="let highlight of tour.highlights">
+              <span class="td-inc-icon in"><i class="bi bi-check2"></i></span>{{ highlight }}
+            </li>
+          </ul>
+
+          <div class="td-card-divider" *ngIf="tour.gallery?.length"></div>
+
+          <div class="td-gallery-section" *ngIf="tour.gallery?.length">
+            <div class="td-section-heading-row">
+              <h2 class="td-section-title">
+                <span class="td-section-icon">▧</span> Trek Gallery
+              </h2>
+              <button
+                type="button"
+                class="td-view-all"
+                (click)="openGallery(0)"
+              >
+                View All Photos
+              </button>
+            </div>
+            <div class="td-content-gallery">
+              <button
+                type="button"
+                class="td-content-gallery-item"
+                (click)="openGallery(0)"
+              >
+                <img
+                  [src]="getImageUrl(tour.image, tour.cacheKey)"
+                  [alt]="tour.name"
+                  loading="lazy"
+                />
+              </button>
+              <button
+                type="button"
+                class="td-content-gallery-item"
+                *ngFor="let photo of tour.gallery | slice: 0 : 3; let i = index"
+                (click)="openGallery(i + 1)"
+              >
+                <img
+                  [src]="getImageUrl(photo, tour.cacheKey)"
+                  [alt]="tour.name + ' gallery image'"
+                  loading="lazy"
+                />
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ITINERARY -->
+      <div *ngIf="selectedSegment === 'itinerary'" class="td-tab-panel">
+        <article class="td-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-calendar3"></i></span> Day-by-Day Itinerary
+          </h2>
+          <div
+            class="td-itin-accordion"
+            *ngFor="let day of tour.itinerary; let i = index"
+          >
+            <button
+              class="td-itin-toggle"
+              [class.open]="openDay === i"
+              (click)="openDay = openDay === i ? -1 : i"
+              [attr.aria-expanded]="openDay === i"
+              type="button"
+            >
+              <span class="td-itin-day-num">{{ day.day }}</span>
+              <span class="td-itin-day-title">{{ day.title }}</span>
+              <svg
+                class="td-itin-chevron"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M4 6l4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <div class="td-itin-body" [class.open]="openDay === i">
+              <div class="td-timeline">
+                <div
+                  class="td-tl-item"
+                  *ngFor="let activity of day.activities; let last = last"
+                >
+                  <div class="td-tl-time">
+                    {{ formatTime(activity.activityTime) }}
+                  </div>
+                  <div class="td-tl-dot-wrap">
+                    <div class="td-tl-dot"></div>
+                    <div class="td-tl-line" *ngIf="!last"></div>
+                  </div>
+                  <div class="td-tl-content">{{ activity.activityText }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- INCLUSIONS -->
+      <div *ngIf="selectedSegment === 'inclusions'" class="td-tab-panel">
+        <article class="td-card">
+          <h2 class="td-section-title td-section-title--green">
+            <span class="td-section-icon"><i class="bi bi-check-circle"></i></span> What's Included
+          </h2>
+          <ul class="td-inc-list">
+            <li *ngFor="let item of tour.inclusions">
+              <span class="td-inc-icon in"><i class="bi bi-check-lg"></i></span>{{ item }}
+            </li>
+          </ul>
+        </article>
+        <article class="td-card">
+          <h2 class="td-section-title td-section-title--red">
+            <span class="td-section-icon"><i class="bi bi-x-circle"></i></span> What's Not Included
+          </h2>
+          <ul class="td-inc-list">
+            <li *ngFor="let item of tour.exclusions">
+              <span class="td-inc-icon ex"><i class="bi bi-x-lg"></i></span>{{ item }}
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- TRAIL ELEVATION & GPX MAP -->
+      <div *ngIf="selectedSegment === 'trail_map'" class="td-tab-panel">
+        <article class="td-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+            <h2 class="td-section-title" style="margin: 0;">
+              <span class="td-section-icon"><i class="bi bi-graph-up-arrow"></i></span> Western Ghats Elevation Profile
+            </h2>
+            <button 
+              type="button"
+              (click)="downloadGpxFile()" 
+              style="background: #0f3d35; color: #ffffff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; font-size: 0.85rem; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <i class="bi bi-download"></i> Download GPS Trail (.GPX)
+            </button>
+          </div>
+          <p class="td-body-text" style="margin-bottom: 16px;">
+            Interactive trail elevation gradient mapped across key terrain checkpoints from Basecamp to Peak Summit. Click any waypoint to view altitude, water sources, and terrain advisories.
+          </p>
+
+          <!-- Interactive SVG Elevation Chart -->
+          <div style="background: linear-gradient(180deg, #f0fdf4 0%, #ffffff 100%); border: 1px solid #bbf7d0; border-radius: 12px; padding: 16px; position: relative;">
+            <svg viewBox="0 0 700 240" style="width: 100%; height: auto; overflow: visible;">
+              <defs>
+                <linearGradient id="elevationGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#22c55e" stop-opacity="0.45"/>
+                  <stop offset="100%" stop-color="#15803d" stop-opacity="0.05"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Grid Lines -->
+              <line x1="50" y1="30" x2="670" y2="30" stroke="#e2e8f0" stroke-dasharray="4"/>
+              <text x="15" y="34" fill="#94a3b8" font-size="11">1,900m</text>
+              <line x1="50" y1="90" x2="670" y2="90" stroke="#e2e8f0" stroke-dasharray="4"/>
+              <text x="15" y="94" fill="#94a3b8" font-size="11">1,500m</text>
+              <line x1="50" y1="150" x2="670" y2="150" stroke="#e2e8f0" stroke-dasharray="4"/>
+              <text x="15" y="154" fill="#94a3b8" font-size="11">1,200m</text>
+              <line x1="50" y1="210" x2="670" y2="210" stroke="#cbd5e1"/>
+              <text x="15" y="214" fill="#94a3b8" font-size="11">900m</text>
+
+              <!-- Elevation Path Area & Line -->
+              <path d="M 60 210 L 60 200 Q 180 180 220 140 T 380 80 T 520 32 T 660 200 L 660 210 Z" fill="url(#elevationGrad)"/>
+              <path d="M 60 200 Q 180 180 220 140 T 380 80 T 520 32 T 660 200" fill="none" stroke="#15803d" stroke-width="3.5" stroke-linecap="round"/>
+
+              <!-- Interactive Waypoint Pins -->
+              <!-- WP 0: Basecamp -->
+              <g (click)="selectWaypoint(elevationWaypoints[0])" style="cursor: pointer;">
+                <circle cx="60" cy="200" r="7" fill="#15803d" stroke="#ffffff" stroke-width="2"/>
+                <text x="60" y="228" text-anchor="middle" font-size="10" font-weight="700" fill="#0f3d35">Basecamp (0km)</text>
+              </g>
+
+              <!-- WP 1: Stream -->
+              <g (click)="selectWaypoint(elevationWaypoints[1])" style="cursor: pointer;">
+                <circle cx="220" cy="140" r="7" fill="#0284c7" stroke="#ffffff" stroke-width="2"/>
+                <text x="220" y="125" text-anchor="middle" font-size="10" font-weight="700" fill="#0369a1">Water Point (3.8km)</text>
+              </g>
+
+              <!-- WP 2: Ridge -->
+              <g (click)="selectWaypoint(elevationWaypoints[2])" style="cursor: pointer;">
+                <circle cx="380" cy="80" r="7" fill="#eab308" stroke="#ffffff" stroke-width="2"/>
+                <text x="380" y="65" text-anchor="middle" font-size="10" font-weight="700" fill="#a16207">Ridge Saddle (7.2km)</text>
+              </g>
+
+              <!-- WP 3: Peak Summit -->
+              <g (click)="selectWaypoint(elevationWaypoints[3])" style="cursor: pointer;">
+                <circle cx="520" cy="32" r="9" fill="#dc2626" stroke="#ffffff" stroke-width="2.5"/>
+                <text x="520" y="18" text-anchor="middle" font-size="11" font-weight="900" fill="#b91c1c">Peak Summit (11.5km)</text>
+              </g>
+
+              <!-- WP 4: Basecamp Return -->
+              <g (click)="selectWaypoint(elevationWaypoints[4])" style="cursor: pointer;">
+                <circle cx="660" cy="200" r="7" fill="#15803d" stroke="#ffffff" stroke-width="2"/>
+                <text x="660" y="228" text-anchor="middle" font-size="10" font-weight="700" fill="#0f3d35">Return (22km)</text>
+              </g>
+            </svg>
+          </div>
+
+          <!-- Active Waypoint Info Card -->
+          <div *ngIf="selectedWaypoint" style="margin-top: 16px; padding: 14px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; display: flex; align-items: center; gap: 14px;">
+            <div style="font-size: 1.8rem; color: #15803d; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #ecfdf5; border-radius: 10px;">
+              <i [class]="selectedWaypoint.icon"></i>
+            </div>
+            <div style="flex: 1;">
+              <div style="font-weight: 800; color: #0f172a; font-size: 1rem;">
+                {{ selectedWaypoint.name }}
+              </div>
+              <div style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">
+                Distance: <strong>{{ selectedWaypoint.km }} km</strong> · Elevation: <strong>{{ selectedWaypoint.elevation }}m ({{ (selectedWaypoint.elevation * 3.28084) | number:'1.0-0' }} ft)</strong>
+              </div>
+              <div style="font-size: 0.82rem; color: #15803d; margin-top: 4px; font-weight: 600;">
+                <i class="bi bi-info-circle-fill me-1"></i> Trail Note: {{ selectedWaypoint.note }}
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- INFO -->
+      <div *ngIf="selectedSegment === 'info'" class="td-tab-panel">
+        <article class="td-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-backpack4"></i></span> Pre-Trek Preparation
+          </h2>
+          <ul class="td-simple-list">
+            <li *ngFor="let item of prepChecklist"><span class="td-inc-icon in"><i class="bi bi-check2"></i></span>{{ item }}</li>
+          </ul>
+        </article>
+        <article class="td-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-bag-check"></i></span> Things to Carry
+          </h2>
+          <ul class="td-simple-list">
+            <li *ngFor="let item of tour.thingsToCarry">
+              <span class="td-inc-icon in"><i class="bi bi-check-lg"></i></span>{{ item }}
+            </li>
+          </ul>
+        </article>
+        <article class="td-card td-card--alert">
+          <h2 class="td-section-title td-section-title--amber">
+            <span class="td-section-icon"><i class="bi bi-exclamation-triangle-fill"></i></span> Important Notes
+          </h2>
+          <ul class="td-simple-list">
+            <li *ngFor="let note of tour.importantNotes">
+              <span class="td-inc-icon in text-warning"><i class="bi bi-exclamation-circle-fill"></i></span>{{ note }}
+            </li>
+          </ul>
+        </article>
+        <article class="td-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-shield-check"></i></span> Safety Protocol
+          </h2>
+          <div class="td-safety-grid">
+            <article *ngFor="let point of safetyPoints">
+              <h3>{{ point.title }}</h3>
+              <p>{{ point.detail }}</p>
+            </article>
+          </div>
+        </article>
+        <article class="td-card">
+          <h2 class="td-section-title">
+            <span class="td-section-icon"><i class="bi bi-question-circle"></i></span> Frequently Asked Questions
+          </h2>
+          <div class="td-faq-list">
+            <article
+              class="td-faq-item"
+              *ngFor="let faq of trekFaqs; let i = index"
+            >
+              <button
+                type="button"
+                class="td-faq-question"
+                (click)="toggleFaq(i)"
+                [attr.aria-expanded]="openFaqIndex === i"
+              >
+                <span>{{ faq.question }}</span
+                ><strong>{{ openFaqIndex === i ? "−" : "+" }}</strong>
+              </button>
+              <p *ngIf="openFaqIndex === i" class="td-faq-answer">
+                {{ faq.answer }}
+              </p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DESKTOP STICKY BOOKING CARD -->
+    <aside class="td-booking-card">
+      <div class="td-booking-card-head">
+        <span class="td-section-icon"><i class="bi bi-calendar-check"></i></span><span>Book This Trek</span>
+      </div>
+      <span class="td-price-from">Starting from</span>
+      <div class="td-price-val">
+        ₹{{ tour.price | number: "1.0-0" }} <small>/ person</small>
+      </div>
+
+      <div class="td-booking-pills">
+        <span *ngIf="tour.rating > 0"
+          ><i class="bi bi-star-fill text-warning me-1"></i>{{ tour.rating | number: "1.1-1" }}
+          <small *ngIf="tour.reviewCount > 0"
+            >({{ tour.reviewCount }})</small
+          ></span
+        >
+        <span>{{
+          tour.availableSlots > 0
+            ? tour.availableSlots + " slots left"
+            : "Sold out"
+        }}</span>
+      </div>
+
+      <button
+        class="td-book-btn"
+        type="button"
+        *ngIf="tour.availableSlots > 0"
+        (click)="bookTrek(tour)"
+      >
+        <i class="bi bi-ticket-perforated me-1"></i> Book Now
+      </button>
+      <button
+        class="td-book-btn td-book-btn--ghost"
+        type="button"
+        *ngIf="tour.availableSlots > 0"
+        (click)="openWhatsAppEnquiry(tour)"
+      >
+        <i class="bi bi-whatsapp me-1"></i> Ask Expert
+      </button>
+      <div class="td-sold-out" *ngIf="tour.availableSlots <= 0">Sold Out</div>
+
+      <div class="td-booking-benefits">
+        <div>
+          <span><i class="bi bi-clock"></i></span
+          ><span
+            >Next batch<strong>{{
+              tour.nextDates.length ? tour.nextDates[0] : "Check availability"
+            }}</strong></span
+          >
+        </div>
+        <div>
+          <span><i class="bi bi-check2-circle text-success"></i></span
+          ><span
+            >Availability<strong>{{
+              tour.availableSlots > 0
+                ? tour.availableSlots + " slots currently open"
+                : "No slots currently open"
+            }}</strong></span
+          >
+        </div>
+        <div>
+          <span><i class="bi bi-chat-dots"></i></span
+          ><span
+            >Expert enquiry<strong
+              >Get batch & preparation guidance</strong
+            ></span
+          >
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- RELATED TREKS -->
+  <section class="td-related-wrap" *ngIf="relatedTreks.length">
+    <div class="td-related-head">
+      <div>
+        <div class="td-related-eyebrow">Recommended next</div>
+        <h2 class="td-related-title">You Might Also Like</h2>
+      </div>
+    </div>
+    <div class="td-related-grid">
+      <article
+        class="td-related-card"
+        *ngFor="let trek of relatedTreks"
+        (click)="openRelatedTrek(trek)"
+      >
+        <div class="td-related-image">
+          <img
+            [src]="getImageUrl(trek.image, trek.cacheKey)"
+            [alt]="trek.name"
+            loading="lazy"
+            (error)="$event.target.src = 'assets/placeholder-trek.jpg'"
+          />
+          <span class="td-related-status">{{ trek.availableSlots }} left</span>
+        </div>
+        <div class="td-related-body">
+          <span class="td-related-category">{{ trek.category }}</span>
+          <h3>{{ trek.name }}</h3>
+          <p>{{ trek.location }}</p>
+          <div class="td-related-meta">
+            <strong>₹{{ trek.price | number: "1.0-0" }}</strong
+            ><span *ngIf="trek.rating > 0"
+              ><i class="bi bi-star-fill text-warning me-1"></i>{{ trek.rating | number: "1.1-1" }}</span
+            ><span><i class="bi bi-clock me-1"></i>{{ trek.duration }}</span>
+          </div>
+        </div>
+        <button
+          class="td-related-btn"
+          type="button"
+          (click)="$event.stopPropagation(); openRelatedTrek(trek)"
+        >
+          View Trek
+        </button>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- MOBILE BOOKING BAR -->
+<div class="td-mobile-booking" *ngIf="tour && !isLoading">
+  <div class="td-mobile-price">
+    <span>Starting from</span
+    ><strong>₹{{ tour.price | number: "1.0-0" }}</strong
+    ><small>/ person</small>
+  </div>
+  <div class="td-mobile-actions">
+    <button
+      type="button"
+      class="td-mobile-expert"
+      *ngIf="tour.availableSlots > 0"
+      (click)="openWhatsAppEnquiry(tour)"
+    >
+      Ask Expert
+    </button>
+    <button
+      type="button"
+      class="td-mobile-book"
+      *ngIf="tour.availableSlots > 0"
+      (click)="bookTrek(tour)"
+    >
+      Book Now
+    </button>
+    <span class="td-mobile-sold" *ngIf="tour.availableSlots <= 0"
+      >Sold Out</span
+    >
+  </div>
+</div>
+
+<!-- GALLERY LIGHTBOX -->
+<div
+  class="td-lightbox"
+  *ngIf="galleryOpen"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Trek photo gallery"
+  (click)="closeGallery()"
+>
+  <div class="td-lightbox-modal" (click)="$event.stopPropagation()">
+    <!-- Top Bar -->
+    <div class="td-lightbox-header">
+      <div class="td-lightbox-meta">
+        <span class="td-lightbox-title">{{ tour?.name }}</span>
+        <span class="td-lightbox-counter">{{ galleryIndex + 1 }} / {{ galleryTotal }}</span>
+      </div>
+      <button
+        class="td-lightbox-close"
+        type="button"
+        (click)="closeGallery()"
+        aria-label="Close gallery"
+        title="Close (Esc)"
+      >
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    <!-- Main Image & Navigation Viewport -->
+    <div class="td-lightbox-viewport">
+      <button
+        class="td-lightbox-nav prev"
+        type="button"
+        *ngIf="galleryTotal > 1"
+        (click)="previousGallery()"
+        aria-label="Previous photo"
+        title="Previous (Left Arrow)"
+      >
+        ‹
+      </button>
+      
+      <div class="td-lightbox-frame">
+        <img
+          class="td-lightbox-image"
+          [src]="currentGalleryImage"
+          [alt]="(tour?.name || 'Trek photo') + ' ' + (galleryIndex + 1)"
+          (error)="$event.target.src = 'assets/placeholder-trek.jpg'"
+        />
+      </div>
+
+      <button
+        class="td-lightbox-nav next"
+        type="button"
+        *ngIf="galleryTotal > 1"
+        (click)="nextGallery()"
+        aria-label="Next photo"
+        title="Next (Right Arrow)"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- Bottom Thumbnail Strip -->
+    <div class="td-lightbox-thumbs" *ngIf="tour && galleryTotal > 1">
+      <button
+        type="button"
+        class="td-lightbox-thumb"
+        [class.active]="galleryIndex === 0"
+        (click)="galleryIndex = 0"
+        title="Cover Photo"
+      >
+        <img [src]="getImageUrl(tour.image, tour.cacheKey)" alt="Cover" />
+      </button>
+      <button
+        type="button"
+        class="td-lightbox-thumb"
+        *ngFor="let photo of tour.gallery; let i = index"
+        [class.active]="galleryIndex === i + 1"
+        (click)="galleryIndex = i + 1"
+        [title]="'Photo ' + (i + 1)"
+      >
+        <img [src]="getImageUrl(photo, tour.cacheKey)" [alt]="'Photo ' + (i + 1)" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="td-loading" role="status">
+  <div class="td-loading-inner">
+    <img src="../../assets/assets/Bus vehicle.gif" width="150" alt="Loading" />
+    <div class="td-loading-dots"><span></span><span></span><span></span></div>
+    <p>Loading trek details…</p>
+  </div>
+</div>
+
+<div *ngIf="!isLoading && !tour" class="td-error" role="alert">
+  <div class="td-error-inner">
+    <h3>Trek Not Found</h3>
+    <p>The trek you're looking for doesn't exist or may have been removed.</p>
+    <a routerLink="/treklist">Back to Trek List</a>
+  </div>
+</div>

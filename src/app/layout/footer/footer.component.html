@@ -1,0 +1,277 @@
+<!-- ============================================================================
+     FOOTER COMPONENT - VIBRANT HARMONIOUS WILDERNESS
+============================================================================ -->
+<footer class="footer-wrapper" *ngIf="settings$ | async as settings">
+
+  <!-- Multi-color Accent Beam (Amber + Emerald + Sky Blue) -->
+  <div class="footer-top-accent"></div>
+
+  <!-- ========== MAIN FOOTER SECTION ========== -->
+  <div class="footer-main">
+    <div class="container-custom">
+      <div class="footer-grid">
+
+        <!-- ── Col 1: Brand & Eco-Tourism Mission ── -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand-header">
+            <a class="brand-logo-link" routerLink="/">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="../../../assets/assets/logo.png"
+                [alt]="settings.brandName"
+                class="brand-logo-img"
+              />
+              <div class="brand-text-block">
+                <div class="brand-name-row">
+                  <span class="brand-go" *ngIf="getBrandPrefix(settings.brandName)">{{ getBrandPrefix(settings.brandName) }}</span>
+                  <span class="brand-wild">{{ getBrandSuffix(settings.brandName) }}</span>
+                </div>
+                <span class="brand-tagline" *ngIf="settings.brandSubtitle">{{ settings.brandSubtitle }}</span>
+              </div>
+            </a>
+          </div>
+
+          <p class="brand-mission-desc">
+            {{ settings.aboutText || 'Pioneering responsible, zero-plastic high-altitude trekking across the Western Ghats of Karnataka. Certified expedition leaders, official forest permits, and safe wilderness journeys.' }}
+          </p>
+
+          <!-- Social Community Icons - OFFICIAL ORIGINAL BRAND COLORS -->
+          <div class="footer-social-wrap">
+            <span class="social-eyebrow">Connect With Explorers</span>
+            <div class="social-icon-row">
+              <!-- Facebook: Official Blue -->
+              <a
+                *ngIf="settings.socialFacebook"
+                [href]="settings.socialFacebook"
+                target="_blank"
+                rel="noopener"
+                class="soc-btn soc-fb"
+                title="Follow on Facebook"
+                aria-label="Facebook"
+              >
+                <i class="bi bi-facebook"></i>
+              </a>
+
+              <!-- Instagram: Official Gradient -->
+              <a
+                *ngIf="settings.socialInstagram"
+                [href]="settings.socialInstagram"
+                target="_blank"
+                rel="noopener"
+                class="soc-btn soc-ig"
+                title="Follow on Instagram"
+                aria-label="Instagram"
+              >
+                <i class="bi bi-instagram"></i>
+              </a>
+
+              <!-- YouTube: Official Red -->
+              <a
+                *ngIf="settings.socialYoutube"
+                [href]="settings.socialYoutube"
+                target="_blank"
+                rel="noopener"
+                class="soc-btn soc-yt"
+                title="Watch on YouTube"
+                aria-label="YouTube"
+              >
+                <i class="bi bi-youtube"></i>
+              </a>
+
+              <!-- WhatsApp: Official Green -->
+              <a
+                *ngIf="settings.whatsappLink"
+                [href]="settings.whatsappLink"
+                target="_blank"
+                rel="noopener"
+                class="soc-btn soc-wa"
+                title="Chat on WhatsApp"
+                aria-label="WhatsApp"
+              >
+                <i class="bi bi-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Col 2: Navigation & Discover ── -->
+        <div class="footer-col links-col">
+          <h4 class="col-heading heading-amber">Explore Expeditions</h4>
+          <ul class="col-links-list">
+            <li>
+              <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <i class="bi bi-chevron-right link-bullet"></i> Home
+              </a>
+            </li>
+            <li>
+              <a routerLink="/upcomingtours" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> Upcoming Departures
+              </a>
+            </li>
+            <li>
+              <a routerLink="/search" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> Trail Search &amp; Filters
+              </a>
+            </li>
+            <li>
+              <a routerLink="/blog" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> Trail Journal &amp; Guides
+              </a>
+            </li>
+            <li>
+              <a routerLink="/faqs" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> FAQ &amp; Knowledge Base
+              </a>
+            </li>
+            <li>
+              <a routerLink="/about" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> About Our Mission
+              </a>
+            </li>
+            <li>
+              <a routerLink="/my-bookings" routerLinkActive="active">
+                <i class="bi bi-chevron-right link-bullet"></i> My Bookings &amp; Permits
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ── Col 3: Trust & Accreditations (Combinational Curated Colors) ── -->
+        <div class="footer-col trust-col">
+          <h4 class="col-heading heading-cyan">Trust &amp; Safety</h4>
+          <div class="trust-cards-stack">
+            <!-- 1. Safety: Sky Blue Accent -->
+            <div class="trust-mini-card card-safety">
+              <div class="trust-icon-box">
+                <i class="bi bi-shield-fill-check"></i>
+              </div>
+              <div class="trust-text">
+                <strong>100% Certified Safety</strong>
+                <span>First-aid certified trek masters on all ridges</span>
+              </div>
+            </div>
+
+            <!-- 2. Permits: Forest Emerald Accent -->
+            <div class="trust-mini-card card-permits">
+              <div class="trust-icon-box">
+                <i class="bi bi-tree-fill"></i>
+              </div>
+              <div class="trust-text">
+                <strong>Official Forest Permits</strong>
+                <span>Verified KEDB and Forest Dept entry slots</span>
+              </div>
+            </div>
+
+            <!-- 3. Eco-Conservation: Warm Golden Amber Accent -->
+            <div class="trust-mini-card card-eco">
+              <div class="trust-icon-box">
+                <i class="bi bi-recycle"></i>
+              </div>
+              <div class="trust-text">
+                <strong>Strict Zero-Plastic Ethic</strong>
+                <span>Leave No Trace Western Ghats conservation</span>
+              </div>
+            </div>
+
+            <!-- 4. Rating: Sunset Coral Accent -->
+            <div class="trust-mini-card card-rating">
+              <div class="trust-icon-box">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <div class="trust-text">
+                <strong>4.9/5 Explorer Rating</strong>
+                <span>Over 10,000+ summited adventurers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Col 4: 24/7 Trekker Concierge Support (Distinct High-Contrast Actions) ── -->
+        <div class="footer-col support-col">
+          <div class="concierge-box">
+            <div class="concierge-header">
+              <span class="live-pill">
+                <span class="live-dot"></span> 24/7 Concierge
+              </span>
+              <h4 class="concierge-title">Need Help Planning?</h4>
+              <p class="concierge-sub">
+                Our mountain desk assists with permit slots, physical prep, and private corporate departures.
+              </p>
+            </div>
+
+            <div class="concierge-actions">
+              <!-- WhatsApp: Official Green -->
+              <a
+                *ngIf="settings.whatsappLink"
+                [href]="settings.whatsappLink"
+                target="_blank"
+                rel="noopener"
+                class="concierge-btn btn-chat-wa"
+              >
+                <i class="bi bi-whatsapp"></i>
+                <span>Chat on WhatsApp</span>
+              </a>
+
+              <!-- Phone: Sapphire Blue -->
+              <a
+                *ngIf="settings.telLink"
+                [href]="settings.telLink"
+                class="concierge-btn btn-call-phone"
+              >
+                <i class="bi bi-telephone-fill"></i>
+                <span>Call {{ settings.supportPhone || 'Support' }}</span>
+              </a>
+
+              <!-- Email: Deep Teal -->
+              <a
+                *ngIf="settings.supportEmail"
+                [href]="'mailto:' + settings.supportEmail"
+                class="concierge-btn btn-mail"
+              >
+                <i class="bi bi-envelope-fill"></i>
+                <span>{{ settings.supportEmail }}</span>
+              </a>
+            </div>
+
+            <div class="concierge-timings">
+              <i class="bi bi-clock me-1 text-amber"></i> Basecamp Support: 06:00 AM – 10:00 PM IST
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BOTTOM COPYRIGHT & LEGAL STRIP ========== -->
+  <div class="footer-bottom-bar">
+    <div class="container-custom">
+      <div class="bottom-bar-inner">
+        <!-- Copyright -->
+        <div class="copy-left">
+          <p class="copy-text">
+            &copy; {{ currentYear }} <strong class="brand-copy-highlight">{{ settings.brandName }}</strong>. All rights reserved.
+            <span class="sub-credit">Western Ghats Wilderness Expeditions &amp; Trail Care.</span>
+          </p>
+        </div>
+
+        <!-- Security & Legal -->
+        <div class="copy-right">
+          <div class="security-badge">
+            <i class="bi bi-shield-lock-fill text-emerald me-1"></i>
+            <span>256-Bit SSL Encrypted Booking</span>
+          </div>
+          <div class="legal-links">
+            <a routerLink="/cancellation-policy">Terms &amp; Cancellation</a>
+            <span class="dot-sep">&bull;</span>
+            <a routerLink="/faqs">FAQs</a>
+            <span class="dot-sep">&bull;</span>
+            <a routerLink="/about">Privacy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
