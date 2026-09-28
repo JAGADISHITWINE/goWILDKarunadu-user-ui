@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { IonicModule } from "@ionic/angular";
 import { ActivatedRoute, Router, RouterLink } from "@angular/router";
+import { Title, Meta } from "@angular/platform-browser";
 import { BlogDetail } from "./blog-detail";
 import { TokenService } from 'src/app/core/token.service';
 import { FormsModule } from "@angular/forms";
@@ -100,6 +101,8 @@ export class BlogDetailComponent implements OnInit {
     private authModal: AuthModalService,
     private tokenService: TokenService,
     private media: MediaService,
+    private titleService: Title,
+    private metaService: Meta
   ) {}
 
   get isLoggedIn(): boolean {
@@ -152,10 +155,38 @@ export class BlogDetailComponent implements OnInit {
         content: res.content || '',
       };
 
+      this.updateOpenGraphTags(this.post);
+
       if (this.post.categoryId) {
         this.loadRelated(this.post.categoryId);
       }
     });
+  }
+
+  updateOpenGraphTags(post: any): void {
+    if (!post) return;
+    const pageTitle = `${post.title} | goWILD Karunadu`;
+    const description = post.excerpt ? post.excerpt.slice(0, 160).trim() : `Read ${post.title} on goWILD Karunadu.`;
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+    this.titleService.setTitle(pageTitle);
+
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ property: 'og:title', content: pageTitle });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    if (post.image) {
+      this.metaService.updateTag({ property: 'og:image', content: post.image });
+    }
+    if (currentUrl) {
+      this.metaService.updateTag({ property: 'og:url', content: currentUrl });
+    }
+    this.metaService.updateTag({ property: 'og:type', content: 'article' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:title', content: pageTitle });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    if (post.image) {
+      this.metaService.updateTag({ name: 'twitter:image', content: post.image });
+    }
   }
 
   loadComments() {

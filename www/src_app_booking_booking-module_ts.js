@@ -104,7 +104,7 @@ var _staticBlock;
 const _c0 = a0 => ["/trek-details", a0];
 function BookingComponent_aside_1_i_18_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_aside_1_span_19_Template(rf, ctx) {
@@ -116,7 +116,7 @@ function BookingComponent_aside_1_span_19_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_23_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](2, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
@@ -129,14 +129,14 @@ function BookingComponent_aside_1_div_23_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_24_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Choose departure date ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_aside_1_i_27_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_aside_1_span_28_Template(rf, ctx) {
@@ -148,7 +148,7 @@ function BookingComponent_aside_1_span_28_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_32_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -160,14 +160,14 @@ function BookingComponent_aside_1_div_32_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_33_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Primary contact details ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_aside_1_i_36_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_aside_1_span_37_Template(rf, ctx) {
@@ -179,10 +179,10 @@ function BookingComponent_aside_1_span_37_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_ng_container_7_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 38)(1, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 40)(1, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -198,7 +198,7 @@ function BookingComponent_aside_1_div_51_ng_container_7_div_1_Template(rf, ctx) 
 function BookingComponent_aside_1_div_51_ng_container_7_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_aside_1_div_51_ng_container_7_div_1_Template, 6, 6, "div", 45);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_aside_1_div_51_ng_container_7_div_1_Template, 6, 6, "div", 47);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
   }
   if (rf & 2) {
@@ -209,10 +209,10 @@ function BookingComponent_aside_1_div_51_ng_container_7_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 46)(1, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 48)(1, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Coupon Discount");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -225,10 +225,10 @@ function BookingComponent_aside_1_div_51_div_14_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_div_15_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 46)(1, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 48)(1, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Referral Discount");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -241,10 +241,10 @@ function BookingComponent_aside_1_div_51_div_15_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_div_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 46)(1, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 48)(1, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Free Slot Credit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -257,10 +257,10 @@ function BookingComponent_aside_1_div_51_div_16_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_div_17_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 47)(1, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 49)(1, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Payable Now");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -273,22 +273,22 @@ function BookingComponent_aside_1_div_51_div_17_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_51_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 37)(1, "div", 38)(2, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 39)(1, "div", 40)(2, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](6, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_aside_1_div_51_ng_container_7_Template, 2, 1, "ng-container", 41);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 42)(9, "span", 39);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_aside_1_div_51_ng_container_7_Template, 2, 1, "ng-container", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 44)(9, "span", 41);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, "Total");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 40);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 42);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](13, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_aside_1_div_51_div_14_Template, 6, 4, "div", 43)(15, BookingComponent_aside_1_div_51_div_15_Template, 6, 4, "div", 43)(16, BookingComponent_aside_1_div_51_div_16_Template, 6, 4, "div", 43)(17, BookingComponent_aside_1_div_51_div_17_Template, 6, 4, "div", 44);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_aside_1_div_51_div_14_Template, 6, 4, "div", 45)(15, BookingComponent_aside_1_div_51_div_15_Template, 6, 4, "div", 45)(16, BookingComponent_aside_1_div_51_div_16_Template, 6, 4, "div", 45)(17, BookingComponent_aside_1_div_51_div_17_Template, 6, 4, "div", 46);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -313,17 +313,17 @@ function BookingComponent_aside_1_div_51_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_52_div_9_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 55);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 57);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Loading referral details\u2026 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_aside_1_div_52_div_10_div_17_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 57)(1, "div", 58);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 59)(1, "div", 60);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Savings Earned");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 59);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 61);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -336,27 +336,27 @@ function BookingComponent_aside_1_div_52_div_10_div_17_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_div_52_div_10_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 55)(1, "div", 56)(2, "div", 57)(3, "div", 58);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 57)(1, "div", 58)(2, "div", 59)(3, "div", 60);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Your Code");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 59);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 61);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div", 57)(8, "div", 58);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div", 59)(8, "div", 60);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9, "Friends Booked");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 59);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 61);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 57)(13, "div", 58);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 59)(13, "div", 60);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](14, "Free Slots");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 59);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 61);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](16);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](17, BookingComponent_aside_1_div_52_div_10_div_17_Template, 6, 4, "div", 60);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](17, BookingComponent_aside_1_div_52_div_10_div_17_Template, 6, 4, "div", 62);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "div", 61);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "div", 63);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](20, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -378,9 +378,9 @@ function BookingComponent_aside_1_div_52_div_10_Template(rf, ctx) {
 function BookingComponent_aside_1_div_52_div_11_Template(rf, ctx) {
   if (rf & 1) {
     const _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 62);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 64);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "button", 63);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "button", 65);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_aside_1_div_52_div_11_Template_button_click_2_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r4);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -398,13 +398,13 @@ function BookingComponent_aside_1_div_52_div_11_Template(rf, ctx) {
 function BookingComponent_aside_1_div_52_Template(rf, ctx) {
   if (rf & 1) {
     const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 48)(1, "div", 49)(2, "div")(3, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 50)(1, "div", 51)(2, "div")(3, "div", 52);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Referral Rewards");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 51);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 53);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6, "Share & save more");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "button", 52);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "button", 54);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_aside_1_div_52_Template_button_click_7_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r3);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -412,7 +412,7 @@ function BookingComponent_aside_1_div_52_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, " Copy Code ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](9, BookingComponent_aside_1_div_52_div_9_Template, 2, 0, "div", 53)(10, BookingComponent_aside_1_div_52_div_10_Template, 21, 9, "div", 53)(11, BookingComponent_aside_1_div_52_div_11_Template, 4, 1, "div", 54);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](9, BookingComponent_aside_1_div_52_div_9_Template, 2, 0, "div", 55)(10, BookingComponent_aside_1_div_52_div_10_Template, 21, 9, "div", 55)(11, BookingComponent_aside_1_div_52_div_11_Template, 4, 1, "div", 56);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -429,67 +429,67 @@ function BookingComponent_aside_1_div_52_Template(rf, ctx) {
 }
 function BookingComponent_aside_1_ng_template_53_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 64)(1, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 66)(1, "div", 52);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Referral Rewards");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 51);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 53);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Log in to access your referral code");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
 }
 function BookingComponent_aside_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "aside", 16)(1, "div", 17)(2, "div", 18)(3, "a", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "aside", 18)(1, "div", 19)(2, "div", 20)(3, "a", 21);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "\u2190 Trek Details");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](5, "img", 20);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](5, "img", 22);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 21)(7, "div", 22);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 23)(7, "div", 24);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, "You're booking");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 24);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](12, "i", 25);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 26);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](12, "i", 27);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](14, "div", 26);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 27)(16, "div", 28)(17, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](18, BookingComponent_aside_1_i_18_Template, 1, 0, "i", 11)(19, BookingComponent_aside_1_span_19_Template, 2, 0, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](14, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 29)(16, "div", 30)(17, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](18, BookingComponent_aside_1_i_18_Template, 1, 0, "i", 13)(19, BookingComponent_aside_1_span_19_Template, 2, 0, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 30)(21, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 32)(21, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](22, "Batch & Dates");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](23, BookingComponent_aside_1_div_23_Template, 3, 6, "div", 32)(24, BookingComponent_aside_1_div_24_Template, 2, 0, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](23, BookingComponent_aside_1_div_23_Template, 3, 6, "div", 34)(24, BookingComponent_aside_1_div_24_Template, 2, 0, "div", 34);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "div", 28)(26, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](27, BookingComponent_aside_1_i_27_Template, 1, 0, "i", 11)(28, BookingComponent_aside_1_span_28_Template, 2, 0, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "div", 30)(26, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](27, BookingComponent_aside_1_i_27_Template, 1, 0, "i", 13)(28, BookingComponent_aside_1_span_28_Template, 2, 0, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](29, "div", 30)(30, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](29, "div", 32)(30, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](31, "Contact Info");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](32, BookingComponent_aside_1_div_32_Template, 2, 1, "div", 32)(33, BookingComponent_aside_1_div_33_Template, 2, 0, "div", 32);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](32, BookingComponent_aside_1_div_32_Template, 2, 1, "div", 34)(33, BookingComponent_aside_1_div_33_Template, 2, 0, "div", 34);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 28)(35, "div", 29);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](36, BookingComponent_aside_1_i_36_Template, 1, 0, "i", 11)(37, BookingComponent_aside_1_span_37_Template, 2, 0, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 30)(35, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](36, BookingComponent_aside_1_i_36_Template, 1, 0, "i", 13)(37, BookingComponent_aside_1_span_37_Template, 2, 0, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](38, "div", 30)(39, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](38, "div", 32)(39, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](40, "Participants");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](41, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](41, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](42, "Details for all trekkers");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 28)(44, "div", 29);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 30)(44, "div", 31);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](45, "4");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](46, "div", 30)(47, "div", 31);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](46, "div", 32)(47, "div", 33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](48, "Review & Pay");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "div", 33);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "div", 35);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](50, "Confirm your booking");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](51, BookingComponent_aside_1_div_51_Template, 18, 15, "div", 34)(52, BookingComponent_aside_1_div_52_Template, 12, 4, "div", 35)(53, BookingComponent_aside_1_ng_template_53_Template, 5, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](51, BookingComponent_aside_1_div_51_Template, 18, 15, "div", 36)(52, BookingComponent_aside_1_div_52_Template, 12, 4, "div", 37)(53, BookingComponent_aside_1_ng_template_53_Template, 5, 0, "ng-template", null, 0, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -539,7 +539,7 @@ function BookingComponent_aside_1_Template(rf, ctx) {
 }
 function BookingComponent_i_12_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_span_13_Template(rf, ctx) {
@@ -551,7 +551,7 @@ function BookingComponent_span_13_Template(rf, ctx) {
 }
 function BookingComponent_i_17_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_span_18_Template(rf, ctx) {
@@ -563,7 +563,7 @@ function BookingComponent_span_18_Template(rf, ctx) {
 }
 function BookingComponent_i_22_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_span_23_Template(rf, ctx) {
@@ -575,22 +575,22 @@ function BookingComponent_span_23_Template(rf, ctx) {
 }
 function BookingComponent_div_29_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 65);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "div", 66);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 67);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 67);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "div", 68);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 69);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Loading trek details\u2026");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
 }
 function BookingComponent_div_30_ng_container_1_label_14_div_3_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "div", 101);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "div", 103);
   }
 }
 function BookingComponent_div_30_ng_container_1_label_14_Template(rf, ctx) {
   if (rf & 1) {
     const _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 92)(1, "input", 93);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 94)(1, "input", 95);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_1_label_14_Template_input_ngModelChange_1_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r6);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -603,21 +603,21 @@ function BookingComponent_div_30_ng_container_1_label_14_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.onBatchSelect(batch_r7.batchId));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 94);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](3, BookingComponent_div_30_ng_container_1_label_14_div_3_Template, 1, 0, "div", 95);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 96);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](3, BookingComponent_div_30_ng_container_1_label_14_div_3_Template, 1, 0, "div", 97);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 96)(5, "div", 97);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 98)(5, "div", 99);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](7, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](8, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 98);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 100);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 99);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 101);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "span", 100);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "span", 102);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
@@ -646,12 +646,12 @@ function BookingComponent_div_30_ng_container_1_label_14_Template(rf, ctx) {
 function BookingComponent_div_30_ng_container_1_div_15_Template(rf, ctx) {
   if (rf & 1) {
     const _r8 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 102)(1, "div", 103)(2, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 104)(1, "div", 105)(2, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Participants ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 104)(7, "button", 105);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 106)(7, "button", 107);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_1_div_15_Template_button_click_7_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r8);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -659,10 +659,10 @@ function BookingComponent_div_30_ng_container_1_div_15_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, " \u2212 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 106);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 108);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "button", 105);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "button", 107);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_1_div_15_Template_button_click_11_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r8);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -670,13 +670,13 @@ function BookingComponent_div_30_ng_container_1_div_15_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12, " + ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 103)(16, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 105)(16, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Price per Person");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](18, "input", 108);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](18, "input", 110);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -691,14 +691,14 @@ function BookingComponent_div_30_ng_container_1_div_15_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_1_div_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 111);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Add-ons (Optional) ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_1_label_18_div_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 121);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 123);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -710,12 +710,12 @@ function BookingComponent_div_30_ng_container_1_label_18_div_5_Template(rf, ctx)
 }
 function BookingComponent_div_30_ng_container_1_label_18_i_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 38);
   }
 }
 function BookingComponent_div_30_ng_container_1_label_18_option_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 122);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 124);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -729,27 +729,27 @@ function BookingComponent_div_30_ng_container_1_label_18_option_14_Template(rf, 
 function BookingComponent_div_30_ng_container_1_label_18_Template(rf, ctx) {
   if (rf & 1) {
     const _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 110)(1, "div", 111)(2, "div", 112)(3, "div", 113);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 112)(1, "div", 113)(2, "div", 114)(3, "div", 115);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_1_label_18_div_5_Template, 2, 1, "div", 114);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_1_label_18_div_5_Template, 2, 1, "div", 116);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 115);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_div_30_ng_container_1_label_18_i_7_Template, 1, 0, "i", 11);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 117);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_div_30_ng_container_1_label_18_i_7_Template, 1, 0, "i", 13);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 116);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 118);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 117)(11, "label", 118);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 119)(11, "label", 120);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12, "Participants");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "select", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "select", 121);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("ngModelChange", function BookingComponent_div_30_ng_container_1_label_18_Template_select_ngModelChange_13_listener($event) {
       const addon_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r9).$implicit;
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.onAddonQuantityChange(addon_r10, $event));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_1_label_18_option_14_Template, 2, 2, "option", 120);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_1_label_18_option_14_Template, 2, 2, "option", 122);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -773,26 +773,26 @@ function BookingComponent_div_30_ng_container_1_label_18_Template(rf, ctx) {
 function BookingComponent_div_30_ng_container_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 79)(2, "div", 80);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 81)(2, "div", 82);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Step 1 of 4");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 83);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "Select Your Batch");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 82);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 84);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, " Choose a departure date and set your group size. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 83)(9, "label", 84);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 85)(9, "label", 86);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, " Available Batches ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 86);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_1_label_14_Template, 15, 26, "label", 87);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 88);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_1_label_14_Template, 15, 26, "label", 89);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](15, BookingComponent_div_30_ng_container_1_div_15_Template, 19, 3, "div", 88)(16, BookingComponent_div_30_ng_container_1_div_16_Template, 2, 0, "div", 89);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](17, "div", 90);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](18, BookingComponent_div_30_ng_container_1_label_18_Template, 15, 8, "label", 91);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](15, BookingComponent_div_30_ng_container_1_div_15_Template, 19, 3, "div", 90)(16, BookingComponent_div_30_ng_container_1_div_16_Template, 2, 0, "div", 91);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](17, "div", 92);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](18, BookingComponent_div_30_ng_container_1_label_18_Template, 15, 8, "label", 93);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
   }
@@ -812,21 +812,21 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 79)(2, "div", 80);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 81)(2, "div", 82);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Step 2 of 4");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 83);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "Contact Information");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 82);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 84);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, " This person will be the main point of contact for the booking. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 102)(9, "div", 103)(10, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 104)(9, "div", 105)(10, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "Full Name ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "input", 123);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "input", 125);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_2_Template_input_ngModelChange_14_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r12);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -834,12 +834,12 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 103)(16, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 105)(16, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Email ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 124);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 126);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_2_Template_input_ngModelChange_20_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r12);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -847,12 +847,12 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 102)(22, "div", 103)(23, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 104)(22, "div", 105)(23, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24, "Phone ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "input", 125);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "input", 127);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_2_Template_input_ngModelChange_27_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r12);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -860,12 +860,12 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](28, "div", 103)(29, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](28, "div", 105)(29, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](30, "Emergency Contact ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](31, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](31, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](32, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](33, "input", 126);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](33, "input", 128);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_2_Template_input_ngModelChange_33_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r12);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -873,10 +873,10 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 127)(35, "div", 103)(36, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 129)(35, "div", 105)(36, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](37, "Special Requests / Medical Info");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](38, "textarea", 128);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](38, "textarea", 130);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_2_Template_textarea_ngModelChange_38_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r12);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -902,29 +902,29 @@ function BookingComponent_div_30_ng_container_2_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_3_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 131);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 132);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 133);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 134);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, " Please fill all required fields for every participant before continuing. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_3_div_9_span_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 151);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 153);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Primary Contact");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_3_div_9_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Auto-filled from contact info ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_3_div_9_div_21_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 152);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 154);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -936,7 +936,7 @@ function BookingComponent_div_30_ng_container_3_div_9_div_21_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_3_div_9_option_30_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 153);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -949,7 +949,7 @@ function BookingComponent_div_30_ng_container_3_div_9_option_30_Template(rf, ctx
 }
 function BookingComponent_div_30_ng_container_3_div_9_option_39_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 153);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -962,7 +962,7 @@ function BookingComponent_div_30_ng_container_3_div_9_option_39_Template(rf, ctx
 }
 function BookingComponent_div_30_ng_container_3_div_9_div_46_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 152);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 154);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -974,14 +974,14 @@ function BookingComponent_div_30_ng_container_3_div_9_div_46_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_3_div_9_div_51_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Auto-filled from contact info ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_3_div_9_div_52_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 152);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 154);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -993,7 +993,7 @@ function BookingComponent_div_30_ng_container_3_div_9_div_52_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_3_div_9_option_59_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 153);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1006,7 +1006,7 @@ function BookingComponent_div_30_ng_container_3_div_9_option_59_Template(rf, ctx
 }
 function BookingComponent_div_30_ng_container_3_div_9_option_66_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 153);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1019,7 +1019,7 @@ function BookingComponent_div_30_ng_container_3_div_9_option_66_Template(rf, ctx
 }
 function BookingComponent_div_30_ng_container_3_div_9_option_73_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 153);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1033,34 +1033,34 @@ function BookingComponent_div_30_ng_container_3_div_9_option_73_Template(rf, ctx
 function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
   if (rf & 1) {
     const _r13 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 133)(1, "div", 134)(2, "div", 135);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 135)(1, "div", 136)(2, "div", 137);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 136);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 138);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, BookingComponent_div_30_ng_container_3_div_9_span_6_Template, 2, 0, "span", 137);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, BookingComponent_div_30_ng_container_3_div_9_span_6_Template, 2, 0, "span", 139);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div", 138)(8, "div", 103)(9, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div", 140)(8, "div", 105)(9, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, "Full Name ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](12, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "input", 139);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "input", 141);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_input_ngModelChange_13_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.name, $event) || (participant_r14.name = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_3_div_9_div_14_Template, 2, 0, "div", 140);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](14, BookingComponent_div_30_ng_container_3_div_9_div_14_Template, 2, 0, "div", 142);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 103)(16, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 105)(16, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Age ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 141);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 143);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_input_ngModelChange_20_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.age, $event) || (participant_r14.age = $event);
@@ -1072,30 +1072,30 @@ function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.validateAge(participant_r14));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](21, BookingComponent_div_30_ng_container_3_div_9_div_21_Template, 2, 1, "div", 142);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](21, BookingComponent_div_30_ng_container_3_div_9_div_21_Template, 2, 1, "div", 144);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](22, "div", 103)(23, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](22, "div", 105)(23, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24, "Gender ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "select", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "select", 121);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_select_ngModelChange_27_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.gender, $event) || (participant_r14.gender = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](28, "option", 143);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](28, "option", 145);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](29, "Select Gender");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](30, BookingComponent_div_30_ng_container_3_div_9_option_30_Template, 2, 2, "option", 144);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](30, BookingComponent_div_30_ng_container_3_div_9_option_30_Template, 2, 2, "option", 146);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](31, "div", 103)(32, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](31, "div", 105)(32, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](33, "ID Proof Type ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](35, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](36, "select", 145);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](36, "select", 147);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_select_ngModelChange_36_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.idType, $event) || (participant_r14.idType = $event);
@@ -1108,17 +1108,17 @@ function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
       participant_r14.idError = "";
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.validateId(participant_r14));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "option", 143);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "option", 145);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](38, "Select ID");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](39, BookingComponent_div_30_ng_container_3_div_9_option_39_Template, 2, 2, "option", 144);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](39, BookingComponent_div_30_ng_container_3_div_9_option_39_Template, 2, 2, "option", 146);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](40, "div", 103)(41, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](40, "div", 105)(41, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](42, "ID Number ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](44, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](45, "input", 146);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](45, "input", 148);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_input_ngModelChange_45_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.idNumber, $event) || (participant_r14.idNumber = $event);
@@ -1130,12 +1130,12 @@ function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.formatIdInput(participant_r14));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](46, BookingComponent_div_30_ng_container_3_div_9_div_46_Template, 2, 1, "div", 142);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](46, BookingComponent_div_30_ng_container_3_div_9_div_46_Template, 2, 1, "div", 144);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](47, "div", 103)(48, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](47, "div", 105)(48, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](49, "Phone");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](50, "input", 147);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](50, "input", 149);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_input_ngModelChange_50_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.phone, $event) || (participant_r14.phone = $event);
@@ -1149,48 +1149,48 @@ function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.validateParticipantPhone(participant_r14, i_r18 === 0));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](51, BookingComponent_div_30_ng_container_3_div_9_div_51_Template, 2, 0, "div", 140)(52, BookingComponent_div_30_ng_container_3_div_9_div_52_Template, 2, 1, "div", 142);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](51, BookingComponent_div_30_ng_container_3_div_9_div_51_Template, 2, 0, "div", 142)(52, BookingComponent_div_30_ng_container_3_div_9_div_52_Template, 2, 1, "div", 144);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](53, "div", 103)(54, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](53, "div", 105)(54, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](55, "Blood Group ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](56, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](56, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](57, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](58, "select", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](58, "select", 121);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_select_ngModelChange_58_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.bloodGroup, $event) || (participant_r14.bloodGroup = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](59, BookingComponent_div_30_ng_container_3_div_9_option_59_Template, 2, 2, "option", 144);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](59, BookingComponent_div_30_ng_container_3_div_9_option_59_Template, 2, 2, "option", 146);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](60, "div", 103)(61, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](60, "div", 105)(61, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](62, "Dietary Preference ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](63, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](63, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](64, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](65, "select", 119);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](65, "select", 121);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_select_ngModelChange_65_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.dietaryPreference, $event) || (participant_r14.dietaryPreference = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](66, BookingComponent_div_30_ng_container_3_div_9_option_66_Template, 2, 2, "option", 144);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](66, BookingComponent_div_30_ng_container_3_div_9_option_66_Template, 2, 2, "option", 146);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](67, "div", 148)(68, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](67, "div", 150)(68, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](69, "Medical & Health Declaration ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](70, "span", 85);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](70, "span", 87);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](71, "*");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](72, "select", 149);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](72, "select", 151);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_select_ngModelChange_72_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.medicalCondition, $event) || (participant_r14.medicalCondition = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](73, BookingComponent_div_30_ng_container_3_div_9_option_73_Template, 2, 2, "option", 144);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](73, BookingComponent_div_30_ng_container_3_div_9_option_73_Template, 2, 2, "option", 146);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](74, "textarea", 150);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](74, "textarea", 152);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_3_div_9_Template_textarea_ngModelChange_74_listener($event) {
       const participant_r14 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r13).$implicit;
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](participant_r14.medicalInfo, $event) || (participant_r14.medicalInfo = $event);
@@ -1256,16 +1256,16 @@ function BookingComponent_div_30_ng_container_3_div_9_Template(rf, ctx) {
 function BookingComponent_div_30_ng_container_3_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 79)(2, "div", 80);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 81)(2, "div", 82);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Step 3 of 4");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 83);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "Participant Details");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 82);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 84);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_ng_container_3_div_8_Template, 3, 0, "div", 129)(9, BookingComponent_div_30_ng_container_3_div_9_Template, 75, 26, "div", 130);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_ng_container_3_div_8_Template, 3, 0, "div", 131)(9, BookingComponent_div_30_ng_container_3_div_9_Template, 75, 26, "div", 132);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
   }
   if (rf & 2) {
@@ -1280,7 +1280,7 @@ function BookingComponent_div_30_ng_container_3_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_tr_86_span_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 206);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 208);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Primary");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1292,7 +1292,7 @@ function BookingComponent_div_30_ng_container_4_tr_86_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_4_tr_86_span_5_Template, 2, 0, "span", 205);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_4_tr_86_span_5_Template, 2, 0, "span", 207);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "td");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7);
@@ -1328,10 +1328,10 @@ function BookingComponent_div_30_ng_container_4_tr_86_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_ng_container_94_div_1_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 164)(1, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 166)(1, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1347,7 +1347,7 @@ function BookingComponent_div_30_ng_container_4_ng_container_94_div_1_Template(r
 function BookingComponent_div_30_ng_container_4_ng_container_94_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_30_ng_container_4_ng_container_94_div_1_Template, 6, 7, "div", 207);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_30_ng_container_4_ng_container_94_div_1_Template, 6, 7, "div", 209);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
   }
   if (rf & 2) {
@@ -1358,10 +1358,10 @@ function BookingComponent_div_30_ng_container_4_ng_container_94_Template(rf, ctx
 }
 function BookingComponent_div_30_ng_container_4_div_115_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 208)(1, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 210)(1, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Coupon Discount");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1374,10 +1374,10 @@ function BookingComponent_div_30_ng_container_4_div_115_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_116_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 208)(1, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 210)(1, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Referral Discount");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1390,10 +1390,10 @@ function BookingComponent_div_30_ng_container_4_div_116_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_117_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 208)(1, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 210)(1, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Free Slot Credit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1406,11 +1406,11 @@ function BookingComponent_div_30_ng_container_4_div_117_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_118_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 208)(1, "span", 209);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 210);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 210)(1, "span", 211);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 212);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, " GoWild Wallet Applied");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 211);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 213);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](6, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1423,11 +1423,11 @@ function BookingComponent_div_30_ng_container_4_div_118_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_126_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 212)(1, "span", 165);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 213);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 214)(1, "span", 167);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 215);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, " Balance Due at Basecamp / T-7 Days (70%):");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 214);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 216);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](6, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
@@ -1440,23 +1440,23 @@ function BookingComponent_div_30_ng_container_4_div_126_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_i_138_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 215);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 217);
   }
 }
 function BookingComponent_div_30_ng_container_4_i_149_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 216);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](0, "i", 218);
   }
 }
 function BookingComponent_div_30_ng_container_4_div_155_Template(rf, ctx) {
   if (rf & 1) {
     const _r26 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 217)(1, "div", 218);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 219);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div")(4, "div", 220);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 219)(1, "div", 220);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 221);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div")(4, "div", 222);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "GoWild Trek Wallet");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 221);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 223);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, "Available Balance: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "strong");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9);
@@ -1464,7 +1464,7 @@ function BookingComponent_div_30_ng_container_4_div_155_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, " (incl. bonus)");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "label", 222)(13, "input", 223);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "label", 224)(13, "input", 225);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_4_div_155_Template_input_ngModelChange_13_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r26);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -1486,14 +1486,14 @@ function BookingComponent_div_30_ng_container_4_div_155_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_161_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Validating coupon... ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_4_div_162_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 224);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 226);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1506,7 +1506,7 @@ function BookingComponent_div_30_ng_container_4_div_162_Template(rf, ctx) {
 function BookingComponent_div_30_ng_container_4_button_171_Template(rf, ctx) {
   if (rf & 1) {
     const _r27 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 225);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 227);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_button_171_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r27);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -1518,21 +1518,21 @@ function BookingComponent_div_30_ng_container_4_button_171_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_172_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Log in to use referral codes. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_4_div_173_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Checking referral code\u2026 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_30_ng_container_4_div_174_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 226);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 228);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1544,7 +1544,7 @@ function BookingComponent_div_30_ng_container_4_div_174_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_175_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 227);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 229);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1556,7 +1556,7 @@ function BookingComponent_div_30_ng_container_4_div_175_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_176_div_5_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 236);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 238);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1568,7 +1568,7 @@ function BookingComponent_div_30_ng_container_4_div_176_div_5_Template(rf, ctx) 
 }
 function BookingComponent_div_30_ng_container_4_div_176_div_6_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 236);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 238);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, " Invite friends to unlock free treks. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1576,7 +1576,7 @@ function BookingComponent_div_30_ng_container_4_div_176_div_6_Template(rf, ctx) 
 function BookingComponent_div_30_ng_container_4_div_176_div_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r29 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 237)(1, "div", 238)(2, "button", 239);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 239)(1, "div", 240)(2, "button", 241);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_div_176_div_10_Template_button_click_2_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r29);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -1584,10 +1584,10 @@ function BookingComponent_div_30_ng_container_4_div_176_div_10_Template(rf, ctx)
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, " \u2212 ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 240);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 242);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "button", 239);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "button", 241);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_div_176_div_10_Template_button_click_6_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r29);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -1595,7 +1595,7 @@ function BookingComponent_div_30_ng_container_4_div_176_div_10_Template(rf, ctx)
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, " + ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](10, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](11, "number");
@@ -1611,7 +1611,7 @@ function BookingComponent_div_30_ng_container_4_div_176_div_10_Template(rf, ctx)
 }
 function BookingComponent_div_30_ng_container_4_div_176_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1624,12 +1624,12 @@ function BookingComponent_div_30_ng_container_4_div_176_div_11_Template(rf, ctx)
 function BookingComponent_div_30_ng_container_4_div_176_Template(rf, ctx) {
   if (rf & 1) {
     const _r28 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 228)(1, "div", 229)(2, "div")(3, "div", 230);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 230)(1, "div", 231)(2, "div")(3, "div", 232);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Use Free Trek Slot");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_4_div_176_div_5_Template, 2, 1, "div", 231)(6, BookingComponent_div_30_ng_container_4_div_176_div_6_Template, 2, 0, "div", 231);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](5, BookingComponent_div_30_ng_container_4_div_176_div_5_Template, 2, 1, "div", 233)(6, BookingComponent_div_30_ng_container_4_div_176_div_6_Template, 2, 0, "div", 233);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "label", 232)(8, "input", 233);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "label", 234)(8, "input", 235);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_4_div_176_Template_input_ngModelChange_8_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r28);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -1642,9 +1642,9 @@ function BookingComponent_div_30_ng_container_4_div_176_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.onReferralRewardToggle());
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](9, "span", 234);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](9, "span", 236);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](10, BookingComponent_div_30_ng_container_4_div_176_div_10_Template, 12, 9, "div", 235)(11, BookingComponent_div_30_ng_container_4_div_176_div_11_Template, 2, 1, "div", 140);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](10, BookingComponent_div_30_ng_container_4_div_176_div_10_Template, 12, 9, "div", 237)(11, BookingComponent_div_30_ng_container_4_div_176_div_11_Template, 2, 1, "div", 142);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -1678,17 +1678,17 @@ function BookingComponent_div_30_ng_container_4_div_177_div_4_span_8_Template(rf
 function BookingComponent_div_30_ng_container_4_div_177_div_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r30 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 245)(1, "div", 246)(2, "span", 247);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 247)(1, "div", 248)(2, "span", 249);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 248);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 250);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 249);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 251);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_ng_container_4_div_177_div_4_span_8_Template, 3, 4, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_ng_container_4_div_177_div_4_span_8_Template, 3, 4, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "button", 250);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "button", 252);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_div_177_div_4_Template_button_click_9_listener() {
       const coupon_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r30).$implicit;
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -1717,11 +1717,11 @@ function BookingComponent_div_30_ng_container_4_div_177_div_4_Template(rf, ctx) 
 }
 function BookingComponent_div_30_ng_container_4_div_177_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 241)(1, "div", 242);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 243)(1, "div", 244);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Available Coupons");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 243);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](4, BookingComponent_div_30_ng_container_4_div_177_div_4_Template, 11, 8, "div", 244);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 245);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](4, BookingComponent_div_30_ng_container_4_div_177_div_4_Template, 11, 8, "div", 246);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -1732,7 +1732,7 @@ function BookingComponent_div_30_ng_container_4_div_177_Template(rf, ctx) {
 }
 function BookingComponent_div_30_ng_container_4_div_178_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 107);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 109);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -1746,19 +1746,19 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
   if (rf & 1) {
     const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 79)(2, "div", 80);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 81)(2, "div", 82);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "Step 4 of 4");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 81);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "h1", 83);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "Review Your Booking");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 82);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "p", 84);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, " Please verify all details before proceeding to payment. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 154)(9, "div", 155)(10, "div", 156);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 156)(9, "div", 157)(10, "div", 158);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "Trek Details");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "a", 157);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "a", 159);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_a_click_12_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1766,36 +1766,36 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13, "Edit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "div", 158)(15, "div", 159)(16, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "div", 160)(15, "div", 161)(16, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Trek");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 159)(21, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 161)(21, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](22, "Dates");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](23, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](23, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](25, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](26, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "div", 159)(28, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "div", 161)(28, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](29, "Duration");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](30, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](30, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](31);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "div", 159)(33, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "div", 161)(33, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](34, "Participants");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](35, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](35, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](36);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "div", 154)(38, "div", 155)(39, "div", 156);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "div", 156)(38, "div", 157)(39, "div", 158);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](40, "Primary Contact");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](41, "a", 157);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](41, "a", 159);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_a_click_41_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1803,34 +1803,34 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](42, "Edit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 158)(44, "div", 159)(45, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 160)(44, "div", 161)(45, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](46, "Name");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](47, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](47, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](48);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "div", 159)(50, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "div", 161)(50, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](51, "Email");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](52, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](52, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](53);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](54, "div", 159)(55, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](54, "div", 161)(55, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](56, "Phone");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](57, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](57, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](58);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](59, "div", 159)(60, "span", 160);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](59, "div", 161)(60, "span", 162);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](61, "Emergency");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](62, "span", 161);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](62, "span", 163);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](63);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](64, "div", 154)(65, "div", 155)(66, "div", 156);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](64, "div", 156)(65, "div", 157)(66, "div", 158);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](67, "Participants");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](68, "a", 157);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](68, "a", 159);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_a_click_68_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1838,7 +1838,7 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](69, "Edit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](70, "table", 162)(71, "thead")(72, "tr")(73, "th");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](70, "table", 164)(71, "thead")(72, "tr")(73, "th");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](74, "#");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](75, "th");
@@ -1857,97 +1857,97 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](84, "ID Number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](85, "tbody");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](86, BookingComponent_div_30_ng_container_4_tr_86_Template, 14, 7, "tr", 41);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](86, BookingComponent_div_30_ng_container_4_tr_86_Template, 14, 7, "tr", 43);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](87, "div", 163)(88, "div", 164)(89, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](87, "div", 165)(88, "div", 166)(89, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](90);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](91, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](91, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](92);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](93, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](94, BookingComponent_div_30_ng_container_4_ng_container_94_Template, 2, 1, "ng-container", 41);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](95, "div", 167)(96, "span", 165);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](97, "i", 168);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](94, BookingComponent_div_30_ng_container_4_ng_container_94_Template, 2, 1, "ng-container", 43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](95, "div", 169)(96, "span", 167);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](97, "i", 170);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](98);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](99, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](99, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](100);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](101, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](102, "div", 167)(103, "span", 165);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](104, "i", 169);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](102, "div", 169)(103, "span", 167);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](104, "i", 171);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](105);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](106, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](106, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](107);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](108, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](109, "div", 170)(110, "span", 165);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](109, "div", 172)(110, "span", 167);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](111, "Total Amount (incl. 5% GST)");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](112, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](112, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](113);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](114, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](115, BookingComponent_div_30_ng_container_4_div_115_Template, 6, 4, "div", 171)(116, BookingComponent_div_30_ng_container_4_div_116_Template, 6, 4, "div", 171)(117, BookingComponent_div_30_ng_container_4_div_117_Template, 6, 4, "div", 171)(118, BookingComponent_div_30_ng_container_4_div_118_Template, 7, 4, "div", 171);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](119, "div", 172)(120, "span", 165);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](121, "i", 173);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](115, BookingComponent_div_30_ng_container_4_div_115_Template, 6, 4, "div", 173)(116, BookingComponent_div_30_ng_container_4_div_116_Template, 6, 4, "div", 173)(117, BookingComponent_div_30_ng_container_4_div_117_Template, 6, 4, "div", 173)(118, BookingComponent_div_30_ng_container_4_div_118_Template, 7, 4, "div", 173);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](119, "div", 174)(120, "span", 167);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](121, "i", 175);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](122);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](123, "span", 166);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](123, "span", 168);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](124);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](125, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](126, BookingComponent_div_30_ng_container_4_div_126_Template, 7, 4, "div", 174);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](126, BookingComponent_div_30_ng_container_4_div_126_Template, 7, 4, "div", 176);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](127, "div", 175)(128, "div", 176)(129, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](130, "i", 177);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](127, "div", 177)(128, "div", 178)(129, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](130, "i", 179);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](131, " Choose Payment Plan");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](132, "div", 178)(133, "div", 179);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](132, "div", 180)(133, "div", 181);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_div_click_133_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.paymentPlan = "full");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](134, "div", 180)(135, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](136, "i", 181);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](134, "div", 182)(135, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](136, "i", 183);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](137, " Full Payment");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](138, BookingComponent_div_30_ng_container_4_i_138_Template, 1, 0, "i", 182);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](138, BookingComponent_div_30_ng_container_4_i_138_Template, 1, 0, "i", 184);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](139, "div", 183);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](139, "div", 185);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](140, "Instant confirmation & guaranteed slots");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](141, "div", 184);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](141, "div", 186);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](142);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](143, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](144, "div", 179);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](144, "div", 181);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_div_click_144_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.paymentPlan = "deposit_30");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](145, "div", 180)(146, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](147, "i", 185);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](145, "div", 182)(146, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](147, "i", 187);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](148, " 30% Advance");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](149, BookingComponent_div_30_ng_container_4_i_149_Template, 1, 0, "i", 186);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](149, BookingComponent_div_30_ng_container_4_i_149_Template, 1, 0, "i", 188);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](150, "div", 183);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](150, "div", 185);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](151, "Pay 30% now, 70% before trek / Basecamp");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](152, "div", 187);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](152, "div", 189);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](153);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](154, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](155, BookingComponent_div_30_ng_container_4_div_155_Template, 16, 5, "div", 188);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](156, "div", 189)(157, "div", 103)(158, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](155, BookingComponent_div_30_ng_container_4_div_155_Template, 16, 5, "div", 190);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](156, "div", 191)(157, "div", 105)(158, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](159, "Coupon Code");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](160, "input", 190);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](160, "input", 192);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_4_Template_input_ngModelChange_160_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1960,12 +1960,12 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.onCouponCodeInput($event));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](161, BookingComponent_div_30_ng_container_4_div_161_Template, 2, 0, "div", 140)(162, BookingComponent_div_30_ng_container_4_div_162_Template, 2, 1, "div", 191);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](161, BookingComponent_div_30_ng_container_4_div_161_Template, 2, 0, "div", 142)(162, BookingComponent_div_30_ng_container_4_div_162_Template, 2, 1, "div", 193);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](163, "div", 192)(164, "div", 103)(165, "label");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](163, "div", 194)(164, "div", 105)(165, "label");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](166, "Referral Code");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](167, "div", 193)(168, "input", 194);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](167, "div", 195)(168, "input", 196);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_4_Template_input_ngModelChange_168_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1978,7 +1978,7 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.onReferralCodeInputChange($event));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](169, "button", 195);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](169, "button", 197);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_ng_container_4_Template_button_click_169_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1986,12 +1986,12 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](170, " Apply ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](171, BookingComponent_div_30_ng_container_4_button_171_Template, 2, 0, "button", 196);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](171, BookingComponent_div_30_ng_container_4_button_171_Template, 2, 0, "button", 198);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](172, BookingComponent_div_30_ng_container_4_div_172_Template, 2, 0, "div", 140)(173, BookingComponent_div_30_ng_container_4_div_173_Template, 2, 0, "div", 140)(174, BookingComponent_div_30_ng_container_4_div_174_Template, 2, 1, "div", 197)(175, BookingComponent_div_30_ng_container_4_div_175_Template, 2, 1, "div", 198);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](172, BookingComponent_div_30_ng_container_4_div_172_Template, 2, 0, "div", 142)(173, BookingComponent_div_30_ng_container_4_div_173_Template, 2, 0, "div", 142)(174, BookingComponent_div_30_ng_container_4_div_174_Template, 2, 1, "div", 199)(175, BookingComponent_div_30_ng_container_4_div_175_Template, 2, 1, "div", 200);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](176, BookingComponent_div_30_ng_container_4_div_176_Template, 12, 6, "div", 199)(177, BookingComponent_div_30_ng_container_4_div_177_Template, 5, 1, "div", 200)(178, BookingComponent_div_30_ng_container_4_div_178_Template, 2, 1, "div", 140);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](179, "label", 201)(180, "input", 202);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](176, BookingComponent_div_30_ng_container_4_div_176_Template, 12, 6, "div", 201)(177, BookingComponent_div_30_ng_container_4_div_177_Template, 5, 1, "div", 202)(178, BookingComponent_div_30_ng_container_4_div_178_Template, 2, 1, "div", 142);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](179, "label", 203)(180, "input", 204);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_30_ng_container_4_Template_input_ngModelChange_180_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r22);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -1999,13 +1999,13 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](181, "div", 203);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](181, "div", 205);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](182, " I agree to the ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](183, "a", 204);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](183, "a", 206);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](184, "Terms & Conditions");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](185, " and ");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](186, "a", 204);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](186, "a", 206);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](187, "Cancellation Policy");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](188);
@@ -2116,7 +2116,7 @@ function BookingComponent_div_30_ng_container_4_Template(rf, ctx) {
 function BookingComponent_div_30_button_7_Template(rf, ctx) {
   if (rf & 1) {
     const _r32 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 251);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 253);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_button_7_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r32);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -2135,16 +2135,16 @@ function BookingComponent_div_30_div_8_span_8_Template(rf, ctx) {
 }
 function BookingComponent_div_30_div_8_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 252)(1, "div", 253);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 254)(1, "div", 255);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Total Payable");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 254);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 256);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](5, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 255);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 257);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_div_8_span_8_Template, 2, 0, "span", 12);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_30_div_8_span_8_Template, 2, 0, "span", 14);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -2160,7 +2160,7 @@ function BookingComponent_div_30_div_8_Template(rf, ctx) {
 function BookingComponent_div_30_button_9_Template(rf, ctx) {
   if (rf & 1) {
     const _r33 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 256);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 258);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_button_9_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r33);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
@@ -2169,7 +2169,7 @@ function BookingComponent_div_30_button_9_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 257);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span", 259);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "\u2192");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
@@ -2183,14 +2183,14 @@ function BookingComponent_div_30_button_9_Template(rf, ctx) {
 function BookingComponent_div_30_button_10_Template(rf, ctx) {
   if (rf & 1) {
     const _r34 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 258);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "button", 260);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_30_button_10_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r34);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.proceedToPayment());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "span", 259);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 260);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "span", 261);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 262);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4);
@@ -2206,8 +2206,8 @@ function BookingComponent_div_30_button_10_Template(rf, ctx) {
 }
 function BookingComponent_div_30_div_11_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 261);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 262);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 263);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 264);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2219,7 +2219,7 @@ function BookingComponent_div_30_div_11_Template(rf, ctx) {
 }
 function BookingComponent_div_30_div_12_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 263);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 265);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2231,8 +2231,8 @@ function BookingComponent_div_30_div_12_Template(rf, ctx) {
 }
 function BookingComponent_div_30_div_13_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 264);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 265);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 266);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 267);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2244,8 +2244,8 @@ function BookingComponent_div_30_div_13_Template(rf, ctx) {
 }
 function BookingComponent_div_30_div_14_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 266);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 267);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 268);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 269);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2257,12 +2257,12 @@ function BookingComponent_div_30_div_14_Template(rf, ctx) {
 }
 function BookingComponent_div_30_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 68);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_30_ng_container_1_Template, 19, 4, "ng-container", 12)(2, BookingComponent_div_30_ng_container_2_Template, 39, 5, "ng-container", 12)(3, BookingComponent_div_30_ng_container_3_Template, 10, 3, "ng-container", 12)(4, BookingComponent_div_30_ng_container_4_Template, 189, 80, "ng-container", 12);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 69)(6, "div", 70);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_div_30_button_7_Template, 2, 0, "button", 71)(8, BookingComponent_div_30_div_8_Template, 9, 7, "div", 72)(9, BookingComponent_div_30_button_9_Template, 5, 3, "button", 73)(10, BookingComponent_div_30_button_10_Template, 6, 5, "button", 74);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 70);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_30_ng_container_1_Template, 19, 4, "ng-container", 14)(2, BookingComponent_div_30_ng_container_2_Template, 39, 5, "ng-container", 14)(3, BookingComponent_div_30_ng_container_3_Template, 10, 3, "ng-container", 14)(4, BookingComponent_div_30_ng_container_4_Template, 189, 80, "ng-container", 14);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 71)(6, "div", 72);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](7, BookingComponent_div_30_button_7_Template, 2, 0, "button", 73)(8, BookingComponent_div_30_div_8_Template, 9, 7, "div", 74)(9, BookingComponent_div_30_button_9_Template, 5, 3, "button", 75)(10, BookingComponent_div_30_button_10_Template, 6, 5, "button", 76);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](11, BookingComponent_div_30_div_11_Template, 3, 1, "div", 75)(12, BookingComponent_div_30_div_12_Template, 2, 1, "div", 76)(13, BookingComponent_div_30_div_13_Template, 3, 1, "div", 77)(14, BookingComponent_div_30_div_14_Template, 3, 1, "div", 78);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](11, BookingComponent_div_30_div_11_Template, 3, 1, "div", 77)(12, BookingComponent_div_30_div_12_Template, 2, 1, "div", 78)(13, BookingComponent_div_30_div_13_Template, 3, 1, "div", 79)(14, BookingComponent_div_30_div_14_Template, 3, 1, "div", 80);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -2295,7 +2295,7 @@ function BookingComponent_div_30_Template(rf, ctx) {
 }
 function BookingComponent_div_31_span_34_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 293);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 295);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "30% Advance Deposit");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2303,7 +2303,7 @@ function BookingComponent_div_31_span_34_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_35_div_8_span_63_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 367);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 369);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](3, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
@@ -2316,7 +2316,7 @@ function BookingComponent_div_31_div_35_div_35_div_8_span_63_Template(rf, ctx) {
 }
 function BookingComponent_div_31_div_35_div_35_div_8_span_64_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 368);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 370);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Verifying with UPI Gateway...");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2324,47 +2324,47 @@ function BookingComponent_div_31_div_35_div_35_div_8_span_64_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_35_div_8_Template(rf, ctx) {
   if (rf & 1) {
     const _r38 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 317)(1, "div", 318)(2, "div", 319);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 319)(1, "div", 320)(2, "div", 321);
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnamespaceSVG"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "svg", 320);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](4, "rect", 321)(5, "rect", 322)(6, "rect", 323)(7, "rect", 324)(8, "rect", 325)(9, "rect", 326)(10, "rect", 327)(11, "rect", 328)(12, "rect", 329)(13, "rect", 330)(14, "rect", 331)(15, "rect", 332)(16, "rect", 333)(17, "rect", 334)(18, "rect", 335)(19, "rect", 336)(20, "rect", 337)(21, "rect", 338)(22, "rect", 339)(23, "rect", 340)(24, "rect", 341)(25, "rect", 342)(26, "rect", 343)(27, "rect", 344)(28, "rect", 345)(29, "rect", 346)(30, "rect", 347)(31, "rect", 348)(32, "rect", 349)(33, "rect", 350)(34, "rect", 351)(35, "rect", 352)(36, "rect", 353)(37, "rect", 354)(38, "rect", 355)(39, "circle", 356);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](40, "text", 357);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "svg", 322);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](4, "rect", 323)(5, "rect", 324)(6, "rect", 325)(7, "rect", 326)(8, "rect", 327)(9, "rect", 328)(10, "rect", 329)(11, "rect", 330)(12, "rect", 331)(13, "rect", 332)(14, "rect", 333)(15, "rect", 334)(16, "rect", 335)(17, "rect", 336)(18, "rect", 337)(19, "rect", 338)(20, "rect", 339)(21, "rect", 340)(22, "rect", 341)(23, "rect", 342)(24, "rect", 343)(25, "rect", 344)(26, "rect", 345)(27, "rect", 346)(28, "rect", 347)(29, "rect", 348)(30, "rect", 349)(31, "rect", 350)(32, "rect", 351)(33, "rect", 352)(34, "rect", 353)(35, "rect", 354)(36, "rect", 355)(37, "rect", 356)(38, "rect", 357)(39, "circle", 358);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](40, "text", 359);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](41, "GWK");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵnamespaceHTML"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](42, "div", 358);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](42, "div", 360);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 359)(44, "div", 360);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](45, "span", 361);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](43, "div", 361)(44, "div", 362);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](45, "span", 363);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](46, " QR active: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](47, "strong");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](48);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "p", 362);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](49, "p", 364);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](50, "Scan with any UPI app on your phone:");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](51, "div", 363)(52, "span", 364);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](51, "div", 365)(52, "span", 366);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](53, "Google Pay");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](54, "span", 364);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](54, "span", 366);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](55, "PhonePe");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](56, "span", 364);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](56, "span", 366);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](57, "Paytm");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](58, "span", 364);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](58, "span", 366);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](59, "BHIM");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](60, "span", 364);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](60, "span", 366);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](61, "CRED");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](62, "button", 365);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](62, "button", 367);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_8_Template_button_click_62_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r38);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.completePayment("UPI - Dynamic QR Code"));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](63, BookingComponent_div_31_div_35_div_35_div_8_span_63_Template, 4, 4, "span", 12)(64, BookingComponent_div_31_div_35_div_35_div_8_span_64_Template, 2, 0, "span", 366);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](63, BookingComponent_div_31_div_35_div_35_div_8_span_63_Template, 4, 4, "span", 14)(64, BookingComponent_div_31_div_35_div_35_div_8_span_64_Template, 2, 0, "span", 368);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
   }
   if (rf & 2) {
@@ -2394,7 +2394,7 @@ function BookingComponent_div_31_div_35_div_35_div_9_span_15_Template(rf, ctx) {
 }
 function BookingComponent_div_31_div_35_div_35_div_9_span_16_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 368);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 370);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Awaiting UPI Confirmation...");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2402,10 +2402,10 @@ function BookingComponent_div_31_div_35_div_35_div_9_span_16_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
   if (rf & 1) {
     const _r39 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 369)(1, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 371)(1, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Enter your Virtual Payment Address (VPA)");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 371)(4, "input", 372);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 373)(4, "input", 374);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_35_div_9_Template_input_ngModelChange_4_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -2413,7 +2413,7 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 373)(6, "button", 374);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 375)(6, "button", 376);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_9_Template_button_click_6_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -2421,7 +2421,7 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, "@okhdfcbank");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "button", 374);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "button", 376);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_9_Template_button_click_8_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -2429,7 +2429,7 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9, "@okaxis");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "button", 374);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "button", 376);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_9_Template_button_click_10_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -2437,7 +2437,7 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "@paytm");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "button", 374);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "button", 376);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_9_Template_button_click_12_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
@@ -2445,13 +2445,13 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13, "@ybl");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "button", 365);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "button", 367);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_div_9_Template_button_click_14_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r39);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.completePayment("UPI - " + ctx_r0.upiVpa));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](15, BookingComponent_div_31_div_35_div_35_div_9_span_15_Template, 3, 4, "span", 12)(16, BookingComponent_div_31_div_35_div_35_div_9_span_16_Template, 2, 0, "span", 366);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](15, BookingComponent_div_31_div_35_div_35_div_9_span_15_Template, 3, 4, "span", 14)(16, BookingComponent_div_31_div_35_div_35_div_9_span_16_Template, 2, 0, "span", 368);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -2469,25 +2469,25 @@ function BookingComponent_div_31_div_35_div_35_div_9_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_35_Template(rf, ctx) {
   if (rf & 1) {
     const _r37 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 311)(1, "div", 312)(2, "button", 239);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 313)(1, "div", 314)(2, "button", 241);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_Template_button_click_2_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r37);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.upiOption = "qr");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](3, "i", 313);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](3, "i", 315);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, " Scan Dynamic QR Code ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "button", 239);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "button", 241);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_35_Template_button_click_5_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r37);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.upiOption = "vpa");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 314);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 316);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, " Enter UPI ID / VPA ");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_31_div_35_div_35_div_8_Template, 65, 4, "div", 315)(9, BookingComponent_div_31_div_35_div_35_div_9_Template, 17, 4, "div", 316);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](8, BookingComponent_div_31_div_35_div_35_div_8_Template, 65, 4, "div", 317)(9, BookingComponent_div_31_div_35_div_35_div_9_Template, 17, 4, "div", 318);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
@@ -2505,7 +2505,7 @@ function BookingComponent_div_31_div_35_div_35_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_36_span_26_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 291);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](1, "i", 293);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](3, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
@@ -2518,7 +2518,7 @@ function BookingComponent_div_31_div_35_div_36_span_26_Template(rf, ctx) {
 }
 function BookingComponent_div_31_div_35_div_36_span_27_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 368);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 370);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Authorizing 3D Secure OTP...");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2526,10 +2526,10 @@ function BookingComponent_div_31_div_35_div_36_span_27_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
   if (rf & 1) {
     const _r40 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 311)(1, "div", 375)(2, "div", 376)(3, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 313)(1, "div", 377)(2, "div", 378)(3, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Card Number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 377)(6, "input", 378);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 379)(6, "input", 380);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_36_Template_input_ngModelChange_6_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -2542,13 +2542,13 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.formatCardNumber($event));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "span", 379);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "span", 381);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 376)(10, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 378)(10, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "Cardholder Name");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "input", 380);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "input", 382);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_36_Template_input_ngModelChange_12_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -2556,10 +2556,10 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 381)(14, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 383)(14, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](15, "Expiry Date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "input", 382);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "input", 384);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_36_Template_input_ngModelChange_16_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -2572,10 +2572,10 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.formatCardExpiry($event));
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](17, "div", 381)(18, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](17, "div", 383)(18, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, "CVV / CVC");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 383);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "input", 385);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_36_Template_input_ngModelChange_20_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -2583,7 +2583,7 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "label", 384)(22, "input", 202);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "label", 386)(22, "input", 204);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_36_Template_input_ngModelChange_22_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
@@ -2594,13 +2594,13 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](23, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24, "Save card securely for future Western Ghats expeditions");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "button", 365);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "button", 367);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_36_Template_button_click_25_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r40);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.completePayment("Card - " + ctx_r0.getCardType(ctx_r0.cardDetails.number) + " ending in " + (ctx_r0.cardDetails.number.slice(-4) || "9876")));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](26, BookingComponent_div_31_div_35_div_36_span_26_Template, 4, 4, "span", 12)(27, BookingComponent_div_31_div_35_div_36_span_27_Template, 2, 0, "span", 366);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](26, BookingComponent_div_31_div_35_div_36_span_26_Template, 4, 4, "span", 14)(27, BookingComponent_div_31_div_35_div_36_span_27_Template, 2, 0, "span", 368);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -2625,7 +2625,69 @@ function BookingComponent_div_31_div_35_div_36_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r0.isProcessingPayment);
   }
 }
-function BookingComponent_div_31_div_35_div_37_span_51_Template(rf, ctx) {
+function BookingComponent_div_31_div_35_div_37_ng_container_28_option_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 155);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const bank_r42 = ctx.$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("value", bank_r42.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate"](bank_r42.label);
+  }
+}
+function BookingComponent_div_31_div_35_div_37_ng_container_28_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_31_div_35_div_37_ng_container_28_option_1_Template, 2, 2, "option", 146);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngForOf", ctx_r0.bankOptions);
+  }
+}
+function BookingComponent_div_31_div_35_div_37_ng_template_29_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "option", 393);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "HDFC Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "option", 394);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](3, "State Bank of India");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "option", 395);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "ICICI Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "option", 396);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, "Axis Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "option", 397);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9, "Kotak Mahindra Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "option", 398);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "Punjab National Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "option", 399);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13, "Canara Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "option", 400);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](15, "Bank of Baroda");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "option", 401);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "IndusInd Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "option", 402);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, "Union Bank of India");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "option", 403);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](21, "Karnataka Bank");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+  }
+}
+function BookingComponent_div_31_div_35_div_37_span_32_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
@@ -2638,9 +2700,9 @@ function BookingComponent_div_31_div_35_div_37_span_51_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("Proceed to ", ctx_r0.selectedBank, " Net Banking (\u20B9", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind2"](2, 2, ctx_r0.payablePrice, "1.0-0"), ")");
   }
 }
-function BookingComponent_div_31_div_35_div_37_span_52_Template(rf, ctx) {
+function BookingComponent_div_31_div_35_div_37_span_33_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 368);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 370);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
@@ -2653,110 +2715,80 @@ function BookingComponent_div_31_div_35_div_37_span_52_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_div_37_Template(rf, ctx) {
   if (rf & 1) {
     const _r41 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 311)(1, "p", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 313)(1, "p", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](2, "Popular Indian Banks");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 385)(4, "button", 386);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 387)(4, "button", 388);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_4_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.selectedBank = "HDFC");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "span", 387);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 306);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "span", 389);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 308);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, "HDFC Bank");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "button", 386);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "button", 388);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_9_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.selectedBank = "SBI");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "span", 387);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](11, "i", 306);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "span", 389);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](11, "i", 308);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](13, "State Bank of India");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "button", 386);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](14, "button", 388);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_14_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.selectedBank = "ICICI");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "span", 387);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](16, "i", 306);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "span", 389);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](16, "i", 308);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](17, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](18, "ICICI Bank");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "button", 386);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "button", 388);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_19_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.selectedBank = "AXIS");
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "span", 387);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](21, "i", 306);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "span", 389);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](21, "i", 308);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](22, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](23, "Axis Bank");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](24, "div", 388)(25, "label", 370);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](24, "div", 390)(25, "label", 372);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "Or choose from other 40+ banks");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "select", 389);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "select", 391);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_37_Template_select_ngModelChange_27_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedBank, $event) || (ctx_r0.selectedBank = $event);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](28, "option", 390);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](29, "HDFC Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](30, "option", 391);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](31, "State Bank of India");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "option", 392);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](33, "ICICI Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "option", 393);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](35, "Axis Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](36, "option", 394);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](37, "Kotak Mahindra Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](38, "option", 395);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](39, "Punjab National Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](40, "option", 396);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](41, "Canara Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](42, "option", 397);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](43, "Bank of Baroda");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](44, "option", 398);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](45, "IndusInd Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](46, "option", 399);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](47, "Union Bank of India");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](48, "option", 400);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](49, "Karnataka Bank");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](50, "button", 365);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_50_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](28, BookingComponent_div_31_div_35_div_37_ng_container_28_Template, 2, 1, "ng-container", 392)(29, BookingComponent_div_31_div_35_div_37_ng_template_29_Template, 22, 0, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](31, "button", 367);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_37_Template_button_click_31_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r41);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.completePayment("Net Banking - " + ctx_r0.selectedBank));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](51, BookingComponent_div_31_div_35_div_37_span_51_Template, 3, 5, "span", 12)(52, BookingComponent_div_31_div_35_div_37_span_52_Template, 2, 1, "span", 366);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](32, BookingComponent_div_31_div_35_div_37_span_32_Template, 3, 5, "span", 14)(33, BookingComponent_div_31_div_35_div_37_span_33_Template, 2, 1, "span", 368);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
+    const defaultBankOptions_r43 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](30);
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](4);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedBank === "HDFC");
@@ -2768,7 +2800,9 @@ function BookingComponent_div_31_div_35_div_37_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedBank === "AXIS");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedBank);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](23);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r0.bankOptions.length > 0)("ngIfElse", defaultBankOptions_r43);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("disabled", ctx_r0.isProcessingPayment);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", !ctx_r0.isProcessingPayment);
@@ -2776,7 +2810,123 @@ function BookingComponent_div_31_div_35_div_37_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r0.isProcessingPayment);
   }
 }
-function BookingComponent_div_31_div_35_div_38_span_30_Template(rf, ctx) {
+function BookingComponent_div_31_div_35_div_38_ng_container_2_label_1_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r45 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 406)(1, "input", 407);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_ng_container_2_label_1_Template_input_ngModelChange_1_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r45);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](5);
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "span", 408);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](3, "i", 409);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 220)(5, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
+  }
+  if (rf & 2) {
+    const w_r46 = ctx.$implicit;
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === w_r46.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("value", w_r46.value);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate"](w_r46.label);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate1"]("Instant checkout with ", w_r46.label);
+  }
+}
+function BookingComponent_div_31_div_35_div_38_ng_container_2_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_div_31_div_35_div_38_ng_container_2_label_1_Template, 9, 6, "label", 405);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementContainerEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngForOf", ctx_r0.walletOptions);
+  }
+}
+function BookingComponent_div_31_div_35_div_38_ng_template_3_Template(rf, ctx) {
+  if (rf & 1) {
+    const _r47 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "label", 406)(1, "input", 410);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_ng_template_3_Template_input_ngModelChange_1_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r47);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "span", 408);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](3, "i", 409);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "div", 220)(5, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6, "Amazon Pay");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, "Get 2% instant cashback on Western Ghats treks");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "label", 406)(10, "input", 411);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_ng_template_3_Template_input_ngModelChange_10_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r47);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "span", 408);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](12, "i", 412);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 220)(14, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](15, "Paytm Wallet");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Fast checkout with Paytm balance");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "label", 406)(19, "input", 413);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_ng_template_3_Template_input_ngModelChange_19_listener($event) {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r47);
+      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
+      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
+    });
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "span", 408);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](21, "i", 414);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](22, "div", 220)(23, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24, "PhonePe Wallet");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "small");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "Link your PhonePe account");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
+  }
+  if (rf & 2) {
+    const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "amazonpay");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "paytm");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "phonepe");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
+  }
+}
+function BookingComponent_div_31_div_35_div_38_span_6_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1);
@@ -2789,91 +2939,34 @@ function BookingComponent_div_31_div_35_div_38_span_30_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtextInterpolate2"]("Pay \u20B9", _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipeBind2"](2, 2, ctx_r0.payablePrice, "1.0-0"), " with ", ctx_r0.selectedWallet);
   }
 }
-function BookingComponent_div_31_div_35_div_38_span_31_Template(rf, ctx) {
+function BookingComponent_div_31_div_35_div_38_span_7_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 368);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "span", 370);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](1, "Debiting Wallet...");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
   }
 }
 function BookingComponent_div_31_div_35_div_38_Template(rf, ctx) {
   if (rf & 1) {
-    const _r42 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 311)(1, "div", 401)(2, "label", 402)(3, "input", 403);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_Template_input_ngModelChange_3_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r42);
-      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
-    });
+    const _r44 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 313)(1, "div", 404);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](2, BookingComponent_div_31_div_35_div_38_ng_container_2_Template, 2, 1, "ng-container", 392)(3, BookingComponent_div_31_div_35_div_38_ng_template_3_Template, 27, 9, "ng-template", null, 2, _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplateRefExtractor"]);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](4, "span", 404);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](5, "i", 405);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 218)(7, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](8, "Amazon Pay");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](10, "Get 2% instant cashback on Western Ghats treks");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "label", 402)(12, "input", 406);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_Template_input_ngModelChange_12_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r42);
-      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "span", 404);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](14, "i", 407);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 218)(16, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Paytm Wallet");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, "Fast checkout with Paytm balance");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "label", 402)(21, "input", 408);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayListener"]("ngModelChange", function BookingComponent_div_31_div_35_div_38_Template_input_ngModelChange_21_listener($event) {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r42);
-      const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
-      _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayBindingSet"](ctx_r0.selectedWallet, $event) || (ctx_r0.selectedWallet = $event);
-      return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event);
-    });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](22, "span", 404);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](23, "i", 409);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](24, "div", 218)(25, "strong");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "PhonePe Wallet");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "small");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](28, "Link your PhonePe account");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](29, "button", 365);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_38_Template_button_click_29_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r42);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "button", 367);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_div_38_Template_button_click_5_listener() {
+      _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r44);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.completePayment("Wallet - " + ctx_r0.selectedWallet));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](30, BookingComponent_div_31_div_35_div_38_span_30_Template, 3, 5, "span", 12)(31, BookingComponent_div_31_div_35_div_38_span_31_Template, 2, 0, "span", 366);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](6, BookingComponent_div_31_div_35_div_38_span_6_Template, 3, 5, "span", 14)(7, BookingComponent_div_31_div_35_div_38_span_7_Template, 2, 0, "span", 368);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
+    const defaultWallets_r48 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵreference"](4);
     const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "amazonpay");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "paytm");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵclassProp"]("selected", ctx_r0.selectedWallet === "phonepe");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtwoWayProperty"]("ngModel", ctx_r0.selectedWallet);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](8);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", ctx_r0.walletOptions.length > 0)("ngIfElse", defaultWallets_r48);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"](3);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("disabled", ctx_r0.isProcessingPayment);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵproperty"]("ngIf", !ctx_r0.isProcessingPayment);
@@ -2884,68 +2977,68 @@ function BookingComponent_div_31_div_35_div_38_Template(rf, ctx) {
 function BookingComponent_div_31_div_35_Template(rf, ctx) {
   if (rf & 1) {
     const _r36 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 294)(1, "div", 295)(2, "button", 296);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 296)(1, "div", 297)(2, "button", 298);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_Template_button_click_2_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r36);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.setPaymentTab("upi"));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 297);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](4, "i", 298);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "div", 299);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](4, "i", 300);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 299)(6, "span", 300);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "div", 301)(6, "span", 302);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, "UPI / QR Code");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "span", 301);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "span", 303);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9, "Instant & Free");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "button", 296);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "button", 298);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_Template_button_click_10_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r36);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.setPaymentTab("card"));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 302);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](12, "i", 303);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](11, "div", 304);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](12, "i", 305);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 299)(14, "span", 300);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](13, "div", 301)(14, "span", 302);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](15, "Credit / Debit Card");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "span", 304);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "span", 306);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17, "Visa, MC, RuPay");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "button", 296);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](18, "button", 298);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_Template_button_click_18_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r36);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.setPaymentTab("netbanking"));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "div", 305);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](20, "i", 306);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "div", 307);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](20, "i", 308);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 299)(22, "span", 300);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 301)(22, "span", 302);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](23, "Net Banking");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](24, "span", 304);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](24, "span", 306);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](25, "50+ Indian Banks");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](26, "button", 296);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](26, "button", 298);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_div_35_Template_button_click_26_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r36);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.setPaymentTab("wallet"));
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "div", 307);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](28, "i", 308);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "div", 309);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](28, "i", 310);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](29, "div", 299)(30, "span", 300);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](29, "div", 301)(30, "span", 302);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](31, "Wallets");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "span", 304);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "span", 306);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](33, "Amazon, Paytm, Mobikwik");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 309);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](35, BookingComponent_div_31_div_35_div_35_Template, 10, 6, "div", 310)(36, BookingComponent_div_31_div_35_div_36_Template, 28, 9, "div", 310)(37, BookingComponent_div_31_div_35_div_37_Template, 53, 12, "div", 310)(38, BookingComponent_div_31_div_35_div_38_Template, 32, 12, "div", 310);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](34, "div", 311);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](35, BookingComponent_div_31_div_35_div_35_Template, 10, 6, "div", 312)(36, BookingComponent_div_31_div_35_div_36_Template, 28, 9, "div", 312)(37, BookingComponent_div_31_div_35_div_37_Template, 34, 14, "div", 312)(38, BookingComponent_div_31_div_35_div_38_Template, 8, 5, "div", 312);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
   if (rf & 2) {
@@ -2970,20 +3063,20 @@ function BookingComponent_div_31_div_35_Template(rf, ctx) {
 }
 function BookingComponent_div_31_div_36_Template(rf, ctx) {
   if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 410)(1, "div", 411);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 36);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 415)(1, "div", 416);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](2, "i", 38);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](4, "Payment Confirmed & Verified!");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "p", 412);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](5, "p", 417);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](6);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](7, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 413);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](8, "div", 418);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9, "Official KEDB Permit Reservation Secured");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "p", 414);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "p", 419);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "Redirecting to your Digital Trek Pass in 2 seconds...");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
   }
@@ -2996,70 +3089,70 @@ function BookingComponent_div_31_div_36_Template(rf, ctx) {
 function BookingComponent_div_31_Template(rf, ctx) {
   if (rf & 1) {
     const _r35 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 268);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 270);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_Template_div_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r35);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.closePaymentModal());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 269);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](1, "div", 271);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_Template_div_click_1_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r35);
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"]($event.stopPropagation());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 270)(3, "div", 271)(4, "div", 272)(5, "span", 273);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 260);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 272)(3, "div", 273)(4, "div", 274)(5, "span", 275);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](6, "i", 262);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div")(8, "div", 274);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](7, "div")(8, "div", 276);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 275);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](10, "div", 277);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](11, "256-Bit SSL Encrypted \u2022 Direct Bank & UPI Gateway");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 276)(13, "div", 277)(14, "span", 278);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](12, "div", 278)(13, "div", 279)(14, "span", 280);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](15, "Amount Payable");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "span", 279);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](16, "span", 281);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](17);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](18, "number");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "button", 280);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](19, "button", 282);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵlistener"]("click", function BookingComponent_div_31_Template_button_click_19_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵrestoreView"](_r35);
       const ctx_r0 = _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵresetView"](ctx_r0.closePaymentModal());
     });
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](20, "i", 281);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](20, "i", 283);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 282)(22, "div", 283)(23, "strong");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](21, "div", 284)(22, "div", 285)(23, "strong");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 284);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "span", 286);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](26, "\u2022");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](27, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](28);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵpipe"](29, "date");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](30, "span", 284);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](30, "span", 286);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](31, "\u2022");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](32, "span");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](33);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](34, BookingComponent_div_31_span_34_Template, 2, 0, "span", 285);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](34, BookingComponent_div_31_span_34_Template, 2, 0, "span", 287);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](35, BookingComponent_div_31_div_35_Template, 39, 12, "div", 286)(36, BookingComponent_div_31_div_36_Template, 12, 5, "div", 287);
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "div", 288)(38, "div", 289)(39, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](40, "i", 290);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](35, BookingComponent_div_31_div_35_Template, 39, 12, "div", 288)(36, BookingComponent_div_31_div_36_Template, 12, 5, "div", 289);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](37, "div", 290)(38, "div", 291)(39, "span");
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](40, "i", 292);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](41, " PCI-DSS Level 1");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](42, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](43, "i", 291);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](43, "i", 293);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](44, " 256-Bit SSL");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](45, "span");
-    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](46, "i", 292);
+    _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](46, "i", 294);
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](47, " Instant Booking Confirmation");
     _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()()()()();
   }
@@ -3157,6 +3250,8 @@ class BookingComponent {
     this.bloodGroupOptions = [];
     this.dietaryOptions = [];
     this.medicalOptions = [];
+    this.bankOptions = [];
+    this.walletOptions = [];
     // Payment Plan & GoWild Wallet
     this.paymentPlan = 'full';
     this.applyWalletBalance = false;
@@ -3365,6 +3460,19 @@ class BookingComponent {
     });
     this.dropdownService.getOptions('medical-conditions', medicalFallback).subscribe(options => {
       this.medicalOptions = options;
+    });
+    this.dropdownService.getOptions('netBankingBanks', []).subscribe(options => {
+      if (options.length > 0) {
+        this.bankOptions = options;
+        if (!this.bankOptions.some(b => b.value === this.selectedBank)) {
+          this.selectedBank = this.bankOptions[0]?.value || 'HDFC';
+        }
+      }
+    });
+    this.dropdownService.getOptions('paymentWallets', []).subscribe(options => {
+      if (options.length > 0) {
+        this.walletOptions = options;
+      }
     });
   }
   loadTrekData() {
@@ -4378,42 +4486,42 @@ class BookingComponent {
     selectors: [["app-booking"]],
     decls: 32,
     vars: 27,
-    consts: [["referralLoginPrompt", ""], [1, "checkout-shell"], ["class", "left-panel", 4, "ngIf"], [1, "right-panel"], [1, "mobile-nav"], [1, "mobile-back", 3, "routerLink"], [1, "mobile-title"], [1, "mobile-nav-spacer"], [1, "mobile-steps"], [1, "mob-step"], [1, "mob-num"], ["class", "bi bi-check-lg", 4, "ngIf"], [4, "ngIf"], ["class", "loader-overlay", 4, "ngIf"], ["class", "form-area", 4, "ngIf"], ["class", "payment-modal-backdrop", 3, "click", 4, "ngIf"], [1, "left-panel"], [1, "trek-thumb", 2, "position", "relative"], [1, "panel-nav"], [1, "back-btn", 3, "routerLink"], ["loading", "lazy", "decoding", "async", 3, "src", "alt"], [1, "trek-info"], [1, "trek-label"], [1, "trek-name"], [1, "trek-location"], [1, "bi", "bi-geo-alt-fill", "text-success", "me-1"], [1, "panel-divider"], [1, "stepper"], [1, "step-row"], [1, "step-node"], [1, "step-text"], [1, "step-title"], ["class", "step-sub", 4, "ngIf"], [1, "step-sub"], ["class", "price-summary", 4, "ngIf"], ["class", "referral-summary-card", 4, "ngIf", "ngIfElse"], [1, "bi", "bi-check-lg"], [1, "price-summary"], [1, "price-row"], [1, "price-label"], [1, "price-amt"], [4, "ngFor", "ngForOf"], [1, "price-row", "total"], ["class", "price-row discount", 4, "ngIf"], ["class", "price-row due", 4, "ngIf"], ["class", "price-row", 4, "ngIf"], [1, "price-row", "discount"], [1, "price-row", "due"], [1, "referral-summary-card"], [1, "ref-card-header"], [1, "ref-card-eyebrow"], [1, "ref-card-title"], ["type", "button", 1, "ref-card-copy", 3, "click", "disabled"], ["class", "ref-card-body", 4, "ngIf"], ["class", "ref-card-body error", 4, "ngIf"], [1, "ref-card-body"], [1, "ref-metrics"], [1, "ref-metric"], [1, "ref-metric-label"], [1, "ref-metric-value"], ["class", "ref-metric", 4, "ngIf"], [1, "ref-card-note"], [1, "ref-card-body", "error"], ["type", "button", 1, "ref-card-refresh", 3, "click"], [1, "referral-summary-card", "muted"], [1, "loader-overlay"], [1, "loader-ring"], [1, "loader-text"], [1, "form-area"], [1, "bottom-bar"], [1, "bottom-bar-main"], ["type", "button", "class", "btn-back", 3, "click", 4, "ngIf"], ["class", "bar-price", 4, "ngIf"], ["type", "button", "class", "btn-next", 3, "disabled", "title", "click", 4, "ngIf"], ["type", "button", "class", "btn-next btn-pay", 3, "disabled", "click", 4, "ngIf"], ["class", "bottom-incomplete-hint", 4, "ngIf"], ["class", "bottom-error", 4, "ngIf"], ["class", "bottom-flash success", 4, "ngIf"], ["class", "bottom-flash error", 4, "ngIf"], [1, "step-headline"], [1, "step-eyebrow"], [1, "step-h1"], [1, "step-desc"], [2, "margin-bottom", "28px"], [2, "font-size", "0.75rem", "font-weight", "700", "letter-spacing", "0.04em", "color", "var(--body)", "display", "block", "margin-bottom", "10px"], [1, "req"], [1, "batch-options"], ["class", "batch-option", 3, "selected", "disabled", 4, "ngFor", "ngForOf"], ["class", "form-row", 4, "ngIf"], ["style", "\n            margin-top: 8px;\n            margin-bottom: 12px;\n            font-size: 0.75rem;\n            font-weight: 700;\n            letter-spacing: 0.1em;\n            text-transform: uppercase;\n            color: var(--muted);\n          ", 4, "ngIf"], [1, "addons-grid"], ["class", "addon-card", 3, "checked", 4, "ngFor", "ngForOf"], [1, "batch-option"], ["type", "radio", "name", "batch", "checked", "", 3, "ngModelChange", "change", "value", "ngModel", "disabled"], [1, "batch-radio"], ["style", "\n                    width: 8px;\n                    height: 8px;\n                    border-radius: 50%;\n                    background: #3d6b4a;\n                  ", 4, "ngIf"], [1, "batch-info"], [1, "batch-dates"], [1, "batch-meta"], [1, "batch-price"], [1, "batch-status"], [2, "width", "8px", "height", "8px", "border-radius", "50%", "background", "#3d6b4a"], [1, "form-row"], [1, "field"], [1, "counter-row"], ["type", "button", 1, "counter-btn", 3, "click"], [1, "counter-val"], [1, "field-hint"], ["readonly", "", 1, "form-input", 3, "value"], [2, "margin-top", "8px", "margin-bottom", "12px", "font-size", "0.75rem", "font-weight", "700", "letter-spacing", "0.1em", "text-transform", "uppercase", "color", "var(--muted)"], [1, "addon-card"], [1, "addon-top"], [2, "flex", "1", "padding-right", "8px"], [1, "addon-name"], ["class", "addon-cat-tag", "style", "font-size: 11px; opacity: 0.7; margin-top: 2px;", 4, "ngIf"], [1, "addon-check"], [1, "addon-price"], [1, "field", 2, "margin-top", "10px"], [2, "margin-bottom", "6px"], [1, "form-select", 3, "ngModelChange", "ngModel"], [3, "ngValue", 4, "ngFor", "ngForOf"], [1, "addon-cat-tag", 2, "font-size", "11px", "opacity", "0.7", "margin-top", "2px"], [3, "ngValue"], ["placeholder", "Enter full name", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "email", "placeholder", "your@email.com", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row", "full"], ["placeholder", "Any allergies, dietary restrictions, or special requirements\u2026", 1, "form-textarea", 3, "ngModelChange", "ngModel"], ["class", "info-bar", 4, "ngIf"], ["class", "participant-block", 4, "ngFor", "ngForOf"], [1, "info-bar"], [1, "bi", "bi-exclamation-triangle-fill", "text-warning", "me-1"], [1, "participant-block"], [1, "participant-header"], [1, "p-num"], [1, "p-name"], ["class", "p-badge", 4, "ngIf"], [1, "participant-fields"], ["placeholder", "Enter full name", 1, "form-input", 3, "ngModelChange", "ngModel", "disabled"], ["class", "field-hint", 4, "ngIf"], ["type", "number", "placeholder", "e.g. 28", "min", "12", "max", "100", 1, "form-input", 3, "ngModelChange", "input", "ngModel"], ["class", "error", 4, "ngIf"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "form-select", 3, "ngModelChange", "change", "ngModel"], ["placeholder", "Enter ID number", 1, "form-input", 3, "ngModelChange", "input", "ngModel", "maxlength"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", 1, "form-input", 3, "ngModelChange", "input", "ngModel", "disabled"], [1, "field", "full"], [1, "form-select", "mb-2", 3, "ngModelChange", "ngModel"], ["placeholder", "Additional notes: allergies, regular medications, or recent injuries (optional)\u2026", 1, "form-textarea", 3, "ngModelChange", "ngModel"], [1, "p-badge"], [1, "error"], [3, "value"], [1, "review-block"], [1, "review-header"], [1, "review-header-title"], [1, "edit-link", 3, "click"], [1, "review-body"], [1, "review-row"], [1, "review-key"], [1, "review-val"], [1, "p-table"], [1, "price-breakdown"], [1, "pb-row"], [1, "pb-label"], [1, "pb-val"], [1, "pb-row", 2, "font-size", "0.85rem", "color", "#64748b"], [1, "bi", "bi-tree-fill", "text-success", "me-1"], [1, "bi", "bi-shield-check", "text-primary", "me-1"], [1, "pb-row", "total"], ["class", "pb-row discount", 4, "ngIf"], [1, "pb-row", "total", "payable"], [1, "bi", "bi-credit-card", "me-1"], ["class", "pb-row", "style", "font-size: 0.85rem; color: #d97706; background: #fffbeb; padding: 6px 10px; border-radius: 6px; margin-top: 6px;", 4, "ngIf"], [1, "payment-plan-section"], [1, "plan-section-header"], [1, "bi", "bi-credit-card-2-front", "me-1"], [1, "payment-plan-grid"], [1, "plan-card", 3, "click"], [1, "plan-card-top"], [1, "bi", "bi-lightning-charge-fill", "text-success", "me-1"], ["class", "bi bi-check2 text-success fw-bold", 4, "ngIf"], [1, "plan-card-sub"], [1, "plan-card-amount", "amount-full"], [1, "bi", "bi-pie-chart-fill", "text-primary", "me-1"], ["class", "bi bi-check2 text-primary fw-bold", 4, "ngIf"], [1, "plan-card-amount", "amount-deposit"], ["class", "wallet-widget", 4, "ngIf"], [1, "form-row", 2, "margin-top", "16px"], ["placeholder", "Enter coupon code (optional)", 1, "form-input", 2, "text-transform", "uppercase", 3, "ngModelChange", "ngModel"], ["class", "field-hint", "style", "color: #2d7a43", 4, "ngIf"], [1, "form-row", "referral-row"], [1, "referral-input-row"], ["placeholder", "Enter referral code (optional)", 1, "form-input", 2, "text-transform", "uppercase", 3, "ngModelChange", "disabled", "ngModel"], ["type", "button", 1, "btn-apply", 3, "click", "disabled"], ["type", "button", "class", "btn-clear", 3, "click", 4, "ngIf"], ["class", "field-hint success", 4, "ngIf"], ["class", "field-hint error", 4, "ngIf"], ["class", "referral-reward-panel", 4, "ngIf"], ["class", "coupon-list-block", 4, "ngIf"], [1, "terms-check", "mt-2"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "terms-text"], ["target", "_blank", "rel", "noopener noreferrer", 3, "href"], ["class", "primary-tag", 4, "ngIf"], [1, "primary-tag"], ["class", "pb-row", 4, "ngIf"], [1, "pb-row", "discount"], [1, "pb-label", 2, "color", "#059669", "font-weight", "600"], [1, "bi", "bi-wallet2", "me-1"], [1, "pb-val", 2, "color", "#059669", "font-weight", "700"], [1, "pb-row", 2, "font-size", "0.85rem", "color", "#d97706", "background", "#fffbeb", "padding", "6px 10px", "border-radius", "6px", "margin-top", "6px"], [1, "bi", "bi-hourglass-split", "me-1"], [1, "pb-val", "font-bold"], [1, "bi", "bi-check2", "text-success", "fw-bold"], [1, "bi", "bi-check2", "text-primary", "fw-bold"], [1, "wallet-widget"], [1, "wallet-info"], [1, "bi", "bi-wallet2", "text-success", "wallet-icon"], [1, "wallet-title"], [1, "wallet-balance"], [1, "wallet-action"], ["type", "checkbox", 1, "wallet-checkbox", 3, "ngModelChange", "ngModel"], [1, "field-hint", 2, "color", "#2d7a43"], ["type", "button", 1, "btn-clear", 3, "click"], [1, "field-hint", "success"], [1, "field-hint", "error"], [1, "referral-reward-panel"], [1, "reward-header"], [1, "reward-title"], ["class", "reward-sub", 4, "ngIf"], [1, "switch"], ["type", "checkbox", 3, "ngModelChange", "change", "ngModel", "disabled"], [1, "slider"], ["class", "reward-body", 4, "ngIf"], [1, "reward-sub"], [1, "reward-body"], [1, "slot-stepper"], ["type", "button", 3, "click"], [1, "slot-value"], [1, "coupon-list-block"], [1, "coupon-list-title"], [1, "coupon-list-grid"], ["class", "coupon-chip", 3, "used", 4, "ngFor", "ngForOf"], [1, "coupon-chip"], [1, "coupon-top"], [1, "coupon-code"], [1, "coupon-badge"], [1, "coupon-meta"], ["type", "button", 1, "coupon-copy-btn", 3, "click", "disabled"], ["type", "button", 1, "btn-back", 3, "click"], [1, "bar-price"], [1, "bar-price-label"], [1, "bar-price-amount"], [1, "bar-price-sub"], ["type", "button", 1, "btn-next", 3, "click", "disabled", "title"], [1, "btn-arrow"], ["type", "button", 1, "btn-next", "btn-pay", 3, "click", "disabled"], [1, "btn-pay-icon"], [1, "bi", "bi-shield-lock-fill"], [1, "bottom-incomplete-hint"], [1, "bi", "bi-info-circle-fill", "me-1"], [1, "bottom-error"], [1, "bottom-flash", "success"], [1, "bi", "bi-check-circle-fill", "text-success", "me-1"], [1, "bottom-flash", "error"], [1, "bi", "bi-exclamation-triangle-fill", "text-danger", "me-1"], [1, "payment-modal-backdrop", 3, "click"], [1, "payment-modal-sheet", 3, "click"], [1, "pay-modal-header"], [1, "pay-header-left"], [1, "pay-brand"], [1, "pay-shield-icon"], [1, "pay-title"], [1, "pay-subtitle"], [1, "pay-header-right"], [1, "pay-amount-pill"], [1, "pay-amount-lbl"], [1, "pay-amount-val"], ["type", "button", 1, "btn-close-pay", 3, "click", "disabled"], [1, "bi", "bi-x-lg"], [1, "pay-order-strip"], [1, "pay-order-meta"], [1, "meta-dot"], ["class", "pay-plan-badge", 4, "ngIf"], ["class", "pay-modal-body", 4, "ngIf"], ["class", "pay-success-pane", 4, "ngIf"], [1, "pay-modal-footer"], [1, "trust-icons"], [1, "bi", "bi-shield-check", "me-1"], [1, "bi", "bi-lock-fill", "me-1"], [1, "bi", "bi-lightning-charge-fill", "me-1"], [1, "pay-plan-badge"], [1, "pay-modal-body"], [1, "pay-methods-nav"], ["type", "button", 1, "pay-method-tab", 3, "click"], [1, "tab-icon-wrap", "upi"], [1, "bi", "bi-qr-code"], [1, "tab-copy"], [1, "tab-name"], [1, "tab-badge"], [1, "tab-icon-wrap", "card"], [1, "bi", "bi-credit-card-2-front"], [1, "tab-sub"], [1, "tab-icon-wrap", "netbank"], [1, "bi", "bi-bank"], [1, "tab-icon-wrap", "wallet"], [1, "bi", "bi-wallet2"], [1, "pay-methods-content"], ["class", "pay-tab-pane", 4, "ngIf"], [1, "pay-tab-pane"], [1, "upi-segmented-switch"], [1, "bi", "bi-qr-code-scan", "me-1"], [1, "bi", "bi-phone", "me-1"], ["class", "upi-qr-box", 4, "ngIf"], ["class", "upi-vpa-box", 4, "ngIf"], [1, "upi-qr-box"], [1, "qr-canvas-wrap"], [1, "qr-frame"], ["viewBox", "0 0 200 200", "width", "160", "height", "160", 1, "qr-svg"], ["width", "200", "height", "200", "fill", "#ffffff", "rx", "10"], ["x", "15", "y", "15", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "23", "y", "23", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "29", "y", "29", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "140", "y", "15", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "148", "y", "23", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "154", "y", "29", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "15", "y", "140", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "23", "y", "148", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "29", "y", "154", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "75", "y", "20", "width", "12", "height", "12", "fill", "#162318"], ["x", "95", "y", "20", "width", "12", "height", "12", "fill", "#162318"], ["x", "115", "y", "25", "width", "12", "height", "12", "fill", "#162318"], ["x", "70", "y", "45", "width", "14", "height", "14", "fill", "#162318"], ["x", "100", "y", "45", "width", "14", "height", "14", "fill", "#162318"], ["x", "20", "y", "75", "width", "14", "height", "14", "fill", "#162318"], ["x", "45", "y", "85", "width", "12", "height", "12", "fill", "#162318"], ["x", "70", "y", "75", "width", "20", "height", "20", "fill", "#22c55e"], ["x", "110", "y", "75", "width", "14", "height", "14", "fill", "#162318"], ["x", "140", "y", "75", "width", "12", "height", "12", "fill", "#162318"], ["x", "165", "y", "80", "width", "14", "height", "14", "fill", "#162318"], ["x", "20", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "50", "y", "110", "width", "12", "height", "12", "fill", "#162318"], ["x", "80", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "105", "y", "105", "width", "14", "height", "14", "fill", "#162318"], ["x", "135", "y", "115", "width", "16", "height", "16", "fill", "#162318"], ["x", "165", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "75", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "100", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "130", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "155", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "75", "y", "170", "width", "14", "height", "14", "fill", "#162318"], ["x", "110", "y", "165", "width", "14", "height", "14", "fill", "#162318"], ["x", "140", "y", "170", "width", "14", "height", "14", "fill", "#162318"], ["x", "165", "y", "165", "width", "14", "height", "14", "fill", "#162318"], ["cx", "100", "cy", "100", "r", "18", "fill", "#162318", "stroke", "#ffffff", "stroke-width", "2"], ["x", "100", "y", "104", "font-size", "10", "font-weight", "bold", "fill", "#22c55e", "text-anchor", "middle", "font-family", "sans-serif"], [1, "qr-scan-line"], [1, "qr-instructions"], [1, "qr-timer-pill"], [1, "timer-dot"], [1, "qr-hint"], [1, "upi-app-badges"], [1, "app-chip"], ["type", "button", 1, "btn-pay-modal", 3, "click", "disabled"], ["class", "spinner-inline", 4, "ngIf"], [1, "bi", "bi-check2", "me-1"], [1, "spinner-inline"], [1, "upi-vpa-box"], [1, "pay-input-label"], [1, "vpa-input-group"], ["type", "text", "placeholder", "username@okhdfcbank or 9876543210@upi", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "vpa-quick-chips"], ["type", "button", 1, "vpa-chip", 3, "click"], [1, "card-form-grid"], [1, "pay-field", "full"], [1, "card-input-wrap"], ["type", "text", "placeholder", "4532 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 8892", "maxlength", "19", 1, "pay-input", 3, "ngModelChange", "input", "ngModel"], [1, "card-brand-badge"], ["type", "text", "placeholder", "Name as printed on card", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "pay-field", "half"], ["type", "text", "placeholder", "MM / YY", "maxlength", "5", 1, "pay-input", 3, "ngModelChange", "input", "ngModel"], ["type", "password", "placeholder", "\u2022\u2022\u2022", "maxlength", "4", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "pay-save-card"], [1, "banks-grid"], ["type", "button", 1, "bank-pill", 3, "click"], [1, "bank-logo-icon"], [1, "pay-field", "full", 2, "margin-top", "14px"], [1, "pay-select", 3, "ngModelChange", "ngModel"], ["value", "HDFC"], ["value", "SBI"], ["value", "ICICI"], ["value", "AXIS"], ["value", "Kotak"], ["value", "PNB"], ["value", "Canara"], ["value", "Bank of Baroda"], ["value", "IndusInd"], ["value", "Union"], ["value", "Karnataka Bank"], [1, "wallets-list"], [1, "wallet-row"], ["type", "radio", "name", "wallet", "value", "amazonpay", 3, "ngModelChange", "ngModel"], [1, "wallet-icon"], [1, "bi", "bi-wallet2", "text-warning"], ["type", "radio", "name", "wallet", "value", "paytm", 3, "ngModelChange", "ngModel"], [1, "bi", "bi-phone", "text-info"], ["type", "radio", "name", "wallet", "value", "phonepe", 3, "ngModelChange", "ngModel"], [1, "bi", "bi-credit-card", "text-primary"], [1, "pay-success-pane"], [1, "pay-success-circle"], [1, "pay-success-lead"], [1, "pay-success-badge"], [1, "pay-redirect-hint"]],
+    consts: [["referralLoginPrompt", ""], ["defaultBankOptions", ""], ["defaultWallets", ""], [1, "checkout-shell"], ["class", "left-panel", 4, "ngIf"], [1, "right-panel"], [1, "mobile-nav"], [1, "mobile-back", 3, "routerLink"], [1, "mobile-title"], [1, "mobile-nav-spacer"], [1, "mobile-steps"], [1, "mob-step"], [1, "mob-num"], ["class", "bi bi-check-lg", 4, "ngIf"], [4, "ngIf"], ["class", "loader-overlay", 4, "ngIf"], ["class", "form-area", 4, "ngIf"], ["class", "payment-modal-backdrop", 3, "click", 4, "ngIf"], [1, "left-panel"], [1, "trek-thumb", 2, "position", "relative"], [1, "panel-nav"], [1, "back-btn", 3, "routerLink"], ["loading", "lazy", "decoding", "async", 3, "src", "alt"], [1, "trek-info"], [1, "trek-label"], [1, "trek-name"], [1, "trek-location"], [1, "bi", "bi-geo-alt-fill", "text-success", "me-1"], [1, "panel-divider"], [1, "stepper"], [1, "step-row"], [1, "step-node"], [1, "step-text"], [1, "step-title"], ["class", "step-sub", 4, "ngIf"], [1, "step-sub"], ["class", "price-summary", 4, "ngIf"], ["class", "referral-summary-card", 4, "ngIf", "ngIfElse"], [1, "bi", "bi-check-lg"], [1, "price-summary"], [1, "price-row"], [1, "price-label"], [1, "price-amt"], [4, "ngFor", "ngForOf"], [1, "price-row", "total"], ["class", "price-row discount", 4, "ngIf"], ["class", "price-row due", 4, "ngIf"], ["class", "price-row", 4, "ngIf"], [1, "price-row", "discount"], [1, "price-row", "due"], [1, "referral-summary-card"], [1, "ref-card-header"], [1, "ref-card-eyebrow"], [1, "ref-card-title"], ["type", "button", 1, "ref-card-copy", 3, "click", "disabled"], ["class", "ref-card-body", 4, "ngIf"], ["class", "ref-card-body error", 4, "ngIf"], [1, "ref-card-body"], [1, "ref-metrics"], [1, "ref-metric"], [1, "ref-metric-label"], [1, "ref-metric-value"], ["class", "ref-metric", 4, "ngIf"], [1, "ref-card-note"], [1, "ref-card-body", "error"], ["type", "button", 1, "ref-card-refresh", 3, "click"], [1, "referral-summary-card", "muted"], [1, "loader-overlay"], [1, "loader-ring"], [1, "loader-text"], [1, "form-area"], [1, "bottom-bar"], [1, "bottom-bar-main"], ["type", "button", "class", "btn-back", 3, "click", 4, "ngIf"], ["class", "bar-price", 4, "ngIf"], ["type", "button", "class", "btn-next", 3, "disabled", "title", "click", 4, "ngIf"], ["type", "button", "class", "btn-next btn-pay", 3, "disabled", "click", 4, "ngIf"], ["class", "bottom-incomplete-hint", 4, "ngIf"], ["class", "bottom-error", 4, "ngIf"], ["class", "bottom-flash success", 4, "ngIf"], ["class", "bottom-flash error", 4, "ngIf"], [1, "step-headline"], [1, "step-eyebrow"], [1, "step-h1"], [1, "step-desc"], [2, "margin-bottom", "28px"], [2, "font-size", "0.75rem", "font-weight", "700", "letter-spacing", "0.04em", "color", "var(--body)", "display", "block", "margin-bottom", "10px"], [1, "req"], [1, "batch-options"], ["class", "batch-option", 3, "selected", "disabled", 4, "ngFor", "ngForOf"], ["class", "form-row", 4, "ngIf"], ["style", "\n            margin-top: 8px;\n            margin-bottom: 12px;\n            font-size: 0.75rem;\n            font-weight: 700;\n            letter-spacing: 0.1em;\n            text-transform: uppercase;\n            color: var(--muted);\n          ", 4, "ngIf"], [1, "addons-grid"], ["class", "addon-card", 3, "checked", 4, "ngFor", "ngForOf"], [1, "batch-option"], ["type", "radio", "name", "batch", "checked", "", 3, "ngModelChange", "change", "value", "ngModel", "disabled"], [1, "batch-radio"], ["style", "\n                    width: 8px;\n                    height: 8px;\n                    border-radius: 50%;\n                    background: #3d6b4a;\n                  ", 4, "ngIf"], [1, "batch-info"], [1, "batch-dates"], [1, "batch-meta"], [1, "batch-price"], [1, "batch-status"], [2, "width", "8px", "height", "8px", "border-radius", "50%", "background", "#3d6b4a"], [1, "form-row"], [1, "field"], [1, "counter-row"], ["type", "button", 1, "counter-btn", 3, "click"], [1, "counter-val"], [1, "field-hint"], ["readonly", "", 1, "form-input", 3, "value"], [2, "margin-top", "8px", "margin-bottom", "12px", "font-size", "0.75rem", "font-weight", "700", "letter-spacing", "0.1em", "text-transform", "uppercase", "color", "var(--muted)"], [1, "addon-card"], [1, "addon-top"], [2, "flex", "1", "padding-right", "8px"], [1, "addon-name"], ["class", "addon-cat-tag", "style", "font-size: 11px; opacity: 0.7; margin-top: 2px;", 4, "ngIf"], [1, "addon-check"], [1, "addon-price"], [1, "field", 2, "margin-top", "10px"], [2, "margin-bottom", "6px"], [1, "form-select", 3, "ngModelChange", "ngModel"], [3, "ngValue", 4, "ngFor", "ngForOf"], [1, "addon-cat-tag", 2, "font-size", "11px", "opacity", "0.7", "margin-top", "2px"], [3, "ngValue"], ["placeholder", "Enter full name", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "email", "placeholder", "your@email.com", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", "disabled", "", 1, "form-input", 3, "ngModelChange", "ngModel"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", 1, "form-input", 3, "ngModelChange", "ngModel"], [1, "form-row", "full"], ["placeholder", "Any allergies, dietary restrictions, or special requirements\u2026", 1, "form-textarea", 3, "ngModelChange", "ngModel"], ["class", "info-bar", 4, "ngIf"], ["class", "participant-block", 4, "ngFor", "ngForOf"], [1, "info-bar"], [1, "bi", "bi-exclamation-triangle-fill", "text-warning", "me-1"], [1, "participant-block"], [1, "participant-header"], [1, "p-num"], [1, "p-name"], ["class", "p-badge", 4, "ngIf"], [1, "participant-fields"], ["placeholder", "Enter full name", 1, "form-input", 3, "ngModelChange", "ngModel", "disabled"], ["class", "field-hint", 4, "ngIf"], ["type", "number", "placeholder", "e.g. 28", "min", "12", "max", "100", 1, "form-input", 3, "ngModelChange", "input", "ngModel"], ["class", "error", 4, "ngIf"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "form-select", 3, "ngModelChange", "change", "ngModel"], ["placeholder", "Enter ID number", 1, "form-input", 3, "ngModelChange", "input", "ngModel", "maxlength"], ["type", "tel", "placeholder", "+91 XXXXX XXXXX", "minlength", "10", "maxlength", "10", "onlyNumber", "", 1, "form-input", 3, "ngModelChange", "input", "ngModel", "disabled"], [1, "field", "full"], [1, "form-select", "mb-2", 3, "ngModelChange", "ngModel"], ["placeholder", "Additional notes: allergies, regular medications, or recent injuries (optional)\u2026", 1, "form-textarea", 3, "ngModelChange", "ngModel"], [1, "p-badge"], [1, "error"], [3, "value"], [1, "review-block"], [1, "review-header"], [1, "review-header-title"], [1, "edit-link", 3, "click"], [1, "review-body"], [1, "review-row"], [1, "review-key"], [1, "review-val"], [1, "p-table"], [1, "price-breakdown"], [1, "pb-row"], [1, "pb-label"], [1, "pb-val"], [1, "pb-row", 2, "font-size", "0.85rem", "color", "#64748b"], [1, "bi", "bi-tree-fill", "text-success", "me-1"], [1, "bi", "bi-shield-check", "text-primary", "me-1"], [1, "pb-row", "total"], ["class", "pb-row discount", 4, "ngIf"], [1, "pb-row", "total", "payable"], [1, "bi", "bi-credit-card", "me-1"], ["class", "pb-row", "style", "font-size: 0.85rem; color: #d97706; background: #fffbeb; padding: 6px 10px; border-radius: 6px; margin-top: 6px;", 4, "ngIf"], [1, "payment-plan-section"], [1, "plan-section-header"], [1, "bi", "bi-credit-card-2-front", "me-1"], [1, "payment-plan-grid"], [1, "plan-card", 3, "click"], [1, "plan-card-top"], [1, "bi", "bi-lightning-charge-fill", "text-success", "me-1"], ["class", "bi bi-check2 text-success fw-bold", 4, "ngIf"], [1, "plan-card-sub"], [1, "plan-card-amount", "amount-full"], [1, "bi", "bi-pie-chart-fill", "text-primary", "me-1"], ["class", "bi bi-check2 text-primary fw-bold", 4, "ngIf"], [1, "plan-card-amount", "amount-deposit"], ["class", "wallet-widget", 4, "ngIf"], [1, "form-row", 2, "margin-top", "16px"], ["placeholder", "Enter coupon code (optional)", 1, "form-input", 2, "text-transform", "uppercase", 3, "ngModelChange", "ngModel"], ["class", "field-hint", "style", "color: #2d7a43", 4, "ngIf"], [1, "form-row", "referral-row"], [1, "referral-input-row"], ["placeholder", "Enter referral code (optional)", 1, "form-input", 2, "text-transform", "uppercase", 3, "ngModelChange", "disabled", "ngModel"], ["type", "button", 1, "btn-apply", 3, "click", "disabled"], ["type", "button", "class", "btn-clear", 3, "click", 4, "ngIf"], ["class", "field-hint success", 4, "ngIf"], ["class", "field-hint error", 4, "ngIf"], ["class", "referral-reward-panel", 4, "ngIf"], ["class", "coupon-list-block", 4, "ngIf"], [1, "terms-check", "mt-2"], ["type", "checkbox", 3, "ngModelChange", "ngModel"], [1, "terms-text"], ["target", "_blank", "rel", "noopener noreferrer", 3, "href"], ["class", "primary-tag", 4, "ngIf"], [1, "primary-tag"], ["class", "pb-row", 4, "ngIf"], [1, "pb-row", "discount"], [1, "pb-label", 2, "color", "#059669", "font-weight", "600"], [1, "bi", "bi-wallet2", "me-1"], [1, "pb-val", 2, "color", "#059669", "font-weight", "700"], [1, "pb-row", 2, "font-size", "0.85rem", "color", "#d97706", "background", "#fffbeb", "padding", "6px 10px", "border-radius", "6px", "margin-top", "6px"], [1, "bi", "bi-hourglass-split", "me-1"], [1, "pb-val", "font-bold"], [1, "bi", "bi-check2", "text-success", "fw-bold"], [1, "bi", "bi-check2", "text-primary", "fw-bold"], [1, "wallet-widget"], [1, "wallet-info"], [1, "bi", "bi-wallet2", "text-success", "wallet-icon"], [1, "wallet-title"], [1, "wallet-balance"], [1, "wallet-action"], ["type", "checkbox", 1, "wallet-checkbox", 3, "ngModelChange", "ngModel"], [1, "field-hint", 2, "color", "#2d7a43"], ["type", "button", 1, "btn-clear", 3, "click"], [1, "field-hint", "success"], [1, "field-hint", "error"], [1, "referral-reward-panel"], [1, "reward-header"], [1, "reward-title"], ["class", "reward-sub", 4, "ngIf"], [1, "switch"], ["type", "checkbox", 3, "ngModelChange", "change", "ngModel", "disabled"], [1, "slider"], ["class", "reward-body", 4, "ngIf"], [1, "reward-sub"], [1, "reward-body"], [1, "slot-stepper"], ["type", "button", 3, "click"], [1, "slot-value"], [1, "coupon-list-block"], [1, "coupon-list-title"], [1, "coupon-list-grid"], ["class", "coupon-chip", 3, "used", 4, "ngFor", "ngForOf"], [1, "coupon-chip"], [1, "coupon-top"], [1, "coupon-code"], [1, "coupon-badge"], [1, "coupon-meta"], ["type", "button", 1, "coupon-copy-btn", 3, "click", "disabled"], ["type", "button", 1, "btn-back", 3, "click"], [1, "bar-price"], [1, "bar-price-label"], [1, "bar-price-amount"], [1, "bar-price-sub"], ["type", "button", 1, "btn-next", 3, "click", "disabled", "title"], [1, "btn-arrow"], ["type", "button", 1, "btn-next", "btn-pay", 3, "click", "disabled"], [1, "btn-pay-icon"], [1, "bi", "bi-shield-lock-fill"], [1, "bottom-incomplete-hint"], [1, "bi", "bi-info-circle-fill", "me-1"], [1, "bottom-error"], [1, "bottom-flash", "success"], [1, "bi", "bi-check-circle-fill", "text-success", "me-1"], [1, "bottom-flash", "error"], [1, "bi", "bi-exclamation-triangle-fill", "text-danger", "me-1"], [1, "payment-modal-backdrop", 3, "click"], [1, "payment-modal-sheet", 3, "click"], [1, "pay-modal-header"], [1, "pay-header-left"], [1, "pay-brand"], [1, "pay-shield-icon"], [1, "pay-title"], [1, "pay-subtitle"], [1, "pay-header-right"], [1, "pay-amount-pill"], [1, "pay-amount-lbl"], [1, "pay-amount-val"], ["type", "button", 1, "btn-close-pay", 3, "click", "disabled"], [1, "bi", "bi-x-lg"], [1, "pay-order-strip"], [1, "pay-order-meta"], [1, "meta-dot"], ["class", "pay-plan-badge", 4, "ngIf"], ["class", "pay-modal-body", 4, "ngIf"], ["class", "pay-success-pane", 4, "ngIf"], [1, "pay-modal-footer"], [1, "trust-icons"], [1, "bi", "bi-shield-check", "me-1"], [1, "bi", "bi-lock-fill", "me-1"], [1, "bi", "bi-lightning-charge-fill", "me-1"], [1, "pay-plan-badge"], [1, "pay-modal-body"], [1, "pay-methods-nav"], ["type", "button", 1, "pay-method-tab", 3, "click"], [1, "tab-icon-wrap", "upi"], [1, "bi", "bi-qr-code"], [1, "tab-copy"], [1, "tab-name"], [1, "tab-badge"], [1, "tab-icon-wrap", "card"], [1, "bi", "bi-credit-card-2-front"], [1, "tab-sub"], [1, "tab-icon-wrap", "netbank"], [1, "bi", "bi-bank"], [1, "tab-icon-wrap", "wallet"], [1, "bi", "bi-wallet2"], [1, "pay-methods-content"], ["class", "pay-tab-pane", 4, "ngIf"], [1, "pay-tab-pane"], [1, "upi-segmented-switch"], [1, "bi", "bi-qr-code-scan", "me-1"], [1, "bi", "bi-phone", "me-1"], ["class", "upi-qr-box", 4, "ngIf"], ["class", "upi-vpa-box", 4, "ngIf"], [1, "upi-qr-box"], [1, "qr-canvas-wrap"], [1, "qr-frame"], ["viewBox", "0 0 200 200", "width", "160", "height", "160", 1, "qr-svg"], ["width", "200", "height", "200", "fill", "#ffffff", "rx", "10"], ["x", "15", "y", "15", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "23", "y", "23", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "29", "y", "29", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "140", "y", "15", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "148", "y", "23", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "154", "y", "29", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "15", "y", "140", "width", "45", "height", "45", "fill", "#162318", "rx", "4"], ["x", "23", "y", "148", "width", "29", "height", "29", "fill", "#ffffff", "rx", "2"], ["x", "29", "y", "154", "width", "17", "height", "17", "fill", "#162318", "rx", "2"], ["x", "75", "y", "20", "width", "12", "height", "12", "fill", "#162318"], ["x", "95", "y", "20", "width", "12", "height", "12", "fill", "#162318"], ["x", "115", "y", "25", "width", "12", "height", "12", "fill", "#162318"], ["x", "70", "y", "45", "width", "14", "height", "14", "fill", "#162318"], ["x", "100", "y", "45", "width", "14", "height", "14", "fill", "#162318"], ["x", "20", "y", "75", "width", "14", "height", "14", "fill", "#162318"], ["x", "45", "y", "85", "width", "12", "height", "12", "fill", "#162318"], ["x", "70", "y", "75", "width", "20", "height", "20", "fill", "#22c55e"], ["x", "110", "y", "75", "width", "14", "height", "14", "fill", "#162318"], ["x", "140", "y", "75", "width", "12", "height", "12", "fill", "#162318"], ["x", "165", "y", "80", "width", "14", "height", "14", "fill", "#162318"], ["x", "20", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "50", "y", "110", "width", "12", "height", "12", "fill", "#162318"], ["x", "80", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "105", "y", "105", "width", "14", "height", "14", "fill", "#162318"], ["x", "135", "y", "115", "width", "16", "height", "16", "fill", "#162318"], ["x", "165", "y", "110", "width", "14", "height", "14", "fill", "#162318"], ["x", "75", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "100", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "130", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "155", "y", "145", "width", "14", "height", "14", "fill", "#162318"], ["x", "75", "y", "170", "width", "14", "height", "14", "fill", "#162318"], ["x", "110", "y", "165", "width", "14", "height", "14", "fill", "#162318"], ["x", "140", "y", "170", "width", "14", "height", "14", "fill", "#162318"], ["x", "165", "y", "165", "width", "14", "height", "14", "fill", "#162318"], ["cx", "100", "cy", "100", "r", "18", "fill", "#162318", "stroke", "#ffffff", "stroke-width", "2"], ["x", "100", "y", "104", "font-size", "10", "font-weight", "bold", "fill", "#22c55e", "text-anchor", "middle", "font-family", "sans-serif"], [1, "qr-scan-line"], [1, "qr-instructions"], [1, "qr-timer-pill"], [1, "timer-dot"], [1, "qr-hint"], [1, "upi-app-badges"], [1, "app-chip"], ["type", "button", 1, "btn-pay-modal", 3, "click", "disabled"], ["class", "spinner-inline", 4, "ngIf"], [1, "bi", "bi-check2", "me-1"], [1, "spinner-inline"], [1, "upi-vpa-box"], [1, "pay-input-label"], [1, "vpa-input-group"], ["type", "text", "placeholder", "username@okhdfcbank or 9876543210@upi", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "vpa-quick-chips"], ["type", "button", 1, "vpa-chip", 3, "click"], [1, "card-form-grid"], [1, "pay-field", "full"], [1, "card-input-wrap"], ["type", "text", "placeholder", "4532 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 8892", "maxlength", "19", 1, "pay-input", 3, "ngModelChange", "input", "ngModel"], [1, "card-brand-badge"], ["type", "text", "placeholder", "Name as printed on card", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "pay-field", "half"], ["type", "text", "placeholder", "MM / YY", "maxlength", "5", 1, "pay-input", 3, "ngModelChange", "input", "ngModel"], ["type", "password", "placeholder", "\u2022\u2022\u2022", "maxlength", "4", 1, "pay-input", 3, "ngModelChange", "ngModel"], [1, "pay-save-card"], [1, "banks-grid"], ["type", "button", 1, "bank-pill", 3, "click"], [1, "bank-logo-icon"], [1, "pay-field", "full", 2, "margin-top", "14px"], [1, "pay-select", 3, "ngModelChange", "ngModel"], [4, "ngIf", "ngIfElse"], ["value", "HDFC"], ["value", "SBI"], ["value", "ICICI"], ["value", "AXIS"], ["value", "Kotak"], ["value", "PNB"], ["value", "Canara"], ["value", "Bank of Baroda"], ["value", "IndusInd"], ["value", "Union"], ["value", "Karnataka Bank"], [1, "wallets-list"], ["class", "wallet-row", 3, "selected", 4, "ngFor", "ngForOf"], [1, "wallet-row"], ["type", "radio", "name", "wallet", 3, "ngModelChange", "value", "ngModel"], [1, "wallet-icon"], [1, "bi", "bi-wallet2", "text-warning"], ["type", "radio", "name", "wallet", "value", "amazonpay", 3, "ngModelChange", "ngModel"], ["type", "radio", "name", "wallet", "value", "paytm", 3, "ngModelChange", "ngModel"], [1, "bi", "bi-phone", "text-info"], ["type", "radio", "name", "wallet", "value", "phonepe", 3, "ngModelChange", "ngModel"], [1, "bi", "bi-credit-card", "text-primary"], [1, "pay-success-pane"], [1, "pay-success-circle"], [1, "pay-success-lead"], [1, "pay-success-badge"], [1, "pay-redirect-hint"]],
     template: function BookingComponent_Template(rf, ctx) {
       if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_aside_1_Template, 55, 34, "aside", 2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 3)(3, "div", 4)(4, "a", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](0, "div", 3);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](1, BookingComponent_aside_1_Template, 55, 34, "aside", 4);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](2, "div", 5)(3, "div", 6)(4, "a", 7);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](5, "\u2190 Back");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 6);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](6, "div", 8);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](7, "Book Your Trek");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](8, "div", 7);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelement"](8, "div", 9);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 8)(10, "div", 9)(11, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](12, BookingComponent_i_12_Template, 1, 0, "i", 11)(13, BookingComponent_span_13_Template, 2, 0, "span", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](9, "div", 10)(10, "div", 11)(11, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](12, BookingComponent_i_12_Template, 1, 0, "i", 13)(13, BookingComponent_span_13_Template, 2, 0, "span", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](14, " Batch ");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 9)(16, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](17, BookingComponent_i_17_Template, 1, 0, "i", 11)(18, BookingComponent_span_18_Template, 2, 0, "span", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](15, "div", 11)(16, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](17, BookingComponent_i_17_Template, 1, 0, "i", 13)(18, BookingComponent_span_18_Template, 2, 0, "span", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](19, " Contact ");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 9)(21, "div", 10);
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](22, BookingComponent_i_22_Template, 1, 0, "i", 11)(23, BookingComponent_span_23_Template, 2, 0, "span", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](20, "div", 11)(21, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](22, BookingComponent_i_22_Template, 1, 0, "i", 13)(23, BookingComponent_span_23_Template, 2, 0, "span", 14);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](24, " Participants ");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "div", 9)(26, "div", 10);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementStart"](25, "div", 11)(26, "div", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](27, "4");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtext"](28, " Review ");
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](29, BookingComponent_div_29_Template, 4, 0, "div", 13)(30, BookingComponent_div_30_Template, 15, 12, "div", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](29, BookingComponent_div_29_Template, 4, 0, "div", 15)(30, BookingComponent_div_30_Template, 15, 12, "div", 16);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](31, BookingComponent_div_31_Template, 48, 16, "div", 15);
+        _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵtemplate"](31, BookingComponent_div_31_Template, 48, 16, "div", 17);
         _angular_core__WEBPACK_IMPORTED_MODULE_8__["ɵɵelementEnd"]();
       }
       if (rf & 2) {

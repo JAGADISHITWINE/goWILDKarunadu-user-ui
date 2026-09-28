@@ -229,7 +229,9 @@ Keep silicone desiccant pouches in your lens bag, and never change lenses in ope
           .map((name: string) => name.trim());
 
         if (mapped.length) {
-          this.categories = Array.from(new Set([...mapped, ...fallback]));
+          this.categories = Array.from(new Set(mapped));
+        } else {
+          this.categories = fallback;
         }
       },
       error: () => {

@@ -136,6 +136,8 @@ export class BookingComponent implements OnInit, OnDestroy {
   bloodGroupOptions: DropdownOption[] = [];
   dietaryOptions: DropdownOption[] = [];
   medicalOptions: DropdownOption[] = [];
+  bankOptions: DropdownOption[] = [];
+  walletOptions: DropdownOption[] = [];
 
   // Payment Plan & GoWild Wallet
   paymentPlan: 'full' | 'deposit_30' = 'full';
@@ -330,6 +332,21 @@ export class BookingComponent implements OnInit, OnDestroy {
 
     this.dropdownService.getOptions('medical-conditions', medicalFallback).subscribe((options) => {
       this.medicalOptions = options;
+    });
+
+    this.dropdownService.getOptions('netBankingBanks', []).subscribe((options) => {
+      if (options.length > 0) {
+        this.bankOptions = options;
+        if (!this.bankOptions.some(b => b.value === this.selectedBank)) {
+          this.selectedBank = this.bankOptions[0]?.value || 'HDFC';
+        }
+      }
+    });
+
+    this.dropdownService.getOptions('paymentWallets', []).subscribe((options) => {
+      if (options.length > 0) {
+        this.walletOptions = options;
+      }
     });
   }
 

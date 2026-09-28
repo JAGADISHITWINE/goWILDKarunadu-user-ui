@@ -741,7 +741,7 @@ class TermsandconditionsComponent {
     return this.siteSettings?.supportPhone || '+91 98765 43210';
   }
   get supportEmail() {
-    return this.siteSettings?.supportEmail || 'info@gowildkarunadu.com';
+    return this.siteSettings?.supportEmail || 'info@gowildkarunadu.online';
   }
   get whatsappLink() {
     return this.siteSettings?.whatsappLink || 'https://wa.me/919876543210';
@@ -4929,7 +4929,7 @@ const DEFAULT_SITE_SETTINGS = {
   supportPhoneRaw: '+919876543210',
   whatsappNumber: '+91 98765 43210',
   whatsappNumberRaw: '919876543210',
-  supportEmail: 'info@gowildkarunadu.com',
+  supportEmail: 'info@gowildkarunadu.online',
   contactLocation: 'Bengaluru, Karnataka',
   legalName: 'goWILD Karunadu Eco-Adventures Pvt Ltd',
   gstin: '29AAGCW9123K1Z8',
@@ -4941,7 +4941,7 @@ const DEFAULT_SITE_SETTINGS = {
   bookingsPerPage: 5,
   faqsPerPage: 8,
   telLink: 'tel:+919876543210',
-  mailLink: 'mailto:info@gowildkarunadu.com',
+  mailLink: 'mailto:info@gowildkarunadu.online',
   whatsappLink: 'https://wa.me/919876543210'
 };
 class SiteSettingsService {
@@ -6678,7 +6678,7 @@ const environment = {
     }
     return `${window.location.origin}/`;
   })(),
-  referralShareBaseUrl: window?.__env?.REFERRAL_SHARE_URL || 'https://gowildkarunadu.com',
+  referralShareBaseUrl: window?.__env?.REFERRAL_SHARE_URL || 'https://gowildkarunadu.online',
   // These values should NOT contain real secrets in the repository.
   // Provide them at runtime instead (window.__env) or, better, move sensitive
   // crypto operations to the backend and rely on HTTPS.

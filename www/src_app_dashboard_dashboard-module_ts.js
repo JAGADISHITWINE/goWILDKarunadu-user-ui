@@ -1339,7 +1339,7 @@ class DashboardComponent {
     this.compareToastType = 'info';
     this.compareToastTimer = null;
     this.mediaBaseUrl = (src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.mediaBaseUrl || '').replace(/\/?$/, '/');
-    this.referralShareBaseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment?.referralShareBaseUrl ? String(src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.referralShareBaseUrl).replace(/\/$/, '') : 'https://gowildkarunadu.com';
+    this.referralShareBaseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment?.referralShareBaseUrl ? String(src_environments_environment__WEBPACK_IMPORTED_MODULE_5__.environment.referralShareBaseUrl).replace(/\/$/, '') : 'https://gowildkarunadu.online';
     this.sortOptions = [];
     this.showComparePanel = false;
     this.compareNotice = '';
@@ -1453,11 +1453,14 @@ class DashboardComponent {
       value: 'duration_short',
       label: 'Duration: Shortest'
     }];
-    // Keep sort options local until backend exposes a stable dropdown key for this.
-    this.sortOptions = fallback;
-    if (!this.sortOptions.some(option => option.value === this.sortBy)) {
-      this.sortBy = this.sortOptions[0]?.value || 'recommended';
-    }
+    this.dropdownService.getOptions('trekSortOptions', fallback).subscribe(options => {
+      if (options.length > 0) {
+        this.sortOptions = options;
+        if (!this.sortOptions.some(option => option.value === this.sortBy)) {
+          this.sortBy = this.sortOptions[0]?.value || 'recommended';
+        }
+      }
+    });
   }
   loadDifficultyFilters() {
     const fallback = [];
@@ -1938,7 +1941,7 @@ class DashboardComponent {
   }
   buildShareLink(code) {
     if (!code) return '';
-    const base = this.referralShareBaseUrl || 'https://gowildkarunadu.com';
+    const base = this.referralShareBaseUrl || 'https://gowildkarunadu.online';
     return `${base}?ref=${encodeURIComponent(code)}`;
   }
   setReferralFeedback(message) {

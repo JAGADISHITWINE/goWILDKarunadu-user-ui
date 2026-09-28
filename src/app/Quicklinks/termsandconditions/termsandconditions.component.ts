@@ -259,7 +259,7 @@ export class TermsandconditionsComponent implements OnInit, OnDestroy {
   }
 
   get supportEmail(): string {
-    return this.siteSettings?.supportEmail || 'info@gowildkarunadu.com';
+    return this.siteSettings?.supportEmail || 'info@gowildkarunadu.online';
   }
 
   get whatsappLink(): string {

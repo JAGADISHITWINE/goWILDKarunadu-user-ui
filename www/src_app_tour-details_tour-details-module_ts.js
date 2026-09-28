@@ -72,8 +72,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_public_route_id_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../core/public-route-id.service */ 2440);
 /* harmony import */ var _core_dropdown_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../core/dropdown.service */ 4222);
 /* harmony import */ var _core_site_settings_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../core/site-settings.service */ 1662);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @angular/platform-browser */ 436);
 
 var _staticBlock;
+
 
 
 
@@ -1614,7 +1616,7 @@ class TourDetailsComponent {
   get supportPhoneRaw() {
     return this.siteSettings?.currentSettings?.supportPhoneRaw || '+919876543210';
   }
-  constructor(route, router, tourDetailsService, authModal, location, publicRouteId, dropdownService, siteSettings) {
+  constructor(route, router, tourDetailsService, authModal, location, publicRouteId, dropdownService, siteSettings, titleService, metaService) {
     this.route = route;
     this.router = router;
     this.tourDetailsService = tourDetailsService;
@@ -1623,6 +1625,8 @@ class TourDetailsComponent {
     this.publicRouteId = publicRouteId;
     this.dropdownService = dropdownService;
     this.siteSettings = siteSettings;
+    this.titleService = titleService;
+    this.metaService = metaService;
     this.tour = null;
     this.isLoading = true;
     this.relatedLoading = false;
@@ -1774,7 +1778,62 @@ class TourDetailsComponent {
       this.elevationWaypoints = result.elevationWaypoints;
       this.selectedWaypoint = this.elevationWaypoints[Math.min(3, this.elevationWaypoints.length - 1)];
     }
+    this.updateOpenGraphTags(this.tour);
     this.loadRelatedTreks();
+  }
+  updateOpenGraphTags(tour) {
+    if (!tour) return;
+    const pageTitle = `${tour.name} Trek, ${tour.location} | goWILD Karunadu`;
+    const description = tour.overview ? tour.overview.slice(0, 160).trim() + '...' : `Explore ${tour.name} in ${tour.location} with goWILD Karunadu.`;
+    const imageUrl = tour.image ? tour.image.startsWith('http') ? tour.image : `${this.baseUrl}${tour.image}` : '';
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+    this.titleService.setTitle(pageTitle);
+    this.metaService.updateTag({
+      name: 'description',
+      content: description
+    });
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: pageTitle
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: description
+    });
+    if (imageUrl) {
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: imageUrl
+      });
+    }
+    if (currentUrl) {
+      this.metaService.updateTag({
+        property: 'og:url',
+        content: currentUrl
+      });
+    }
+    this.metaService.updateTag({
+      property: 'og:type',
+      content: 'website'
+    });
+    this.metaService.updateTag({
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    });
+    this.metaService.updateTag({
+      name: 'twitter:title',
+      content: pageTitle
+    });
+    this.metaService.updateTag({
+      name: 'twitter:description',
+      content: description
+    });
+    if (imageUrl) {
+      this.metaService.updateTag({
+        name: 'twitter:image',
+        content: imageUrl
+      });
+    }
   }
   get currentGalleryImage() {
     if (!this.tour) return '';
@@ -2053,7 +2112,7 @@ class TourDetailsComponent {
     this.router.navigate(['/']);
   }
   static #_ = _staticBlock = () => (this.ɵfac = function TourDetailsComponent_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || TourDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_tour_details__WEBPACK_IMPORTED_MODULE_9__.TourDetails), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_auth_auth_modal_service__WEBPACK_IMPORTED_MODULE_10__.AuthModalService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_11__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_public_route_id_service__WEBPACK_IMPORTED_MODULE_12__.PublicRouteIdService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_dropdown_service__WEBPACK_IMPORTED_MODULE_13__.DropdownService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_site_settings_service__WEBPACK_IMPORTED_MODULE_14__.SiteSettingsService));
+    return new (__ngFactoryType__ || TourDetailsComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_tour_details__WEBPACK_IMPORTED_MODULE_9__.TourDetails), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_auth_auth_modal_service__WEBPACK_IMPORTED_MODULE_10__.AuthModalService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_common__WEBPACK_IMPORTED_MODULE_11__.Location), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_public_route_id_service__WEBPACK_IMPORTED_MODULE_12__.PublicRouteIdService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_dropdown_service__WEBPACK_IMPORTED_MODULE_13__.DropdownService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_site_settings_service__WEBPACK_IMPORTED_MODULE_14__.SiteSettingsService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_15__.Title), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_15__.Meta));
   }, this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
     type: TourDetailsComponent,
     selectors: [["app-tour-details"]],

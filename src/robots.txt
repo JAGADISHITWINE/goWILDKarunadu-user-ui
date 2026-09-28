@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /booking/
+Disallow: /cancle-bookings/
+Disallow: /my-bookings/
+Disallow: /profile/
+
+Sitemap: https://gowildkarunadu.com/sitemap.xml

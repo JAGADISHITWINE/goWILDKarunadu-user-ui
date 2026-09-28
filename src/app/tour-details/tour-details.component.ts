@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 import { IonicModule } from '@ionic/angular';
 import { TourDetails } from './tour-details';
 import { AuthModalService } from '../auth/auth-modal.service';
@@ -95,7 +96,9 @@ export class TourDetailsComponent implements OnInit {
     private location: Location,
     private publicRouteId: PublicRouteIdService,
     private dropdownService: DropdownService,
-    public siteSettings: SiteSettingsService
+    public siteSettings: SiteSettingsService,
+    private titleService: Title,
+    private metaService: Meta
   ) { }
 
   ngOnInit(): void {
@@ -176,7 +179,35 @@ export class TourDetailsComponent implements OnInit {
       this.selectedWaypoint = this.elevationWaypoints[Math.min(3, this.elevationWaypoints.length - 1)];
     }
 
+    this.updateOpenGraphTags(this.tour);
     this.loadRelatedTreks();
+  }
+
+  updateOpenGraphTags(tour: MappedTour): void {
+    if (!tour) return;
+    const pageTitle = `${tour.name} Trek, ${tour.location} | goWILD Karunadu`;
+    const description = tour.overview ? tour.overview.slice(0, 160).trim() + '...' : `Explore ${tour.name} in ${tour.location} with goWILD Karunadu.`;
+    const imageUrl = tour.image ? (tour.image.startsWith('http') ? tour.image : `${this.baseUrl}${tour.image}`) : '';
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+
+    this.titleService.setTitle(pageTitle);
+
+    this.metaService.updateTag({ name: 'description', content: description });
+    this.metaService.updateTag({ property: 'og:title', content: pageTitle });
+    this.metaService.updateTag({ property: 'og:description', content: description });
+    if (imageUrl) {
+      this.metaService.updateTag({ property: 'og:image', content: imageUrl });
+    }
+    if (currentUrl) {
+      this.metaService.updateTag({ property: 'og:url', content: currentUrl });
+    }
+    this.metaService.updateTag({ property: 'og:type', content: 'website' });
+    this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.metaService.updateTag({ name: 'twitter:title', content: pageTitle });
+    this.metaService.updateTag({ name: 'twitter:description', content: description });
+    if (imageUrl) {
+      this.metaService.updateTag({ name: 'twitter:image', content: imageUrl });
+    }
   }
 
   get currentGalleryImage(): string {

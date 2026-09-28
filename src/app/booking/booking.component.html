@@ -1405,17 +1405,22 @@
             <div class="pay-field full" style="margin-top: 14px;">
               <label class="pay-input-label">Or choose from other 40+ banks</label>
               <select class="pay-select" [(ngModel)]="selectedBank">
-                <option value="HDFC">HDFC Bank</option>
-                <option value="SBI">State Bank of India</option>
-                <option value="ICICI">ICICI Bank</option>
-                <option value="AXIS">Axis Bank</option>
-                <option value="Kotak">Kotak Mahindra Bank</option>
-                <option value="PNB">Punjab National Bank</option>
-                <option value="Canara">Canara Bank</option>
-                <option value="Bank of Baroda">Bank of Baroda</option>
-                <option value="IndusInd">IndusInd Bank</option>
-                <option value="Union">Union Bank of India</option>
-                <option value="Karnataka Bank">Karnataka Bank</option>
+                <ng-container *ngIf="bankOptions.length > 0; else defaultBankOptions">
+                  <option *ngFor="let bank of bankOptions" [value]="bank.value">{{ bank.label }}</option>
+                </ng-container>
+                <ng-template #defaultBankOptions>
+                  <option value="HDFC">HDFC Bank</option>
+                  <option value="SBI">State Bank of India</option>
+                  <option value="ICICI">ICICI Bank</option>
+                  <option value="AXIS">Axis Bank</option>
+                  <option value="Kotak">Kotak Mahindra Bank</option>
+                  <option value="PNB">Punjab National Bank</option>
+                  <option value="Canara">Canara Bank</option>
+                  <option value="Bank of Baroda">Bank of Baroda</option>
+                  <option value="IndusInd">IndusInd Bank</option>
+                  <option value="Union">Union Bank of India</option>
+                  <option value="Karnataka Bank">Karnataka Bank</option>
+                </ng-template>
               </select>
             </div>
 
@@ -1428,32 +1433,44 @@
           <!-- ── TAB: WALLETS ── -->
           <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'wallet'">
             <div class="wallets-list">
-              <label class="wallet-row" [class.selected]="selectedWallet === 'amazonpay'">
-                <input type="radio" name="wallet" value="amazonpay" [(ngModel)]="selectedWallet" />
-                <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
-                <div class="wallet-info">
-                  <strong>Amazon Pay</strong>
-                  <small>Get 2% instant cashback on Western Ghats treks</small>
-                </div>
-              </label>
+              <ng-container *ngIf="walletOptions.length > 0; else defaultWallets">
+                <label class="wallet-row" *ngFor="let w of walletOptions" [class.selected]="selectedWallet === w.value">
+                  <input type="radio" name="wallet" [value]="w.value" [(ngModel)]="selectedWallet" />
+                  <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
+                  <div class="wallet-info">
+                    <strong>{{ w.label }}</strong>
+                    <small>Instant checkout with {{ w.label }}</small>
+                  </div>
+                </label>
+              </ng-container>
+              <ng-template #defaultWallets>
+                <label class="wallet-row" [class.selected]="selectedWallet === 'amazonpay'">
+                  <input type="radio" name="wallet" value="amazonpay" [(ngModel)]="selectedWallet" />
+                  <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
+                  <div class="wallet-info">
+                    <strong>Amazon Pay</strong>
+                    <small>Get 2% instant cashback on Western Ghats treks</small>
+                  </div>
+                </label>
 
-              <label class="wallet-row" [class.selected]="selectedWallet === 'paytm'">
-                <input type="radio" name="wallet" value="paytm" [(ngModel)]="selectedWallet" />
-                <span class="wallet-icon"><i class="bi bi-phone text-info"></i></span>
-                <div class="wallet-info">
-                  <strong>Paytm Wallet</strong>
-                  <small>Fast checkout with Paytm balance</small>
-                </div>
-              </label>
+                <label class="wallet-row" [class.selected]="selectedWallet === 'paytm'">
+                  <input type="radio" name="wallet" value="paytm" [(ngModel)]="selectedWallet" />
+                  <span class="wallet-icon"><i class="bi bi-phone text-info"></i></span>
+                  <div class="wallet-info">
+                    <strong>Paytm Wallet</strong>
+                    <small>Fast checkout with Paytm balance</small>
+                  </div>
+                </label>
 
-              <label class="wallet-row" [class.selected]="selectedWallet === 'phonepe'">
-                <input type="radio" name="wallet" value="phonepe" [(ngModel)]="selectedWallet" />
-                <span class="wallet-icon"><i class="bi bi-credit-card text-primary"></i></span>
-                <div class="wallet-info">
-                  <strong>PhonePe Wallet</strong>
-                  <small>Link your PhonePe account</small>
-                </div>
-              </label>
+                <label class="wallet-row" [class.selected]="selectedWallet === 'phonepe'">
+                  <input type="radio" name="wallet" value="phonepe" [(ngModel)]="selectedWallet" />
+                  <span class="wallet-icon"><i class="bi bi-credit-card text-primary"></i></span>
+                  <div class="wallet-info">
+                    <strong>PhonePe Wallet</strong>
+                    <small>Link your PhonePe account</small>
+                  </div>
+                </label>
+              </ng-template>
             </div>
 
             <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Wallet - ' + selectedWallet)">

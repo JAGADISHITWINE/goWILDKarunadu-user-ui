@@ -69,8 +69,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_auth_modal_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../auth/auth-modal.service */ 2454);
 /* harmony import */ var src_app_core_token_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/core/token.service */ 6280);
 /* harmony import */ var _core_media_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../core/media.service */ 6657);
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @angular/platform-browser */ 436);
 
 var _staticBlock;
+
 
 
 
@@ -685,13 +687,15 @@ function BlogDetailComponent_div_1_Template(rf, ctx) {
   }
 }
 class BlogDetailComponent {
-  constructor(route, router, blogDetailService, authModal, tokenService, media) {
+  constructor(route, router, blogDetailService, authModal, tokenService, media, titleService, metaService) {
     this.route = route;
     this.router = router;
     this.blogDetailService = blogDetailService;
     this.authModal = authModal;
     this.tokenService = tokenService;
     this.media = media;
+    this.titleService = titleService;
+    this.metaService = metaService;
     this.postId = "";
     this.postRef = "";
     this.newComment = "";
@@ -774,10 +778,64 @@ class BlogDetailComponent {
         likes: res.likes || 0,
         content: res.content || ''
       };
+      this.updateOpenGraphTags(this.post);
       if (this.post.categoryId) {
         this.loadRelated(this.post.categoryId);
       }
     });
+  }
+  updateOpenGraphTags(post) {
+    if (!post) return;
+    const pageTitle = `${post.title} | goWILD Karunadu`;
+    const description = post.excerpt ? post.excerpt.slice(0, 160).trim() : `Read ${post.title} on goWILD Karunadu.`;
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
+    this.titleService.setTitle(pageTitle);
+    this.metaService.updateTag({
+      name: 'description',
+      content: description
+    });
+    this.metaService.updateTag({
+      property: 'og:title',
+      content: pageTitle
+    });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: description
+    });
+    if (post.image) {
+      this.metaService.updateTag({
+        property: 'og:image',
+        content: post.image
+      });
+    }
+    if (currentUrl) {
+      this.metaService.updateTag({
+        property: 'og:url',
+        content: currentUrl
+      });
+    }
+    this.metaService.updateTag({
+      property: 'og:type',
+      content: 'article'
+    });
+    this.metaService.updateTag({
+      name: 'twitter:card',
+      content: 'summary_large_image'
+    });
+    this.metaService.updateTag({
+      name: 'twitter:title',
+      content: pageTitle
+    });
+    this.metaService.updateTag({
+      name: 'twitter:description',
+      content: description
+    });
+    if (post.image) {
+      this.metaService.updateTag({
+        name: 'twitter:image',
+        content: post.image
+      });
+    }
   }
   loadComments() {
     this.blogDetailService.getComments(this.postRef).subscribe(res => {
@@ -986,7 +1044,7 @@ class BlogDetailComponent {
     this.router.navigate(["/create-story"]);
   }
   static #_ = _staticBlock = () => (this.ɵfac = function BlogDetailComponent_Factory(__ngFactoryType__) {
-    return new (__ngFactoryType__ || BlogDetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_blog_detail__WEBPACK_IMPORTED_MODULE_9__.BlogDetail), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_auth_auth_modal_service__WEBPACK_IMPORTED_MODULE_10__.AuthModalService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](src_app_core_token_service__WEBPACK_IMPORTED_MODULE_11__.TokenService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_media_service__WEBPACK_IMPORTED_MODULE_12__.MediaService));
+    return new (__ngFactoryType__ || BlogDetailComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.ActivatedRoute), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_8__.Router), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_blog_detail__WEBPACK_IMPORTED_MODULE_9__.BlogDetail), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_auth_auth_modal_service__WEBPACK_IMPORTED_MODULE_10__.AuthModalService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](src_app_core_token_service__WEBPACK_IMPORTED_MODULE_11__.TokenService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_core_media_service__WEBPACK_IMPORTED_MODULE_12__.MediaService), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__.Title), _angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdirectiveInject"](_angular_platform_browser__WEBPACK_IMPORTED_MODULE_13__.Meta));
   }, this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_7__["ɵɵdefineComponent"]({
     type: BlogDetailComponent,
     selectors: [["app-blog-detail"]],

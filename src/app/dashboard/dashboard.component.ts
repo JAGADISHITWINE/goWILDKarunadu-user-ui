@@ -96,7 +96,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   readonly mediaBaseUrl = (environment.mediaBaseUrl || '').replace(/\/?$/, '/');
   readonly referralShareBaseUrl = (environment as any)?.referralShareBaseUrl
     ? String((environment as any).referralShareBaseUrl).replace(/\/$/, '')
-    : 'https://gowildkarunadu.com';
+    : 'https://gowildkarunadu.online';
   sortOptions: DropdownOption[] = [];
   showComparePanel = false;
   compareNotice = '';
@@ -193,11 +193,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
       { value: 'duration_short', label: 'Duration: Shortest' },
     ];
 
-    // Keep sort options local until backend exposes a stable dropdown key for this.
-    this.sortOptions = fallback;
-    if (!this.sortOptions.some((option) => option.value === this.sortBy)) {
-      this.sortBy = this.sortOptions[0]?.value || 'recommended';
-    }
+    this.dropdownService.getOptions('trekSortOptions', fallback).subscribe((options) => {
+      if (options.length > 0) {
+        this.sortOptions = options;
+        if (!this.sortOptions.some((option) => option.value === this.sortBy)) {
+          this.sortBy = this.sortOptions[0]?.value || 'recommended';
+        }
+      }
+    });
   }
 
   private loadDifficultyFilters() {
@@ -809,7 +812,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   private buildShareLink(code: string | null | undefined): string {
     if (!code) return '';
-    const base = this.referralShareBaseUrl || 'https://gowildkarunadu.com';
+    const base = this.referralShareBaseUrl || 'https://gowildkarunadu.online';
     return `${base}?ref=${encodeURIComponent(code)}`;
   }
 
