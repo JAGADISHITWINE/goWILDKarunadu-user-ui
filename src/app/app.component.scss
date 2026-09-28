@@ -1,0 +1,58 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 84px;
+  right: 20px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(14, 29, 18, 0.9);
+  color: #fff;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(14, 29, 18, 0.26);
+  z-index: 9999;
+  backdrop-filter: blur(12px);
+  transition: transform 0.24s ease, opacity 0.24s ease, background 0.24s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-4px);
+  background: rgba(19, 42, 24, 0.96);
+}
+
+/* 🟢 Floating WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  bottom: 18px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #29d366 0%, #1fb455 100%);
+  color: #fff;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(32, 161, 78, 0.32);
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(32, 161, 78, 0.38);
+}

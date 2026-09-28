@@ -1,0 +1,563 @@
+<!-- ══ MAIN DASHBOARD WRAPPER ══════════════════════════════════════════ -->
+<div class="page-wrapper" *ngIf="!isLoading">
+
+  <!-- Error Banner -->
+  <div *ngIf="errorMessage" class="dashboard-error-banner">
+    <i class="bi bi-exclamation-triangle-fill me-2"></i>
+    <span>{{ errorMessage }}</span>
+  </div>
+
+  <!-- Referral Card Stack Template (Reused in Sidebar and Drawer) -->
+  <ng-template #referralCardStack>
+    <div class="referral-card" *ngIf="referralLoading">
+      <div class="referral-loading">
+        <ion-spinner name="crescent"></ion-spinner>
+        <span>Loading referral perks…</span>
+      </div>
+    </div>
+
+    <div class="referral-card referral-auth" *ngIf="!referralLoading && referralRequiresAuth">
+      <p class="eyebrow">Refer &amp; Earn</p>
+      <h4>Share the wild. Save together.</h4>
+      <p class="referral-footnote">Sign in to unlock your personal referral code and gift instant discounts.</p>
+      <button class="primary" (click)="openReferralLogin()">Sign in to earn</button>
+    </div>
+
+    <div class="referral-card referral-error-card" *ngIf="!referralLoading && !referralRequiresAuth && !referralSummary && referralError">
+      <p class="eyebrow">Refer &amp; Earn</p>
+      <h4>Referral details unavailable.</h4>
+      <p class="referral-footnote">{{ referralError }}</p>
+      <button class="ghost" (click)="refreshReferralSummary()">Try again</button>
+    </div>
+
+    <div
+      class="referral-card referral-compact"
+      *ngIf="!referralLoading && !referralRequiresAuth && referralSummary"
+      [class.paused]="!referralSummary.programActive">
+      <div class="referral-card-header">
+        <p class="eyebrow">Refer &amp; Earn</p>
+        <span class="program-pill" [class.paused]="!referralSummary.programActive">
+          {{ referralSummary.programActive ? 'Active' : 'Paused' }}
+        </span>
+      </div>
+      <h4>
+        Give ₹{{ (referralSummary.discountTiers.base || 0) | number:'1.0-0' }},
+        get ₹{{ (referralSummary.discountTiers.bonus || referralSummary.discountTiers.base || 0) | number:'1.0-0' }}
+      </h4>
+
+      <div class="referral-code-pill">
+        <span>{{ referralSummary.referralCode || '—' }}</span>
+        <button type="button" (click)="copyReferralCode()">Copy</button>
+      </div>
+      <p class="referral-footnote">
+        {{ referralNextRewardLabel || ('Bring ' + (referralSummary.discountTiers.bonusParticipantThreshold || 5) + ' friends to unlock bonus savings.') }}
+      </p>
+
+      <div class="referral-mini-stats">
+        <div>
+          <p>Referrals</p>
+          <strong>{{ referralSummary.successfulReferrals || 0 }}</strong>
+        </div>
+        <div>
+          <p>Free slots</p>
+          <strong>{{ referralSummary.freeSlotsAvailable || 0 }}</strong>
+        </div>
+      </div>
+
+      <div class="referral-actions">
+        <button class="primary" (click)="shareReferral()" [disabled]="!referralSummary.referralCode">Share Invite</button>
+        <button class="ghost" (click)="refreshReferralSummary()" aria-label="Refresh referral summary">
+          <i class="bi bi-arrow-repeat"></i>
+        </button>
+      </div>
+      <p class="referral-feedback" *ngIf="referralCopyFeedback">{{ referralCopyFeedback }}</p>
+    </div>
+  </ng-template>
+
+  <!-- ── HERO ──────────────────────────────────────────────── -->
+  <section class="hero-section">
+
+    <!-- SLIDESHOW IMAGES -->
+    <div class="hero-slides">
+      <div class="hero-slide slide-1"></div>
+      <div class="hero-slide slide-2"></div>
+      <div class="hero-slide slide-3"></div>
+      <div class="hero-slide slide-4"></div>
+      <div class="hero-slide slide-5"></div>
+    </div>
+
+    <!-- OVERLAY LAYERS -->
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+
+      <div class="hero-text">
+        <h1>Explore the<br /><em>Wild Ghats</em></h1>
+        <p>Weekend escapes through ancient forests,<br />misty ridgelines &amp; hidden waterfalls.</p>
+        <button class="hero-button" routerLink="/upcoming-treks">
+          View All Treks
+          <span class="btn-icon">→</span>
+        </button>
+      </div>
+
+      <div class="hero-stats" *ngIf="activeRoutes > 0 || averageRating > 0 || trekkersThisYear > 0">
+        <div class="stat-item" *ngIf="activeRoutes > 0">
+          <strong>{{ activeRoutes }}</strong>
+          <small>Active Routes</small>
+        </div>
+        <div class="stat-item" *ngIf="averageRating > 0">
+          <strong>{{ averageRating | number:'1.1-1' }} <i class="bi bi-star-fill text-warning" style="font-size: 0.85rem;"></i></strong>
+          <small>Avg Rating</small>
+        </div>
+        <div class="stat-item" *ngIf="trekkersThisYear > 0">
+          <strong>{{ trekkersThisYear }}</strong>
+          <small>Trekkers / yr</small>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── 2. FLOATING DISCOVERY & FILTER DOCK ──────────────────────────── -->
+  <section class="discovery-dock-section">
+    <div class="discovery-dock">
+      
+      <!-- Search Input Wrap -->
+      <div class="dock-search-wrap">
+        <i class="bi bi-search search-icon"></i>
+        <input
+          type="text"
+          class="dock-search-input"
+          [(ngModel)]="searchQuery"
+          placeholder="Search treks by name, region, or highlight..."
+          aria-label="Search treks"
+        />
+        <button
+          type="button"
+          class="clear-search-btn"
+          *ngIf="searchQuery"
+          (click)="searchQuery = ''"
+          aria-label="Clear search"
+          title="Clear search"
+        >
+          <i class="bi bi-x-circle-fill"></i>
+        </button>
+      </div>
+
+      <!-- Difficulty Filter Chips -->
+      <div class="dock-filter-pills" *ngIf="filters.length">
+        <span class="pill-group-label">Difficulty:</span>
+        <button
+          *ngFor="let filter of filters"
+          type="button"
+          class="filter-pill"
+          (click)="setFilter(filter.id)"
+          [class.active]="selectedFilter === filter.id"
+        >
+          {{ filter.label }}
+        </button>
+      </div>
+
+      <!-- Right Controls: Sort & Reset -->
+      <div class="dock-controls">
+        <div class="dock-sort-wrap">
+          <label for="sortBy" class="sort-label">Sort By:</label>
+          <select id="sortBy" class="dock-select" [(ngModel)]="sortBy">
+            <option *ngFor="let option of sortOptions" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          class="dock-reset-btn"
+          *ngIf="hasActiveDiscoveryFilters"
+          (click)="clearDiscoveryFilters()"
+          title="Reset all filters"
+        >
+          <i class="bi bi-arrow-counterclockwise"></i>
+          <span>Reset</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Curated Theme Chips -->
+    <div class="collection-chips-bar" *ngIf="collections.length">
+      <div class="collection-header">
+        <span class="collection-label"><i class="bi bi-stars text-warning me-1"></i> Curated Themes:</span>
+        <span class="collection-hint"><i class="bi bi-arrow-left-right me-1"></i> Swipe themes</span>
+      </div>
+      <div class="chips-scroll" role="tablist" aria-label="Curated trek themes">
+        <button
+          *ngFor="let collection of collections"
+          type="button"
+          class="collection-chip"
+          (click)="setCollection(collection.id)"
+          [class.active]="selectedCollection === collection.id"
+        >
+          <i class="bi {{ collection.icon || 'bi-tag' }} me-1" *ngIf="collection.icon"></i>
+          {{ collection.label }}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. EXPEDITIONS SHOWCASE (LATEST 8 TREKS) ─────────────────────── -->
+  <main class="expeditions-main" *ngIf="filteredTreks.length">
+    <div class="main-container">
+
+      <!-- Section Header -->
+      <div class="section-title-wrap">
+        <div>
+          <span class="section-eyebrow">
+            <i class="bi bi-lightning-charge-fill me-1"></i> Live Departures
+          </span>
+          <h2 class="section-heading">Upcoming Western Ghats Treks</h2>
+          <p class="section-sub">
+            Showing {{ filteredTreks.length }} of {{ totalFilteredCount }} scheduled departures. Handcrafted routes with certified leads.
+          </p>
+        </div>
+      </div>
+
+      <!-- Layout Grid -->
+      <div class="dashboard-grid">
+        <div class="dashboard-main">
+
+          <!-- TREK CARDS GRID -->
+          <div class="trek-grid">
+            <article class="modern-trek-card" *ngFor="let trek of filteredTreks; trackBy: trackByTrek">
+
+              <!-- Image & Overlays -->
+              <div class="card-media-wrap" (click)="viewDetails(trek)">
+                <img
+                  [src]="trek.image"
+                  [alt]="trek.name"
+                  loading="lazy"
+                  class="card-img"
+                  onerror="this.src='assets/default-trek.jpg'"
+                />
+                <div class="media-overlay"></div>
+
+                <!-- Badges Floating -->
+                <div class="card-badges-top">
+                  <span class="diff-badge" [class]="trek.difficulty.toLowerCase()">
+                    {{ trek.difficulty }}
+                  </span>
+                  <span class="avail-badge" [ngClass]="getAvailabilityClass(trek)">
+                    {{ getAvailabilityLabel(trek) }}
+                  </span>
+                </div>
+
+                <!-- Departure Date Chip -->
+                <div class="card-date-badge">
+                  <i class="bi bi-calendar3"></i>
+                  <span>{{ trek.date }}</span>
+                </div>
+              </div>
+
+              <!-- Card Body -->
+              <div class="card-body">
+                
+                <!-- Title & Location -->
+                <div class="card-header-info">
+                  <h3 class="card-title" (click)="viewDetails(trek)">{{ trek.name }}</h3>
+                  <div class="card-location">
+                    <i class="bi bi-geo-alt-fill text-success"></i>
+                    <span>{{ trek.location }}</span>
+                  </div>
+                </div>
+
+                <!-- Meta Specs (Duration, Group, Rating) -->
+                <div class="card-specs-row">
+                  <div class="spec-item">
+                    <i class="bi bi-clock-history"></i>
+                    <span>{{ trek.duration }}</span>
+                  </div>
+                  <div class="spec-item">
+                    <i class="bi bi-people-fill"></i>
+                    <span>{{ trek.groupSize }}</span>
+                  </div>
+                  <div class="spec-item" *ngIf="trek.rating > 0">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span>{{ trek.rating | number:'1.1-1' }}<ng-container *ngIf="trek.reviews > 0"> ({{ trek.reviews }})</ng-container></span>
+                  </div>
+                </div>
+
+                <!-- Highlights Tags -->
+                <div class="card-highlights" *ngIf="trek.highlights?.length">
+                  <span class="highlight-chip" *ngFor="let h of trek.highlights">
+                    {{ h }}
+                  </span>
+                </div>
+
+                <!-- Card Footer & Pricing -->
+                <div class="card-footer-pricing">
+                  <div class="price-block">
+                    <div class="price-value">₹{{ trek.price | number:'1.0-0' }}</div>
+                    <div class="price-sub">/ person &bull; permits incl.</div>
+                  </div>
+
+                  <div class="action-buttons-group">
+                    <button
+                      type="button"
+                      class="btn-compare"
+                      [class.active]="isCompared(trek.id)"
+                      [disabled]="!canAddToCompare(trek)"
+                      (click)="toggleCompare(trek)"
+                      [title]="isCompared(trek.id) ? 'In comparison (click to remove)' : 'Compare this trek'"
+                    >
+                      <i class="bi" [ngClass]="isCompared(trek.id) ? 'bi-check-circle-fill' : 'bi-shuffle'"></i>
+                      <span class="compare-btn-label">{{ isCompared(trek.id) ? 'Compared' : 'Compare' }}</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn-wa-inquire"
+                      (click)="openTrekEnquiry(trek)"
+                      title="Chat on WhatsApp"
+                    >
+                      <i class="bi bi-whatsapp"></i>
+                    </button>
+
+                    <button
+                      type="button"
+                      class="btn-book-now"
+                      (click)="viewDetails(trek)"
+                    >
+                      <span>Details</span>
+                      <i class="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+
+            </article>
+          </div>
+
+          <!-- ── LOAD MORE WRAPPER ─────────────────────────────────── -->
+          <div class="load-more-wrapper" *ngIf="totalFilteredCount > initialVisibleCount">
+            <div class="load-more-meta">
+              Showing {{ filteredTreks.length }} of {{ totalFilteredCount }} expeditions
+            </div>
+            <div class="load-more-actions">
+              <button class="load-more-btn" *ngIf="hasMoreTreks" (click)="showMoreTreks()">
+                <span>Show More Treks</span>
+                <i class="bi bi-chevron-down"></i>
+              </button>
+              <button class="load-more-btn" *ngIf="!hasMoreTreks && totalFilteredCount > initialVisibleCount" (click)="showLessTreks()">
+                <span>Show Less</span>
+                <i class="bi bi-chevron-up"></i>
+              </button>
+              <a routerLink="/upcoming-treks" class="btn-all-calendar">
+                <span>View Full Schedule (All Treks)</span>
+                <i class="bi bi-calendar-event"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Referral Section (Mobile & Tablet) -->
+          <div class="mobile-referral-block" *ngIf="!referralRequiresAuth">
+            <ng-container *ngTemplateOutlet="referralCardStack"></ng-container>
+          </div>
+
+        </div>
+
+        <!-- Referral Sidebar (Desktop 1024px+) -->
+        <ng-container *ngIf="!referralRequiresAuth">
+          <aside class="referral-sidebar">
+            <ng-container *ngTemplateOutlet="referralCardStack"></ng-container>
+          </aside>
+        </ng-container>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── 4. WHY TREK WITH GOWILD (TRUST FEATURES) ────────────────────── -->
+  <section class="trust-features-section">
+    <div class="trust-container">
+      <div class="trust-header">
+        <span class="badge-mini">The goWILD Guarantee</span>
+        <h2>Why Trekkers Choose goWILD Karunadu</h2>
+        <p>Uncompromising focus on wilderness safety, forest permit compliance, and small-batch intimacy.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h3>Forest Permits Handled</h3>
+          <p>Official Karnataka Forest Department trekking permits and wildlife sanctuary fees are pre-secured. Zero paperwork at entry check-posts.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-award-fill"></i>
+          </div>
+          <h3>Certified Mountain Leads</h3>
+          <p>Wilderness First Aid (WFA) certified leaders with satellite GPS communication on every batch. Safety is our primary non-negotiable.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h3>Small Batch Immersion</h3>
+          <p>Capped at 15–20 trekkers per departure. No overcrowded bus groups. Genuine wilderness connection with like-minded outdoor lovers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <i class="bi bi-tree-fill"></i>
+          </div>
+          <h3>100% Leave-No-Trace</h3>
+          <p>Strict zero-plastic trail protocols. We support indigenous Western Ghats homestay hosts and local village economies responsibly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 5. FLOATING TREK COMPARISON DOCK ────────────────────────────── -->
+  <!-- Live Compare Toast Notification -->
+  <div class="compare-live-toast" *ngIf="compareToastMessage" [ngClass]="compareToastType">
+    <div class="toast-content">
+      <i class="bi" [ngClass]="{
+        'bi-info-circle-fill': compareToastType === 'info',
+        'bi-check-circle-fill': compareToastType === 'success',
+        'bi-exclamation-triangle-fill': compareToastType === 'warning'
+      }"></i>
+      <span>{{ compareToastMessage }}</span>
+    </div>
+    <button type="button" class="btn-toast-dismiss" (click)="compareToastMessage = null">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+
+  <!-- ── 5. FLOATING TREK COMPARISON DOCK ────────────────────────────── -->
+  <aside class="compare-bar" [class.pulse-attention]="justAddedToCompare" *ngIf="compareTreks.length && !showComparePanel" role="region" aria-label="Trek Comparison Dock">
+    <div class="compare-dock-inner">
+      <div class="compare-meta-block">
+        <div class="compare-badge-pill">
+          <span class="pulse-indicator"></span>
+          <strong>{{ compareTreks.length }}/{{ maxCompareCount }}</strong> Selected
+        </div>
+        <div class="compare-prompt">
+          <span *ngIf="compareTreks.length === 1" class="prompt-hint">
+            <i class="bi bi-plus-circle me-1"></i> Select 1 more trek to compare specs side-by-side
+          </span>
+          <span *ngIf="compareTreks.length >= 2" class="prompt-ready">
+            <i class="bi bi-lightning-charge-fill me-1 text-warning"></i> Ready for side-by-side comparison!
+          </span>
+        </div>
+      </div>
+
+      <div class="compare-list">
+        <div class="compare-item" *ngFor="let trek of compareTreks">
+          <span class="compare-item-name" [title]="trek.name">{{ trek.name }}</span>
+          <button type="button" (click)="removeCompared(trek.id)" aria-label="Remove from compare" title="Remove">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="compare-actions">
+        <button
+          type="button"
+          class="book-btn"
+          [disabled]="compareTreks.length < 2"
+          (click)="openComparePanel()"
+          [title]="compareTreks.length < 2 ? 'Select at least 2 treks to compare' : 'Open comparison modal'"
+        >
+          <i class="bi bi-columns-gap me-1"></i>
+          Compare Now ({{ compareTreks.length }})
+        </button>
+        <button type="button" class="secondary-btn" (click)="clearCompare()" title="Clear selection">
+          <i class="bi bi-trash3 me-1"></i> Clear
+        </button>
+        <button type="button" class="wa-btn" (click)="openCompareInWhatsApp()" title="Ask on WhatsApp">
+          <i class="bi bi-whatsapp"></i> Chat Expert
+        </button>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- ── COMPARE MODAL OVERLAY ────────────────────────────────────────── -->
+<div class="compare-overlay" *ngIf="showComparePanel" (click)="closeComparePanel()">
+  <section class="compare-panel" (click)="$event.stopPropagation()">
+    <div class="compare-floating-handle-bar">
+      <span class="compare-floating-handle"></span>
+    </div>
+    <header class="compare-panel-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-arrow-left-right text-success" style="font-size: 1.25rem;"></i>
+        <h3>Trek Side-by-Side Comparison</h3>
+      </div>
+      <button class="secondary-btn" (click)="closeComparePanel()">
+        <i class="bi bi-x-lg me-1"></i> Close
+      </button>
+    </header>
+
+    <div class="compare-loading" *ngIf="isCompareLoading">
+      <div class="spinner-border text-success" role="status"></div>
+      <p class="mt-2">Loading detailed trek specs for comparison...</p>
+    </div>
+
+    <div class="compare-columns" *ngIf="!isCompareLoading">
+      <article class="compare-column" *ngFor="let trek of compareTreks">
+        <div class="compare-title-row">
+          <h4>{{ trek.name }}</h4>
+          <button class="remove-btn" (click)="removeCompared(trek.id)"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <p class="compare-location"><i class="bi bi-geo-alt-fill text-success me-1"></i>{{ trek.location }}</p>
+        <ul class="compare-points">
+          <li><span>Price</span><strong>₹{{ trek.price }}</strong></li>
+          <li><span>Duration</span><strong>{{ trek.duration }}</strong></li>
+          <li><span>Difficulty</span><strong>{{ trek.difficulty }}</strong></li>
+          <li><span>Group Size</span><strong>{{ trek.groupSize }}</strong></li>
+          <li><span>Departure</span><strong>{{ trek.date }}</strong></li>
+          <li><span>Status</span><strong>{{ getAvailabilityLabel(trek) }}</strong></li>
+        </ul>
+
+        <div class="compare-rich-section">
+          <h5>Trail Highlights</h5>
+          <ul>
+            <li *ngFor="let item of trek.highlights">{{ item }}</li>
+            <li class="empty-line" *ngIf="!trek.highlights?.length">Standard Western Ghats trail</li>
+          </ul>
+        </div>
+
+        <div class="compare-column-actions">
+          <button class="book-btn" (click)="viewDetails(trek)">View Full Itinerary</button>
+          <button class="wa-btn" (click)="openTrekEnquiry(trek)">
+            <i class="bi bi-whatsapp"></i> Ask on WhatsApp
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ── LOADING STATE ────────────────────────────────────────────────── -->
+<div *ngIf="isLoading" class="loader-wrapper">
+  <div class="custom-loader"></div>
+  <p>Discovering Western Ghats Expeditions...</p>
+</div>
+
+<!-- ── EMPTY STATE ──────────────────────────────────────────────────── -->
+<div *ngIf="!isLoading && (!filteredTreks || !filteredTreks.length)" class="empty-state">
+  <div class="empty-state-icon">
+    <i class="bi bi-compass"></i>
+  </div>
+  <h3>No Treks Match Your Selection</h3>
+  <p>Try resetting filters or adjusting your search term.</p>
+  <button type="button" class="btn-hero-primary mt-3" (click)="clearDiscoveryFilters()">
+    Reset Filters
+  </button>
+</div>

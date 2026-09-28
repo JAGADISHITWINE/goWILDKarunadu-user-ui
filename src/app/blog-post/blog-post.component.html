@@ -1,0 +1,472 @@
+<div class="blog-creator-page">
+
+  <!-- TOP HEADER / ACTION BAR -->
+  <header class="creator-header">
+    <div class="header-left">
+      <a routerLink="/blog" class="back-link" title="Back to Blog Stories">
+        <svg viewBox="0 0 20 20" fill="currentColor" class="back-icon">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        <span>Back to Blog</span>
+      </a>
+
+      <div class="header-title-wrap">
+        <h1 class="creator-title">{{ isEditMode ? 'Edit Story' : 'Share Your Adventure' }}</h1>
+        <span class="read-estimate">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 3.5a.5.5 0 00-1 0V9a.5.5 0 00.252.434l3.5 2a.5.5 0 00.496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 108 0a8 8 0 000 16zm7-8A7 7 0 111 8a7 7 0 0114 0z"/></svg>
+          ~{{ readingTime }} min read · {{ wordCount }} words
+        </span>
+      </div>
+    </div>
+
+    <!-- Mode Tabs -->
+    <div class="view-mode-tabs">
+      <button
+        type="button"
+        class="mode-btn"
+        [class.active]="activeTab === 'editor'"
+        (click)="activeTab = 'editor'"
+      >
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+        </svg>
+        <span>Write Story</span>
+      </button>
+
+      <button
+        type="button"
+        class="mode-btn"
+        [class.active]="activeTab === 'preview'"
+        (click)="activeTab = 'preview'"
+      >
+        <svg viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+          <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+        </svg>
+        <span>Live Reader Preview</span>
+      </button>
+    </div>
+
+    <!-- Header Publish Action -->
+    <div class="header-actions">
+      <button
+        type="button"
+        class="publish-btn"
+        [disabled]="!isFormReady || isSubmitting"
+        (click)="publish()"
+      >
+        <span *ngIf="!isSubmitting">
+          {{ isEditMode ? 'Update Story' : 'Publish Story' }} →
+        </span>
+        <span *ngIf="isSubmitting" class="submitting-label">
+          <span class="btn-spinner"></span>
+          Publishing...
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <!-- FORM CONTAINER -->
+  <form [formGroup]="postForm" class="creator-container">
+
+    <!-- ==================== TAB 1: WRITE STORY EDITOR ==================== -->
+    <div class="editor-layout" *ngIf="activeTab === 'editor'">
+
+      <!-- MAIN STORY CANVAS -->
+      <main class="story-canvas">
+
+        <!-- Quick Starter Templates -->
+        <div class="templates-bar">
+          <span class="templates-label"><i class="bi bi-stars text-warning me-1"></i> Quick Starters:</span>
+          <div class="templates-chips">
+            <button
+              type="button"
+              class="template-chip"
+              *ngFor="let tmpl of templates"
+              (click)="applyTemplate(tmpl)"
+            >
+              <i [class]="tmpl.icon"></i>
+              <span>{{ tmpl.name }}</span>
+            </button>
+            <button
+              type="button"
+              class="template-clear-btn"
+              (click)="clearStory()"
+              title="Clear title and content"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- Title Input -->
+        <div class="field-block title-block">
+          <input
+            type="text"
+            formControlName="title"
+            class="title-input"
+            placeholder="Title of your trek story or adventure..."
+            maxlength="160"
+          />
+          <div class="field-helper" *ngIf="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+            Please enter a descriptive title (at least 5 characters).
+          </div>
+        </div>
+
+        <!-- Summary / Excerpt Input -->
+        <div class="field-block excerpt-block">
+          <textarea
+            formControlName="excerpt"
+            rows="2"
+            class="excerpt-input"
+            placeholder="Write a brief 1-2 sentence hook for readers (shown on story cards and social shares)..."
+            maxlength="300"
+          ></textarea>
+          <div class="field-helper" *ngIf="postForm.get('excerpt')?.invalid && postForm.get('excerpt')?.touched">
+            Please add a short summary hook (at least 10 characters).
+          </div>
+        </div>
+
+        <!-- Story Body Editor Block -->
+        <div class="story-body-block">
+          <!-- Sticky Format Toolbar -->
+          <div class="editor-toolbar">
+            <div class="toolbar-group">
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('h2')"
+                title="Add Section Heading (H2)"
+              >
+                <strong>H2</strong>
+              </button>
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('h3')"
+                title="Add Subheading (H3)"
+              >
+                <span>H3</span>
+              </button>
+            </div>
+
+            <div class="toolbar-sep"></div>
+
+            <div class="toolbar-group">
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('bold')"
+                title="Bold Text (**text**)"
+              >
+                <strong>B</strong>
+              </button>
+              <button
+                type="button"
+                class="tool-btn italic-btn"
+                (click)="insertFormatting('italic')"
+                title="Italic Text (*text*)"
+              >
+                <em>I</em>
+              </button>
+            </div>
+
+            <div class="toolbar-sep"></div>
+
+            <div class="toolbar-group">
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('bullet')"
+                title="Add Bulleted List"
+              >
+                <span>• List</span>
+              </button>
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('number')"
+                title="Add Numbered Steps"
+              >
+                <span>1. List</span>
+              </button>
+            </div>
+
+            <div class="toolbar-sep"></div>
+
+            <div class="toolbar-group">
+              <button
+                type="button"
+                class="tool-btn"
+                (click)="insertFormatting('quote')"
+                title="Add Quote Block"
+              >
+                <span>“ Quote</span>
+              </button>
+              <button
+                type="button"
+                class="tool-btn callout-tool-btn"
+                (click)="insertFormatting('tip')"
+                title="Add Trekker Tip Box"
+              >
+                <i class="bi bi-lightbulb-fill text-warning me-1"></i>
+                <span>Tip</span>
+              </button>
+              <button
+                type="button"
+                class="tool-btn warning-tool-btn"
+                (click)="insertFormatting('warning')"
+                title="Add Safety Warning Box"
+              >
+                <i class="bi bi-exclamation-triangle-fill text-danger me-1"></i>
+                <span>Warning</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- The Single Distraction-Free Textarea -->
+          <textarea
+            #storyEditor
+            formControlName="content"
+            rows="18"
+            class="story-textarea"
+            placeholder="Tell your adventure story here...
+
+Describe the trail, the mountain mist, river crossings, camping under stars, and summit views.
+
+Tip: Use ## for main section titles, > for quotes, or click the toolbar buttons above!"
+          ></textarea>
+        </div>
+
+      </main>
+
+      <!-- SIDEBAR SETTINGS -->
+      <aside class="story-sidebar">
+
+        <!-- Cover Photo Card -->
+        <div class="sidebar-card cover-photo-card">
+          <div class="card-head">
+            <span class="card-title">Cover Photo</span>
+            <span class="card-badge" *ngIf="selectedFile || existingImageUrl"><i class="bi bi-check2 me-1"></i> Uploaded</span>
+          </div>
+
+          <!-- Image Preview -->
+          <div class="cover-preview-box" *ngIf="imagePreview">
+            <img [src]="imagePreview" alt="Cover Preview" class="cover-img" />
+            <div class="cover-actions">
+              <button type="button" class="cover-action-btn" (click)="fileInput.click()">
+                Change
+              </button>
+              <button type="button" class="cover-action-btn remove-btn" (click)="removeImage()">
+                Remove
+              </button>
+            </div>
+          </div>
+
+          <!-- Empty Upload Dropzone -->
+          <div
+            class="cover-dropzone"
+            *ngIf="!imagePreview"
+            (click)="fileInput.click()"
+          >
+            <div class="dropzone-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="4" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <path d="M21 15l-5-5L5 21" />
+              </svg>
+            </div>
+            <div class="dropzone-text">Click to choose cover photo</div>
+            <div class="dropzone-sub">JPG, PNG or WebP · Max 6MB</div>
+          </div>
+
+          <input
+            #fileInput
+            type="file"
+            accept="image/*"
+            style="display: none"
+            (change)="onImageSelect($event)"
+          />
+        </div>
+
+        <!-- Category Card -->
+        <div class="sidebar-card">
+          <div class="card-head">
+            <span class="card-title">Category</span>
+          </div>
+          <div class="category-select-wrap">
+            <select formControlName="category" class="custom-select">
+              <option *ngFor="let cat of categories" [value]="cat">
+                {{ cat }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tags Card -->
+        <div class="sidebar-card">
+          <div class="card-head">
+            <span class="card-title">Tags &amp; Topics</span>
+            <span class="card-sub">{{ currentTags.length }} added</span>
+          </div>
+
+          <!-- Selected Tags Chips -->
+          <div class="active-tags-list" *ngIf="currentTags.length">
+            <span class="tag-pill active" *ngFor="let tag of currentTags; let i = index">
+              #{{ tag }}
+              <button type="button" class="tag-remove" (click)="removeTag(i)" title="Remove tag">×</button>
+            </span>
+          </div>
+
+          <!-- Add Tag Input -->
+          <div class="tag-input-row">
+            <input
+              type="text"
+              [(ngModel)]="tagInputText"
+              [ngModelOptions]="{standalone: true}"
+              (keydown)="onTagKeydown($event)"
+              placeholder="Add tag and press Enter..."
+              class="tag-input"
+            />
+            <button
+              type="button"
+              class="tag-add-btn"
+              (click)="addTag(tagInputText)"
+              [disabled]="!tagInputText.trim()"
+            >
+              Add
+            </button>
+          </div>
+
+          <!-- Suggested Tags -->
+          <div class="suggested-tags-box">
+            <span class="suggested-title">Popular suggestions:</span>
+            <div class="suggested-chips">
+              <button
+                type="button"
+                class="tag-pill outline"
+                [class.selected]="isTagSelected(tag)"
+                *ngFor="let tag of suggestedTags"
+                (click)="toggleSuggestedTag(tag)"
+              >
+                + {{ tag }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Readiness Checklist -->
+        <div class="sidebar-card checklist-card">
+          <div class="card-head">
+            <span class="card-title">Publishing Checklist</span>
+          </div>
+          <ul class="checklist">
+            <li [class.done]="(postForm.get('title')?.value || '').trim().length >= 5">
+              <span class="check-icon">
+                <i class="bi" [ngClass]="(postForm.get('title')?.value || '').trim().length >= 5 ? 'bi-check-circle-fill text-success' : 'bi-circle text-muted'"></i>
+              </span>
+              <span>Engaging title (5+ chars)</span>
+            </li>
+            <li [class.done]="(postForm.get('excerpt')?.value || '').trim().length >= 10">
+              <span class="check-icon">
+                <i class="bi" [ngClass]="(postForm.get('excerpt')?.value || '').trim().length >= 10 ? 'bi-check-circle-fill text-success' : 'bi-circle text-muted'"></i>
+              </span>
+              <span>Brief summary hook</span>
+            </li>
+            <li [class.done]="(postForm.get('content')?.value || '').trim().length >= 20">
+              <span class="check-icon">
+                <i class="bi" [ngClass]="(postForm.get('content')?.value || '').trim().length >= 20 ? 'bi-check-circle-fill text-success' : 'bi-circle text-muted'"></i>
+              </span>
+              <span>Story body content</span>
+            </li>
+            <li [class.done]="imagePreview || existingImageUrl">
+              <span class="check-icon">
+                <i class="bi" [ngClass]="imagePreview || existingImageUrl ? 'bi-check-circle-fill text-success' : 'bi-circle text-muted'"></i>
+              </span>
+              <span>Cover photo</span>
+            </li>
+          </ul>
+
+          <button
+            type="button"
+            class="publish-btn w-100"
+            [disabled]="!isFormReady || isSubmitting"
+            (click)="publish()"
+          >
+            {{ isEditMode ? 'Update Story' : 'Publish Story' }}
+          </button>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- ==================== TAB 2: LIVE READER PREVIEW ==================== -->
+    <div class="preview-layout" *ngIf="activeTab === 'preview'">
+      <div class="preview-banner">
+        <span><i class="bi bi-eye me-1"></i> Live Preview Mode — This is how your story will look to readers on the website.</span>
+        <button type="button" class="btn-edit-mode" (click)="activeTab = 'editor'">
+          Back to Editing <i class="bi bi-pencil-square ms-1"></i>
+        </button>
+      </div>
+
+      <article class="preview-article">
+        <!-- Hero Header -->
+        <div class="preview-hero" [class.no-img]="!imagePreview">
+          <img *ngIf="imagePreview" [src]="imagePreview" alt="Story Cover" class="preview-hero-img" />
+          <div class="preview-hero-overlay"></div>
+          <div class="preview-hero-content">
+            <div class="preview-category-pill">
+              {{ postForm.get('category')?.value || 'Trek Guides' }}
+            </div>
+            <h1 class="preview-title">{{ postForm.get('title')?.value || 'Untitled Adventure Story' }}</h1>
+            <p class="preview-lead">{{ postForm.get('excerpt')?.value || 'Add a brief overview hook for readers...' }}</p>
+          </div>
+        </div>
+
+        <!-- Meta Bar -->
+        <div class="preview-meta-bar">
+          <div class="author-pill">
+            <div class="author-avatar"><i class="bi bi-person-fill"></i></div>
+            <div>
+              <div class="author-name">You (Explorer)</div>
+              <div class="author-sub">goWILD Karunadu Contributor</div>
+            </div>
+          </div>
+          <div class="story-stats-pills">
+            <span><i class="bi bi-clock me-1"></i> ~{{ readingTime }} min read</span>
+            <span>•</span>
+            <span>{{ wordCount }} words</span>
+            <span>•</span>
+            <span>Today</span>
+          </div>
+        </div>
+
+        <!-- Rendered Story Content -->
+        <div class="preview-body" [innerHTML]="previewHtml || '<p class=\'text-muted\'>No story text written yet. Switch to the editor tab to begin!</p>'"></div>
+
+        <!-- Tags List -->
+        <div class="preview-tags" *ngIf="currentTags.length">
+          <span class="preview-tags-label">Tags:</span>
+          <span class="preview-tag-pill" *ngFor="let tag of currentTags">#{{ tag }}</span>
+        </div>
+      </article>
+
+      <div class="preview-bottom-actions">
+        <button type="button" class="btn-back-to-edit" (click)="activeTab = 'editor'">
+          ← Continue Writing
+        </button>
+        <button
+          type="button"
+          class="publish-btn"
+          [disabled]="!isFormReady || isSubmitting"
+          (click)="publish()"
+        >
+          {{ isEditMode ? 'Update Story' : 'Publish Story' }} →
+        </button>
+      </div>
+    </div>
+
+  </form>
+
+</div>

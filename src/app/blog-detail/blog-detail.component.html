@@ -1,0 +1,378 @@
+<article class="article-page" *ngIf="post.title">
+
+  <!-- ── 1. BREADCRUMBS & TOP NAV ────────────────────────────────────── -->
+  <nav class="article-top-bar" aria-label="Breadcrumb">
+    <div class="top-bar-container">
+      <button type="button" class="btn-back-journal" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Journal</span>
+      </button>
+
+      <ol class="breadcrumb-trail">
+        <li><a routerLink="/">Home</a></li>
+        <li><i class="bi bi-chevron-right"></i></li>
+        <li><a routerLink="/blog">Stories &amp; Guides</a></li>
+        <li><i class="bi bi-chevron-right"></i></li>
+        <li class="active">{{ getCategoryLabel(post.category) }}</li>
+      </ol>
+
+      <div class="reading-indicator">
+        <i class="bi bi-clock-history"></i>
+        <span>{{ post.readTime }}</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── 2. EDITORIAL ARTICLE HEADER ──────────────────────────────────── -->
+  <header class="editorial-header">
+    <div class="header-container">
+
+      <!-- Category Pill -->
+      <div class="category-badge-wrap">
+        <span class="category-badge">
+          <i class="bi bi-compass-fill me-1"></i>
+          {{ getCategoryLabel(post.category) }}
+        </span>
+        <span class="featured-badge" *ngIf="post.views > 50">
+          <i class="bi bi-fire me-1"></i> Trending Story
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="article-main-title">{{ post.title }}</h1>
+
+      <!-- Subtitle / Excerpt Lead -->
+      <p class="article-lead" *ngIf="post.excerpt">
+        {{ post.excerpt }}
+      </p>
+
+      <!-- Byline & Meta Info -->
+      <div class="byline-bar">
+        <div class="author-meta">
+          <img
+            loading="lazy"
+            decoding="async"
+            [src]="post.author.avatar"
+            [alt]="post.author.name"
+            class="author-avatar"
+          />
+          <div class="author-info-text">
+            <div class="author-name-row">
+              <span class="author-name">{{ post.author.name }}</span>
+              <span class="author-badge"><i class="bi bi-patch-check-fill text-success"></i> Contributor</span>
+            </div>
+            <div class="post-date-row">
+              <span class="meta-date"><i class="bi bi-calendar3 me-1"></i>{{ post.date }}</span>
+              <span class="meta-sep">&bull;</span>
+              <span class="meta-time"><i class="bi bi-hourglass-split me-1"></i>{{ post.readTime }}</span>
+              <span class="meta-sep" *ngIf="post.views > 0">&bull;</span>
+              <span class="meta-views" *ngIf="post.views > 0"><i class="bi bi-eye me-1"></i>{{ post.views }} views</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Social & Engagement Actions -->
+        <div class="quick-actions">
+          <button
+            type="button"
+            class="action-btn like-btn"
+            [class.liked]="isLiked"
+            (click)="likePost()"
+            title="Like this story"
+          >
+            <i class="bi" [ngClass]="isLiked ? 'bi-heart-fill' : 'bi-heart'"></i>
+            <span>{{ post.likes }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="action-btn comment-btn"
+            (click)="scrollToComments()"
+            title="Jump to discussion"
+          >
+            <i class="bi bi-chat-left-text"></i>
+            <span>{{ comments.length }}</span>
+          </button>
+
+          <button
+            type="button"
+            class="action-btn share-btn"
+            (click)="copyShareLink()"
+            title="Share article link"
+          >
+            <i class="bi bi-share"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ── 3. HERO FEATURED IMAGE ──────────────────────────────────────── -->
+  <section class="featured-media-stage" *ngIf="post.image">
+    <div class="media-container">
+      <div class="image-frame">
+        <img
+          loading="lazy"
+          decoding="async"
+          [src]="post.image"
+          [alt]="post.title"
+          class="hero-hd-image"
+        />
+        <div class="media-caption">
+          <i class="bi bi-camera-fill me-1"></i> Captured across Western Ghats wilderness
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 4. ARTICLE READING CANVAS ───────────────────────────────────── -->
+  <div class="article-reading-canvas">
+    <div class="reading-container">
+
+      <!-- Rich HTML Content -->
+      <div class="article-body-typography" [innerHTML]="post.content"></div>
+
+      <!-- Article Tags -->
+      <div class="article-tags-wrap" *ngIf="post.tags && post.tags.length">
+        <div class="tags-label"><i class="bi bi-tags-fill me-1"></i> Trail Topics:</div>
+        <div class="tags-list">
+          <span class="tag-pill" *ngFor="let tag of post.tags">#{{ tag }}</span>
+        </div>
+      </div>
+
+      <!-- Social Share & Engagement Banner -->
+      <div class="engagement-dock">
+        <div class="dock-left">
+          <button
+            type="button"
+            class="btn-like-large"
+            [class.liked]="isLiked"
+            (click)="likePost()"
+          >
+            <i class="bi" [ngClass]="isLiked ? 'bi-heart-fill' : 'bi-heart'"></i>
+            <span>{{ isLiked ? 'Liked' : 'Applaud Story' }} ({{ post.likes }})</span>
+          </button>
+        </div>
+
+        <div class="dock-right">
+          <span class="share-label">Share with fellow trekkers:</span>
+          <div class="share-icon-group">
+            <button type="button" class="btn-social-share whatsapp" (click)="shareOnWhatsApp()" title="Share on WhatsApp">
+              <i class="bi bi-whatsapp"></i>
+            </button>
+            <button type="button" class="btn-social-share twitter" (click)="shareOnTwitter()" title="Share on X / Twitter">
+              <i class="bi bi-twitter-x"></i>
+            </button>
+            <button type="button" class="btn-social-share copy" (click)="copyShareLink()" title="Copy Link">
+              <i class="bi bi-link-45deg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Share Feedback Toast -->
+      <div class="share-toast" *ngIf="copyFeedback">
+        <i class="bi bi-check-circle-fill text-success me-1"></i>
+        {{ copyFeedback }}
+      </div>
+
+      <!-- Author Bio Spotlight Card -->
+      <div class="author-spotlight-card">
+        <img
+          loading="lazy"
+          decoding="async"
+          [src]="post.author.avatar"
+          [alt]="post.author.name"
+          class="spotlight-avatar"
+        />
+        <div class="spotlight-content">
+          <div class="spotlight-header">
+            <div>
+              <span class="spotlight-role">Written By</span>
+              <h3 class="spotlight-name">{{ post.author.name }}</h3>
+            </div>
+            <span class="verified-tag">
+              <i class="bi bi-shield-check"></i> Certified Contributor
+            </span>
+          </div>
+          <p class="spotlight-bio">
+            {{ post.author.bio || 'Outdoor enthusiast, conservationist, and trail leader documenting biodiversity and ridge expeditions across Karnataka.' }}
+          </p>
+        </div>
+      </div>
+
+      <!-- ── 5. DISCUSSION & COMMUNITY COMMENTS ────────────────────────── -->
+      <section class="discussion-section" id="discussion-section">
+        <div class="discussion-header">
+          <div class="discussion-title-wrap">
+            <h2 class="discussion-title">
+              Community Discussion
+            </h2>
+            <span class="comments-counter-badge">{{ comments.length }}</span>
+          </div>
+          <p class="discussion-subtitle">Have questions about this trail or tips from your summit? Share your thoughts below.</p>
+        </div>
+
+        <!-- Add Comment Form -->
+        <div class="comment-composer-card">
+          <div class="composer-head">
+            <i class="bi bi-chat-quote-fill composer-icon"></i>
+            <span>Leave a thought or trail update</span>
+          </div>
+
+          <div class="composer-body">
+            <textarea
+              [(ngModel)]="newComment"
+              class="composer-textarea"
+              placeholder="Share trail conditions, gear tips, or questions..."
+              rows="3"
+              [disabled]="isSubmittingComment"
+            ></textarea>
+
+            <div class="composer-actions">
+              <span class="composer-note" *ngIf="!isLoggedIn">
+                <i class="bi bi-info-circle me-1"></i> You will be prompted to sign in to post.
+              </span>
+              <button
+                type="button"
+                class="btn-post-comment"
+                (click)="postComment()"
+                [disabled]="!newComment.trim() || isSubmittingComment"
+              >
+                <i class="bi bi-send-fill me-1" *ngIf="!isSubmittingComment"></i>
+                <span *ngIf="isSubmittingComment" class="spinner-border spinner-border-sm me-1"></span>
+                <span>{{ isSubmittingComment ? 'Publishing...' : 'Post Comment' }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comment Thread Cards -->
+        <div class="comments-thread" *ngIf="comments.length">
+          <div class="comment-node" *ngFor="let comment of comments">
+            <div class="comment-node-head">
+              <img
+                loading="lazy"
+                decoding="async"
+                [src]="comment.author.avatar"
+                [alt]="comment.author.name"
+                class="comment-node-avatar"
+              />
+              <div class="comment-node-meta">
+                <div class="node-author-name">{{ comment.author.name }}</div>
+                <div class="node-date">{{ comment.date }}</div>
+              </div>
+
+              <!-- Owner Edit/Delete Actions -->
+              <div class="comment-owner-actions" *ngIf="comment.userId === currentUserId">
+                <button type="button" class="btn-comment-action" (click)="startEdit(comment)" title="Edit comment">
+                  <i class="bi bi-pencil"></i>
+                </button>
+                <button type="button" class="btn-comment-action danger" (click)="deleteComment(comment.id)" title="Delete comment">
+                  <i class="bi bi-trash3"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Comment Body View -->
+            <div class="comment-node-body" *ngIf="editingCommentId !== comment.id">
+              <p>{{ comment.content }}</p>
+            </div>
+
+            <!-- Comment Edit Mode -->
+            <div class="comment-edit-form" *ngIf="editingCommentId === comment.id">
+              <textarea [(ngModel)]="editedContent" class="edit-textarea" rows="3"></textarea>
+              <div class="edit-actions">
+                <button type="button" class="btn-save-edit" (click)="updateComment(comment.id)">Save</button>
+                <button type="button" class="btn-cancel-edit" (click)="cancelEdit()">Cancel</button>
+              </div>
+            </div>
+
+            <!-- Comment Reaction -->
+            <div class="comment-reaction-row">
+              <button type="button" class="btn-comment-like" (click)="likeComment(comment.id)">
+                <i class="bi bi-heart me-1"></i>
+                <span>{{ comment.likes || 0 }}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty Comments State -->
+        <div class="no-comments-state" *ngIf="comments.length === 0">
+          <div class="empty-icon-wrap">
+            <i class="bi bi-chat-heart"></i>
+          </div>
+          <h4>Be the first to share your thoughts!</h4>
+          <p>Inspire fellow trekkers with route tips, weather updates, or personal highlights from this journey.</p>
+        </div>
+
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ── 6. RELATED JOURNAL STORIES ────────────────────────────────────── -->
+  <section class="related-stories-section" *ngIf="relatedPosts && relatedPosts.length">
+    <div class="related-container">
+      <div class="related-header">
+        <div>
+          <span class="related-eyebrow">Discover More</span>
+          <h2 class="related-title">Continue Exploring Western Ghats</h2>
+        </div>
+        <a routerLink="/blog" class="btn-view-all-stories">
+          <span>All Stories</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="related-cards-grid">
+        <article
+          class="related-card"
+          *ngFor="let related of relatedPosts"
+          (click)="viewRelatedPost(related)"
+          role="button"
+          tabindex="0"
+        >
+          <div class="card-thumb">
+            <img
+              loading="lazy"
+              decoding="async"
+              [src]="related.image"
+              [alt]="related.title"
+            />
+            <span class="card-category-badge">{{ getCategoryLabel(related.category) }}</span>
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">{{ related.title }}</h3>
+            <div class="card-meta">
+              <span class="read-time"><i class="bi bi-clock me-1"></i>{{ related.readTime }}</span>
+              <span class="read-cta">Read Story →</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. FLOATING WRITE STORY FAB ──────────────────────────────────── -->
+  <button
+    type="button"
+    class="floating-write-fab"
+    (click)="createPost()"
+    title="Write and share your trek story"
+  >
+    <i class="bi bi-feather"></i>
+    <span class="fab-label">Write Story</span>
+  </button>
+
+</article>
+
+<!-- Fullpage Loading State -->
+<div class="article-loading-state" *ngIf="!post.title">
+  <div class="spinner-border text-success" role="status" style="width: 3rem; height: 3rem;">
+    <span class="visually-hidden">Loading Story...</span>
+  </div>
+  <p class="loading-text">Loading Wilderness Journal...</p>
+</div>

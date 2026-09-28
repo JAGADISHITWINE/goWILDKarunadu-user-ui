@@ -1,0 +1,252 @@
+<header class="app-header" [class.scrolled]="isScrolled">
+
+  <div class="header-content">
+
+    <!-- Logo -->
+    <div class="header-left">
+
+      <img
+        class="logo"
+        src="../../../assets/assets/logo.png"
+        alt="Logo"
+        routerLink="/"
+      />
+
+      <a class="gw-logo logo-dark" routerLink="/">
+        <div class="gw-words">
+          <div class="gw-top">
+            <span class="gw-go" *ngIf="brandPrefix">{{ brandPrefix }}</span>
+            <span class="gw-wild">{{ brandSuffix }}</span>
+          </div>
+          <span class="gw-sub" *ngIf="brandSubtitle">{{ brandSubtitle }}</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+
+      <a
+        class="nav-link"
+        *ngFor="let link of navLinks"
+        [routerLink]="link.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: !!link.exact }"
+      >
+        <i [class]="link.icon"></i>
+        {{ link.label }}
+      </a>
+
+    </nav>
+
+    <!-- Right Section -->
+    <div class="header-right">
+
+      <!-- LOGIN BUTTON (shown when NOT logged in on desktop + mobile) -->
+      <button
+        class="login-btn"
+        *ngIf="!isLoggedIn"
+        (click)="openLoginPanel()"
+      >
+        <i class="bi bi-person-fill"></i>
+        <span>Login</span>
+      </button>
+
+
+      <!-- USER DROPDOWN (Desktop only when logged in) -->
+      <div class="user-menu desktop-only" *ngIf="isLoggedIn">
+
+        <button
+          class="user-avatar-btn"
+          [class.show]="isUserDropdownOpen"
+          (click)="toggleUserDropdown()"
+        >
+
+          <div class="user-avatar" *ngIf="!profilePicture">
+            {{ getUserInitials() }}
+          </div>
+
+          <img
+            *ngIf="profilePicture"
+            [src]="profilePicture"
+            class="user-avatar-img"
+          />
+
+          <span class="user-name">{{ userName }}</span>
+          <i class="bi bi-chevron-down"></i>
+
+        </button>
+
+        <div
+          class="user-dropdown"
+          [class.show]="isUserDropdownOpen"
+          (clickOutside)="closeUserDropdown()"
+        >
+
+          <a class="dropdown-item" (click)="navigateTo('/my-bookings')">
+            <i class="bi bi-calendar-check"></i> My Bookings
+          </a>
+
+          <a class="dropdown-item text-danger" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOBILE MENU BUTTON (Always visible on mobile/tablet) -->
+      <button
+        type="button"
+        class="mobile-menu-btn mobile-only"
+        (click)="isMobileMenuOpen = true"
+        aria-label="Open navigation menu"
+        title="Open navigation menu"
+      >
+        <i class="bi bi-list text-secondary"></i>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- Mobile Overlay -->
+  <div
+    class="mobile-overlay"
+    [class.show]="isMobileMenuOpen"
+    (click)="closeMobileMenu()"
+  ></div>
+
+
+  <!-- Mobile Drawer / Sidebar -->
+  <nav class="mobile-nav" [class.show]="isMobileMenuOpen" aria-label="Mobile navigation">
+
+    <div class="mobile-nav-content">
+
+      <!-- Drawer Brand & Close Header -->
+      <div class="drawer-header-row">
+        <div class="drawer-brand">
+          <img class="drawer-logo" src="../../../assets/assets/logo.png" alt="Logo" />
+          <div class="drawer-brand-words">
+            <span class="drawer-brand-main">goWILD</span>
+            <span class="drawer-brand-sub">{{ brandSubtitle || 'ಕರುನಾಡು' }}</span>
+          </div>
+        </div>
+        <button class="mobile-close-btn" (click)="closeMobileMenu()" aria-label="Close navigation">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <!-- Guest Explorer Card (when NOT logged in) -->
+      <div class="mobile-guest-card" *ngIf="!isLoggedIn">
+        <div class="guest-card-body">
+          <div class="guest-avatar">
+            <i class="bi bi-compass"></i>
+          </div>
+          <div class="guest-details">
+            <div class="guest-title">Western Ghats Explorer</div>
+            <div class="guest-sub">Sign in to manage permits &amp; bookings</div>
+          </div>
+        </div>
+        <button type="button" class="btn-drawer-login" (click)="openLoginPanel(); closeMobileMenu()">
+          <i class="bi bi-person-fill"></i>
+          <span>Login / Register</span>
+        </button>
+      </div>
+
+      <!-- User Info (when logged in) -->
+      <div class="mobile-user-section" *ngIf="isLoggedIn">
+        <div class="mobile-user-avatar" *ngIf="!profilePicture">
+          {{ getUserInitials() }}
+        </div>
+        <img
+          *ngIf="profilePicture"
+          [src]="profilePicture"
+          class="mobile-user-avatar-img"
+          alt="Profile"
+        />
+        <div class="mobile-user-info">
+          <div class="mobile-user-name">
+            {{ userName }}
+            <span class="status-dot-active" title="Active Explorer"></span>
+          </div>
+          <div class="mobile-user-email">{{ userEmail }}</div>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="drawer-section-heading">EXPLORE TRAILS</div>
+      <div class="mobile-nav-links">
+        <a
+          class="mobile-nav-link"
+          *ngFor="let link of navLinks"
+          [routerLink]="link.route"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: !!link.exact }"
+          (click)="closeMobileMenu()"
+        >
+          <div class="link-icon-box">
+            <i [class]="link.icon"></i>
+          </div>
+          <span class="link-text">{{ link.label }}</span>
+          <i class="bi bi-chevron-right link-arrow"></i>
+        </a>
+      </div>
+
+      <!-- Mobile User Actions (when logged in) -->
+      <div class="mobile-user-actions" *ngIf="isLoggedIn">
+        <div class="drawer-section-heading">MY EXPEDITION</div>
+        <a
+          class="mobile-nav-link"
+          (click)="navigateTo('/my-bookings'); closeMobileMenu()"
+        >
+          <div class="link-icon-box action-icon">
+            <i class="bi bi-calendar2-check-fill"></i>
+          </div>
+          <span class="link-text">My Bookings &amp; Permits</span>
+          <i class="bi bi-chevron-right link-arrow"></i>
+        </a>
+
+        <a
+          class="mobile-nav-link text-danger"
+          (click)="logout(); closeMobileMenu()"
+        >
+          <div class="link-icon-box logout-icon">
+            <i class="bi bi-box-arrow-right"></i>
+          </div>
+          <span class="link-text">Logout</span>
+        </a>
+      </div>
+
+      <!-- Mobile Contact Strip -->
+      <div class="mobile-contact-section">
+        <div class="drawer-section-heading">BASECAMP DESK</div>
+        <div class="mobile-contact-strip">
+          <ng-container *ngFor="let contact of contactItems">
+            <a
+              *ngIf="contact.href; else mobileText"
+              class="mob-cta"
+              [href]="contact.href"
+            >
+              <i [class]="contact.icon"></i>
+              <span>{{ contact.value }}</span>
+            </a>
+
+            <ng-template #mobileText>
+              <span class="mob-cta">
+                <i [class]="contact.icon"></i>
+                <span>{{ contact.value }}</span>
+              </span>
+            </ng-template>
+          </ng-container>
+        </div>
+      </div>
+
+    </div>
+
+  </nav>
+
+</header>

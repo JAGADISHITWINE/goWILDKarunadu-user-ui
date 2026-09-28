@@ -1,0 +1,243 @@
+<div class="page-enter">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-media">
+      <img
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        class="hero-img"
+        src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=85"
+        alt="Western Ghats Trekking Expeditions Banner"
+      />
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- Top Navigation & Season Pill -->
+    <div class="hero-top">
+      <nav class="hero-breadcrumb-pill" aria-label="Breadcrumb">
+        <button type="button" class="hero-crumb-btn" (click)="goBack()" title="Back to Home">
+          <svg viewBox="0 0 20 20" fill="currentColor" class="hero-crumb-home">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+          </svg>
+          <span>Home</span>
+        </button>
+        <span class="hero-crumb-sep">›</span>
+        <span class="hero-crumb-item">Calendar</span>
+        <span class="hero-crumb-sep">›</span>
+        <strong class="hero-crumb-active">Upcoming Treks &amp; Expeditions</strong>
+      </nav>
+
+      <div class="hero-season-pill">
+        <span class="season-dot"></span>
+        <span>Western Ghats Active Season</span>
+      </div>
+    </div>
+
+    <!-- Hero Main Body -->
+    <div class="hero-body">
+      <div class="hero-content">
+        <div class="hero-badges">
+          <span class="hero-badge badge-featured">
+            <span class="badge-dot"></span>
+            2025–2026 Batch Calendar
+          </span>
+          <span class="hero-badge badge-trail">
+            <i class="bi bi-shield-check me-1"></i> Eco Certified Trails
+          </span>
+          <span class="hero-badge badge-permits">
+            <i class="bi bi-patch-check-fill me-1"></i> Forest Permits Handled
+          </span>
+        </div>
+
+        <h1 class="hero-title">Upcoming Treks<br />&amp; Wilderness Expeditions</h1>
+
+        <div class="hero-meta-chips">
+          <div class="hero-chip">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+            </svg>
+            <span>Karnataka &amp; Western Ghats</span>
+          </div>
+
+          <div class="hero-chip">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+            </svg>
+            <span>{{ selectedMonth }} {{ selectedYear }} Active</span>
+          </div>
+
+          <div class="hero-chip">
+            <svg viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            <span>Weekend &amp; Extended Departures</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Stat Card -->
+      <div class="hero-stat-card">
+        <div class="hero-stat-pulse">
+          <span class="stat-pulse-ring"></span>
+          <span class="stat-pulse-core"></span>
+          <span class="stat-pulse-label">Live Departures</span>
+        </div>
+        <div class="hero-stat-number">{{ allTreks.length || '35+' }}</div>
+        <div class="hero-stat-desc">Scheduled Karnataka Expeditions</div>
+        <div class="hero-stat-perks">
+          <span class="perk-item"><i class="bi bi-check2 text-success me-1"></i> Certified Trek Leads</span>
+          <span class="perk-item"><i class="bi bi-check2 text-success me-1"></i> Instant Digital Pass</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROL BAR -->
+  <div class="control-bar">
+    <div class="control-left">
+      <span class="trek-count-label" *ngIf="!isLoading">
+        Showing <strong>{{ trekCount }}</strong> of
+        <strong>{{ allTreks.length }}</strong> trips
+      </span>
+      <span class="trek-count-label" *ngIf="isLoading">Loading treks…</span>
+      <div class="divider-v"></div>
+      <span class="control-month">{{ selectedMonth === 'All' ? 'All Expeditions' : selectedMonth }} {{ selectedYear }}</span>
+    </div>
+  </div>
+
+  <!-- ERROR -->
+  <div class="error-alert" *ngIf="errorMessage">
+    <div class="alert-inner">
+      <i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> {{ errorMessage }}
+      <button class="retry-btn" (click)="loadTreks()">Retry</button>
+    </div>
+  </div>
+
+  <!-- YEAR NAV -->
+  <div class="year-nav">
+    <button class="year-btn" *ngIf="previousYear" (click)="changeYear('prev')" [disabled]="isLoading">← {{ previousYear
+      }}</button>
+    <div class="year-current">{{ selectedYear }}</div>
+    <button class="year-btn" *ngIf="nextYear" (click)="changeYear('next')" [disabled]="isLoading">{{ nextYear }}
+      →</button>
+  </div>
+
+  <div class="year-dropdown-wrap" *ngIf="years.length > 4">
+    <select class="sort-select" [(ngModel)]="selectedYear" (change)="loadTreks()" [disabled]="isLoading">
+      <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+    </select>
+  </div>
+
+  <!-- MONTH TABS -->
+  <div class="month-tabs">
+    <button class="month-tab" [class.active]="selectedMonth === 'All'"
+      (click)="selectMonth('All')" [disabled]="isLoading">
+      All Treks
+      <span class="month-count" *ngIf="allTreks.length > 0">{{ allTreks.length }}</span>
+    </button>
+    <button class="month-tab" *ngFor="let month of months" [class.active]="selectedMonth === month"
+      (click)="selectMonth(month)" [disabled]="isLoading">
+      {{ month }}
+      <span class="month-count" *ngIf="getMonthCount(month) > 0">{{ getMonthCount(month) }}</span>
+    </button>
+  </div>
+
+  <!-- LOADER -->
+  <div class="loader-wrapper" *ngIf="isLoading">
+    <div class="loader-bars">
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+      <div class="loader-bar"></div>
+    </div>
+    <p class="loader-text">Loading Expeditions</p>
+  </div>
+
+  <!-- TREK LIST -->
+  <div class="content" *ngIf="!isLoading">
+
+    <div class="month-header">
+      <h2 class="month-heading">
+        <span *ngIf="selectedMonth === 'All'">All Upcoming Treks</span>
+        <span *ngIf="selectedMonth !== 'All'">{{ selectedMonth }}</span>
+        {{ selectedYear }}
+      </h2>
+      <span class="month-sub">{{ trekCount }} departure{{ trekCount !== 1 ? 's' : '' }}</span>
+    </div>
+
+    <div class="table-header">
+      <div>Date &amp; Duration</div>
+      <div>Trek Details</div>
+      <div>Availability</div>
+      <div style="text-align:right">Price</div>
+    </div>
+
+    <div class="trek-row" *ngFor="let trek of currentMonthTreks" [class.sold-out]="trek.status === 'sold-out'"
+      (click)="viewDetails(trek)">
+      <div class="col-date">
+        <div class="date-main">{{ trek.date }}</div>
+        <div class="date-time">{{ trek.time }}</div>
+        <div class="duration-tag"><i class="bi bi-clock me-1"></i>{{ trek.duration }}</div>
+      </div>
+
+      <div class="col-trek">
+        <div class="trek-thumb">
+          <img loading="lazy" decoding="async" [src]="resolveImageUrl(trek.image, trek.cacheKey)" [alt]="trek.name"
+            onerror="this.src='assets/default-trek.jpg'" />
+        </div>
+        <div class="trek-info-text">
+          <h3>{{ trek.name }}</h3>
+          <div class="trek-location"><i class="bi bi-geo-alt-fill me-1 text-success"></i>{{ trek.location }}</div>
+          <span class="category-tag">{{ trek.category }}</span>
+        </div>
+      </div>
+
+      <div class="col-status">
+        <span class="status-badge" [ngClass]="{
+            'status-available': trek.status === 'available',
+            'status-fast':      trek.status === 'selling-fast',
+            'status-last':      trek.status === 'last-seat',
+            'status-soldout':   trek.status === 'sold-out'
+          }">{{ getStatusText(trek.status) }}</span>
+      </div>
+
+      <div class="col-price">
+        <div>
+          <div class="price-amount">₹{{ trek.price | number:'1.0-0' }}</div>
+          <div class="price-per">Per Person</div>
+        </div>
+        <button class="view-btn" [class.available]="trek.status !== 'sold-out'"
+          [class.soldout]="trek.status === 'sold-out'" [disabled]="trek.status === 'sold-out'"
+          (click)="$event.stopPropagation(); viewDetails(trek)">
+          {{ trek.status === 'sold-out' ? 'Sold Out' : 'View' }}
+          <span class="btn-arrow" *ngIf="trek.status !== 'sold-out'">→</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="empty-state" *ngIf="trekCount === 0">
+      <div class="empty-icon"><i class="bi bi-compass"></i></div>
+      <h3 *ngIf="selectedMonth === 'All'">No upcoming treks found for {{ selectedYear }}</h3>
+      <h3 *ngIf="selectedMonth !== 'All'">No treks in {{ selectedMonth }} {{ selectedYear }}</h3>
+      <p>Try switching to "All Treks" or selecting a different year.</p>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <div class="cta-card">
+      <div>
+        <div class="cta-eyebrow">Custom Expeditions</div>
+        <h2 class="cta-heading">Can't find what you're looking for?</h2>
+        <p class="cta-body">We organise tailored group treks, corporate outings, and private expeditions. Tell us where
+          you want to go.</p>
+      </div>
+      <a routerLink="/contact" class="cta-btn">Get in Touch <span>→</span></a>
+    </div>
+  </div>
+
+</div>
