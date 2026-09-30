@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { MainpageComponent } from "./layout/mainpage/mainpage.component";
 import { ResetPasswordComponent } from "./auth/reset-password/reset-password.component";
 import { AuthGuard } from "./core/guards/auth-guard";
-import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   // Standalone route — outside MainpageComponent so no navbar/header shows
@@ -47,11 +46,8 @@ const routes: Routes = [
         loadChildren: () =>
           import("./booking/booking-module").then((m) => m.BookingModule),
       },
-      {
-        path: "payment",
-        component: PaymentComponent,
-      },
-      { path: "payment-test", redirectTo: "payment", pathMatch: "full" },
+      { path: "payment", redirectTo: "my-bookings", pathMatch: "full" },
+      { path: "payment-test", redirectTo: "my-bookings", pathMatch: "full" },
       {
         path: "my-bookings",
         loadChildren: () =>
@@ -60,14 +56,15 @@ const routes: Routes = [
           ),
       },
       {
-        path: "cancel-booking",
+        path: "my-wallet",
+        canActivate: [AuthGuard],
         loadChildren: () =>
-          import("./cancle-bookings/cancle-bookings-module").then(
-            (m) => m.CancleBookingsModule,
-          ),
+          import("./wallet/wallet-module").then((m) => m.WalletModule),
       },
-      { path: "cancel-bookings", redirectTo: "cancel-booking", pathMatch: "full" },
-      { path: "cancle-bookings", redirectTo: "cancel-booking", pathMatch: "full" },
+      { path: "wallet", redirectTo: "my-wallet", pathMatch: "full" },
+      { path: "cancel-booking", redirectTo: "my-bookings", pathMatch: "full" },
+      { path: "cancel-bookings", redirectTo: "my-bookings", pathMatch: "full" },
+      { path: "cancle-bookings", redirectTo: "my-bookings", pathMatch: "full" },
 
       // ── JOURNAL & BLOG ROUTES ─────────────────────────────────────
       {

@@ -42,6 +42,9 @@ export class TokenService {
   }
 
   getUserId(): string | null {
+    if (!this.isValid()) {
+      return null;
+    }
     const decoded = this.decode();
     if (!decoded) return null;
     return String(decoded?.id ?? decoded?.userId ?? '').trim() || null;
@@ -51,6 +54,10 @@ export class TokenService {
     const decoded = this.decode();
     if (!decoded) return false;
     if (!decoded.exp) return true;
-    return decoded.exp * 1000 > Date.now();
+    const valid = decoded.exp * 1000 > Date.now();
+    if (!valid) {
+      this.clear();
+    }
+    return valid;
   }
 }

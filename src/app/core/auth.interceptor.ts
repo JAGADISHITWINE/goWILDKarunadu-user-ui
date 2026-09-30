@@ -9,7 +9,24 @@ import { TokenService } from './token.service';
 import { Sessionexpired } from '../auth/sessionexpired/sessionexpired';
 import { AuthModalService } from '../auth/auth-modal.service';
 
-const AUTH_ENDPOINTS = ['/login', '/register', '/auth', '/signin', '/token', '/forgot-password'];
+// Specific public authentication endpoints that do not require an authorization bearer token.
+// Generic substrings like '/auth' must NOT be used because backend API routes are mounted under '/api/auth/'.
+const PUBLIC_AUTH_PATHS = [
+  '/login',
+  '/register',
+  '/send-otp',
+  '/verify-otp',
+  '/forgot-password',
+  '/reset-password',
+  '/validate-reset-token',
+  '/signin'
+];
+
+function isPublicAuthEndpoint(url: string): boolean {
+  if (!url) return false;
+  const cleanUrl = url.split('?')[0].replace(/\/+$/, '');
+  return PUBLIC_AUTH_PATHS.some(path => cleanUrl.endsWith(path));
+}
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -20,12 +37,12 @@ export class AuthInterceptor implements HttpInterceptor {
   ) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const isAuthEndpoint = AUTH_ENDPOINTS.some(e => req.url.includes(e));
-    const authReq        = isAuthEndpoint ? req : this.attachToken(req);
+    const isPublicAuth = isPublicAuthEndpoint(req.url);
+    const authReq      = isPublicAuth ? req : this.attachToken(req);
 
     return next.handle(authReq).pipe(
       catchError((err: any) => {
-        if (err instanceof HttpErrorResponse && err.status === 401 && !isAuthEndpoint) {
+        if (err instanceof HttpErrorResponse && err.status === 401 && !isPublicAuth) {
           const hadToken = !!this.tokenService.getToken();
 
           // Clear everything regardless

@@ -1,0 +1,391 @@
+<div class="payment-modal-backdrop" *ngIf="isOpen" (click)="onClose()">
+  <div class="payment-modal-sheet" (click)="$event.stopPropagation()">
+    
+    <!-- Modal Header -->
+    <div class="pay-modal-header">
+      <div class="pay-header-left">
+        <div class="pay-brand">
+          <span class="pay-shield-icon"><i class="bi bi-shield-lock-fill"></i></span>
+          <div>
+            <div class="pay-title">{{ brandName }} Secure Checkout</div>
+            <div class="pay-subtitle">256-Bit SSL Encrypted • Direct Bank &amp; UPI Gateway</div>
+          </div>
+        </div>
+      </div>
+      <div class="pay-header-right">
+        <div class="pay-amount-pill">
+          <span class="pay-amount-lbl">Amount Payable</span>
+          <span class="pay-amount-val">₹{{ payablePrice | number:'1.0-0' }}</span>
+        </div>
+        <button type="button" class="btn-close-pay" (click)="onClose()" [disabled]="isProcessingPayment"><i class="bi bi-x-lg"></i></button>
+      </div>
+    </div>
+
+    <!-- Expedition Mini Summary Strip -->
+    <div class="pay-order-strip">
+      <div class="pay-order-meta">
+        <strong>{{ trekName }}</strong>
+        <span class="meta-dot">•</span>
+        <span>{{ startDate | date:'mediumDate' }}</span>
+        <span class="meta-dot">•</span>
+        <span>{{ participantsCount }} {{ participantsCount === 1 ? 'Trekker' : 'Trekkers' }}</span>
+        <span class="pay-plan-badge" *ngIf="paymentPlan === 'deposit_30'">30% Advance Deposit</span>
+      </div>
+    </div>
+
+    <!-- Main Payment Body -->
+    <div class="pay-modal-body" *ngIf="!paymentSuccessState">
+      
+      <!-- Left Sidebar: Payment Methods -->
+      <div class="pay-methods-nav">
+        <button type="button" 
+                class="pay-method-tab" 
+                [class.active]="selectedPaymentTab === 'upi'" 
+                (click)="setPaymentTab('upi')">
+          <div class="tab-icon-wrap upi"><i class="bi bi-qr-code"></i></div>
+          <div class="tab-copy">
+            <span class="tab-name">UPI / QR Code</span>
+            <span class="tab-badge">Instant &amp; Free</span>
+          </div>
+        </button>
+
+        <button type="button" 
+                class="pay-method-tab" 
+                [class.active]="selectedPaymentTab === 'card'" 
+                (click)="setPaymentTab('card')">
+          <div class="tab-icon-wrap card"><i class="bi bi-credit-card-2-front"></i></div>
+          <div class="tab-copy">
+            <span class="tab-name">Credit / Debit Card</span>
+            <span class="tab-sub">Visa, MC, RuPay</span>
+          </div>
+        </button>
+
+        <button type="button" 
+                class="pay-method-tab" 
+                [class.active]="selectedPaymentTab === 'netbanking'" 
+                (click)="setPaymentTab('netbanking')">
+          <div class="tab-icon-wrap netbank"><i class="bi bi-bank"></i></div>
+          <div class="tab-copy">
+            <span class="tab-name">Net Banking</span>
+            <span class="tab-sub">50+ Indian Banks</span>
+          </div>
+        </button>
+
+        <button type="button" 
+                class="pay-method-tab" 
+                [class.active]="selectedPaymentTab === 'wallet'" 
+                (click)="setPaymentTab('wallet')">
+          <div class="tab-icon-wrap wallet"><i class="bi bi-wallet2"></i></div>
+          <div class="tab-copy">
+            <span class="tab-name">Wallets</span>
+            <span class="tab-sub">Amazon, Paytm, Mobikwik</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Right Content: Payment Method Details -->
+      <div class="pay-methods-content">
+
+        <!-- ── TAB: UPI & QR CODE ── -->
+        <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'upi'">
+          <div class="upi-segmented-switch">
+            <button type="button" [class.active]="upiOption === 'qr'" (click)="upiOption = 'qr'">
+              <i class="bi bi-qr-code-scan me-1"></i> Scan Dynamic QR Code
+            </button>
+            <button type="button" [class.active]="upiOption === 'vpa'" (click)="upiOption = 'vpa'">
+              <i class="bi bi-phone me-1"></i> Enter UPI ID / VPA
+            </button>
+          </div>
+
+          <!-- QR Code Section -->
+          <div class="upi-qr-box" *ngIf="upiOption === 'qr'">
+            <div class="qr-canvas-wrap">
+              <div class="qr-frame">
+                <svg class="qr-svg" viewBox="0 0 200 200" width="160" height="160">
+                  <rect width="200" height="200" fill="#ffffff" rx="10"/>
+                  <rect x="15" y="15" width="45" height="45" fill="#162318" rx="4"/>
+                  <rect x="23" y="23" width="29" height="29" fill="#ffffff" rx="2"/>
+                  <rect x="29" y="29" width="17" height="17" fill="#162318" rx="2"/>
+                  
+                  <rect x="140" y="15" width="45" height="45" fill="#162318" rx="4"/>
+                  <rect x="148" y="23" width="29" height="29" fill="#ffffff" rx="2"/>
+                  <rect x="154" y="29" width="17" height="17" fill="#162318" rx="2"/>
+
+                  <rect x="15" y="140" width="45" height="45" fill="#162318" rx="4"/>
+                  <rect x="23" y="148" width="29" height="29" fill="#ffffff" rx="2"/>
+                  <rect x="29" y="154" width="17" height="17" fill="#162318" rx="2"/>
+
+                  <!-- Data pixel representation -->
+                  <g fill="#1f3b25">
+                    <rect x="75" y="20" width="8" height="8"/>
+                    <rect x="90" y="20" width="8" height="8"/>
+                    <rect x="115" y="20" width="8" height="8"/>
+                    <rect x="80" y="35" width="8" height="8"/>
+                    <rect x="95" y="35" width="8" height="8"/>
+                    <rect x="70" y="50" width="8" height="8"/>
+                    <rect x="110" y="50" width="8" height="8"/>
+
+                    <rect x="20" y="75" width="8" height="8"/>
+                    <rect x="40" y="75" width="8" height="8"/>
+                    <rect x="60" y="75" width="8" height="8"/>
+                    <rect x="80" y="75" width="8" height="8"/>
+                    <rect x="100" y="75" width="8" height="8"/>
+                    <rect x="120" y="75" width="8" height="8"/>
+                    <rect x="140" y="75" width="8" height="8"/>
+                    <rect x="160" y="75" width="8" height="8"/>
+                    <rect x="175" y="75" width="8" height="8"/>
+
+                    <rect x="35" y="95" width="8" height="8"/>
+                    <rect x="75" y="95" width="8" height="8"/>
+                    <rect x="95" y="95" width="8" height="8"/>
+                    <rect x="115" y="95" width="8" height="8"/>
+                    <rect x="155" y="95" width="8" height="8"/>
+
+                    <rect x="20" y="115" width="8" height="8"/>
+                    <rect x="65" y="115" width="8" height="8"/>
+                    <rect x="85" y="115" width="8" height="8"/>
+                    <rect x="135" y="115" width="8" height="8"/>
+                    <rect x="170" y="115" width="8" height="8"/>
+
+                    <rect x="75" y="140" width="8" height="8"/>
+                    <rect x="100" y="140" width="8" height="8"/>
+                    <rect x="125" y="140" width="8" height="8"/>
+                    <rect x="150" y="140" width="8" height="8"/>
+                    <rect x="85" y="160" width="8" height="8"/>
+                    <rect x="110" y="160" width="8" height="8"/>
+                    <rect x="140" y="160" width="8" height="8"/>
+                    <rect x="170" y="160" width="8" height="8"/>
+                    <rect x="75" y="175" width="8" height="8"/>
+                    <rect x="100" y="175" width="8" height="8"/>
+                    <rect x="130" y="175" width="8" height="8"/>
+                    <rect x="160" y="175" width="8" height="8"/>
+                  </g>
+                  <circle cx="100" cy="100" r="14" fill="#2d6a4f"/>
+                  <text x="100" y="104" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">GWK</text>
+                </svg>
+              </div>
+              <div class="qr-copy">
+                <div class="qr-timer-pill">
+                  <i class="bi bi-clock-history me-1"></i> QR Expires in <strong>{{ formatUpiTimer() }}</strong>
+                </div>
+                <p class="qr-instruction">Scan with any UPI app on your mobile phone to complete payment directly.</p>
+                <div class="upi-app-badges">
+                  <span class="app-chip">GPay</span>
+                  <span class="app-chip">PhonePe</span>
+                  <span class="app-chip">Paytm</span>
+                  <span class="app-chip">BHIM</span>
+                  <span class="app-chip">Cred</span>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('UPI - Dynamic QR')">
+              <span *ngIf="!isProcessingPayment"><i class="bi bi-check2-circle me-1"></i> I Have Scanned &amp; Paid ₹{{ payablePrice | number:'1.0-0' }}</span>
+              <span *ngIf="isProcessingPayment" class="spinner-inline">Verifying with NPCI Gateway...</span>
+            </button>
+          </div>
+
+          <!-- Enter VPA Section -->
+          <div class="upi-vpa-box" *ngIf="upiOption === 'vpa'">
+            <div class="pay-field full">
+              <label class="pay-input-label">Virtual Payment Address (UPI ID)</label>
+              <div class="vpa-input-wrap">
+                <input type="text" class="pay-input" placeholder="e.g. yourname@okhdfcbank" [(ngModel)]="upiVpa" />
+                <span class="vpa-status-icon" *ngIf="upiVpa.includes('@')"><i class="bi bi-patch-check-fill text-success"></i></span>
+              </div>
+            </div>
+
+            <div class="vpa-quick-handles">
+              <span class="handle-tip">Quick handles:</span>
+              <button type="button" class="btn-handle" (click)="appendVpaHandle('@okhdfcbank')">@okhdfcbank</button>
+              <button type="button" class="btn-handle" (click)="appendVpaHandle('@okaxis')">@okaxis</button>
+              <button type="button" class="btn-handle" (click)="appendVpaHandle('@ybl')">@ybl</button>
+              <button type="button" class="btn-handle" (click)="appendVpaHandle('@paytm')">@paytm</button>
+            </div>
+
+            <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment || !upiVpa.trim()" (click)="completePayment('UPI Collect - ' + upiVpa)">
+              <span *ngIf="!isProcessingPayment">Send Payment Request to {{ upiVpa || 'App' }} (₹{{ payablePrice | number:'1.0-0' }})</span>
+              <span *ngIf="isProcessingPayment" class="spinner-inline">Sending Collect Request to UPI app...</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── TAB: DEBIT / CREDIT CARDS ── -->
+        <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'card'">
+          <div class="card-preview" [attr.data-card-type]="getCardType(cardDetails.number)">
+            <div class="card-prev-top">
+              <span class="chip-graphic"></span>
+              <span class="card-network-badge">{{ getCardType(cardDetails.number) }}</span>
+            </div>
+            <div class="card-prev-num">{{ cardDetails.number || '•••• •••• •••• ••••' }}</div>
+            <div class="card-prev-bot">
+              <div>
+                <span class="lbl">Card Holder</span>
+                <span class="val">{{ cardDetails.name || 'YOUR NAME' }}</span>
+              </div>
+              <div>
+                <span class="lbl">Expires</span>
+                <span class="val">{{ cardDetails.expiry || 'MM/YY' }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-form-grid">
+            <div class="pay-field full">
+              <label class="pay-input-label">Card Number</label>
+              <input type="text" 
+                     class="pay-input" 
+                     placeholder="4532 •••• •••• ••••" 
+                     maxlength="19"
+                     [value]="cardDetails.number"
+                     (input)="formatCardNumber($event)" />
+            </div>
+
+            <div class="pay-field full">
+              <label class="pay-input-label">Cardholder Name</label>
+              <input type="text" class="pay-input" placeholder="Name as displayed on card" [(ngModel)]="cardDetails.name" />
+            </div>
+
+            <div class="pay-field half">
+              <label class="pay-input-label">Expiry Date</label>
+              <input type="text" 
+                     class="pay-input" 
+                     placeholder="MM/YY" 
+                     maxlength="5"
+                     [value]="cardDetails.expiry"
+                     (input)="formatCardExpiry($event)" />
+            </div>
+
+            <div class="pay-field half">
+              <label class="pay-input-label">CVV / CVC</label>
+              <input type="password" class="pay-input" placeholder="•••" maxlength="4" [(ngModel)]="cardDetails.cvv" />
+            </div>
+          </div>
+
+          <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Card - ' + getCardType(cardDetails.number))">
+            <span *ngIf="!isProcessingPayment"><i class="bi bi-lock-fill me-1"></i> Pay ₹{{ payablePrice | number:'1.0-0' }} Securely</span>
+            <span *ngIf="isProcessingPayment" class="spinner-inline">Authorizing 3D Secure OTP...</span>
+          </button>
+        </div>
+
+        <!-- ── TAB: NET BANKING ── -->
+        <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'netbanking'">
+          <div class="banks-grid">
+            <button type="button" class="bank-pill" [class.selected]="selectedBank === 'HDFC'" (click)="selectedBank = 'HDFC'">
+              <span class="bank-logo-icon"><i class="bi bi-bank2"></i></span>
+              <span>HDFC Bank</span>
+            </button>
+            <button type="button" class="bank-pill" [class.selected]="selectedBank === 'SBI'" (click)="selectedBank = 'SBI'">
+              <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+              <span>SBI</span>
+            </button>
+            <button type="button" class="bank-pill" [class.selected]="selectedBank === 'ICICI'" (click)="selectedBank = 'ICICI'">
+              <span class="bank-logo-icon"><i class="bi bi-building"></i></span>
+              <span>ICICI Bank</span>
+            </button>
+            <button type="button" class="bank-pill" [class.selected]="selectedBank === 'AXIS'" (click)="selectedBank = 'AXIS'">
+              <span class="bank-logo-icon"><i class="bi bi-bank"></i></span>
+              <span>Axis Bank</span>
+            </button>
+          </div>
+
+          <div class="pay-field full" style="margin-top: 14px;">
+            <label class="pay-input-label">Or choose from other 40+ banks</label>
+            <select class="pay-select" [(ngModel)]="selectedBank">
+              <ng-container *ngIf="bankOptions.length > 0; else defaultBankOptions">
+                <option *ngFor="let bank of bankOptions" [value]="bank.value">{{ bank.label }}</option>
+              </ng-container>
+              <ng-template #defaultBankOptions>
+                <option value="HDFC">HDFC Bank</option>
+                <option value="SBI">State Bank of India</option>
+                <option value="ICICI">ICICI Bank</option>
+                <option value="AXIS">Axis Bank</option>
+                <option value="Kotak">Kotak Mahindra Bank</option>
+                <option value="PNB">Punjab National Bank</option>
+                <option value="Canara">Canara Bank</option>
+                <option value="Bank of Baroda">Bank of Baroda</option>
+                <option value="IndusInd">IndusInd Bank</option>
+                <option value="Union">Union Bank of India</option>
+                <option value="Karnataka Bank">Karnataka Bank</option>
+              </ng-template>
+            </select>
+          </div>
+
+          <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Net Banking - ' + selectedBank)">
+            <span *ngIf="!isProcessingPayment">Proceed to {{ selectedBank }} Net Banking (₹{{ payablePrice | number:'1.0-0' }})</span>
+            <span *ngIf="isProcessingPayment" class="spinner-inline">Connecting to {{ selectedBank }} portal...</span>
+          </button>
+        </div>
+
+        <!-- ── TAB: WALLETS ── -->
+        <div class="pay-tab-pane" *ngIf="selectedPaymentTab === 'wallet'">
+          <div class="wallets-list">
+            <ng-container *ngIf="walletOptions.length > 0; else defaultWallets">
+              <label class="wallet-row" *ngFor="let w of walletOptions" [class.selected]="selectedWallet === w.value">
+                <input type="radio" name="wallet" [value]="w.value" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
+                <div class="wallet-info">
+                  <strong>{{ w.label }}</strong>
+                  <small>Instant checkout with {{ w.label }}</small>
+                </div>
+              </label>
+            </ng-container>
+            <ng-template #defaultWallets>
+              <label class="wallet-row" [class.selected]="selectedWallet === 'amazonpay'">
+                <input type="radio" name="wallet" value="amazonpay" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-wallet2 text-warning"></i></span>
+                <div class="wallet-info">
+                  <strong>Amazon Pay</strong>
+                  <small>Get 2% instant cashback on Western Ghats treks</small>
+                </div>
+              </label>
+
+              <label class="wallet-row" [class.selected]="selectedWallet === 'paytm'">
+                <input type="radio" name="wallet" value="paytm" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-phone text-info"></i></span>
+                <div class="wallet-info">
+                  <strong>Paytm Wallet</strong>
+                  <small>Fast checkout with Paytm balance</small>
+                </div>
+              </label>
+
+              <label class="wallet-row" [class.selected]="selectedWallet === 'phonepe'">
+                <input type="radio" name="wallet" value="phonepe" [(ngModel)]="selectedWallet" />
+                <span class="wallet-icon"><i class="bi bi-credit-card text-primary"></i></span>
+                <div class="wallet-info">
+                  <strong>PhonePe Wallet</strong>
+                  <small>Link your PhonePe account</small>
+                </div>
+              </label>
+            </ng-template>
+          </div>
+
+          <button type="button" class="btn-pay-modal" [disabled]="isProcessingPayment" (click)="completePayment('Wallet - ' + selectedWallet)">
+            <span *ngIf="!isProcessingPayment">Pay ₹{{ payablePrice | number:'1.0-0' }} with {{ selectedWallet }}</span>
+            <span *ngIf="isProcessingPayment" class="spinner-inline">Debiting Wallet...</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Success Animation Screen inside Modal -->
+    <div class="pay-success-pane" *ngIf="paymentSuccessState">
+      <div class="pay-success-circle"><i class="bi bi-check-lg"></i></div>
+      <h3>Payment Confirmed &amp; Verified!</h3>
+      <p class="pay-success-lead">₹{{ payablePrice | number:'1.0-0' }} successfully authorized via {{ selectedPaymentMethodLabel }}.</p>
+      <div class="pay-success-badge">Official KEDB Permit Reservation Secured</div>
+      <p class="pay-redirect-hint">Redirecting to your Digital Trek Pass in 2 seconds...</p>
+    </div>
+
+    <!-- Modal Footer Trust Bar -->
+    <div class="pay-modal-footer">
+      <div class="trust-icons">
+        <span><i class="bi bi-shield-check me-1"></i> PCI-DSS Level 1</span>
+        <span><i class="bi bi-lock-fill me-1"></i> 256-Bit SSL</span>
+        <span><i class="bi bi-lightning-charge-fill me-1"></i> Instant Booking Confirmation</span>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -84,6 +84,10 @@
           (clickOutside)="closeUserDropdown()"
         >
 
+          <a class="dropdown-item" (click)="navigateTo('/my-wallet')">
+            <i class="bi bi-wallet2"></i> My Wallet
+          </a>
+
           <a class="dropdown-item" (click)="navigateTo('/my-bookings')">
             <i class="bi bi-calendar-check"></i> My Bookings
           </a>
@@ -199,6 +203,17 @@
       <!-- Mobile User Actions (when logged in) -->
       <div class="mobile-user-actions" *ngIf="isLoggedIn">
         <div class="drawer-section-heading">MY EXPEDITION</div>
+        <a
+          class="mobile-nav-link"
+          (click)="navigateTo('/my-wallet'); closeMobileMenu()"
+        >
+          <div class="link-icon-box action-icon">
+            <i class="bi bi-wallet2"></i>
+          </div>
+          <span class="link-text">My Wallet &amp; Credits</span>
+          <i class="bi bi-chevron-right link-arrow"></i>
+        </a>
+
         <a
           class="mobile-nav-link"
           (click)="navigateTo('/my-bookings'); closeMobileMenu()"

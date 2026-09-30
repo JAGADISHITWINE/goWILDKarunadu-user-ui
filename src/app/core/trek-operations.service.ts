@@ -92,10 +92,13 @@ export class TrekOperationsService {
   constructor(private http: HttpClient) {}
 
   getWallet(userId?: string): Observable<WalletData> {
-    const url = userId ? `${this.API}/wallet/${userId}` : `${this.API}/wallet`;
+    const url = userId && userId !== 'me' ? `${this.API}/wallet/${userId}` : `${this.API}/wallet`;
     return this.http.get<{ success: boolean; data: WalletData }>(url).pipe(
       map((res) => res?.data || { balance: 0, bonusBalance: 0, totalUsableBalance: 0, currency: 'INR', transactions: [] }),
-      catchError(() => of({ balance: 0, bonusBalance: 0, totalUsableBalance: 0, currency: 'INR', transactions: [] }))
+      catchError((err) => {
+        console.error('Wallet fetch error:', err);
+        return of({ balance: 0, bonusBalance: 0, totalUsableBalance: 0, currency: 'INR', transactions: [] });
+      })
     );
   }
 

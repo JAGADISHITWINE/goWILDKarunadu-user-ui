@@ -1,0 +1,333 @@
+<div class="wallet-wrapper">
+  <!-- ════════ HERO HEADER ════════ -->
+  <header class="wallet-hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <i class="bi bi-shield-fill-check"></i>
+          <span>EXPEDITION TREKKER WALLET</span>
+        </div>
+        <h1 class="hero-title">My Wallet &amp; Credits</h1>
+        <p class="hero-desc">
+          Track your cashback, referral earnings, summit challenge rewards, and seamless refunds for all Western Ghats expeditions.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <button
+          type="button"
+          class="btn-hero-refresh"
+          (click)="fetchWalletData()"
+          [disabled]="isLoading"
+          title="Sync wallet balance"
+        >
+          <i class="bi bi-arrow-repeat" [class.spin]="isLoading"></i>
+          <span>{{ isLoading ? 'Syncing...' : 'Sync Balance' }}</span>
+        </button>
+
+        <button
+          type="button"
+          class="btn-hero-primary"
+          (click)="navigateToExplore()"
+        >
+          <i class="bi bi-compass-fill"></i>
+          <span>Explore Treks</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ════════ MAIN BODY ════════ -->
+  <main class="wallet-body">
+    <div class="wallet-container">
+
+      <!-- Error Notice -->
+      <div *ngIf="errorMessage" class="wallet-alert-card error">
+        <div class="alert-icon">
+          <i class="bi bi-exclamation-triangle-fill"></i>
+        </div>
+        <div class="alert-body">
+          <strong>Connection Notice:</strong>
+          <span>{{ errorMessage }}</span>
+        </div>
+        <button type="button" class="btn-alert-retry" (click)="fetchWalletData()">Retry</button>
+      </div>
+
+      <!-- Zero Balance Informational Callout (Only when balance is 0) -->
+      <div *ngIf="!isLoading && wallet.totalUsableBalance === 0" class="zero-balance-callout">
+        <div class="callout-icon">
+          <i class="bi bi-info-circle-fill"></i>
+        </div>
+        <div class="callout-text">
+          <h4>Your Wallet Balance is Currently ₹0.00</h4>
+          <p>
+            Your expedition wallet is newly initialized. You can earn credits by sharing your referral code with friends, participating in summit events, or receiving booking adjustments.
+          </p>
+        </div>
+        <div class="callout-actions">
+          <button type="button" class="btn-callout-primary" (click)="navigateToExplore()">
+            <i class="bi bi-binoculars-fill"></i> Browse Treks
+          </button>
+        </div>
+      </div>
+
+      <!-- ════════ BALANCE SUMMARY CARDS (3 Cards) ════════ -->
+      <section class="balance-cards-row" aria-label="Wallet Balances">
+        <!-- Card 1: Total Spendable Balance (Hero Forest Gradient) -->
+        <div class="balance-card primary-hero-card">
+          <div class="card-top">
+            <span class="card-label">TOTAL SPENDABLE</span>
+            <div class="card-icon-pill glow">
+              <i class="bi bi-wallet2"></i>
+            </div>
+          </div>
+
+          <div class="card-amount-wrap">
+            <span class="currency-symbol">₹</span>
+            <span class="amount-val" *ngIf="!isLoading">{{ wallet.totalUsableBalance | number:'1.2-2' }}</span>
+            <span class="amount-val skeleton" *ngIf="isLoading">0.00</span>
+          </div>
+
+          <div class="card-bottom">
+            <div class="status-indicator">
+              <span class="dot-pulse"></span>
+              <span>Available for 1-Click Checkout</span>
+            </div>
+            <span class="card-meta">Real cash + bonus combined</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Cashback & Deposits -->
+        <div class="balance-card surface-card">
+          <div class="card-top">
+            <span class="card-label">CASHBACK &amp; DEPOSITS</span>
+            <div class="card-icon-pill forest">
+              <i class="bi bi-cash-stack"></i>
+            </div>
+          </div>
+
+          <div class="card-amount-wrap text-forest">
+            <span class="currency-symbol">₹</span>
+            <span class="amount-val" *ngIf="!isLoading">{{ wallet.balance | number:'1.2-2' }}</span>
+            <span class="amount-val skeleton" *ngIf="isLoading">0.00</span>
+          </div>
+
+          <div class="card-bottom">
+            <div class="info-tag">
+              <i class="bi bi-shield-check"></i>
+              <span>100% Usable on Any Trek</span>
+            </div>
+            <span class="card-meta">Standard deposit/refund balance</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Promotional Bonus -->
+        <div class="balance-card surface-card">
+          <div class="card-top">
+            <span class="card-label">PROMOTIONAL BONUS</span>
+            <div class="card-icon-pill amber">
+              <i class="bi bi-gift-fill"></i>
+            </div>
+          </div>
+
+          <div class="card-amount-wrap text-amber">
+            <span class="currency-symbol">₹</span>
+            <span class="amount-val" *ngIf="!isLoading">{{ wallet.bonusBalance | number:'1.2-2' }}</span>
+            <span class="amount-val skeleton" *ngIf="isLoading">0.00</span>
+          </div>
+
+          <div class="card-bottom">
+            <div class="info-tag amber-tag">
+              <i class="bi bi-stars"></i>
+              <span>Referrals &amp; Community Perks</span>
+            </div>
+            <span class="card-meta">Expedition discount vouchers</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ WALLET PERKS BANNER ════════ -->
+      <section class="wallet-perks-banner">
+        <div class="perk-box">
+          <div class="perk-icon-wrap forest-bg">
+            <i class="bi bi-lightning-charge-fill"></i>
+          </div>
+          <div class="perk-content">
+            <h3>Instant 1-Click Checkout</h3>
+            <p>Wallet balance is deducted automatically at Step 4 of booking with zero payment gateway latency.</p>
+          </div>
+        </div>
+
+        <div class="perk-box">
+          <div class="perk-icon-wrap amber-bg">
+            <i class="bi bi-share-fill"></i>
+          </div>
+          <div class="perk-content">
+            <h3>Refer Friends &amp; Earn</h3>
+            <p>Friends get discounts on their first trek, and you get direct wallet rewards upon their summit.</p>
+          </div>
+        </div>
+
+        <div class="perk-box">
+          <div class="perk-icon-wrap sky-bg">
+            <i class="bi bi-arrow-counterclockwise"></i>
+          </div>
+          <div class="perk-content">
+            <h3>Zero-Deduction Refunds</h3>
+            <p>Cancelled or rescheduled treks are credited instantly without waiting days for bank clearing.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ════════ TRANSACTION LEDGER ════════ -->
+      <section class="ledger-card">
+        <div class="ledger-top-bar">
+          <div class="ledger-title-group">
+            <h2 class="ledger-title">Transaction Ledger</h2>
+            <p class="ledger-subtitle">
+              Verified chronological log of credits, refunds, and booking checkouts
+            </p>
+          </div>
+
+          <!-- Controls: Search & Filter Tabs -->
+          <div class="ledger-controls-group">
+            <!-- Search -->
+            <div class="ledger-search-box">
+              <i class="bi bi-search search-icon"></i>
+              <input
+                type="text"
+                class="search-input"
+                placeholder="Search reason or ref..."
+                [(ngModel)]="searchQuery"
+              />
+              <button
+                *ngIf="searchQuery"
+                type="button"
+                class="btn-clear-search"
+                (click)="searchQuery = ''"
+                aria-label="Clear search"
+              >
+                <i class="bi bi-x"></i>
+              </button>
+            </div>
+
+            <!-- Filter Pills -->
+            <div class="filter-pills-bar">
+              <button
+                type="button"
+                class="pill-btn"
+                [class.active]="activeFilter === 'all'"
+                (click)="activeFilter = 'all'"
+              >
+                All ({{ (wallet.transactions || []).length }})
+              </button>
+              <button
+                type="button"
+                class="pill-btn"
+                [class.active]="activeFilter === 'credit'"
+                (click)="activeFilter = 'credit'"
+              >
+                Credits ({{ totalCreditsCount }})
+              </button>
+              <button
+                type="button"
+                class="pill-btn"
+                [class.active]="activeFilter === 'debit'"
+                (click)="activeFilter = 'debit'"
+              >
+                Debits ({{ totalDebitsCount }})
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Loading State Skeleton -->
+        <div *ngIf="isLoading" class="ledger-skeleton-list">
+          <div class="skeleton-item" *ngFor="let s of [1, 2, 3]">
+            <div class="skeleton-circle"></div>
+            <div class="skeleton-lines">
+              <div class="line-1"></div>
+              <div class="line-2"></div>
+            </div>
+            <div class="skeleton-pill"></div>
+          </div>
+        </div>
+
+        <!-- Transactions List -->
+        <div *ngIf="!isLoading && filteredTransactions.length > 0" class="transactions-list">
+          <div class="tx-card" *ngFor="let tx of filteredTransactions">
+            <div class="tx-main">
+              <div
+                class="tx-direction-icon"
+                [ngClass]="tx.transaction_type === 'credit' ? 'direction-credit' : 'direction-debit'"
+              >
+                <i
+                  class="bi"
+                  [ngClass]="tx.transaction_type === 'credit' ? 'bi-arrow-down-left' : 'bi-arrow-up-right'"
+                ></i>
+              </div>
+
+              <div class="tx-info">
+                <div class="tx-title-row">
+                  <span class="tx-title">{{ tx.reason || 'Expedition Credit Adjustment' }}</span>
+                  <span
+                    class="tx-type-badge"
+                    [ngClass]="tx.transaction_type === 'credit' ? 'type-credit' : 'type-debit'"
+                  >
+                    {{ tx.transaction_type | uppercase }}
+                  </span>
+                </div>
+
+                <div class="tx-meta-row">
+                  <span class="meta-item">
+                    <i class="bi bi-clock-history"></i>
+                    {{ tx.created_at | date:'dd MMM yyyy, hh:mm a' }}
+                  </span>
+
+                  <span *ngIf="tx.reference_id" class="meta-item ref-code">
+                    <i class="bi bi-hash"></i>
+                    {{ tx.reference_id }}
+                  </span>
+
+                  <span *ngIf="tx.bonus_amount > 0" class="meta-bonus-pill">
+                    <i class="bi bi-stars"></i> Bonus portion: ₹{{ tx.bonus_amount | number:'1.2-2' }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tx-amount-col">
+              <span
+                class="tx-amount"
+                [ngClass]="tx.transaction_type === 'credit' ? 'amount-credit' : 'amount-debit'"
+              >
+                {{ tx.transaction_type === 'credit' ? '+' : '-' }}₹{{ tx.amount | number:'1.2-2' }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div *ngIf="!isLoading && filteredTransactions.length === 0" class="ledger-empty">
+          <div class="empty-graphic">
+            <i class="bi bi-compass"></i>
+          </div>
+          <h3 class="empty-title">No Transactions Recorded</h3>
+          <p class="empty-desc" *ngIf="searchQuery || activeFilter !== 'all'">
+            No transactions match the selected filter or search keyword.
+          </p>
+          <p class="empty-desc" *ngIf="!searchQuery && activeFilter === 'all'">
+            You haven't made any wallet transactions yet. Your future booking adjustments, referral bonuses, and summit rewards will be logged here.
+          </p>
+          <div class="empty-cta">
+            <button type="button" class="btn-empty-action" (click)="navigateToExplore()">
+              <i class="bi bi-tree-fill"></i>
+              <span>Explore Upcoming Treks</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>

@@ -17,44 +17,33 @@ import { MediaService } from '../core/media.service';
 import { TrekOperationsService, WalletData } from "../core/trek-operations.service";
 import { SiteSettingsService } from "../core/site-settings.service";
 
-// Participant interface
-interface Participant {
-  name: string;
-  age: number | null;
-  gender: string;
-  idType: string;
-  idNumber: string;
-  phone: string;
-  bloodGroup?: string;
-  dietaryPreference?: string;
-  medicalCondition?: string;
-  medicalInfo: string;
-  idError?: string;
-  ageError?: string;
-  phoneError?: string;
-}
+import { BookingPaymentModalComponent } from "./booking-payment-modal/booking-payment-modal.component";
 
-interface BookingAddOn {
-  id: string | number;
-  name: string;
-  category?: string;
-  price: number;
-  selected: boolean;
-  quantity: number;
-}
-
-interface AvailableCoupon {
-  id: string | number;
-  code: string;
-  discountType: "percentage" | "flat";
-  discountValue: number;
-  minBookingAmount: number;
-  maxDiscountAmount: number | null;
-  endDate: string | null;
-  usageLimit: number | null;
-  usageCount: number;
-  isUsedByUser?: boolean;
-}
+import { AvailableCoupon, BookingAddOn, Participant } from "./booking.models";
+import {
+  areAllParticipantsValid,
+  createInitialParticipants,
+  formatParticipantIdInput,
+  getIdMaxLength,
+  isValidPhone,
+  normalizeIdType,
+  validateParticipantAge,
+  validateParticipantId,
+  validateParticipantPhone,
+} from "./booking-participant.helper";
+import {
+  calculateAddOnsPrice,
+  calculateAdvanceDeposit,
+  calculateBasePrice,
+  calculateEcoCess,
+  calculateEffectivePayableNow,
+  calculateForestPermitFee,
+  calculatePayablePrice,
+  calculateRemainder,
+  calculateTotalPrice,
+  calculateWalletDeduction,
+} from "./booking-financials.helper";
+import { formatBookingErrorMessage } from "./booking-error.helper";
 
 @Component({
   selector: "app-booking",
@@ -67,7 +56,8 @@ interface AvailableCoupon {
     IonicModule,
     ReactiveFormsModule,
     RouterLink,
-    OnlyNumberDirective
+    OnlyNumberDirective,
+    BookingPaymentModalComponent
   ],
 })
 export class BookingComponent implements OnInit, OnDestroy {
@@ -147,23 +137,6 @@ export class BookingComponent implements OnInit, OnDestroy {
 
   // ── Payment Modal State ──
   showPaymentModal: boolean = false;
-  selectedPaymentTab: 'upi' | 'card' | 'netbanking' | 'wallet' = 'upi';
-  upiOption: 'qr' | 'vpa' = 'qr';
-  upiVpa: string = '';
-  upiTimerSeconds: number = 720;
-  upiTimerInterval: any = null;
-  cardDetails = {
-    number: '',
-    name: '',
-    expiry: '',
-    cvv: '',
-    saveCard: true
-  };
-  selectedBank: string = 'HDFC';
-  selectedWallet: string = 'amazonpay';
-  isProcessingPayment: boolean = false;
-  paymentSuccessState: boolean = false;
-  selectedPaymentMethodLabel: string = 'Instant UPI / QR Code';
 
   constructor(
     private route: ActivatedRoute,
@@ -224,19 +197,19 @@ export class BookingComponent implements OnInit, OnDestroy {
   }
 
   get forestPermitFeeTotal(): number {
-    return (this.booking.participants || 1) * 250;
+    return calculateForestPermitFee(this.booking.participants);
   }
 
   get ecoCessTotal(): number {
-    return (this.booking.participants || 1) * 50;
+    return calculateEcoCess(this.booking.participants);
   }
 
   get advanceDepositPayable(): number {
-    return parseFloat((this.payablePrice * 0.30).toFixed(2));
+    return calculateAdvanceDeposit(this.payablePrice);
   }
 
   get remainderPayable(): number {
-    return parseFloat((this.payablePrice - this.advanceDepositPayable).toFixed(2));
+    return calculateRemainder(this.payablePrice, this.advanceDepositPayable);
   }
 
   get grossAmountBeforeWallet(): number {
@@ -244,17 +217,18 @@ export class BookingComponent implements OnInit, OnDestroy {
   }
 
   get walletDeductionAmount(): number {
-    if (!this.applyWalletBalance || !this.userWallet) return 0;
-    const available = Number(this.userWallet.totalUsableBalance || 0);
-    return Math.min(available, this.grossAmountBeforeWallet);
+    return calculateWalletDeduction(
+      this.applyWalletBalance,
+      Number(this.userWallet?.totalUsableBalance || 0),
+      this.grossAmountBeforeWallet
+    );
   }
 
   get effectivePayableNow(): number {
-    return Math.max(0, this.grossAmountBeforeWallet - this.walletDeductionAmount);
+    return calculateEffectivePayableNow(this.grossAmountBeforeWallet, this.walletDeductionAmount);
   }
 
   ngOnDestroy() {
-    this.stopUpiTimer();
     if (this.couponValidationTimer) {
       clearTimeout(this.couponValidationTimer);
       this.couponValidationTimer = null;
@@ -337,9 +311,6 @@ export class BookingComponent implements OnInit, OnDestroy {
     this.dropdownService.getOptions('netBankingBanks', []).subscribe((options) => {
       if (options.length > 0) {
         this.bankOptions = options;
-        if (!this.bankOptions.some(b => b.value === this.selectedBank)) {
-          this.selectedBank = this.bankOptions[0]?.value || 'HDFC';
-        }
       }
     });
 
@@ -431,39 +402,11 @@ export class BookingComponent implements OnInit, OnDestroy {
    * Initialize participants array based on number of participants
    */
   initializeParticipants() {
-    this.participants = [];
-
-    for (let i = 0; i < this.booking.participants; i++) {
-      if (i === 0) {
-        // First participant is the primary contact
-        this.participants.push({
-          name: this.booking.name,
-          age: null,
-          gender: "",
-          idType: "",
-          idNumber: "",
-          phone: this.booking.phone,
-          bloodGroup: "O+",
-          dietaryPreference: "Vegetarian",
-          medicalCondition: "None / Fit to Trek",
-          medicalInfo: "",
-        });
-      } else {
-        // Additional participants
-        this.participants.push({
-          name: "",
-          age: null,
-          gender: "",
-          idType: "",
-          idNumber: "",
-          phone: "",
-          bloodGroup: "O+",
-          dietaryPreference: "Vegetarian",
-          medicalCondition: "None / Fit to Trek",
-          medicalInfo: "",
-        });
-      }
-    }
+    this.participants = createInitialParticipants(
+      this.booking.participants,
+      this.booking.name,
+      this.booking.phone
+    );
   }
 
   initializeAddOns() {
@@ -560,17 +503,7 @@ export class BookingComponent implements OnInit, OnDestroy {
    * Check if all participants have required fields filled
    */
   areAllParticipantsValid(): boolean {
-    return this.participants.every((participant, index) =>
-      participant.name.trim() !== '' &&
-      participant.age !== null &&
-      participant.age > 0 &&
-      participant.gender !== '' &&
-      participant.idType !== '' &&
-      participant.idNumber.trim() !== '' &&
-      !participant.idError &&
-      !participant.ageError &&
-      (index === 0 || this.isValidPhone(participant.phone))
-    );
+    return areAllParticipantsValid(this.participants);
   }
 
   /**
@@ -598,19 +531,15 @@ export class BookingComponent implements OnInit, OnDestroy {
   }
 
   get basePrice(): number {
-    if (!this.selectedBatch) return 0;
-    return (this.selectedBatch.price || 0) * this.booking.participants;
+    return calculateBasePrice(this.selectedBatch?.price, this.booking.participants);
   }
 
   get addOnsPrice(): number {
-    return this.addOns.reduce(
-      (sum, addon) => sum + addon.price * (addon.quantity || 0),
-      0
-    );
+    return calculateAddOnsPrice(this.addOns);
   }
 
   get totalPrice(): number {
-    return this.basePrice + this.addOnsPrice;
+    return calculateTotalPrice(this.basePrice, this.addOnsPrice);
   }
 
   get payablePrice(): number {
@@ -618,7 +547,7 @@ export class BookingComponent implements OnInit, OnDestroy {
       this.couponDiscountAmount +
       this.referralDiscountAmount +
       this.referralRewardDiscountAmount;
-    return Math.max(0, this.totalPrice - discounts);
+    return calculatePayablePrice(this.totalPrice, discounts);
   }
 
   get isUserLoggedIn(): boolean {
@@ -751,87 +680,14 @@ export class BookingComponent implements OnInit, OnDestroy {
     }
 
     this.showPaymentModal = true;
-    this.paymentSuccessState = false;
-    this.isProcessingPayment = false;
-    this.startUpiTimer();
   }
 
   closePaymentModal() {
-    if (this.isProcessingPayment) return;
     this.showPaymentModal = false;
-    this.stopUpiTimer();
   }
 
-  setPaymentTab(tab: 'upi' | 'card' | 'netbanking' | 'wallet') {
-    this.selectedPaymentTab = tab;
-  }
-
-  startUpiTimer() {
-    this.stopUpiTimer();
-    this.upiTimerSeconds = 720;
-    this.upiTimerInterval = setInterval(() => {
-      if (this.upiTimerSeconds > 0) {
-        this.upiTimerSeconds--;
-      } else {
-        this.stopUpiTimer();
-      }
-    }, 1000);
-  }
-
-  stopUpiTimer() {
-    if (this.upiTimerInterval) {
-      clearInterval(this.upiTimerInterval);
-      this.upiTimerInterval = null;
-    }
-  }
-
-  formatUpiTimer(): string {
-    const mins = Math.floor(this.upiTimerSeconds / 60);
-    const secs = this.upiTimerSeconds % 60;
-    return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-  }
-
-  appendVpaHandle(handle: string) {
-    const raw = (this.upiVpa || '').split('@')[0] || '';
-    this.upiVpa = `${raw}${handle}`;
-  }
-
-  formatCardNumber(event: Event) {
-    const input = event.target as HTMLInputElement;
-    let value = (input.value || '').replace(/\D/g, '').substring(0, 16);
-    let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
-    this.cardDetails.number = formatted;
-    input.value = formatted;
-  }
-
-  formatCardExpiry(event: Event) {
-    const input = event.target as HTMLInputElement;
-    let value = (input.value || '').replace(/\D/g, '').substring(0, 4);
-    if (value.length >= 2) {
-      value = `${value.substring(0, 2)}/${value.substring(2)}`;
-    }
-    this.cardDetails.expiry = value;
-    input.value = value;
-  }
-
-  getCardType(num: string): string {
-    const clean = String(num || '').replace(/\D/g, '');
-    if (clean.startsWith('4')) return 'Visa';
-    if (/^5[1-5]/.test(clean)) return 'Mastercard';
-    if (/^6(0|5)/.test(clean) || /^35/.test(clean)) return 'RuPay';
-    if (/^3[47]/.test(clean)) return 'Amex';
-    return 'Card';
-  }
-
-  completePayment(paymentMethodLabel: string) {
-    if (this.isProcessingPayment) return;
-    this.selectedPaymentMethodLabel = paymentMethodLabel;
-    this.isProcessingPayment = true;
-
-    // Simulate authentic bank gateway verification
-    setTimeout(() => {
-      this.executeBooking(paymentMethodLabel);
-    }, 1200);
+  onPaymentConfirmed(paymentMethodLabel: string) {
+    this.executeBooking(paymentMethodLabel);
   }
 
   private executeBooking(paymentMethodLabel: string) {
@@ -890,31 +746,25 @@ export class BookingComponent implements OnInit, OnDestroy {
     // Save to service
     this.bookingService.setBookingData(bookingData).subscribe({
       next: async (res: any) => {
-        this.isProcessingPayment = false;
         if (res.success == true) {
-          this.paymentSuccessState = true;
-          this.stopUpiTimer();
-
-          setTimeout(() => {
-            this.showPaymentModal = false;
-            this.resetBooking();
-            this.successMessage = "";
-            this.isSubmitting = false;
-            this.router.navigateByUrl("/my-bookings");
-          }, 2000);
+          this.showPaymentModal = false;
+          this.resetBooking();
+          this.successMessage = "";
+          this.isSubmitting = false;
+          this.router.navigateByUrl("/my-bookings");
           return;
         }
 
+        this.showPaymentModal = false;
         const message = this.formatBookingErrorMessage(
           String(res?.message || res?.data?.message || "Booking failed")
         );
         this.showTransientMessage("error", message, 2500);
         this.isSubmitting = false;
-        this.isProcessingPayment = false;
       },
       error: async (error) => {
+        this.showPaymentModal = false;
         this.isSubmitting = false;
-        this.isProcessingPayment = false;
         const message = this.formatBookingErrorMessage(
           String(error?.error?.message || error?.message || "Something went wrong while booking. Please try again.")
         );
@@ -928,22 +778,7 @@ export class BookingComponent implements OnInit, OnDestroy {
   }
 
   private formatBookingErrorMessage(message: string): string {
-    const text = String(message || "").trim();
-    const lower = text.toLowerCase();
-
-    if (lower.includes("active booking for this trek") || lower.includes("multiple simultaneous bookings")) {
-      return text;
-    }
-
-    if (lower.includes("active booking for this trek in this month") || lower.includes("complete or cancel the current batch")) {
-      return "You already have an active booking for this trek. Please complete or cancel your current trip before booking again.";
-    }
-
-    if (lower.includes("completed this trek") || lower.includes("duplicate_booking")) {
-      return "You have already completed this trek. Each trek can only be booked once.";
-    }
-
-    return text || "Something went wrong while booking. Please try again.";
+    return formatBookingErrorMessage(message);
   }
 
   private showTransientMessage(
@@ -1069,21 +904,13 @@ private syncAddOnQuantitiesWithParticipants() {
   this.updateReferralRewardDiscount();
 }
 
-private isValidPhone(phone: string): boolean {
-  const digits = String(phone || "").replace(/\D/g, "");
-  return digits.length === 10;
-}
-
-validateParticipantPhone(participant: Participant, isPrimary: boolean = false) {
-  participant.phoneError = "";
-
-  // Primary participant phone is auto-filled from contact info in Step 2.
-  if (isPrimary) return;
-
-  if (!this.isValidPhone(participant.phone)) {
-    participant.phoneError = "Phone number must be exactly 10 digits";
+  private isValidPhone(phone: string): boolean {
+    return isValidPhone(phone);
   }
-}
+
+  validateParticipantPhone(participant: Participant, isPrimary: boolean = false) {
+    validateParticipantPhone(participant, isPrimary);
+  }
 
 onCouponCodeInput(value: string) {
   this.couponCode = String(value || "").toUpperCase().replace(/\s+/g, "");
@@ -1233,8 +1060,13 @@ getCouponLabel(coupon: AvailableCoupon): string {
         }
         this.referralSummaryError = String(res?.message || "Unable to load referral details");
       },
-      error: () => {
+      error: (err) => {
         this.isReferralSummaryLoading = false;
+        if (err?.status === 401 || err?.status === 403) {
+          this.referralSummary = null;
+          this.referralSummaryError = "";
+          return;
+        }
         this.referralSummaryError = "Unable to load referral details right now";
       },
     });
@@ -1389,106 +1221,25 @@ getCouponLabel(coupon: AvailableCoupon): string {
     }
   }
 
-validateId(participant: Participant) {
-  participant.idError = '';
-  if (!participant.idType || !participant.idNumber) return;
-
-  const raw = participant.idNumber.replace(/\s/g, '');
-  const idType = this.normalizeIdType(participant.idType);
-
-  switch (idType) {
-    case 'Aadhar':
-      if (!/^\d{12}$/.test(raw))
-        participant.idError = 'Aadhaar must be exactly 12 digits';
-      break;
-
-    case 'PAN':
-      if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(raw))
-        participant.idError = 'Invalid PAN format (e.g. ABCDE1234F)';
-      break;
-
-    case 'Passport':
-      if (!/^[A-Z][0-9]{7}$/.test(raw))
-        participant.idError = 'Invalid Passport format (e.g. A1234567)';
-      break;
-
-    case 'Driving License':
-      if (raw.length < 10)
-        participant.idError = 'Driving License must be at least 10 characters';
-      break;
-
-    case 'Voter ID':
-      if (!/^[A-Z]{3}[0-9]{7}$/.test(raw))
-        participant.idError = 'Invalid Voter ID format (e.g. ABC1234567)';
-      break;
-  }
-}
-
-formatIdInput(participant: Participant) {
-  if (!participant.idType) return;
-  let value = participant.idNumber || '';
-  const idType = this.normalizeIdType(participant.idType);
-
-  switch (idType) {
-    case 'Aadhar':
-      // Keep only digits, max 12, format as XXXX XXXX XXXX
-      const digits = value.replace(/\D/g, '').substring(0, 12);
-      participant.idNumber = digits.replace(/(\d{4})(?=\d)/g, '$1 ');
-      break;
-
-    case 'PAN':
-      participant.idNumber = value.toUpperCase().replace(/[^A-Z0-9]/g, '').substring(0, 10);
-      break;
-
-    case 'Passport':
-      participant.idNumber = value.toUpperCase().replace(/[^A-Z0-9]/g, '').substring(0, 8);
-      break;
-
-    case 'Driving License':
-      participant.idNumber = value.toUpperCase().replace(/[^A-Z0-9]/g, '').substring(0, 15);
-      break;
-
-    case 'Voter ID':
-      participant.idNumber = value.toUpperCase().replace(/[^A-Z0-9]/g, '').substring(0, 10);
-      break;
+  validateId(participant: Participant) {
+    validateParticipantId(participant);
   }
 
-  this.validateId(participant);
-}
-
-getIdMaxLength(idType: string): number {
-  switch (this.normalizeIdType(idType)) {
-    case 'Aadhar':          return 14; // 12 digits + 2 spaces
-    case 'PAN':             return 10;
-    case 'Passport':        return 8;
-    case 'Driving License': return 15;
-    case 'Voter ID':        return 10;
-    default:                return 20;
+  formatIdInput(participant: Participant) {
+    formatParticipantIdInput(participant);
   }
-}
 
-private normalizeIdType(idType: string): string {
-  const value = (idType || '').trim().toLowerCase();
-
-  if (value === 'aadhar' || value === 'aadhaar') return 'Aadhar';
-  if (value === 'pan' || value === 'pan card') return 'PAN';
-  if (value === 'passport') return 'Passport';
-  if (value === 'driving license' || value === 'driving licence') return 'Driving License';
-  if (value === 'voter id' || value === 'voterid') return 'Voter ID';
-
-  return idType;
-}
-
-validateAge(participant: Participant) {
-
-  participant.ageError = '';
-
-  if (participant.age === null) return;
-
-  if (participant.age < 12) {
-    participant.ageError = 'Minimum age is 12 years';
+  getIdMaxLength(idType: string): number {
+    return getIdMaxLength(idType);
   }
-}
+
+  private normalizeIdType(idType: string): string {
+    return normalizeIdType(idType);
+  }
+
+  validateAge(participant: Participant) {
+    validateParticipantAge(participant);
+  }
 
 
 }
